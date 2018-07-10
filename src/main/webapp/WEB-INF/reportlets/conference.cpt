@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20141222" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conferenceTitle"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceType"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceChairman"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceImplementChairman"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceAddress"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceName"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceEndTime"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceStartTime"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="conferenceNature"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[localhost]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select
+(@rowNum:=@rowNum+1) as rowNo,
+a.*
+from (
+select 
+ ac.conference_title,ac.conference_name,ac.conference_nature,ac.conference_address,ac.conference_start_time,ac.conference_end_time,ac.conference_type,ac.conference_chairman,ac.conference_implement_chairman,ac.conference_domestic_count,ac.conference_internation_count,ac.conference_paper_count,ac.conference_synopsis,ac.conference_content,ac.conference_paper_name,ac.conference_if_read,ac.conference_if_include,ac.conference_remarks 
+FROM am_conference ac 
+where 1=1 and ac.conference_del=0
+${if(conferenceTitle == "",""," and ac.conference_title like '%" + conferenceTitle +"%'")} 
+${if(conferenceAddress == "",""," and ac.conference_address like '%" + conferenceAddress +"%'")}
+${if(conferenceName == "",""," and ac.conference_name like '%" + conferenceName +"%'")}
+${if(conferenceStartTime == "",""," and ac.conference_start_time like '%" + conferenceStartTime +"%'")}
+${if(conferenceEndTime == "",""," and ac.conference_end_time like '%" + conferenceEndTime +"%'")}
+${if(conferenceNature == "",""," and ac.conference_nature = '" + conferenceNature + "'")}
+${if(conferenceType == "",""," and ac.conference_type = '" + conferenceType + "'")}
+${if(conferenceChairman == "",""," and ac.conference_chairman like '%" + conferenceChairman +"%'")}
+${if(conferenceImplementChairman == "",""," and ac.conference_implement_chairman like '%" + conferenceImplementChairman +"%'")}
+order by ac.conference_create_time desc 
+) a  
+left JOIN (SELECT @rownum:=0) co on 1=1
+order by rowNo ]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1257300,1104900,1143000,1143000,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1524000,5981700,2743200,3009900,2743200,2743200,6172200,3238500,3200400,2743200,3543300,3352800,4495800,8801100,8039100,7810500,3009900,3314700,11391900,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="19" s="0">
+<O>
+<![CDATA[学术会议]]></O>
+<PrivilegeControl/>
+<Expand dir="0" order="1"/>
+</C>
+<C c="0" r="1" cs="19" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="导出日期：" + today()]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" s="2">
+<O>
+<![CDATA[序号\\nNO.]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" s="2">
+<O>
+<![CDATA[会议名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" s="2">
+<O>
+<![CDATA[会议性质]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" s="2">
+<O>
+<![CDATA[姓名]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" s="2">
+<O>
+<![CDATA[主席]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" s="2">
+<O>
+<![CDATA[执行主席]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" s="2">
+<O>
+<![CDATA[举办地点]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="2">
+<O>
+<![CDATA[会议开始时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" s="2">
+<O>
+<![CDATA[会议结束时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" s="2">
+<O>
+<![CDATA[会议类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="2" s="2">
+<O>
+<![CDATA[国内参会人数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="2" s="2">
+<O>
+<![CDATA[国际参会人数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="2" s="2">
+<O>
+<![CDATA[收录论文数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="2" s="2">
+<O>
+<![CDATA[会议综述或简介]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="2" s="2">
+<O>
+<![CDATA[主要活动内容]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="2" s="2">
+<O>
+<![CDATA[交流论文名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="2" s="2">
+<O>
+<![CDATA[是否大会宣读]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="2" s="2">
+<O>
+<![CDATA[是否收录会议论文集]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="2" s="2">
+<O>
+<![CDATA[备注]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="rowNo"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_title"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_nature"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[SWITCH(conference_nature,"0","自办","1","参会")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_name"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_chairman"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_implement_chairman"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_address"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_start_time"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_end_time"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_type"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[SWITCH(conference_type,"0","国内","1","国际")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_domestic_count"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_internation_count"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_paper_count"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_synopsis"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_content"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="15" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_paper_name"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_if_read"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[SWITCH(conference_if_read,"0","否","1","是")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="17" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_if_include"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[SWITCH(conference_if_include,"0","否","1","是")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="18" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="conference_remarks"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Left style="2"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2" color="-16777216"/>
+<Left style="2" color="-16777216"/>
+<Right style="2" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="ColorBackground" color="-3342337"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+</WorkBook>

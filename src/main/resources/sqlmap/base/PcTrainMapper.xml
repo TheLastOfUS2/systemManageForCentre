@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.PcTrainMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.PcTrain" >
+    <id column="train_id" property="trainId" jdbcType="VARCHAR" />
+    <result column="train_name" property="trainName" jdbcType="VARCHAR" />
+    <result column="train_name_id" property="trainNameId" jdbcType="VARCHAR" />
+    <result column="train_time" property="trainTime" jdbcType="VARCHAR" />
+    <result column="train_address" property="trainAddress" jdbcType="VARCHAR" />
+    <result column="train_content" property="trainContent" jdbcType="VARCHAR" />
+    <result column="train_company" property="trainCompany" jdbcType="VARCHAR" />
+    <result column="train_remarks" property="trainRemarks" jdbcType="VARCHAR" />
+    <result column="train_del" property="trainDel" jdbcType="VARCHAR" />
+    <result column="train_create_time" property="trainCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.trainName != null" >
+         and train_name = #{condition.trainName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainNameId != null" >
+         and train_name_id = #{condition.trainNameId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainTime != null" >
+         and train_time = #{condition.trainTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainAddress != null" >
+         and train_address = #{condition.trainAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainContent != null" >
+         and train_content = #{condition.trainContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainCompany != null" >
+         and train_company = #{condition.trainCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainRemarks != null" >
+         and train_remarks = #{condition.trainRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainDel != null" >
+         and train_del = #{condition.trainDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainCreateTime != null" >
+         and train_create_time = #{condition.trainCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.trainName != null" >
+         and train_name = #{example.condition.trainName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainNameId != null" >
+         and train_name_id = #{example.condition.trainNameID,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainTime != null" >
+         and train_time = #{example.condition.trainTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainAddress != null" >
+         and train_address = #{example.condition.trainAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainContent != null" >
+         and train_content = #{example.condition.trainContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainCompany != null" >
+         and train_company = #{example.condition.trainCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainRemarks != null" >
+         and train_remarks = #{example.condition.trainRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainDel != null" >
+         and train_del = #{example.condition.trainDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.trainCreateTime != null" >
+         and train_create_time = #{example.condition.trainCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    train_id, train_name,train_name_id, train_time, train_address, train_content, train_company, train_remarks, 
+    train_del, train_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pc_train
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pc_train
+    where train_id = #{trainId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pc_train
+    where train_id = #{trainId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from pc_train
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.PcTrain" >
+    insert into pc_train (train_id, train_name,train_name_id, train_time, 
+      train_address, train_content, train_company, 
+      train_remarks, train_del, train_create_time
+      )
+    values (#{trainId,jdbcType=VARCHAR}, #{trainName,jdbcType=VARCHAR}, #{trainNameId,jdbcType=VARCHAR},#{trainTime,jdbcType=VARCHAR}, 
+      #{trainAddress,jdbcType=VARCHAR}, #{trainContent,jdbcType=VARCHAR}, #{trainCompany,jdbcType=VARCHAR}, 
+      #{trainRemarks,jdbcType=VARCHAR}, #{trainDel,jdbcType=VARCHAR}, #{trainCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.PcTrain" >
+    insert into pc_train
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="trainId != null" >
+        train_id,
+      </if>
+      <if test="trainName != null" >
+        train_name,
+      </if>
+      <if test="trainNameId != null" >
+        train_name_id,
+      </if>
+      <if test="trainTime != null" >
+        train_time,
+      </if>
+      <if test="trainAddress != null" >
+        train_address,
+      </if>
+      <if test="trainContent != null" >
+        train_content,
+      </if>
+      <if test="trainCompany != null" >
+        train_company,
+      </if>
+      <if test="trainRemarks != null" >
+        train_remarks,
+      </if>
+      <if test="trainDel != null" >
+        train_del,
+      </if>
+      <if test="trainCreateTime != null" >
+        train_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="trainId != null" >
+        #{trainId,jdbcType=VARCHAR},
+      </if>
+      <if test="trainName != null" >
+        #{trainName,jdbcType=VARCHAR},
+      </if>
+      <if test="trainNameId != null" >
+        #{trainNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="trainTime != null" >
+        #{trainTime,jdbcType=VARCHAR},
+      </if>
+      <if test="trainAddress != null" >
+        #{trainAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="trainContent != null" >
+        #{trainContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trainCompany != null" >
+        #{trainCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="trainRemarks != null" >
+        #{trainRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="trainDel != null" >
+        #{trainDel,jdbcType=VARCHAR},
+      </if>
+      <if test="trainCreateTime != null" >
+        #{trainCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pc_train
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pc_train
+    <set >
+      <if test="record.trainId != null" >
+        train_id = #{record.trainId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainName != null" >
+        train_name = #{record.trainName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainNameId != null" >
+        train_name_id = #{record.trainNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainTime != null" >
+        train_time = #{record.trainTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainAddress != null" >
+        train_address = #{record.trainAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainContent != null" >
+        train_content = #{record.trainContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainCompany != null" >
+        train_company = #{record.trainCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainRemarks != null" >
+        train_remarks = #{record.trainRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainDel != null" >
+        train_del = #{record.trainDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trainCreateTime != null" >
+        train_create_time = #{record.trainCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pc_train
+    set train_id = #{record.trainId,jdbcType=VARCHAR},
+      train_name = #{record.trainName,jdbcType=VARCHAR},
+      train_name_id = #{record.trainNameId,jdbcType=VARCHAR},
+      train_time = #{record.trainTime,jdbcType=VARCHAR},
+      train_address = #{record.trainAddress,jdbcType=VARCHAR},
+      train_content = #{record.trainContent,jdbcType=VARCHAR},
+      train_company = #{record.trainCompany,jdbcType=VARCHAR},
+      train_remarks = #{record.trainRemarks,jdbcType=VARCHAR},
+      train_del = #{record.trainDel,jdbcType=VARCHAR},
+      train_create_time = #{record.trainCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.PcTrain" >
+    update pc_train
+    <set >
+      <if test="trainName != null" >
+        train_name = #{trainName,jdbcType=VARCHAR},
+      </if>
+      <if test="trainNameId != null" >
+        train_name_id = #{trainNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="trainTime != null" >
+        train_time = #{trainTime,jdbcType=VARCHAR},
+      </if>
+      <if test="trainAddress != null" >
+        train_address = #{trainAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="trainContent != null" >
+        train_content = #{trainContent,jdbcType=VARCHAR},
+      </if>
+      <if test="trainCompany != null" >
+        train_company = #{trainCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="trainRemarks != null" >
+        train_remarks = #{trainRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="trainDel != null" >
+        train_del = #{trainDel,jdbcType=VARCHAR},
+      </if>
+      <if test="trainCreateTime != null" >
+        train_create_time = #{trainCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where train_id = #{trainId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.PcTrain" >
+    update pc_train
+    set train_name = #{trainName,jdbcType=VARCHAR},
+      train_name_id = #{trainNameId,jdbcType=VARCHAR},
+      train_time = #{trainTime,jdbcType=VARCHAR},
+      train_address = #{trainAddress,jdbcType=VARCHAR},
+      train_content = #{trainContent,jdbcType=VARCHAR},
+      train_company = #{trainCompany,jdbcType=VARCHAR},
+      train_remarks = #{trainRemarks,jdbcType=VARCHAR},
+      train_del = #{trainDel,jdbcType=VARCHAR},
+      train_create_time = #{trainCreateTime,jdbcType=TIMESTAMP}
+    where train_id = #{trainId,jdbcType=VARCHAR}
+  </update>
+</mapper>

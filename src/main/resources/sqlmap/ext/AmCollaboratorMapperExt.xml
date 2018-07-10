@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmCollaboratorMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.AmCollaboratorDto" >
+    <id column="collaborator_id" property="collaboratorId" jdbcType="VARCHAR" />
+    <result column="achievement_id" property="achievementId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="collaborator_type" property="collaboratorType" jdbcType="VARCHAR" />
+    <result column="collaborator_content" property="collaboratorContent" jdbcType="VARCHAR" />
+    <result column="collaborator_create_time" property="collaboratorCreateTime" jdbcType="TIMESTAMP" />
+    
+    <result column="base_info_name" property="BaseInfoName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.achievementId != null" >
+         and achievement_id = #{condition.achievementId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.collaboratorType != null" >
+         and collaborator_type = #{condition.collaboratorType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.collaboratorContent != null" >
+         and collaborator_content = #{condition.collaboratorContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.collaboratorCreateTime != null" >
+         and collaborator_create_time = #{condition.collaboratorCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    collaborator_id, achievement_id, base_info_id, collaborator_type, collaborator_content, 
+    collaborator_create_time
+  </sql>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_collaborator
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

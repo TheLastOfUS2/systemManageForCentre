@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.BiEducationalMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.BiEducational" >
+    <id column="educational_id" property="educationalId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="educational_country" property="educationalCountry" jdbcType="VARCHAR" />
+    <result column="educational_school" property="educationalSchool" jdbcType="VARCHAR" />
+    <result column="educational_start_time" property="educationalStartTime" jdbcType="VARCHAR" />
+    <result column="educational_end_time" property="educationalEndTime" jdbcType="VARCHAR" />
+    <result column="educational_college" property="educationalCollege" jdbcType="VARCHAR" />
+    <result column="educational_major" property="educationalMajor" jdbcType="VARCHAR" />
+    <result column="educational_education" property="educationalEducation" jdbcType="VARCHAR" />
+    <result column="educational_degree" property="educationalDegree" jdbcType="VARCHAR" />
+    <result column="educational_create_time" property="educationalCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalCountry != null" >
+         and educational_country = #{condition.educationalCountry,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalSchool != null" >
+         and educational_school = #{condition.educationalSchool,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalStartTime != null" >
+         and educational_start_time = #{condition.educationalStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalEndTime != null" >
+         and educational_end_time = #{condition.educationalEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalCollege != null" >
+         and educational_college = #{condition.educationalCollege,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalMajor != null" >
+         and educational_major = #{condition.educationalMajor,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalEducation != null" >
+         and educational_education = #{condition.educationalEducation,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalDegree != null" >
+         and educational_degree = #{condition.educationalDegree,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.educationalCreateTime != null" >
+         and educational_create_time = #{condition.educationalCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalCountry != null" >
+         and educational_country = #{example.condition.educationalCountry,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalSchool != null" >
+         and educational_school = #{example.condition.educationalSchool,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalStartTime != null" >
+         and educational_start_time = #{example.condition.educationalStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalEndTime != null" >
+         and educational_end_time = #{example.condition.educationalEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalCollege != null" >
+         and educational_college = #{example.condition.educationalCollege,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalMajor != null" >
+         and educational_major = #{example.condition.educationalMajor,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalEducation != null" >
+         and educational_education = #{example.condition.educationalEducation,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalDegree != null" >
+         and educational_degree = #{example.condition.educationalDegree,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.educationalCreateTime != null" >
+         and educational_create_time = #{example.condition.educationalCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    educational_id, base_info_id, educational_country, educational_school, educational_start_time, 
+    educational_end_time, educational_college, educational_major, educational_education, 
+    educational_degree, educational_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bi_educational
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_educational
+    where educational_id = #{educationalId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bi_educational
+    where educational_id = #{educationalId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from bi_educational
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.BiEducational" >
+    insert into bi_educational (educational_id, base_info_id, educational_country, 
+      educational_school, educational_start_time, 
+      educational_end_time, educational_college, 
+      educational_major, educational_education, 
+      educational_degree, educational_create_time
+      )
+    values (#{educationalId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{educationalCountry,jdbcType=VARCHAR}, 
+      #{educationalSchool,jdbcType=VARCHAR}, #{educationalStartTime,jdbcType=VARCHAR}, 
+      #{educationalEndTime,jdbcType=VARCHAR}, #{educationalCollege,jdbcType=VARCHAR}, 
+      #{educationalMajor,jdbcType=VARCHAR}, #{educationalEducation,jdbcType=VARCHAR}, 
+      #{educationalDegree,jdbcType=VARCHAR}, #{educationalCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.BiEducational" >
+    insert into bi_educational
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="educationalId != null" >
+        educational_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="educationalCountry != null" >
+        educational_country,
+      </if>
+      <if test="educationalSchool != null" >
+        educational_school,
+      </if>
+      <if test="educationalStartTime != null" >
+        educational_start_time,
+      </if>
+      <if test="educationalEndTime != null" >
+        educational_end_time,
+      </if>
+      <if test="educationalCollege != null" >
+        educational_college,
+      </if>
+      <if test="educationalMajor != null" >
+        educational_major,
+      </if>
+      <if test="educationalEducation != null" >
+        educational_education,
+      </if>
+      <if test="educationalDegree != null" >
+        educational_degree,
+      </if>
+      <if test="educationalCreateTime != null" >
+        educational_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="educationalId != null" >
+        #{educationalId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalCountry != null" >
+        #{educationalCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalSchool != null" >
+        #{educationalSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalStartTime != null" >
+        #{educationalStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalEndTime != null" >
+        #{educationalEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalCollege != null" >
+        #{educationalCollege,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalMajor != null" >
+        #{educationalMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalEducation != null" >
+        #{educationalEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalDegree != null" >
+        #{educationalDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalCreateTime != null" >
+        #{educationalCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from bi_educational
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bi_educational
+    <set >
+      <if test="record.educationalId != null" >
+        educational_id = #{record.educationalId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalCountry != null" >
+        educational_country = #{record.educationalCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalSchool != null" >
+        educational_school = #{record.educationalSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalStartTime != null" >
+        educational_start_time = #{record.educationalStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalEndTime != null" >
+        educational_end_time = #{record.educationalEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalCollege != null" >
+        educational_college = #{record.educationalCollege,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalMajor != null" >
+        educational_major = #{record.educationalMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalEducation != null" >
+        educational_education = #{record.educationalEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalDegree != null" >
+        educational_degree = #{record.educationalDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.educationalCreateTime != null" >
+        educational_create_time = #{record.educationalCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bi_educational
+    set educational_id = #{record.educationalId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      educational_country = #{record.educationalCountry,jdbcType=VARCHAR},
+      educational_school = #{record.educationalSchool,jdbcType=VARCHAR},
+      educational_start_time = #{record.educationalStartTime,jdbcType=VARCHAR},
+      educational_end_time = #{record.educationalEndTime,jdbcType=VARCHAR},
+      educational_college = #{record.educationalCollege,jdbcType=VARCHAR},
+      educational_major = #{record.educationalMajor,jdbcType=VARCHAR},
+      educational_education = #{record.educationalEducation,jdbcType=VARCHAR},
+      educational_degree = #{record.educationalDegree,jdbcType=VARCHAR},
+      educational_create_time = #{record.educationalCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.BiEducational" >
+    update bi_educational
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalCountry != null" >
+        educational_country = #{educationalCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalSchool != null" >
+        educational_school = #{educationalSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalStartTime != null" >
+        educational_start_time = #{educationalStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalEndTime != null" >
+        educational_end_time = #{educationalEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalCollege != null" >
+        educational_college = #{educationalCollege,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalMajor != null" >
+        educational_major = #{educationalMajor,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalEducation != null" >
+        educational_education = #{educationalEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalDegree != null" >
+        educational_degree = #{educationalDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="educationalCreateTime != null" >
+        educational_create_time = #{educationalCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where educational_id = #{educationalId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.BiEducational" >
+    update bi_educational
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      educational_country = #{educationalCountry,jdbcType=VARCHAR},
+      educational_school = #{educationalSchool,jdbcType=VARCHAR},
+      educational_start_time = #{educationalStartTime,jdbcType=VARCHAR},
+      educational_end_time = #{educationalEndTime,jdbcType=VARCHAR},
+      educational_college = #{educationalCollege,jdbcType=VARCHAR},
+      educational_major = #{educationalMajor,jdbcType=VARCHAR},
+      educational_education = #{educationalEducation,jdbcType=VARCHAR},
+      educational_degree = #{educationalDegree,jdbcType=VARCHAR},
+      educational_create_time = #{educationalCreateTime,jdbcType=TIMESTAMP}
+    where educational_id = #{educationalId,jdbcType=VARCHAR}
+  </update>
+</mapper>

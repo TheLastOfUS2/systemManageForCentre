@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.AmLectureMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmLecture" >
+    <id column="lecture_id" property="lectureId" jdbcType="VARCHAR" />
+    <result column="lecture_speaker" property="lectureSpeaker" jdbcType="VARCHAR" />
+    <result column="lecture_speaker_id" property="lectureSpeakerId" jdbcType="VARCHAR" />
+    <result column="lecture_theme" property="lectureTheme" jdbcType="VARCHAR" />
+    <result column="lecture_time" property="lectureTime" jdbcType="VARCHAR" />
+    <result column="lecture_address" property="lectureAddress" jdbcType="VARCHAR" />
+    <result column="lecture_content" property="lectureContent" jdbcType="VARCHAR" />
+    <result column="lecture_remarks" property="lectureRemarks" jdbcType="VARCHAR" />
+    <result column="lecture_del" property="lectureDel" jdbcType="VARCHAR" />
+    <result column="lecture_create_time" property="lectureCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.lectureSpeaker != null" >
+         and lecture_speaker = #{condition.lectureSpeaker,jdbcType=VARCHAR}
+      </if>
+        <if test="condition.lectureSpeakerId != null" >
+         and lecture_speaker_id = #{condition.lectureSpeakerId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureTheme != null" >
+         and lecture_theme = #{condition.lectureTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureTime != null" >
+         and lecture_time = #{condition.lectureTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureAddress != null" >
+         and lecture_address = #{condition.lectureAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureContent != null" >
+         and lecture_content = #{condition.lectureContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureRemarks != null" >
+         and lecture_remarks = #{condition.lectureRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureDel != null" >
+         and lecture_del = #{condition.lectureDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureCreateTime != null" >
+         and lecture_create_time = #{condition.lectureCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.lectureSpeaker != null" >
+         and lecture_speaker = #{example.condition.lectureSpeaker,jdbcType=VARCHAR}
+      </if>
+       <if test="example.condition.lectureSpeakerId != null" >
+         and lecture_speaker_id = #{example.condition.lectureSpeakerId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lectureTheme != null" >
+         and lecture_theme = #{example.condition.lectureTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lectureTime != null" >
+         and lecture_time = #{example.condition.lectureTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lectureAddress != null" >
+         and lecture_address = #{example.condition.lectureAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lectureContent != null" >
+         and lecture_content = #{example.condition.lectureContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lectureRemarks != null" >
+         and lecture_remarks = #{example.condition.lectureRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lectureDel != null" >
+         and lecture_del = #{example.condition.lectureDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.lectureCreateTime != null" >
+         and lecture_create_time = #{example.condition.lectureCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    lecture_id, lecture_speaker,lecture_speaker_id, lecture_theme, lecture_time, lecture_address, lecture_content, 
+    lecture_remarks, lecture_del, lecture_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_lecture
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_lecture
+    where lecture_id = #{lectureId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from am_lecture
+    where lecture_id = #{lectureId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from am_lecture
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.AmLecture" >
+    insert into am_lecture (lecture_id, lecture_speaker,lecture_speaker_id, lecture_theme, 
+      lecture_time, lecture_address, lecture_content, 
+      lecture_remarks, lecture_del, lecture_create_time
+      )
+    values (#{lectureId,jdbcType=VARCHAR}, #{lectureSpeaker,jdbcType=VARCHAR}, #{lectureSpeakerId,jdbcType=VARCHAR},#{lectureTheme,jdbcType=VARCHAR}, 
+      #{lectureTime,jdbcType=VARCHAR}, #{lectureAddress,jdbcType=VARCHAR}, #{lectureContent,jdbcType=VARCHAR}, 
+      #{lectureRemarks,jdbcType=VARCHAR}, #{lectureDel,jdbcType=VARCHAR}, #{lectureCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.AmLecture" >
+    insert into am_lecture
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lectureId != null" >
+        lecture_id,
+      </if>
+      <if test="lectureSpeaker != null" >
+        lecture_speaker,
+      </if>
+      <if test="lectureSpeaker != null" >
+        lecture_speaker_id,
+      </if>
+      <if test="lectureTheme != null" >
+        lecture_theme,
+      </if>
+      <if test="lectureTime != null" >
+        lecture_time,
+      </if>
+      <if test="lectureAddress != null" >
+        lecture_address,
+      </if>
+      <if test="lectureContent != null" >
+        lecture_content,
+      </if>
+      <if test="lectureRemarks != null" >
+        lecture_remarks,
+      </if>
+      <if test="lectureDel != null" >
+        lecture_del,
+      </if>
+      <if test="lectureCreateTime != null" >
+        lecture_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lectureId != null" >
+        #{lectureId,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureSpeaker != null" >
+        #{lectureSpeaker,jdbcType=VARCHAR},
+      </if>
+       <if test="lectureSpeakerId != null" >
+        #{lectureSpeakerId,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureTheme != null" >
+        #{lectureTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureTime != null" >
+        #{lectureTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureAddress != null" >
+        #{lectureAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureContent != null" >
+        #{lectureContent,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureRemarks != null" >
+        #{lectureRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureDel != null" >
+        #{lectureDel,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureCreateTime != null" >
+        #{lectureCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_lecture
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update am_lecture
+    <set >
+      <if test="record.lectureId != null" >
+        lecture_id = #{record.lectureId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureSpeaker != null" >
+        lecture_speaker = #{record.lectureSpeaker,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureSpeakerId != null" >
+        lecture_speaker_id = #{record.lectureSpeakerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureTheme != null" >
+        lecture_theme = #{record.lectureTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureTime != null" >
+        lecture_time = #{record.lectureTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureAddress != null" >
+        lecture_address = #{record.lectureAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureContent != null" >
+        lecture_content = #{record.lectureContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureRemarks != null" >
+        lecture_remarks = #{record.lectureRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureDel != null" >
+        lecture_del = #{record.lectureDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureCreateTime != null" >
+        lecture_create_time = #{record.lectureCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update am_lecture
+    set lecture_id = #{record.lectureId,jdbcType=VARCHAR},
+      lecture_speaker = #{record.lectureSpeaker,jdbcType=VARCHAR},
+      lecture_speaker_id = #{record.lectureSpeakerId,jdbcType=VARCHAR},
+      lecture_theme = #{record.lectureTheme,jdbcType=VARCHAR},
+      lecture_time = #{record.lectureTime,jdbcType=VARCHAR},
+      lecture_address = #{record.lectureAddress,jdbcType=VARCHAR},
+      lecture_content = #{record.lectureContent,jdbcType=VARCHAR},
+      lecture_remarks = #{record.lectureRemarks,jdbcType=VARCHAR},
+      lecture_del = #{record.lectureDel,jdbcType=VARCHAR},
+      lecture_create_time = #{record.lectureCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.AmLecture" >
+    update am_lecture
+    <set >
+      <if test="lectureSpeaker != null" >
+        lecture_speaker = #{lectureSpeaker,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureSpeakerId != null" >
+        lecture_speaker_id = #{lectureSpeakerId,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureTheme != null" >
+        lecture_theme = #{lectureTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureTime != null" >
+        lecture_time = #{lectureTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureAddress != null" >
+        lecture_address = #{lectureAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureContent != null" >
+        lecture_content = #{lectureContent,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureRemarks != null" >
+        lecture_remarks = #{lectureRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureDel != null" >
+        lecture_del = #{lectureDel,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureCreateTime != null" >
+        lecture_create_time = #{lectureCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where lecture_id = #{lectureId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.AmLecture" >
+    update am_lecture
+    set lecture_speaker = #{lectureSpeaker,jdbcType=VARCHAR},
+      lecture_speaker_id = #{lectureSpeakerId,jdbcType=VARCHAR},
+      lecture_theme = #{lectureTheme,jdbcType=VARCHAR},
+      lecture_time = #{lectureTime,jdbcType=VARCHAR},
+      lecture_address = #{lectureAddress,jdbcType=VARCHAR},
+      lecture_content = #{lectureContent,jdbcType=VARCHAR},
+      lecture_remarks = #{lectureRemarks,jdbcType=VARCHAR},
+      lecture_del = #{lectureDel,jdbcType=VARCHAR},
+      lecture_create_time = #{lectureCreateTime,jdbcType=TIMESTAMP}
+    where lecture_id = #{lectureId,jdbcType=VARCHAR}
+  </update>
+</mapper>

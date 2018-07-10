@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.MwMemorabiliaMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwMemorabilia" >
+    <id column="memorabilia_id" property="memorabiliaId" jdbcType="VARCHAR" />
+    <result column="memorabilia_theme" property="memorabiliaTheme" jdbcType="VARCHAR" />
+    <result column="memorabilia_time" property="memorabiliaTime" jdbcType="VARCHAR" />
+    <result column="memorabilia_content" property="memorabiliaContent" jdbcType="VARCHAR" />
+    <result column="memorabilia_remarks" property="memorabiliaRemarks" jdbcType="VARCHAR" />
+    <result column="memorabilia_del" property="memorabiliaDel" jdbcType="VARCHAR" />
+    <result column="memorabilia_create_time" property="memorabiliaCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.memorabiliaTheme != null" >
+         and memorabilia_theme = #{condition.memorabiliaTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaTime != null" >
+         and memorabilia_time = #{condition.memorabiliaTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaContent != null" >
+         and memorabilia_content = #{condition.memorabiliaContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaRemarks != null" >
+         and memorabilia_remarks = #{condition.memorabiliaRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaDel != null" >
+         and memorabilia_del = #{condition.memorabiliaDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaCreateTime != null" >
+         and memorabilia_create_time = #{condition.memorabiliaCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 主题 -->
+      <if test="condition.memorabiliaTheme2 != null" >
+      	 and memorabilia_theme like CONCAT('%', #{condition.memorabiliaTheme2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 时间 -->
+      <if test="condition.memorabiliaTime2 != null" >
+      	 and memorabilia_time like CONCAT('%', #{condition.memorabiliaTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    memorabilia_id, memorabilia_theme, memorabilia_time, memorabilia_content, memorabilia_remarks, 
+    memorabilia_del, memorabilia_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_memorabilia
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_memorabilia
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

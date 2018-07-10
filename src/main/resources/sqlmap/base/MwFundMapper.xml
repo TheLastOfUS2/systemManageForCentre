@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.MwFundMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwFund" >
+    <id column="fund_id" property="fundId" jdbcType="VARCHAR" />
+    <result column="fund_title" property="fundTitle" jdbcType="VARCHAR" />
+    <result column="fund_amounts" property="fundAmounts" jdbcType="DOUBLE" />
+    <result column="fund_time" property="fundTime" jdbcType="VARCHAR" />
+    <result column="fund_type" property="fundType" jdbcType="VARCHAR" />
+    <result column="fund_source" property="fundSource" jdbcType="VARCHAR" />
+    <result column="fund_remarks" property="fundRemarks" jdbcType="VARCHAR" />
+    <result column="fund_del" property="fundDel" jdbcType="VARCHAR" />
+    <result column="fund_create_time" property="fundCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.fundTitle != null" >
+         and fund_title = #{condition.fundTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundAmounts != null" >
+         and fund_amounts = #{condition.fundAmounts,jdbcType=DOUBLE}
+      </if>
+      <if test="condition.fundTime != null" >
+         and fund_time = #{condition.fundTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundType != null" >
+         and fund_type = #{condition.fundType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundSource != null" >
+         and fund_source = #{condition.fundSource,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundRemarks != null" >
+         and fund_remarks = #{condition.fundRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundDel != null" >
+         and fund_del = #{condition.fundDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundCreateTime != null" >
+         and fund_create_time = #{condition.fundCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.fundTitle != null" >
+         and fund_title = #{example.condition.fundTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fundAmounts != null" >
+         and fund_amounts = #{example.condition.fundAmounts,jdbcType=DOUBLE}
+      </if>
+      <if test="example.condition.fundTime != null" >
+         and fund_time = #{example.condition.fundTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fundType != null" >
+         and fund_type = #{example.condition.fundType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fundSource != null" >
+         and fund_source = #{example.condition.fundSource,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fundRemarks != null" >
+         and fund_remarks = #{example.condition.fundRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fundDel != null" >
+         and fund_del = #{example.condition.fundDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fundCreateTime != null" >
+         and fund_create_time = #{example.condition.fundCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    fund_id, fund_title, fund_amounts, fund_time, fund_type, fund_source, fund_remarks, 
+    fund_del, fund_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_fund
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_fund
+    where fund_id = #{fundId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mw_fund
+    where fund_id = #{fundId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from mw_fund
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.MwFund" >
+    insert into mw_fund (fund_id, fund_title, fund_amounts, 
+      fund_time, fund_type, fund_source, 
+      fund_remarks, fund_del, fund_create_time
+      )
+    values (#{fundId,jdbcType=VARCHAR}, #{fundTitle,jdbcType=VARCHAR}, #{fundAmounts,jdbcType=DOUBLE}, 
+      #{fundTime,jdbcType=VARCHAR}, #{fundType,jdbcType=VARCHAR}, #{fundSource,jdbcType=VARCHAR}, 
+      #{fundRemarks,jdbcType=VARCHAR}, #{fundDel,jdbcType=VARCHAR}, #{fundCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.MwFund" >
+    insert into mw_fund
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fundId != null" >
+        fund_id,
+      </if>
+      <if test="fundTitle != null" >
+        fund_title,
+      </if>
+      <if test="fundAmounts != null" >
+        fund_amounts,
+      </if>
+      <if test="fundTime != null" >
+        fund_time,
+      </if>
+      <if test="fundType != null" >
+        fund_type,
+      </if>
+      <if test="fundSource != null" >
+        fund_source,
+      </if>
+      <if test="fundRemarks != null" >
+        fund_remarks,
+      </if>
+      <if test="fundDel != null" >
+        fund_del,
+      </if>
+      <if test="fundCreateTime != null" >
+        fund_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fundId != null" >
+        #{fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="fundTitle != null" >
+        #{fundTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fundAmounts != null" >
+        #{fundAmounts,jdbcType=DOUBLE},
+      </if>
+      <if test="fundTime != null" >
+        #{fundTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fundType != null" >
+        #{fundType,jdbcType=VARCHAR},
+      </if>
+      <if test="fundSource != null" >
+        #{fundSource,jdbcType=VARCHAR},
+      </if>
+      <if test="fundRemarks != null" >
+        #{fundRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="fundDel != null" >
+        #{fundDel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundCreateTime != null" >
+        #{fundCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_fund
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mw_fund
+    <set >
+      <if test="record.fundId != null" >
+        fund_id = #{record.fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundTitle != null" >
+        fund_title = #{record.fundTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundAmounts != null" >
+        fund_amounts = #{record.fundAmounts,jdbcType=DOUBLE},
+      </if>
+      <if test="record.fundTime != null" >
+        fund_time = #{record.fundTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundType != null" >
+        fund_type = #{record.fundType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundSource != null" >
+        fund_source = #{record.fundSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundRemarks != null" >
+        fund_remarks = #{record.fundRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundDel != null" >
+        fund_del = #{record.fundDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundCreateTime != null" >
+        fund_create_time = #{record.fundCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mw_fund
+    set fund_id = #{record.fundId,jdbcType=VARCHAR},
+      fund_title = #{record.fundTitle,jdbcType=VARCHAR},
+      fund_amounts = #{record.fundAmounts,jdbcType=DOUBLE},
+      fund_time = #{record.fundTime,jdbcType=VARCHAR},
+      fund_type = #{record.fundType,jdbcType=VARCHAR},
+      fund_source = #{record.fundSource,jdbcType=VARCHAR},
+      fund_remarks = #{record.fundRemarks,jdbcType=VARCHAR},
+      fund_del = #{record.fundDel,jdbcType=VARCHAR},
+      fund_create_time = #{record.fundCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.MwFund" >
+    update mw_fund
+    <set >
+      <if test="fundTitle != null" >
+        fund_title = #{fundTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="fundAmounts != null" >
+        fund_amounts = #{fundAmounts,jdbcType=DOUBLE},
+      </if>
+      <if test="fundTime != null" >
+        fund_time = #{fundTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fundType != null" >
+        fund_type = #{fundType,jdbcType=VARCHAR},
+      </if>
+      <if test="fundSource != null" >
+        fund_source = #{fundSource,jdbcType=VARCHAR},
+      </if>
+      <if test="fundRemarks != null" >
+        fund_remarks = #{fundRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="fundDel != null" >
+        fund_del = #{fundDel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundCreateTime != null" >
+        fund_create_time = #{fundCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fund_id = #{fundId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.MwFund" >
+    update mw_fund
+    set fund_title = #{fundTitle,jdbcType=VARCHAR},
+      fund_amounts = #{fundAmounts,jdbcType=DOUBLE},
+      fund_time = #{fundTime,jdbcType=VARCHAR},
+      fund_type = #{fundType,jdbcType=VARCHAR},
+      fund_source = #{fundSource,jdbcType=VARCHAR},
+      fund_remarks = #{fundRemarks,jdbcType=VARCHAR},
+      fund_del = #{fundDel,jdbcType=VARCHAR},
+      fund_create_time = #{fundCreateTime,jdbcType=TIMESTAMP}
+    where fund_id = #{fundId,jdbcType=VARCHAR}
+  </update>
+</mapper>

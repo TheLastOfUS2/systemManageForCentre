@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.AmProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmProject" >
+    <id column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="project_type" property="projectType" jdbcType="VARCHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="project_number" property="projectNumber" jdbcType="VARCHAR" />
+    <result column="project_source" property="projectSource" jdbcType="VARCHAR" />
+    <result column="project_level" property="projectLevel" jdbcType="VARCHAR" />
+    <result column="project_time" property="projectTime" jdbcType="VARCHAR" />
+    <result column="project_knot_time" property="projectKnotTime" jdbcType="VARCHAR" />
+    <result column="project_status" property="projectStatus" jdbcType="VARCHAR" />
+    <result column="project_approved_outlay" property="projectApprovedOutlay" jdbcType="DOUBLE" />
+    <result column="project_cooperative_unit" property="projectCooperativeUnit" jdbcType="VARCHAR" />
+    <result column="project_remarks" property="projectRemarks" jdbcType="VARCHAR" />
+    <result column="project_del" property="projectDel" jdbcType="VARCHAR" />
+    <result column="project_create_time" property="projectCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectType != null" >
+         and project_type = #{condition.projectType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectName != null" >
+         and project_name = #{condition.projectName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectNumber != null" >
+         and project_number = #{condition.projectNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectSource != null" >
+         and project_source = #{condition.projectSource,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectLevel != null" >
+         and project_level = #{condition.projectLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectTime != null" >
+         and project_time = #{condition.projectTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectKnotTime != null" >
+         and project_knot_time = #{condition.projectKnotTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectStatus != null" >
+         and project_status = #{condition.projectStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectApprovedOutlay != null" >
+         and project_approved_outlay = #{condition.projectApprovedOutlay,jdbcType=DOUBLE}
+      </if>
+      <if test="condition.projectCooperativeUnit != null" >
+         and project_cooperative_unit = #{condition.projectCooperativeUnit,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectRemarks != null" >
+         and project_remarks = #{condition.projectRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectDel != null" >
+         and project_del = #{condition.projectDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectCreateTime != null" >
+         and project_create_time = #{condition.projectCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectType != null" >
+         and project_type = #{example.condition.projectType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectName != null" >
+         and project_name = #{example.condition.projectName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectNumber != null" >
+         and project_number = #{example.condition.projectNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectSource != null" >
+         and project_source = #{example.condition.projectSource,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectLevel != null" >
+         and project_level = #{example.condition.projectLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectTime != null" >
+         and project_time = #{example.condition.projectTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectKnotTime != null" >
+         and project_knot_time = #{example.condition.projectKnotTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectStatus != null" >
+         and project_status = #{example.condition.projectStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectApprovedOutlay != null" >
+         and project_approved_outlay = #{example.condition.projectApprovedOutlay,jdbcType=DOUBLE}
+      </if>
+      <if test="example.condition.projectCooperativeUnit != null" >
+         and project_cooperative_unit = #{example.condition.projectCooperativeUnit,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectRemarks != null" >
+         and project_remarks = #{example.condition.projectRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectDel != null" >
+         and project_del = #{example.condition.projectDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.projectCreateTime != null" >
+         and project_create_time = #{example.condition.projectCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    project_id, base_info_id, project_type, project_name, project_number, project_source, 
+    project_level, project_time, project_knot_time, project_status, project_approved_outlay, 
+    project_cooperative_unit, project_remarks, project_del, project_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_project
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_project
+    where project_id = #{projectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from am_project
+    where project_id = #{projectId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from am_project
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.AmProject" >
+    insert into am_project (project_id, base_info_id, project_type, 
+      project_name, project_number, project_source, 
+      project_level, project_time, project_knot_time, 
+      project_status, project_approved_outlay, project_cooperative_unit, 
+      project_remarks, project_del, project_create_time
+      )
+    values (#{projectId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{projectType,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{projectNumber,jdbcType=VARCHAR}, #{projectSource,jdbcType=VARCHAR}, 
+      #{projectLevel,jdbcType=VARCHAR}, #{projectTime,jdbcType=VARCHAR}, #{projectKnotTime,jdbcType=VARCHAR}, 
+      #{projectStatus,jdbcType=VARCHAR}, #{projectApprovedOutlay,jdbcType=DOUBLE}, #{projectCooperativeUnit,jdbcType=VARCHAR}, 
+      #{projectRemarks,jdbcType=VARCHAR}, #{projectDel,jdbcType=VARCHAR}, #{projectCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.AmProject" >
+    insert into am_project
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="projectType != null" >
+        project_type,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="projectNumber != null" >
+        project_number,
+      </if>
+      <if test="projectSource != null" >
+        project_source,
+      </if>
+      <if test="projectLevel != null" >
+        project_level,
+      </if>
+      <if test="projectTime != null" >
+        project_time,
+      </if>
+      <if test="projectKnotTime != null" >
+        project_knot_time,
+      </if>
+      <if test="projectStatus != null" >
+        project_status,
+      </if>
+      <if test="projectApprovedOutlay != null" >
+        project_approved_outlay,
+      </if>
+      <if test="projectCooperativeUnit != null" >
+        project_cooperative_unit,
+      </if>
+      <if test="projectRemarks != null" >
+        project_remarks,
+      </if>
+      <if test="projectDel != null" >
+        project_del,
+      </if>
+      <if test="projectCreateTime != null" >
+        project_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectNumber != null" >
+        #{projectNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSource != null" >
+        #{projectSource,jdbcType=VARCHAR},
+      </if>
+      <if test="projectLevel != null" >
+        #{projectLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTime != null" >
+        #{projectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectKnotTime != null" >
+        #{projectKnotTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectStatus != null" >
+        #{projectStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="projectApprovedOutlay != null" >
+        #{projectApprovedOutlay,jdbcType=DOUBLE},
+      </if>
+      <if test="projectCooperativeUnit != null" >
+        #{projectCooperativeUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRemarks != null" >
+        #{projectRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="projectDel != null" >
+        #{projectDel,jdbcType=VARCHAR},
+      </if>
+      <if test="projectCreateTime != null" >
+        #{projectCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_project
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update am_project
+    <set >
+      <if test="record.projectId != null" >
+        project_id = #{record.projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectType != null" >
+        project_type = #{record.projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectName != null" >
+        project_name = #{record.projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectNumber != null" >
+        project_number = #{record.projectNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectSource != null" >
+        project_source = #{record.projectSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectLevel != null" >
+        project_level = #{record.projectLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectTime != null" >
+        project_time = #{record.projectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectKnotTime != null" >
+        project_knot_time = #{record.projectKnotTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectStatus != null" >
+        project_status = #{record.projectStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectApprovedOutlay != null" >
+        project_approved_outlay = #{record.projectApprovedOutlay,jdbcType=DOUBLE},
+      </if>
+      <if test="record.projectCooperativeUnit != null" >
+        project_cooperative_unit = #{record.projectCooperativeUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectRemarks != null" >
+        project_remarks = #{record.projectRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectDel != null" >
+        project_del = #{record.projectDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectCreateTime != null" >
+        project_create_time = #{record.projectCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update am_project
+    set project_id = #{record.projectId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      project_type = #{record.projectType,jdbcType=VARCHAR},
+      project_name = #{record.projectName,jdbcType=VARCHAR},
+      project_number = #{record.projectNumber,jdbcType=VARCHAR},
+      project_source = #{record.projectSource,jdbcType=VARCHAR},
+      project_level = #{record.projectLevel,jdbcType=VARCHAR},
+      project_time = #{record.projectTime,jdbcType=VARCHAR},
+      project_knot_time = #{record.projectKnotTime,jdbcType=VARCHAR},
+      project_status = #{record.projectStatus,jdbcType=VARCHAR},
+      project_approved_outlay = #{record.projectApprovedOutlay,jdbcType=DOUBLE},
+      project_cooperative_unit = #{record.projectCooperativeUnit,jdbcType=VARCHAR},
+      project_remarks = #{record.projectRemarks,jdbcType=VARCHAR},
+      project_del = #{record.projectDel,jdbcType=VARCHAR},
+      project_create_time = #{record.projectCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.AmProject" >
+    update am_project
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectType != null" >
+        project_type = #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectNumber != null" >
+        project_number = #{projectNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSource != null" >
+        project_source = #{projectSource,jdbcType=VARCHAR},
+      </if>
+      <if test="projectLevel != null" >
+        project_level = #{projectLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTime != null" >
+        project_time = #{projectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectKnotTime != null" >
+        project_knot_time = #{projectKnotTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectStatus != null" >
+        project_status = #{projectStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="projectApprovedOutlay != null" >
+        project_approved_outlay = #{projectApprovedOutlay,jdbcType=DOUBLE},
+      </if>
+      <if test="projectCooperativeUnit != null" >
+        project_cooperative_unit = #{projectCooperativeUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRemarks != null" >
+        project_remarks = #{projectRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="projectDel != null" >
+        project_del = #{projectDel,jdbcType=VARCHAR},
+      </if>
+      <if test="projectCreateTime != null" >
+        project_create_time = #{projectCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where project_id = #{projectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.AmProject" >
+    update am_project
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      project_type = #{projectType,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      project_number = #{projectNumber,jdbcType=VARCHAR},
+      project_source = #{projectSource,jdbcType=VARCHAR},
+      project_level = #{projectLevel,jdbcType=VARCHAR},
+      project_time = #{projectTime,jdbcType=VARCHAR},
+      project_knot_time = #{projectKnotTime,jdbcType=VARCHAR},
+      project_status = #{projectStatus,jdbcType=VARCHAR},
+      project_approved_outlay = #{projectApprovedOutlay,jdbcType=DOUBLE},
+      project_cooperative_unit = #{projectCooperativeUnit,jdbcType=VARCHAR},
+      project_remarks = #{projectRemarks,jdbcType=VARCHAR},
+      project_del = #{projectDel,jdbcType=VARCHAR},
+      project_create_time = #{projectCreateTime,jdbcType=TIMESTAMP}
+    where project_id = #{projectId,jdbcType=VARCHAR}
+  </update>
+</mapper>

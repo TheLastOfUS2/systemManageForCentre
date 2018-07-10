@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.MwPlanMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwPlan" >
+    <id column="plan_id" property="planId" jdbcType="VARCHAR" />
+    <result column="plan_title" property="planTitle" jdbcType="VARCHAR" />
+    <result column="plan_time" property="planTime" jdbcType="VARCHAR" />
+    <result column="plan_cycle" property="planCycle" jdbcType="VARCHAR" />
+    <result column="plan_content" property="planContent" jdbcType="VARCHAR" />
+    <result column="plan_remarks" property="planRemarks" jdbcType="VARCHAR" />
+    <result column="plan_del" property="planDel" jdbcType="VARCHAR" />
+    <result column="plan_create_time" property="planCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.planTitle != null" >
+         and plan_title = #{condition.planTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.planTime != null" >
+         and plan_time = #{condition.planTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.planCycle != null" >
+         and plan_cycle = #{condition.planCycle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.planContent != null" >
+         and plan_content = #{condition.planContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.planRemarks != null" >
+         and plan_remarks = #{condition.planRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.planDel != null" >
+         and plan_del = #{condition.planDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.planCreateTime != null" >
+         and plan_create_time = #{condition.planCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.planTitle != null" >
+         and plan_title = #{example.condition.planTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.planTime != null" >
+         and plan_time = #{example.condition.planTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.planCycle != null" >
+         and plan_cycle = #{example.condition.planCycle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.planContent != null" >
+         and plan_content = #{example.condition.planContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.planRemarks != null" >
+         and plan_remarks = #{example.condition.planRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.planDel != null" >
+         and plan_del = #{example.condition.planDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.planCreateTime != null" >
+         and plan_create_time = #{example.condition.planCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    plan_id, plan_title, plan_time, plan_cycle, plan_content, plan_remarks, plan_del, 
+    plan_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_plan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_plan
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mw_plan
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from mw_plan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.MwPlan" >
+    insert into mw_plan (plan_id, plan_title, plan_time, 
+      plan_cycle, plan_content, plan_remarks, 
+      plan_del, plan_create_time)
+    values (#{planId,jdbcType=VARCHAR}, #{planTitle,jdbcType=VARCHAR}, #{planTime,jdbcType=VARCHAR}, 
+      #{planCycle,jdbcType=VARCHAR}, #{planContent,jdbcType=VARCHAR}, #{planRemarks,jdbcType=VARCHAR}, 
+      #{planDel,jdbcType=VARCHAR}, #{planCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.MwPlan" >
+    insert into mw_plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="planId != null" >
+        plan_id,
+      </if>
+      <if test="planTitle != null" >
+        plan_title,
+      </if>
+      <if test="planTime != null" >
+        plan_time,
+      </if>
+      <if test="planCycle != null" >
+        plan_cycle,
+      </if>
+      <if test="planContent != null" >
+        plan_content,
+      </if>
+      <if test="planRemarks != null" >
+        plan_remarks,
+      </if>
+      <if test="planDel != null" >
+        plan_del,
+      </if>
+      <if test="planCreateTime != null" >
+        plan_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="planId != null" >
+        #{planId,jdbcType=VARCHAR},
+      </if>
+      <if test="planTitle != null" >
+        #{planTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="planTime != null" >
+        #{planTime,jdbcType=VARCHAR},
+      </if>
+      <if test="planCycle != null" >
+        #{planCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="planContent != null" >
+        #{planContent,jdbcType=VARCHAR},
+      </if>
+      <if test="planRemarks != null" >
+        #{planRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="planDel != null" >
+        #{planDel,jdbcType=VARCHAR},
+      </if>
+      <if test="planCreateTime != null" >
+        #{planCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_plan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mw_plan
+    <set >
+      <if test="record.planId != null" >
+        plan_id = #{record.planId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planTitle != null" >
+        plan_title = #{record.planTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planTime != null" >
+        plan_time = #{record.planTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planCycle != null" >
+        plan_cycle = #{record.planCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planContent != null" >
+        plan_content = #{record.planContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planRemarks != null" >
+        plan_remarks = #{record.planRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planDel != null" >
+        plan_del = #{record.planDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planCreateTime != null" >
+        plan_create_time = #{record.planCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mw_plan
+    set plan_id = #{record.planId,jdbcType=VARCHAR},
+      plan_title = #{record.planTitle,jdbcType=VARCHAR},
+      plan_time = #{record.planTime,jdbcType=VARCHAR},
+      plan_cycle = #{record.planCycle,jdbcType=VARCHAR},
+      plan_content = #{record.planContent,jdbcType=VARCHAR},
+      plan_remarks = #{record.planRemarks,jdbcType=VARCHAR},
+      plan_del = #{record.planDel,jdbcType=VARCHAR},
+      plan_create_time = #{record.planCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.MwPlan" >
+    update mw_plan
+    <set >
+      <if test="planTitle != null" >
+        plan_title = #{planTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="planTime != null" >
+        plan_time = #{planTime,jdbcType=VARCHAR},
+      </if>
+      <if test="planCycle != null" >
+        plan_cycle = #{planCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="planContent != null" >
+        plan_content = #{planContent,jdbcType=VARCHAR},
+      </if>
+      <if test="planRemarks != null" >
+        plan_remarks = #{planRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="planDel != null" >
+        plan_del = #{planDel,jdbcType=VARCHAR},
+      </if>
+      <if test="planCreateTime != null" >
+        plan_create_time = #{planCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.MwPlan" >
+    update mw_plan
+    set plan_title = #{planTitle,jdbcType=VARCHAR},
+      plan_time = #{planTime,jdbcType=VARCHAR},
+      plan_cycle = #{planCycle,jdbcType=VARCHAR},
+      plan_content = #{planContent,jdbcType=VARCHAR},
+      plan_remarks = #{planRemarks,jdbcType=VARCHAR},
+      plan_del = #{planDel,jdbcType=VARCHAR},
+      plan_create_time = #{planCreateTime,jdbcType=TIMESTAMP}
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </update>
+</mapper>

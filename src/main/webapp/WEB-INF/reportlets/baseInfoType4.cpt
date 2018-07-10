@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20141222" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="baseInfoMentor"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="baseInfoName"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="baseInfoType"/>
+<O>
+<![CDATA[3]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="baseInfoSex"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="baseInfoBirthDate"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="baseInfoEndTime"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="baseInfoStartTime"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[localhost]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select
+(@rowNum:=@rowNum+1) as rowNo,
+a.*
+from (
+select 
+ bb.base_info_name,bb.base_info_sex,bb.base_info_birth_date,bb.base_info_id_number,
+ bb.base_info_mentor,bb.base_info_start_time,bb.base_info_end_time,bb.base_info_contact_information,bb.base_info_employment_company,bb.base_info_honor,bb.base_info_achievement,bb.base_info_remarks  
+FROM bi_base_info bb 
+where 1=1 and bb.base_info_del=0
+${if(baseInfoType == "",""," and bb.base_info_type =" + baseInfoType)} 
+${if(baseInfoName == "",""," and bb.base_info_name like '%" + baseInfoName + "%'")}
+${if(baseInfoSex == "",""," and bb.base_info_sex ='" + baseInfoSex + "'")} 
+${if(baseInfoBirthDate == "",""," and bb.base_info_birth_date like '%" + baseInfoBirthDate + "%'")}
+${if(baseInfoMentor == "",""," and bb.base_info_mentor like '%" + baseInfoMentor + "%'")}
+${if(baseInfoStartTime == "",""," and bb.base_info_start_time like '%" + baseInfoStartTime + "%'")}
+${if(baseInfoEndTime == "",""," and bb.base_info_end_time like '%" + baseInfoEndTime + "%'")}
+order by bb.base_create_time desc 	
+) a  
+left JOIN (SELECT @rownum:=0) co on 1=1
+order by rowNo ]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1257300,1104900,1143000,1143000,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1524000,3124200,2743200,3924300,3733800,3162300,3505200,3467100,6286500,5905500,7239000,6553200,6781800,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="13" s="0">
+<O>
+<![CDATA[硕士基本信息]]></O>
+<PrivilegeControl/>
+<Expand dir="0" order="1"/>
+</C>
+<C c="0" r="1" cs="13" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="导出日期：" + today()]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" s="2">
+<O>
+<![CDATA[序号\\nNO.]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" s="2">
+<O>
+<![CDATA[姓名]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" s="2">
+<O>
+<![CDATA[性别]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" s="2">
+<O>
+<![CDATA[出生日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" s="2">
+<O>
+<![CDATA[身份证号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" s="2">
+<O>
+<![CDATA[导师姓名]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" s="2">
+<O>
+<![CDATA[入学时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="2">
+<O>
+<![CDATA[毕业时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" s="2">
+<O>
+<![CDATA[学位论文题目]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" s="2">
+<O>
+<![CDATA[就业单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="2" s="2">
+<O>
+<![CDATA[在读期间获得奖项或荣誉]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="2" s="2">
+<O>
+<![CDATA[署名中心成果]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="2" s="2">
+<O>
+<![CDATA[备注]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="rowNo"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_name"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_sex"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[SWITCH(base_info_sex, "0", "女", "1", "男")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_birth_date"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_id_number"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_mentor"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_start_time"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_end_time"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_contact_information"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_employment_company"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_honor"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_achievement"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="base_info_remarks"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="13">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Left style="2"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2" color="-16777216"/>
+<Left style="2" color="-16777216"/>
+<Right style="2" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="ColorBackground" color="-3342337"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+</WorkBook>

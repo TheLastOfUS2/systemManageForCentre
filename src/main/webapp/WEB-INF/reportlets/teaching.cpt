@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20141222" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="teachingType"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="teachingTitle"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="teachingName"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="teachingTerm"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="teachingYear"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="teachingHour"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[localhost]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select
+(@rowNum:=@rowNum+1) as rowNo,
+a.*
+from (
+select 
+ pt.teaching_title,pt.teaching_hour,pt.teaching_name,pt.teaching_year,pt.teaching_term,pt.teaching_type,pt.teaching_student_grade,pt.teaching_student_name,pt.teaching_remarks
+FROM pc_teaching pt
+where 1=1 and pt.teaching_del=0
+${if(teachingTitle == "",""," and pt.teaching_title like '%" + teachingTitle +"%'")} 
+${if(teachingName == "",""," and pt.teaching_name like '%" + teachingName +"%'")} 
+${if(teachingHour == "",""," and pt.teaching_hour like '%" + teachingHour +"%'")}
+${if(teachingYear == "",""," and pt.teaching_year like '%" + teachingYear +"%'")}
+${if(teachingTerm == "",""," and pt.teaching_term ='" + teachingTerm +"'")}
+${if(teachingType == "",""," and pt.teaching_type ='" + teachingType +"'")}
+order by pt.teaching_create_time desc 
+) a  
+left JOIN (SELECT @rownum:=0) co on 1=1
+order by rowNo ]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1257300,1104900,1143000,1143000,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1524000,8039100,3733800,3657600,2743200,4038600,3390900,2971800,8382000,9601200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="10" s="0">
+<O>
+<![CDATA[授课信息]]></O>
+<PrivilegeControl/>
+<Expand dir="0" order="1"/>
+</C>
+<C c="0" r="1" cs="10" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="导出日期：" + today()]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" s="2">
+<O>
+<![CDATA[序号\\nNO.]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" s="2">
+<O>
+<![CDATA[课程名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" s="2">
+<O>
+<![CDATA[授课人]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" s="2">
+<O>
+<![CDATA[授课课时]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" s="2">
+<O>
+<![CDATA[年度]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" s="2">
+<O>
+<![CDATA[学期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" s="2">
+<O>
+<![CDATA[授课类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="2">
+<O>
+<![CDATA[年级]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" s="2">
+<O>
+<![CDATA[指导学生姓名]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" s="2">
+<O>
+<![CDATA[备注]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="rowNo"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_title"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_name"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_hour"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_year"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_term"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[SWITCH(teaching_term,"0","第一学期","1","第二学期")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_type"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[SWITCH(teaching_type,"0","博士","1","硕士","2","本科")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_student_grade"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_student_name"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="teaching_remarks"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="13">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2"/>
+<Left style="2"/>
+<Right style="2"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2" color="-16777216"/>
+<Left style="2" color="-16777216"/>
+<Right style="2" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="ColorBackground" color="-3342337"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+</WorkBook>

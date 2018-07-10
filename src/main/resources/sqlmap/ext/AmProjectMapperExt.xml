@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmProjectMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.AmProjectDto" >
+    <id column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="project_type" property="projectType" jdbcType="VARCHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="project_number" property="projectNumber" jdbcType="VARCHAR" />
+    <result column="project_source" property="projectSource" jdbcType="VARCHAR" />
+    <result column="project_level" property="projectLevel" jdbcType="VARCHAR" />
+    <result column="project_time" property="projectTime" jdbcType="VARCHAR" />
+    <result column="project_knot_time" property="projectKnotTime" jdbcType="VARCHAR" />
+    <result column="project_status" property="projectStatus" jdbcType="VARCHAR" />
+    <result column="project_approved_outlay" property="projectApprovedOutlay" jdbcType="DOUBLE" />
+    <result column="project_cooperative_unit" property="projectCooperativeUnit" jdbcType="VARCHAR" />
+    <result column="project_remarks" property="projectRemarks" jdbcType="VARCHAR" />
+    <result column="project_del" property="projectDel" jdbcType="VARCHAR" />
+    <result column="project_create_time" property="projectCreateTime" jdbcType="TIMESTAMP" />
+    
+     <!-- 作者名称 -->
+    <result column="base_info_name" property="baseInfoName" jdbcType="VARCHAR" />
+     
+    <!-- 一对多关系映射 -->
+    <!-- 合作者 -->
+    <collection property="amCollaborators" column="project_id" select="findCollaboratorById" />
+    
+  </resultMap>
+  
+   <!-- 合作者 -->
+  <resultMap id="CollaboratorResultMap" type="com.systemManage.pojo.dto.AmCollaboratorDto">
+    <id column="collaborator_id" jdbcType="VARCHAR" property="collaboratorId" />
+    <result column="achievement_id" jdbcType="VARCHAR" property="achievementId" />
+    <result column="base_info_id" jdbcType="VARCHAR" property="baseInfoId" />
+    <result column="collaborator_type" jdbcType="VARCHAR" property="collaboratorType" />
+    <result column="collaborator_content" jdbcType="VARCHAR" property="collaboratorContent" />
+    <result column="collaborator_create_time" jdbcType="TIMESTAMP" property="collaboratorCreateTime" />
+     
+    <!-- 作者名称 -->
+    <result column="base_info_name" property="BaseInfoName" jdbcType="VARCHAR" />
+  </resultMap>
+  <!-- 关联查询合作者 -->
+  <select id="findCollaboratorById" parameterType="java.lang.String" resultMap="CollaboratorResultMap">
+    select * from am_collaborator ac,bi_base_info bi where ac.base_info_id=bi.base_info_id and ac.achievement_id = #{id}
+  </select> 
+  
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and ap.base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectType != null" >
+         and ap.project_type = #{condition.projectType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectName != null" >
+         and ap.project_name = #{condition.projectName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectNumber != null" >
+         and ap.project_number = #{condition.projectNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectSource != null" >
+         and ap.project_source = #{condition.projectSource,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectLevel != null" >
+         and ap.project_level = #{condition.projectLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectTime != null" >
+         and ap.project_time = #{condition.projectTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectKnotTime != null" >
+         and ap.project_knot_time = #{condition.projectKnotTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectStatus != null" >
+         and ap.project_status = #{condition.projectStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectApprovedOutlay != null" >
+         and ap.project_approved_outlay = #{condition.projectApprovedOutlay,jdbcType=DOUBLE}
+      </if>
+      <if test="condition.projectCooperativeUnit != null" >
+         and ap.project_cooperative_unit = #{condition.projectCooperativeUnit,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectRemarks != null" >
+         and ap.project_remarks = #{condition.projectRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectDel != null" >
+         and ap.project_del = #{condition.projectDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.projectCreateTime != null" >
+         and ap.project_create_time = #{condition.projectCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      
+      <!-- 模糊查询 -->
+       <!-- 项目第一负责人 -->
+      <if test="condition.baseInfoName2 != null" >
+       	 and bi.base_info_name like CONCAT('%', #{condition.baseInfoName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 项目名称 -->
+      <if test="condition.projectName2 != null" >
+       	 and ap.project_name like CONCAT('%', #{condition.projectName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 批准编号 -->
+      <if test="condition.projectNumber2 != null" >
+      	 and ap.project_number like CONCAT('%', #{condition.projectNumber2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 立项时间 -->
+      <if test="condition.projectTime2 != null" >
+         and ap.project_time like CONCAT('%', #{condition.projectTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 项目状态 -->
+      <if test="condition.baseInfoPositionalTitles2 != null" >
+         and ap.base_info_positional_titles like CONCAT('%', #{condition.baseInfoPositionalTitles2,jdbcType=VARCHAR}, '%')
+      </if>
+      
+      <!-- 模糊查询 -->
+      
+      <!-- 全文检索 -->
+      <!-- 责任人类别 -->
+       <if test="condition.baseInfoName3 != null" >
+       	 and bi.base_info_name like CONCAT('%', #{condition.baseInfoName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="condition.baseInfoType3 != null" >
+       	 and bi.base_info_type in (${condition.baseInfoType3})
+      </if>
+      <!-- 责任人职称 -->
+      <if test="condition.baseInfoPositionalTitles3 != null" >
+       	 and bi.base_info_positional_titles in (${condition.baseInfoPositionalTitles3})
+      </if>
+      <!-- 责任人级别 -->
+      <if test="condition.baseInfoLevel3 != null" >
+       	 and bi.base_info_level in (${condition.baseInfoLevel3})
+      </if>
+      <!-- 成果/项目名称 -->
+      <if test="condition.projectName3 != null" >
+     	and ap.project_name like CONCAT('%', #{condition.projectName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectStartTime != null" >
+        and ap.project_time &gt;= #{condition.projectStartTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectEndTime != null" >
+        and ap.project_time &lt;= #{condition.projectEndTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 全文检索 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    ap.project_id, ap.base_info_id, ap.project_type, ap.project_name, ap.project_number, ap.project_source, 
+    ap.project_level, ap.project_time, ap.project_knot_time, ap.project_status, ap.project_approved_outlay, 
+    ap.project_cooperative_unit, ap.project_remarks, ap.project_del, ap.project_create_time,bi.base_info_name
+  </sql>
+  
+ <!--  <sql id="Base_Column_List1" >
+    t.project_id, t.base_info_id, t.project_type, t.project_name, t.project_number, t.project_source, 
+    t.project_level, t.project_time, t.project_knot_time, t.project_status, t.project_approved_outlay, 
+    t.project_cooperative_unit, t.project_remarks, t.project_del, t.project_create_time,t.base_info_name
+  </sql> -->
+  
+  <!-- 根据主键ID查询 -->
+  <select id="selectByPrimaryKeyExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_project ap,bi_base_info bi
+    where ap.base_info_id=bi.base_info_id and ap.project_id = #{projectId,jdbcType=VARCHAR}
+  </select>
+  
+   <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_project ap join bi_base_info bi on ap.base_info_id=bi.base_info_id 
+    left join am_collaborator ac on ac.achievement_id=ap.project_id and ac.base_info_id=bi.base_info_id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <!-- 责任人年龄区间(计算年龄) ${condition.startAge0} -->
+    <if test="condition.baseInfoStartAge != null or condition.baseInfoEndAge != null" >
+    	DATE_FORMAT(bi.base_info_birth_date,"%Y-%m-%d") base_info_birth_date,(year(now())-year(bi.base_info_birth_date)-1)+(DATE_FORMAT(bi.base_info_birth_date,'%m%d') &lt;=DATE_FORMAT(NOW(),'%m%d')) as age,
+    </if>
+    <include refid="Base_Column_List" />
+    from am_project ap join bi_base_info bi on ap.base_info_id=bi.base_info_id 
+    left join am_collaborator ac on ac.achievement_id=ap.project_id and ac.base_info_id=bi.base_info_id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and ap.base_info_id=bi.base_info_id 
+    <if test="condition.baseInfoStartAge != null &amp;  condition.baseInfoEndAge != null">
+    	having  age  &gt;= ${condition.baseInfoStartAge} and age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="condition.baseInfoStartAge != null &amp; condition.baseInfoEndAge == null ">
+    	having  age &gt;=${condition.baseInfoStartAge}
+    </if>
+     <if test="condition.baseInfoStartAge == null &amp; condition.baseInfoEndAge != null ">
+    	having  age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+  <!-- 全文检索查询 -->
+<!--   <select id="countQueryByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select sum(count) from (
+	    select count(*) as count from am_project ap join bi_base_info bi on ap.base_info_id=bi.base_info_id
+	    <if test="_parameter != null" >
+	      	<include refid="Example_Where_Clause" />
+	    </if>
+		 UNION 
+		 select count(*) as count from am_project ap join am_collaborator ac on ac.achievement_id=ap.project_id
+		 join bi_base_info bi on ac.base_info_id=bi.base_info_id
+		 <if test="_parameter != null" >
+	      	<include refid="Example_Where_Clause" />
+	     </if>
+	 ) a
+  </select> -->
+  
+  <!-- 全文检索查询 -->
+  <!-- <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    责任人年龄区间(计算年龄) ${condition.startAge0}
+    <if test="condition.baseInfoStartAge != null or condition.baseInfoEndAge != null" >
+    	DATE_FORMAT(bi.base_info_birth_date,"%Y-%m-%d") base_info_birth_date,(year(now())-year(bi.base_info_birth_date)-1)+(DATE_FORMAT(bi.base_info_birth_date,'%m%d') &lt;=DATE_FORMAT(NOW(),'%m%d')) as age,
+    </if>
+    <include refid="Base_Column_List1" />
+ 	from (
+ 		select  ap.*,bi.base_info_name from am_project ap join  bi_base_info bi on ap.base_info_id=bi.base_info_id  
+ 		<if test="_parameter != null" >
+	      <include refid="Example_Where_Clause" />
+	    </if>
+	     <if test="condition.baseInfoStartAge != null &amp;  condition.baseInfoEndAge != null">
+    	having  age  &gt;= ${condition.baseInfoStartAge} and age &lt;=${condition.baseInfoEndAge}
+	    </if>
+	    <if test="condition.baseInfoStartAge != null &amp; condition.baseInfoEndAge == null ">
+	    	having  age &gt;=${condition.baseInfoStartAge}
+	    </if>
+	     <if test="condition.baseInfoStartAge == null &amp; condition.baseInfoEndAge != null ">
+	    	having  age &lt;=${condition.baseInfoEndAge}
+	    </if>
+	    UNION 
+	    select  ap.*,bi.base_info_name from am_project ap    join am_collaborator ac on ac.achievement_id=ap.project_id 
+ 		join bi_base_info bi on  ac.base_info_id=bi.base_info_id  
+  		<if test="_parameter != null" >
+	      <include refid="Example_Where_Clause" />
+	    </if>
+	     <if test="condition.baseInfoStartAge != null &amp;  condition.baseInfoEndAge != null">
+	    	having  age  &gt;= ${condition.baseInfoStartAge} and age &lt;=${condition.baseInfoEndAge}
+	    </if>
+	    <if test="condition.baseInfoStartAge != null &amp; condition.baseInfoEndAge == null ">
+	    	having  age &gt;=${condition.baseInfoStartAge}
+	    </if>
+	     <if test="condition.baseInfoStartAge == null &amp; condition.baseInfoEndAge != null ">
+	    	having  age &lt;=${condition.baseInfoEndAge}
+	    </if>
+     ) as t  group by t.project_id  
+    <if test="orderByClause != null" >
+      order by 15 desc 
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select> -->
+</mapper>

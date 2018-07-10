@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.EpReportMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.EpReport" >
+    <id column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="report_type" property="reportType" jdbcType="VARCHAR" />
+    <result column="report_time" property="reportTime" jdbcType="VARCHAR" />
+    <result column="report_title" property="reportTitle" jdbcType="VARCHAR" />
+    <result column="report_dept" property="reportDept" jdbcType="VARCHAR" />
+    <result column="report_submitter" property="reportSubmitter" jdbcType="VARCHAR" />
+    <result column="report_submitter_id" property="reportSubmitterId" jdbcType="VARCHAR" />
+    <result column="report_remarks" property="reportRemarks" jdbcType="VARCHAR" />
+    <result column="report_del" property="reportDel" jdbcType="VARCHAR" />
+    <result column="report_create_time" property="reportCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.reportType != null" >
+         and report_type = #{condition.reportType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportTime != null" >
+         and report_time = #{condition.reportTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportTitle != null" >
+         and report_title = #{condition.reportTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportDept != null" >
+         and report_dept = #{condition.reportDept,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportSubmitter != null" >
+         and report_submitter = #{condition.reportSubmitter,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportSubmitterId != null" >
+         and report_submitter_id = #{condition.reportSubmitterId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportRemarks != null" >
+         and report_remarks = #{condition.reportRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportDel != null" >
+         and report_del = #{condition.reportDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportCreateTime != null" >
+         and report_create_time = #{condition.reportCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.reportType != null" >
+         and report_type = #{example.condition.reportType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportTime != null" >
+         and report_time = #{example.condition.reportTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportTitle != null" >
+         and report_title = #{example.condition.reportTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportDept != null" >
+         and report_dept = #{example.condition.reportDept,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportSubmitter != null" >
+         and report_submitter = #{example.condition.reportSubmitter,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportSubmitterId != null" >
+         and report_submitter_id = #{example.condition.reportSubmitterId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportRemarks != null" >
+         and report_remarks = #{example.condition.reportRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportDel != null" >
+         and report_del = #{example.condition.reportDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.reportCreateTime != null" >
+         and report_create_time = #{example.condition.reportCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    report_id, report_type, report_time, report_title, report_dept, report_submitter, report_submitter_id,
+    report_remarks, report_del, report_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ep_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ep_report
+    where report_id = #{reportId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ep_report
+    where report_id = #{reportId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from ep_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete> 
+  <insert id="insert" parameterType="com.systemManage.pojo.base.EpReport" >
+    insert into ep_report (report_id, report_type, report_time, 
+      report_title, report_dept, report_submitter, report_submitter_id,
+      report_remarks, report_del, report_create_time
+      )
+    values (#{reportId,jdbcType=VARCHAR}, #{reportType,jdbcType=VARCHAR}, #{reportTime,jdbcType=VARCHAR}, 
+      #{reportTitle,jdbcType=VARCHAR}, #{reportDept,jdbcType=VARCHAR}, #{reportSubmitter,jdbcType=VARCHAR}, #{reportSubmitterId,jdbcType=VARCHAR}, 
+      #{reportRemarks,jdbcType=VARCHAR}, #{reportDel,jdbcType=VARCHAR}, #{reportCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.EpReport" >
+    insert into ep_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="reportId != null" >
+        report_id,
+      </if>
+      <if test="reportType != null" >
+        report_type,
+      </if>
+      <if test="reportTime != null" >
+        report_time,
+      </if>
+      <if test="reportTitle != null" >
+        report_title,
+      </if>
+      <if test="reportDept != null" >
+        report_dept,
+      </if>
+      <if test="reportSubmitter != null" >
+        report_submitter,
+      </if>
+       <if test="reportSubmitterId != null" >
+        report_submitter_id,
+      </if>
+      <if test="reportRemarks != null" >
+        report_remarks,
+      </if>
+      <if test="reportDel != null" >
+        report_del,
+      </if>
+      <if test="reportCreateTime != null" >
+        report_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="reportId != null" >
+        #{reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportType != null" >
+        #{reportType,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null" >
+        #{reportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTitle != null" >
+        #{reportTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDept != null" >
+        #{reportDept,jdbcType=VARCHAR},
+      </if>
+      <if test="reportSubmitter != null" >
+        #{reportSubmitter,jdbcType=VARCHAR},
+      </if>
+       <if test="reportSubmitterId != null" >
+        #{reportSubmitterId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportRemarks != null" >
+        #{reportRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDel != null" >
+        #{reportDel,jdbcType=VARCHAR},
+      </if>
+      <if test="reportCreateTime != null" >
+        #{reportCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from ep_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ep_report
+    <set >
+      <if test="record.reportId != null" >
+        report_id = #{record.reportId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportType != null" >
+        report_type = #{record.reportType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportTime != null" >
+        report_time = #{record.reportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportTitle != null" >
+        report_title = #{record.reportTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportDept != null" >
+        report_dept = #{record.reportDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportSubmitter != null" >
+        report_submitter = #{record.reportSubmitter,jdbcType=VARCHAR},
+      </if>
+       <if test="record.reportSubmitterId != null" >
+        report_submitter_id = #{record.reportSubmitterId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportRemarks != null" >
+        report_remarks = #{record.reportRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportDel != null" >
+        report_del = #{record.reportDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reportCreateTime != null" >
+        report_create_time = #{record.reportCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ep_report
+    set report_id = #{record.reportId,jdbcType=VARCHAR},
+      report_type = #{record.reportType,jdbcType=VARCHAR},
+      report_time = #{record.reportTime,jdbcType=VARCHAR},
+      report_title = #{record.reportTitle,jdbcType=VARCHAR},
+      report_dept = #{record.reportDept,jdbcType=VARCHAR},
+      report_submitter = #{record.reportSubmitter,jdbcType=VARCHAR},
+      report_submitter_id = #{record.reportSubmitterId,jdbcType=VARCHAR},
+      report_remarks = #{record.reportRemarks,jdbcType=VARCHAR},
+      report_del = #{record.reportDel,jdbcType=VARCHAR},
+      report_create_time = #{record.reportCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.EpReport" >
+    update ep_report
+    <set >
+      <if test="reportType != null" >
+        report_type = #{reportType,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTime != null" >
+        report_time = #{reportTime,jdbcType=VARCHAR},
+      </if>
+      <if test="reportTitle != null" >
+        report_title = #{reportTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDept != null" >
+        report_dept = #{reportDept,jdbcType=VARCHAR},
+      </if>
+      <if test="reportSubmitter != null" >
+        report_submitter = #{reportSubmitter,jdbcType=VARCHAR},
+      </if>
+      <if test="reportSubmitterId != null" >
+        report_submitter_id = #{reportSubmitterId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportRemarks != null" >
+        report_remarks = #{reportRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDel != null" >
+        report_del = #{reportDel,jdbcType=VARCHAR},
+      </if>
+      <if test="reportCreateTime != null" >
+        report_create_time = #{reportCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where report_id = #{reportId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.EpReport" >
+    update ep_report
+    set report_type = #{reportType,jdbcType=VARCHAR},
+      report_time = #{reportTime,jdbcType=VARCHAR},
+      report_title = #{reportTitle,jdbcType=VARCHAR},
+      report_dept = #{reportDept,jdbcType=VARCHAR},
+      report_submitter = #{reportSubmitter,jdbcType=VARCHAR},
+      report_submitter_id = #{reportSubmitterId,jdbcType=VARCHAR},
+      report_remarks = #{reportRemarks,jdbcType=VARCHAR},
+      report_del = #{reportDel,jdbcType=VARCHAR},
+      report_create_time = #{reportCreateTime,jdbcType=TIMESTAMP}
+    where report_id = #{reportId,jdbcType=VARCHAR}
+  </update>
+</mapper>

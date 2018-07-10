@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.MwSummaryMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwSummary" >
+    <id column="summary_id" property="summaryId" jdbcType="VARCHAR" />
+    <result column="summary_title" property="summaryTitle" jdbcType="VARCHAR" />
+    <result column="summary_time" property="summaryTime" jdbcType="VARCHAR" />
+    <result column="summary_cycle" property="summaryCycle" jdbcType="VARCHAR" />
+    <result column="summary_content" property="summaryContent" jdbcType="VARCHAR" />
+    <result column="summary_remarks" property="summaryRemarks" jdbcType="VARCHAR" />
+    <result column="summary_del" property="summaryDel" jdbcType="VARCHAR" />
+    <result column="summary_create_time" property="summaryCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.summaryTitle != null" >
+         and summary_title = #{condition.summaryTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryTime != null" >
+         and summary_time = #{condition.summaryTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryCycle != null" >
+         and summary_cycle = #{condition.summaryCycle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryContent != null" >
+         and summary_content = #{condition.summaryContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryRemarks != null" >
+         and summary_remarks = #{condition.summaryRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryDel != null" >
+         and summary_del = #{condition.summaryDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryCreateTime != null" >
+         and summary_create_time = #{condition.summaryCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.summaryTitle != null" >
+         and summary_title = #{example.condition.summaryTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.summaryTime != null" >
+         and summary_time = #{example.condition.summaryTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.summaryCycle != null" >
+         and summary_cycle = #{example.condition.summaryCycle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.summaryContent != null" >
+         and summary_content = #{example.condition.summaryContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.summaryRemarks != null" >
+         and summary_remarks = #{example.condition.summaryRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.summaryDel != null" >
+         and summary_del = #{example.condition.summaryDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.summaryCreateTime != null" >
+         and summary_create_time = #{example.condition.summaryCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    summary_id, summary_title, summary_time, summary_cycle, summary_content, summary_remarks, 
+    summary_del, summary_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_summary
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_summary
+    where summary_id = #{summaryId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mw_summary
+    where summary_id = #{summaryId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from mw_summary
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.MwSummary" >
+    insert into mw_summary (summary_id, summary_title, summary_time, 
+      summary_cycle, summary_content, summary_remarks, 
+      summary_del, summary_create_time)
+    values (#{summaryId,jdbcType=VARCHAR}, #{summaryTitle,jdbcType=VARCHAR}, #{summaryTime,jdbcType=VARCHAR}, 
+      #{summaryCycle,jdbcType=VARCHAR}, #{summaryContent,jdbcType=VARCHAR}, #{summaryRemarks,jdbcType=VARCHAR}, 
+      #{summaryDel,jdbcType=VARCHAR}, #{summaryCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.MwSummary" >
+    insert into mw_summary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="summaryId != null" >
+        summary_id,
+      </if>
+      <if test="summaryTitle != null" >
+        summary_title,
+      </if>
+      <if test="summaryTime != null" >
+        summary_time,
+      </if>
+      <if test="summaryCycle != null" >
+        summary_cycle,
+      </if>
+      <if test="summaryContent != null" >
+        summary_content,
+      </if>
+      <if test="summaryRemarks != null" >
+        summary_remarks,
+      </if>
+      <if test="summaryDel != null" >
+        summary_del,
+      </if>
+      <if test="summaryCreateTime != null" >
+        summary_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="summaryId != null" >
+        #{summaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryTitle != null" >
+        #{summaryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryTime != null" >
+        #{summaryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryCycle != null" >
+        #{summaryCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryContent != null" >
+        #{summaryContent,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryRemarks != null" >
+        #{summaryRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryDel != null" >
+        #{summaryDel,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryCreateTime != null" >
+        #{summaryCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_summary
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mw_summary
+    <set >
+      <if test="record.summaryId != null" >
+        summary_id = #{record.summaryId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summaryTitle != null" >
+        summary_title = #{record.summaryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summaryTime != null" >
+        summary_time = #{record.summaryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summaryCycle != null" >
+        summary_cycle = #{record.summaryCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summaryContent != null" >
+        summary_content = #{record.summaryContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summaryRemarks != null" >
+        summary_remarks = #{record.summaryRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summaryDel != null" >
+        summary_del = #{record.summaryDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summaryCreateTime != null" >
+        summary_create_time = #{record.summaryCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mw_summary
+    set summary_id = #{record.summaryId,jdbcType=VARCHAR},
+      summary_title = #{record.summaryTitle,jdbcType=VARCHAR},
+      summary_time = #{record.summaryTime,jdbcType=VARCHAR},
+      summary_cycle = #{record.summaryCycle,jdbcType=VARCHAR},
+      summary_content = #{record.summaryContent,jdbcType=VARCHAR},
+      summary_remarks = #{record.summaryRemarks,jdbcType=VARCHAR},
+      summary_del = #{record.summaryDel,jdbcType=VARCHAR},
+      summary_create_time = #{record.summaryCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.MwSummary" >
+    update mw_summary
+    <set >
+      <if test="summaryTitle != null" >
+        summary_title = #{summaryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryTime != null" >
+        summary_time = #{summaryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryCycle != null" >
+        summary_cycle = #{summaryCycle,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryContent != null" >
+        summary_content = #{summaryContent,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryRemarks != null" >
+        summary_remarks = #{summaryRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryDel != null" >
+        summary_del = #{summaryDel,jdbcType=VARCHAR},
+      </if>
+      <if test="summaryCreateTime != null" >
+        summary_create_time = #{summaryCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where summary_id = #{summaryId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.MwSummary" >
+    update mw_summary
+    set summary_title = #{summaryTitle,jdbcType=VARCHAR},
+      summary_time = #{summaryTime,jdbcType=VARCHAR},
+      summary_cycle = #{summaryCycle,jdbcType=VARCHAR},
+      summary_content = #{summaryContent,jdbcType=VARCHAR},
+      summary_remarks = #{summaryRemarks,jdbcType=VARCHAR},
+      summary_del = #{summaryDel,jdbcType=VARCHAR},
+      summary_create_time = #{summaryCreateTime,jdbcType=TIMESTAMP}
+    where summary_id = #{summaryId,jdbcType=VARCHAR}
+  </update>
+</mapper>

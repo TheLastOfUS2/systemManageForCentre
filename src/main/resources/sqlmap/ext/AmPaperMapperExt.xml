@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmPaperMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.AmPaperDto" >
+    <id column="paper_id" property="paperId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="paper_type" property="paperType" jdbcType="VARCHAR" />
+    <result column="paper_title" property="paperTitle" jdbcType="VARCHAR" />
+    <result column="paper_name" property="paperName" jdbcType="VARCHAR" />
+    <result column="paper_publish_journal" property="paperPublishJournal" jdbcType="VARCHAR" />
+    <result column="paper_periodical_type" property="paperPeriodicalType" jdbcType="VARCHAR" />
+    <result column="paper_volume_number" property="paperVolumeNumber" jdbcType="VARCHAR" />
+    <result column="paper_publish_time" property="paperPublishTime" jdbcType="VARCHAR" />
+     <result column="paper_page_start_range" property="paperPageStartRange" jdbcType="VARCHAR" />
+    <result column="paper_page_end_range" property="paperPageEndRange" jdbcType="VARCHAR" />
+    <result column="paper_support_topic" property="paperSupportTopic" jdbcType="VARCHAR" />
+    <result column="paper_reprint_count" property="paperReprintCount" jdbcType="VARCHAR" />
+    <result column="paper_retrieval_type" property="paperRetrievalType" jdbcType="VARCHAR" />
+    <result column="paper_content" property="paperContent" jdbcType="VARCHAR" />
+    <result column="paper_address" property="paperAddress" jdbcType="VARCHAR" />
+    <result column="paper_plate" property="paperPlate" jdbcType="VARCHAR" />
+    <result column="paper_if_theory" property="paperIfTheory" jdbcType="VARCHAR" />
+    <result column="paper_remarks" property="paperRemarks" jdbcType="VARCHAR" />
+    <result column="paper_del" property="paperDel" jdbcType="VARCHAR" />
+    <result column="paper_create_time" property="paperCreateTime" jdbcType="TIMESTAMP" />
+    
+    <!-- 作者名称 -->
+    <result column="base_info_name" property="baseInfoName" jdbcType="VARCHAR" />
+    
+    <!-- 一对多关系映射 -->
+    <!-- 合作者 -->
+    <collection property="amCollaborators" column="paper_id" select="findCollaboratorById" />
+  </resultMap>
+  
+   <!-- 合作者 -->
+  <resultMap id="CollaboratorResultMap" type="com.systemManage.pojo.dto.AmCollaboratorDto">
+    <id column="collaborator_id" jdbcType="VARCHAR" property="collaboratorId" />
+    <result column="achievement_id" jdbcType="VARCHAR" property="achievementId" />
+    <result column="base_info_id" jdbcType="VARCHAR" property="baseInfoId" />
+    <result column="collaborator_type" jdbcType="VARCHAR" property="collaboratorType" />
+    <result column="collaborator_content" jdbcType="VARCHAR" property="collaboratorContent" />
+    <result column="collaborator_create_time" jdbcType="TIMESTAMP" property="collaboratorCreateTime" />
+     
+    <!-- 作者名称 -->
+    <result column="base_info_name" property="BaseInfoName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- 关联查询合作者 -->
+  <select id="findCollaboratorById" parameterType="java.lang.String" resultMap="CollaboratorResultMap">
+    select * from am_collaborator ac,bi_base_info bi where ac.base_info_id=bi.base_info_id and ac.achievement_id = #{id}
+  </select> 
+  
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and p.base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperType != null" >
+         and p.paper_type = #{condition.paperType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperTitle != null" >
+         and p.paper_title = #{condition.paperTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperName != null" >
+         and p.paper_name = #{condition.paperName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPublishJournal != null" >
+         and p.paper_publish_journal = #{condition.paperPublishJournal,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPeriodicalType != null" >
+         and p.paper_periodical_type = #{condition.paperPeriodicalType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperVolumeNumber != null" >
+         and p.paper_volume_number = #{condition.paperVolumeNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPublishTime != null" >
+         and p.paper_publish_time = #{condition.paperPublishTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPageStartRange != null" >
+         and p.paper_page_start_range = #{condition.paperPageStartRange,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPageEndRange != null" >
+         and p.paper_page_end_range = #{condition.paperPageEndRange,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperSupportTopic != null" >
+         and p.paper_support_topic = #{condition.paperSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperReprintCount != null" >
+         and p.paper_reprint_count = #{condition.paperReprintCount,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperRetrievalType != null" >
+         and p.paper_retrieval_type = #{condition.paperRetrievalType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperContent != null" >
+         and p.paper_content = #{condition.paperContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperAddress != null" >
+         and p.paper_address = #{condition.paperAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPlate != null" >
+         and p.paper_plate = #{condition.paperPlate,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperIfTheory != null" >
+         and p.paper_if_theory = #{condition.paperIfTheory,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperRemarks != null" >
+         and p.paper_remarks = #{condition.paperRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperDel != null" >
+         and p.paper_del = #{condition.paperDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperCreateTime != null" >
+         and p.paper_create_time = #{condition.paperCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      
+      <!-- 模糊查询 -->
+      <!-- 责任人名称 -->
+      <if test="condition.baseInfoName2 != null" >
+         and bi.base_info_name like CONCAT('%', #{condition.baseInfoName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 题目 -->
+      <if test="condition.paperTitle2 != null" >
+         and p.paper_title like CONCAT('%', #{condition.paperTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 发表期刊 -->
+      <if test="condition.paperPublishJournal2 != null" >
+         and p.paper_publish_journal like CONCAT('%', #{condition.paperPublishJournal2,jdbcType=VARCHAR}, '%')
+      </if>
+       <!-- 卷期号 -->
+      <if test="condition.paperVolumeNumber2 != null" >
+         and p.paper_volume_number like CONCAT('%', #{condition.paperVolumeNumber2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 发表时间 -->
+      <if test="condition.paperPublishTime2 != null" >
+         and p.paper_publish_time like CONCAT('%', #{condition.paperPublishTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 支持课题-->
+      <if test="condition.paperSupportTopic2 != null" >
+         and p.paper_support_topic like CONCAT('%', #{condition.paperSupportTopic2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 会议名称-->
+      <if test="condition.paperName2 != null" >
+         and p.paper_name like CONCAT('%', #{condition.paperName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 会议地点-->
+      <if test="condition.paperAddress2 != null" >
+         and p.paper_address like CONCAT('%', #{condition.paperAddress2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 板块-->
+      <if test="condition.paperPlate2 != null" >
+         and p.paper_plate like CONCAT('%', #{condition.paperPlate2,jdbcType=VARCHAR}, '%')
+      </if>
+      
+      <!-- 全文检索 -->
+       <if test="condition.baseInfoName3 != null" >
+       	 and bi.base_info_name like CONCAT('%', #{condition.baseInfoName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 责任人类别 -->
+      <if test="condition.baseInfoType3 != null" >
+       	 and bi.base_info_type in (${condition.baseInfoType3})
+      </if>
+      <!-- 责任人职称 -->
+      <if test="condition.baseInfoPositionalTitles3 != null" >
+       	 and bi.base_info_positional_titles in (${condition.baseInfoPositionalTitles3})
+      </if>
+      <!-- 责任人级别 -->
+      <if test="condition.baseInfoLevel3 != null" >
+       	 and bi.base_info_level in (${condition.baseInfoLevel3})
+      </if>
+      <!-- 成果/项目名称 -->
+      <if test="condition.projectName3 != null" >
+     	and p.paper_title like CONCAT('%', #{condition.projectName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectStartTime != null" >
+        and p.paper_publish_time &gt;= #{condition.projectStartTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectEndTime != null" >
+        and p.paper_publish_time &lt;= #{condition.projectEndTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 全文检索 -->
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    p.paper_id, p.base_info_id, p.paper_type, p.paper_title, p.paper_name, p.paper_publish_journal, 
+    p.paper_periodical_type, p.paper_volume_number, p.paper_publish_time, p.paper_page_start_range, 
+    p.paper_page_end_range,p.paper_support_topic, p.paper_reprint_count, p.paper_retrieval_type,
+    p.paper_content,p.paper_address, p.paper_plate, p.paper_if_theory, p.paper_remarks,
+    p.paper_del, p.paper_create_time,bi.base_info_name
+  </sql>
+  
+  <select id="selectByPrimaryKeyExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_paper p,bi_base_info bi
+    where p.base_info_id=bi.base_info_id and p.paper_id = #{paperId,jdbcType=VARCHAR} 
+  </select>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_paper p,bi_base_info bi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+     and p.base_info_id=bi.base_info_id 
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+     <!-- 责任人年龄区间(计算年龄) ${condition.startAge0} -->
+    <if test="condition.baseInfoStartAge != null or condition.baseInfoEndAge != null" >
+    	DATE_FORMAT(bi.base_info_birth_date,"%Y-%m-%d") base_info_birth_date,(year(now())-year(bi.base_info_birth_date)-1)+(DATE_FORMAT(bi.base_info_birth_date,'%m%d') &lt;=DATE_FORMAT(NOW(),'%m%d')) as age,
+    </if>
+    <include refid="Base_Column_List" />
+    from am_paper p,bi_base_info bi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and p.base_info_id=bi.base_info_id 
+     <if test="condition.baseInfoStartAge != null &amp;  condition.baseInfoEndAge != null">
+    	having  age  &gt;= ${condition.baseInfoStartAge} and age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="condition.baseInfoStartAge != null &amp; condition.baseInfoEndAge == null ">
+    	having  age &gt;=${condition.baseInfoStartAge}
+    </if>
+     <if test="condition.baseInfoStartAge == null &amp; condition.baseInfoEndAge != null ">
+    	having  age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

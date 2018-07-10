@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.FcCooperationMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.FcCooperation" >
+    <id column="cooperation_id" property="cooperationId" jdbcType="VARCHAR" />
+    <result column="cooperation_type" property="cooperationType" jdbcType="VARCHAR" />
+    <result column="cooperation_project_name" property="cooperationProjectName" jdbcType="VARCHAR" />
+    <result column="cooperation_content" property="cooperationContent" jdbcType="VARCHAR" />
+    <result column="cooperation_company" property="cooperationCompany" jdbcType="VARCHAR" />
+    <result column="cooperation_time" property="cooperationTime" jdbcType="VARCHAR" />
+    <result column="cooperation_remarks" property="cooperationRemarks" jdbcType="VARCHAR" />
+    <result column="cooperation_del" property="cooperationDel" jdbcType="VARCHAR" />
+    <result column="cooperation_create_time" property="cooperationCreateTime" jdbcType="TIMESTAMP" />
+    <result column="cooperation_person" property="cooperationPerson" jdbcType="VARCHAR" />
+    <result column="cooperation_person_company" property="cooperationPersonCompany" jdbcType="VARCHAR" />
+    <result column="cooperation_person_liable" property="cooperationPersonLiable" jdbcType="VARCHAR" />
+    <result column="cooperation_person_liable_id" property="cooperationPersonLiableId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.cooperationType != null" >
+         and cooperation_type = #{condition.cooperationType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationProjectName != null" >
+         and cooperation_project_name = #{condition.cooperationProjectName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationContent != null" >
+         and cooperation_content = #{condition.cooperationContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationCompany != null" >
+         and cooperation_company = #{condition.cooperationCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationTime != null" >
+         and cooperation_time = #{condition.cooperationTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationRemarks != null" >
+         and cooperation_remarks = #{condition.cooperationRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationDel != null" >
+         and cooperation_del = #{condition.cooperationDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationCreateTime != null" >
+         and cooperation_create_time = #{condition.cooperationCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.cooperationPerson != null" >
+         and cooperation_person = #{condition.cooperationPerson,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationPersonCompany != null" >
+         and cooperation_person_company = #{condition.cooperationPersonCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationPersonLiable != null" >
+         and cooperation_person_liable = #{condition.cooperationPersonLiable,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationPersonLiableId != null" >
+         and cooperation_person_liable_id = #{condition.cooperationPersonLiableId,jdbcType=VARCHAR}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 合作项目名称 -->
+      <if test="condition.cooperationProjectName2 != null" >
+      	 and cooperation_project_name like CONCAT('%', #{condition.cooperationProjectName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 合作单位 -->
+      <if test="condition.cooperationCompany2 != null" >
+      	 and cooperation_company like CONCAT('%', #{condition.cooperationCompany2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 合作时间 -->
+      <if test="condition.cooperationTime2 != null" >
+      	 and cooperation_time like CONCAT('%', #{condition.cooperationTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 责任人 -->
+      <if test="condition.cooperationPersonLiable2 != null" >
+      	 and cooperation_person_liable like CONCAT('%', #{condition.cooperationPersonLiable2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 合作者 -->
+      <if test="condition.cooperationPerson2 != null" >
+      	 and cooperation_person like CONCAT('%', #{condition.cooperationPerson2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    cooperation_id, cooperation_type, cooperation_project_name, cooperation_content, 
+    cooperation_company, cooperation_time, cooperation_remarks, cooperation_del, cooperation_create_time, 
+    cooperation_person, cooperation_person_company, cooperation_person_liable, cooperation_person_liable_id
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from fc_cooperation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fc_cooperation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

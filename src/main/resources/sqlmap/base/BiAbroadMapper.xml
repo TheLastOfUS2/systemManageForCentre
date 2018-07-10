@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.BiAbroadMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.BiAbroad" >
+    <id column="abroad_id" property="abroadId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="abroad_country" property="abroadCountry" jdbcType="VARCHAR" />
+    <result column="abroad_start_time" property="abroadStartTime" jdbcType="VARCHAR" />
+    <result column="abroad_end_time" property="abroadEndTime" jdbcType="VARCHAR" />
+    <result column="abroad_mechanism" property="abroadMechanism" jdbcType="VARCHAR" />
+    <result column="abroad_objective" property="abroadObjective" jdbcType="VARCHAR" />
+    <result column="abroad_create_time" property="abroadCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.abroadCountry != null" >
+         and abroad_country = #{condition.abroadCountry,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.abroadStartTime != null" >
+         and abroad_start_time = #{condition.abroadStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.abroadEndTime != null" >
+         and abroad_end_time = #{condition.abroadEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.abroadMechanism != null" >
+         and abroad_mechanism = #{condition.abroadMechanism,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.abroadObjective != null" >
+         and abroad_objective = #{condition.abroadObjective,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.abroadCreateTime != null" >
+         and abroad_create_time = #{condition.abroadCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.abroadCountry != null" >
+         and abroad_country = #{example.condition.abroadCountry,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.abroadStartTime != null" >
+         and abroad_start_time = #{example.condition.abroadStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.abroadEndTime != null" >
+         and abroad_end_time = #{example.condition.abroadEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.abroadMechanism != null" >
+         and abroad_mechanism = #{example.condition.abroadMechanism,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.abroadObjective != null" >
+         and abroad_objective = #{example.condition.abroadObjective,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.abroadCreateTime != null" >
+         and abroad_create_time = #{example.condition.abroadCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    abroad_id, base_info_id, abroad_country, abroad_start_time, abroad_end_time, abroad_mechanism, 
+    abroad_objective, abroad_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bi_abroad
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_abroad
+    where abroad_id = #{abroadId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bi_abroad
+    where abroad_id = #{abroadId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from bi_abroad
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.BiAbroad" >
+    insert into bi_abroad (abroad_id, base_info_id, abroad_country, 
+      abroad_start_time, abroad_end_time, abroad_mechanism, 
+      abroad_objective, abroad_create_time)
+    values (#{abroadId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{abroadCountry,jdbcType=VARCHAR}, 
+      #{abroadStartTime,jdbcType=VARCHAR}, #{abroadEndTime,jdbcType=VARCHAR}, #{abroadMechanism,jdbcType=VARCHAR}, 
+      #{abroadObjective,jdbcType=VARCHAR}, #{abroadCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.BiAbroad" >
+    insert into bi_abroad
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="abroadId != null" >
+        abroad_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="abroadCountry != null" >
+        abroad_country,
+      </if>
+      <if test="abroadStartTime != null" >
+        abroad_start_time,
+      </if>
+      <if test="abroadEndTime != null" >
+        abroad_end_time,
+      </if>
+      <if test="abroadMechanism != null" >
+        abroad_mechanism,
+      </if>
+      <if test="abroadObjective != null" >
+        abroad_objective,
+      </if>
+      <if test="abroadCreateTime != null" >
+        abroad_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="abroadId != null" >
+        #{abroadId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadCountry != null" >
+        #{abroadCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadStartTime != null" >
+        #{abroadStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadEndTime != null" >
+        #{abroadEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadMechanism != null" >
+        #{abroadMechanism,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadObjective != null" >
+        #{abroadObjective,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadCreateTime != null" >
+        #{abroadCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from bi_abroad
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bi_abroad
+    <set >
+      <if test="record.abroadId != null" >
+        abroad_id = #{record.abroadId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abroadCountry != null" >
+        abroad_country = #{record.abroadCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abroadStartTime != null" >
+        abroad_start_time = #{record.abroadStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abroadEndTime != null" >
+        abroad_end_time = #{record.abroadEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abroadMechanism != null" >
+        abroad_mechanism = #{record.abroadMechanism,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abroadObjective != null" >
+        abroad_objective = #{record.abroadObjective,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abroadCreateTime != null" >
+        abroad_create_time = #{record.abroadCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bi_abroad
+    set abroad_id = #{record.abroadId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      abroad_country = #{record.abroadCountry,jdbcType=VARCHAR},
+      abroad_start_time = #{record.abroadStartTime,jdbcType=VARCHAR},
+      abroad_end_time = #{record.abroadEndTime,jdbcType=VARCHAR},
+      abroad_mechanism = #{record.abroadMechanism,jdbcType=VARCHAR},
+      abroad_objective = #{record.abroadObjective,jdbcType=VARCHAR},
+      abroad_create_time = #{record.abroadCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.BiAbroad" >
+    update bi_abroad
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadCountry != null" >
+        abroad_country = #{abroadCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadStartTime != null" >
+        abroad_start_time = #{abroadStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadEndTime != null" >
+        abroad_end_time = #{abroadEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadMechanism != null" >
+        abroad_mechanism = #{abroadMechanism,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadObjective != null" >
+        abroad_objective = #{abroadObjective,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadCreateTime != null" >
+        abroad_create_time = #{abroadCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where abroad_id = #{abroadId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.BiAbroad" >
+    update bi_abroad
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      abroad_country = #{abroadCountry,jdbcType=VARCHAR},
+      abroad_start_time = #{abroadStartTime,jdbcType=VARCHAR},
+      abroad_end_time = #{abroadEndTime,jdbcType=VARCHAR},
+      abroad_mechanism = #{abroadMechanism,jdbcType=VARCHAR},
+      abroad_objective = #{abroadObjective,jdbcType=VARCHAR},
+      abroad_create_time = #{abroadCreateTime,jdbcType=TIMESTAMP}
+    where abroad_id = #{abroadId,jdbcType=VARCHAR}
+  </update>
+</mapper>

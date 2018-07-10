@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.MwMemorabiliaMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwMemorabilia" >
+    <id column="memorabilia_id" property="memorabiliaId" jdbcType="VARCHAR" />
+    <result column="memorabilia_theme" property="memorabiliaTheme" jdbcType="VARCHAR" />
+    <result column="memorabilia_time" property="memorabiliaTime" jdbcType="VARCHAR" />
+    <result column="memorabilia_content" property="memorabiliaContent" jdbcType="VARCHAR" />
+    <result column="memorabilia_remarks" property="memorabiliaRemarks" jdbcType="VARCHAR" />
+    <result column="memorabilia_del" property="memorabiliaDel" jdbcType="VARCHAR" />
+    <result column="memorabilia_create_time" property="memorabiliaCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.memorabiliaTheme != null" >
+         and memorabilia_theme = #{condition.memorabiliaTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaTime != null" >
+         and memorabilia_time = #{condition.memorabiliaTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaContent != null" >
+         and memorabilia_content = #{condition.memorabiliaContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaRemarks != null" >
+         and memorabilia_remarks = #{condition.memorabiliaRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaDel != null" >
+         and memorabilia_del = #{condition.memorabiliaDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.memorabiliaCreateTime != null" >
+         and memorabilia_create_time = #{condition.memorabiliaCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.memorabiliaTheme != null" >
+         and memorabilia_theme = #{example.condition.memorabiliaTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.memorabiliaTime != null" >
+         and memorabilia_time = #{example.condition.memorabiliaTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.memorabiliaContent != null" >
+         and memorabilia_content = #{example.condition.memorabiliaContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.memorabiliaRemarks != null" >
+         and memorabilia_remarks = #{example.condition.memorabiliaRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.memorabiliaDel != null" >
+         and memorabilia_del = #{example.condition.memorabiliaDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.memorabiliaCreateTime != null" >
+         and memorabilia_create_time = #{example.condition.memorabiliaCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    memorabilia_id, memorabilia_theme, memorabilia_time, memorabilia_content, memorabilia_remarks, 
+    memorabilia_del, memorabilia_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_memorabilia
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_memorabilia
+    where memorabilia_id = #{memorabiliaId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mw_memorabilia
+    where memorabilia_id = #{memorabiliaId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from mw_memorabilia
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.MwMemorabilia" >
+    insert into mw_memorabilia (memorabilia_id, memorabilia_theme, 
+      memorabilia_time, memorabilia_content, memorabilia_remarks, 
+      memorabilia_del, memorabilia_create_time
+      )
+    values (#{memorabiliaId,jdbcType=VARCHAR}, #{memorabiliaTheme,jdbcType=VARCHAR}, 
+      #{memorabiliaTime,jdbcType=VARCHAR}, #{memorabiliaContent,jdbcType=VARCHAR}, #{memorabiliaRemarks,jdbcType=VARCHAR}, 
+      #{memorabiliaDel,jdbcType=VARCHAR}, #{memorabiliaCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.MwMemorabilia" >
+    insert into mw_memorabilia
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="memorabiliaId != null" >
+        memorabilia_id,
+      </if>
+      <if test="memorabiliaTheme != null" >
+        memorabilia_theme,
+      </if>
+      <if test="memorabiliaTime != null" >
+        memorabilia_time,
+      </if>
+      <if test="memorabiliaContent != null" >
+        memorabilia_content,
+      </if>
+      <if test="memorabiliaRemarks != null" >
+        memorabilia_remarks,
+      </if>
+      <if test="memorabiliaDel != null" >
+        memorabilia_del,
+      </if>
+      <if test="memorabiliaCreateTime != null" >
+        memorabilia_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="memorabiliaId != null" >
+        #{memorabiliaId,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaTheme != null" >
+        #{memorabiliaTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaTime != null" >
+        #{memorabiliaTime,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaContent != null" >
+        #{memorabiliaContent,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaRemarks != null" >
+        #{memorabiliaRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaDel != null" >
+        #{memorabiliaDel,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaCreateTime != null" >
+        #{memorabiliaCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_memorabilia
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mw_memorabilia
+    <set >
+      <if test="record.memorabiliaId != null" >
+        memorabilia_id = #{record.memorabiliaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memorabiliaTheme != null" >
+        memorabilia_theme = #{record.memorabiliaTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memorabiliaTime != null" >
+        memorabilia_time = #{record.memorabiliaTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memorabiliaContent != null" >
+        memorabilia_content = #{record.memorabiliaContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memorabiliaRemarks != null" >
+        memorabilia_remarks = #{record.memorabiliaRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memorabiliaDel != null" >
+        memorabilia_del = #{record.memorabiliaDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memorabiliaCreateTime != null" >
+        memorabilia_create_time = #{record.memorabiliaCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mw_memorabilia
+    set memorabilia_id = #{record.memorabiliaId,jdbcType=VARCHAR},
+      memorabilia_theme = #{record.memorabiliaTheme,jdbcType=VARCHAR},
+      memorabilia_time = #{record.memorabiliaTime,jdbcType=VARCHAR},
+      memorabilia_content = #{record.memorabiliaContent,jdbcType=VARCHAR},
+      memorabilia_remarks = #{record.memorabiliaRemarks,jdbcType=VARCHAR},
+      memorabilia_del = #{record.memorabiliaDel,jdbcType=VARCHAR},
+      memorabilia_create_time = #{record.memorabiliaCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.MwMemorabilia" >
+    update mw_memorabilia
+    <set >
+      <if test="memorabiliaTheme != null" >
+        memorabilia_theme = #{memorabiliaTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaTime != null" >
+        memorabilia_time = #{memorabiliaTime,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaContent != null" >
+        memorabilia_content = #{memorabiliaContent,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaRemarks != null" >
+        memorabilia_remarks = #{memorabiliaRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaDel != null" >
+        memorabilia_del = #{memorabiliaDel,jdbcType=VARCHAR},
+      </if>
+      <if test="memorabiliaCreateTime != null" >
+        memorabilia_create_time = #{memorabiliaCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where memorabilia_id = #{memorabiliaId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.MwMemorabilia" >
+    update mw_memorabilia
+    set memorabilia_theme = #{memorabiliaTheme,jdbcType=VARCHAR},
+      memorabilia_time = #{memorabiliaTime,jdbcType=VARCHAR},
+      memorabilia_content = #{memorabiliaContent,jdbcType=VARCHAR},
+      memorabilia_remarks = #{memorabiliaRemarks,jdbcType=VARCHAR},
+      memorabilia_del = #{memorabiliaDel,jdbcType=VARCHAR},
+      memorabilia_create_time = #{memorabiliaCreateTime,jdbcType=TIMESTAMP}
+    where memorabilia_id = #{memorabiliaId,jdbcType=VARCHAR}
+  </update>
+</mapper>

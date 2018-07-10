@@ -1,0 +1,28 @@
+/* 退出登录对话框样式 */
+
+/* 背景图 */
+.quitPicCss {
+  background: url("../App_Addins/easyUI/themes/default/images/messager_question.gif") no-repeat scroll left top;
+  display:block; 
+  width: 47px;
+  height: 35px;
+  float: left;
+}
+
+.quitBtnCss{
+	display: block;
+    width: 85px;
+    height: 60px;
+    color: #333333;
+    text-decoration: none;
+    background: url(../images/hover.jpg) no-repeat scroll left top;
+    line-height: 24px;
+    text-align: center;
+    float: left;
+}
+
+.quitBtnCss:hover {
+    background-image: url(../images/link.jpg)
+}
+
+

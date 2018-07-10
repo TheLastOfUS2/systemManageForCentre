@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.CsTrainConsultMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.CsTrainConsult" >
+    <id column="consult_id" property="consultId" jdbcType="VARCHAR" />
+    <result column="consult_title" property="consultTitle" jdbcType="VARCHAR" />
+    <result column="consult_name" property="consultName" jdbcType="VARCHAR" />
+    <result column="consult_name_id" property="consultNameId" jdbcType="VARCHAR" />
+    <result column="consult_start_time" property="consultStartTime" jdbcType="VARCHAR" />
+    <result column="consult_end_time" property="consultEndTime" jdbcType="VARCHAR" />
+    <result column="consult_count" property="consultCount" jdbcType="VARCHAR" />
+    <result column="consult_type" property="consultType" jdbcType="VARCHAR" />
+    <result column="consult_entrust_company" property="consultEntrustCompany" jdbcType="VARCHAR" />
+    <result column="consult_synopsis" property="consultSynopsis" jdbcType="VARCHAR" />
+    <result column="consult_remarks" property="consultRemarks" jdbcType="VARCHAR" />
+    <result column="consult_del" property="consultDel" jdbcType="VARCHAR" />
+    <result column="consult_create_time" property="consultCreateTime" jdbcType="TIMESTAMP" />
+   <result column="consult_target" property="consultTarget" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.consultTitle != null" >
+         and tc.consult_title = #{condition.consultTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultName != null" >
+         and tc.consult_name = #{condition.consultName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultNameId != null" >
+         and tc.consult_name_id = #{condition.consultNameId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultStartTime != null" >
+         and tc.consult_start_time = #{condition.consultStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultEndTime != null" >
+         and tc.consult_end_time = #{condition.consultEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultCount != null" >
+         and tc.consult_count = #{condition.consultCount,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultType != null" >
+         and tc.consult_type = #{condition.consultType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultEntrustCompany != null" >
+         and tc.consult_entrust_company = #{condition.consultEntrustCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultSynopsis != null" >
+         and tc.consult_synopsis = #{condition.consultSynopsis,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultRemarks != null" >
+         and tc.consult_remarks = #{condition.consultRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultDel != null" >
+         and tc.consult_del = #{condition.consultDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultCreateTime != null" >
+         and tc.consult_create_time = #{condition.consultCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.consultTarget != null" >
+         and tc.consult_target = #{condition.consultTarget,jdbcType=VARCHAR}
+      </if>
+      <!-- 模糊查询 -->
+      <!-- 课程名称 -->
+      <if test="condition.consultTitle2 != null" >
+      	 and tc.consult_title like CONCAT('%', #{condition.consultTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 授课人 -->
+      <if test="condition.consultName2 != null" >
+      	 and tc.consult_name like CONCAT('%', #{condition.consultName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 授课对象 -->
+      <if test="condition.consultTarget2 != null" >
+      	 and tc.consult_target like CONCAT('%', #{condition.consultTarget2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 开始时间 -->
+      <if test="condition.consultStartTime2 != null" >
+      	 and tc.consult_start_time like CONCAT('%', #{condition.consultStartTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 结束时间 -->
+      <if test="condition.consultEndTime2 != null" >
+      	 and tc.consult_end_time like CONCAT('%', #{condition.consultEndTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    tc.consult_id, tc.consult_title, tc.consult_name,tc.consult_name_id, tc.consult_start_time, tc.consult_end_time, tc.consult_count, 
+    tc.consult_type, tc.consult_entrust_company, tc.consult_synopsis, tc.consult_remarks, tc.consult_del, 
+    tc.consult_create_time,  tc.consult_target
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from cs_train_consult tc left join bi_base_info bi on tc.consult_name_id=bi.base_info_id
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cs_train_consult tc left join bi_base_info bi on tc.consult_name_id=bi.base_info_id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

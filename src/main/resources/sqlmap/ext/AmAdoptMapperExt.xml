@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmAdoptMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.AmAdoptDto" >
+    <id column="adopt_id" property="adoptId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="adopt_name" property="adoptName" jdbcType="VARCHAR" />
+    <result column="adopt_way" property="adoptWay" jdbcType="VARCHAR" />
+    <result column="adopt_submit_time" property="adoptSubmitTime" jdbcType="VARCHAR" />
+    <result column="adopt_time" property="adoptTime" jdbcType="VARCHAR" />
+    <result column="adopt_company" property="adoptCompany" jdbcType="VARCHAR" />
+    <result column="adopt_publication" property="adoptPublication" jdbcType="VARCHAR" />
+    <result column="adopt_evaluate" property="adoptEvaluate" jdbcType="VARCHAR" />
+    <result column="adopt_support_topic" property="adoptSupportTopic" jdbcType="VARCHAR" />
+    <result column="adopt_remarks" property="adoptRemarks" jdbcType="VARCHAR" />
+    <result column="adopt_del" property="adoptDel" jdbcType="VARCHAR" />
+    <result column="adopt_create_time" property="adoptCreateTime" jdbcType="TIMESTAMP" />
+    
+    <!-- 作者名称 -->
+    <result column="base_info_name" property="baseInfoName" jdbcType="VARCHAR" />
+    
+    <!-- 一对多关系映射 -->
+    <!-- 合作者 -->
+    <collection property="amCollaborators" column="adopt_id" select="findCollaboratorById" />
+  </resultMap>
+  <!-- 合作者 -->
+  <resultMap id="CollaboratorResultMap" type="com.systemManage.pojo.dto.AmCollaboratorDto">
+    <id column="collaborator_id" jdbcType="VARCHAR" property="collaboratorId" />
+    <result column="achievement_id" jdbcType="VARCHAR" property="achievementId" />
+    <result column="base_info_id" jdbcType="VARCHAR" property="baseInfoId" />
+    <result column="collaborator_type" jdbcType="VARCHAR" property="collaboratorType" />
+    <result column="collaborator_content" jdbcType="VARCHAR" property="collaboratorContent" />
+    <result column="collaborator_create_time" jdbcType="TIMESTAMP" property="collaboratorCreateTime" />
+    <!-- 作者名称 -->
+    <result column="base_info_name" property="BaseInfoName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- 关联查询合作者 -->
+  <select id="findCollaboratorById" parameterType="java.lang.String" resultMap="CollaboratorResultMap">
+    select * from am_collaborator ac,bi_base_info bi where ac.base_info_id=bi.base_info_id and ac.achievement_id = #{id}
+  </select> 
+  
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and a.base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptName != null" >
+         and a.adopt_name = #{condition.adoptName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptWay != null" >
+         and a.adopt_way = #{condition.adoptWay,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptSubmitTime != null" >
+         and a.adopt_submit_time = #{condition.adoptSubmitTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptTime != null" >
+         and a.adopt_time = #{condition.adoptTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptCompany != null" >
+         and a.adopt_company = #{condition.adoptCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptPublication != null" >
+         and a.adopt_publication = #{condition.adoptPublication,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptEvaluate != null" >
+         and a.adopt_evaluate = #{condition.adoptEvaluate,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptSupportTopic != null" >
+         and a.adopt_support_topic = #{condition.adoptSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptRemarks != null" >
+         and a.adopt_remarks = #{condition.adoptRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptDel != null" >
+         and a.adopt_del = #{condition.adoptDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptCreateTime != null" >
+         and a.adopt_create_time = #{condition.adoptCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      
+      <!-- 模糊查询 -->
+      <!-- 报告名称 -->
+      <if test="condition.adoptName2 != null" >
+      	 and a.adopt_name like CONCAT('%', #{condition.adoptName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 作者 -->
+      <if test="condition.baseInfoName2 != null" >
+      	 and bi.base_info_name like CONCAT('%', #{condition.baseInfoName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 提交时间 -->
+      <if test="condition.adoptSubmitTime2 != null" >
+      	 and a.adopt_submit_time like CONCAT('%', #{condition.adoptSubmitTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 采纳时间 -->
+      <if test="condition.adoptTime2 != null" >
+      	 and a.adopt_time like CONCAT('%', #{condition.adoptTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 采纳单位 -->
+      <if test="condition.adoptCompany2 != null" >
+      	 and a.adopt_company like CONCAT('%', #{condition.adoptCompany2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 采纳刊物 -->
+      <if test="condition.adoptPublication2 != null" >
+      	 and a.adopt_publication like CONCAT('%', #{condition.adoptPublication2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 支持课题 -->
+      <if test="condition.adoptSupportTopic2 != null" >
+      	 and a.adopt_support_topic like CONCAT('%', #{condition.adoptSupportTopic2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+      
+      <!-- 全文检索 -->
+      <if test="condition.baseInfoName3 != null" >
+       	 and bi.base_info_name like CONCAT('%', #{condition.baseInfoName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 责任人类别 -->
+      <if test="condition.baseInfoType3 != null" >
+       	 and bi.base_info_type in (${condition.baseInfoType3})
+      </if>
+      <!-- 责任人职称 -->
+      <if test="condition.baseInfoPositionalTitles3 != null" >
+       	 and bi.base_info_positional_titles in (${condition.baseInfoPositionalTitles3})
+      </if>
+      <!-- 责任人级别 -->
+      <if test="condition.baseInfoLevel3 != null" >
+       	 and bi.base_info_level in (${condition.baseInfoLevel3})
+      </if>
+      <!-- 成果/项目名称 -->
+      <if test="condition.projectName3 != null" >
+     	and a.adopt_name like CONCAT('%', #{condition.projectName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectStartTime != null" >
+        and a.adopt_time &gt;= #{condition.projectStartTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectEndTime != null" >
+        and a.adopt_time &lt;= #{condition.projectEndTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 全文检索 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    a.adopt_id, a.base_info_id, a.adopt_name, a.adopt_way, a.adopt_submit_time, a.adopt_time, a.adopt_company, 
+    a.adopt_publication, a.adopt_evaluate, a.adopt_support_topic, a.adopt_remarks, 
+    a.adopt_del, a.adopt_create_time,bi.base_info_name
+  </sql>
+  
+  <select id="selectByPrimaryKeyExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_adopt a,bi_base_info bi
+    where a.base_info_id=bi.base_info_id and adopt_id = #{adoptId,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_adopt a,bi_base_info bi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and a.base_info_id=bi.base_info_id 
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+     <!-- 责任人年龄区间(计算年龄) ${condition.startAge0} -->
+    <if test="condition.baseInfoStartAge != null or condition.baseInfoEndAge != null" >
+    	DATE_FORMAT(bi.base_info_birth_date,"%Y-%m-%d") base_info_birth_date,(year(now())-year(bi.base_info_birth_date)-1)+(DATE_FORMAT(bi.base_info_birth_date,'%m%d') &lt;=DATE_FORMAT(NOW(),'%m%d')) as age,
+    </if>
+    <include refid="Base_Column_List" />
+    from am_adopt a,bi_base_info bi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and a.base_info_id=bi.base_info_id
+     <if test="condition.baseInfoStartAge != null &amp;  condition.baseInfoEndAge != null">
+    	having  age  &gt;= ${condition.baseInfoStartAge} and age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="condition.baseInfoStartAge != null &amp; condition.baseInfoEndAge == null ">
+    	having  age &gt;=${condition.baseInfoStartAge}
+    </if>
+     <if test="condition.baseInfoStartAge == null &amp; condition.baseInfoEndAge != null ">
+    	having  age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

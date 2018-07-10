@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.CsTrainConsultMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.CsTrainConsult" >
+    <id column="consult_id" property="consultId" jdbcType="VARCHAR" />
+    <result column="consult_title" property="consultTitle" jdbcType="VARCHAR" />
+    <result column="consult_name" property="consultName" jdbcType="VARCHAR" />
+    <result column="consult_name_id" property="consultNameId" jdbcType="VARCHAR" />
+    <result column="consult_start_time" property="consultStartTime" jdbcType="VARCHAR" />
+    <result column="consult_end_time" property="consultEndTime" jdbcType="VARCHAR" />
+    <result column="consult_count" property="consultCount" jdbcType="VARCHAR" />
+    <result column="consult_type" property="consultType" jdbcType="VARCHAR" />
+    <result column="consult_entrust_company" property="consultEntrustCompany" jdbcType="VARCHAR" />
+    <result column="consult_synopsis" property="consultSynopsis" jdbcType="VARCHAR" />
+    <result column="consult_remarks" property="consultRemarks" jdbcType="VARCHAR" />
+    <result column="consult_del" property="consultDel" jdbcType="VARCHAR" />
+    <result column="consult_create_time" property="consultCreateTime" jdbcType="TIMESTAMP" />
+    <result column="consult_target" property="consultTarget" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.consultTitle != null" >
+         and consult_title = #{condition.consultTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultName != null" >
+         and consult_name = #{condition.consultName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultNameId != null" >
+         and consult_name_id = #{condition.consultNameId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultStartTime != null" >
+         and consult_start_time = #{condition.consultStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultEndTime != null" >
+         and consult_end_time = #{condition.consultEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultCount != null" >
+         and consult_count = #{condition.consultCount,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultType != null" >
+         and consult_type = #{condition.consultType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultEntrustCompany != null" >
+         and consult_entrust_company = #{condition.consultEntrustCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultSynopsis != null" >
+         and consult_synopsis = #{condition.consultSynopsis,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultRemarks != null" >
+         and consult_remarks = #{condition.consultRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultDel != null" >
+         and consult_del = #{condition.consultDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.consultCreateTime != null" >
+         and consult_create_time = #{condition.consultCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.consultTarget != null" >
+         and consult_target = #{condition.consultTarget,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.consultTitle != null" >
+         and consult_title = #{example.condition.consultTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultName != null" >
+         and consult_name = #{example.condition.consultName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultNameId != null" >
+         and consult_name_id = #{example.condition.consultNameId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultStartTime != null" >
+         and consult_start_time = #{example.condition.consultStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultEndTime != null" >
+         and consult_end_time = #{example.condition.consultEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultCount != null" >
+         and consult_count = #{example.condition.consultCount,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultType != null" >
+         and consult_type = #{example.condition.consultType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultEntrustCompany != null" >
+         and consult_entrust_company = #{example.condition.consultEntrustCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultSynopsis != null" >
+         and consult_synopsis = #{example.condition.consultSynopsis,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultRemarks != null" >
+         and consult_remarks = #{example.condition.consultRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultDel != null" >
+         and consult_del = #{example.condition.consultDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.consultCreateTime != null" >
+         and consult_create_time = #{example.condition.consultCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.consultTarget != null" >
+         and consult_target = #{example.condition.consultTarget,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    consult_id, consult_title, consult_name,consult_name_id, consult_start_time, consult_end_time, consult_count, 
+    consult_type, consult_entrust_company, consult_synopsis, consult_remarks, consult_del, 
+    consult_create_time, consult_target 
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cs_train_consult
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cs_train_consult
+    where consult_id = #{consultId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cs_train_consult
+    where consult_id = #{consultId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from cs_train_consult
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.CsTrainConsult" >
+    insert into cs_train_consult (consult_id, consult_title, consult_name, consult_name_id,
+      consult_start_time, consult_end_time, consult_count, 
+      consult_type, consult_entrust_company, consult_synopsis, 
+      consult_remarks, consult_del, consult_create_time, 
+    values (#{consultId,jdbcType=VARCHAR}, #{consultTitle,jdbcType=VARCHAR}, #{consultName,jdbcType=VARCHAR},#{consultNameId,jdbcType=VARCHAR},  
+      #{consultStartTime,jdbcType=VARCHAR}, #{consultEndTime,jdbcType=VARCHAR}, #{consultCount,jdbcType=VARCHAR}, 
+      #{consultType,jdbcType=VARCHAR}, #{consultEntrustCompany,jdbcType=VARCHAR}, #{consultSynopsis,jdbcType=VARCHAR}, 
+      #{consultRemarks,jdbcType=VARCHAR}, #{consultDel,jdbcType=VARCHAR}, #{consultCreateTime,jdbcType=TIMESTAMP}, 
+      #{consultTarget,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.CsTrainConsult" >
+    insert into cs_train_consult
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="consultId != null" >
+        consult_id,
+      </if>
+      <if test="consultTitle != null" >
+        consult_title,
+      </if>
+      <if test="consultName != null" >
+        consult_name,
+      </if>
+      <if test="consultNameId != null" >
+        consult_name_id,
+      </if>
+      <if test="consultStartTime != null" >
+        consult_start_time,
+      </if>
+      <if test="consultEndTime != null" >
+        consult_end_time,
+      </if>
+      <if test="consultCount != null" >
+        consult_count,
+      </if>
+      <if test="consultType != null" >
+        consult_type,
+      </if>
+      <if test="consultEntrustCompany != null" >
+        consult_entrust_company,
+      </if>
+      <if test="consultSynopsis != null" >
+        consult_synopsis,
+      </if>
+      <if test="consultRemarks != null" >
+        consult_remarks,
+      </if>
+      <if test="consultDel != null" >
+        consult_del,
+      </if>
+      <if test="consultCreateTime != null" >
+        consult_create_time,
+      </if>
+      <if test="consultTarget != null" >
+        consult_target,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="consultId != null" >
+        #{consultId,jdbcType=VARCHAR},
+      </if>
+      <if test="consultTitle != null" >
+        #{consultTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="consultName != null" >
+        #{consultName,jdbcType=VARCHAR},
+      </if>
+      <if test="consultNameId != null" >
+        #{consultNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="consultStartTime != null" >
+        #{consultStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="consultEndTime != null" >
+        #{consultEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="consultCount != null" >
+        #{consultCount,jdbcType=VARCHAR},
+      </if>
+      <if test="consultType != null" >
+        #{consultType,jdbcType=VARCHAR},
+      </if>
+      <if test="consultEntrustCompany != null" >
+        #{consultEntrustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="consultSynopsis != null" >
+        #{consultSynopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="consultRemarks != null" >
+        #{consultRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="consultDel != null" >
+        #{consultDel,jdbcType=VARCHAR},
+      </if>
+      <if test="consultCreateTime != null" >
+        #{consultCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consultTarget != null" >
+        #{consultTarget,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from cs_train_consult
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cs_train_consult
+    <set >
+      <if test="record.consultId != null" >
+        consult_id = #{record.consultId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultTitle != null" >
+        consult_title = #{record.consultTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultName != null" >
+        consult_name = #{record.consultName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultNameId != null" >
+        consult_name_id = #{record.consultNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultStartTime != null" >
+        consult_start_time = #{record.consultStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultEndTime != null" >
+        consult_end_time = #{record.consultEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultCount != null" >
+        consult_count = #{record.consultCount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultType != null" >
+        consult_type = #{record.consultType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultEntrustCompany != null" >
+        consult_entrust_company = #{record.consultEntrustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultSynopsis != null" >
+        consult_synopsis = #{record.consultSynopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultRemarks != null" >
+        consult_remarks = #{record.consultRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultDel != null" >
+        consult_del = #{record.consultDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consultCreateTime != null" >
+        consult_create_time = #{record.consultCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.consultTarget != null" >
+        consult_target = #{record.consultTarget,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cs_train_consult
+    set consult_id = #{record.consultId,jdbcType=VARCHAR},
+      consult_title = #{record.consultTitle,jdbcType=VARCHAR},
+      consult_name = #{record.consultName,jdbcType=VARCHAR},
+      consult_name_id = #{record.consultNameId,jdbcType=VARCHAR},
+      consult_start_time = #{record.consultStartTime,jdbcType=VARCHAR},
+      consult_end_time = #{record.consultEndTime,jdbcType=VARCHAR},
+      consult_count = #{record.consultCount,jdbcType=VARCHAR},
+      consult_type = #{record.consultType,jdbcType=VARCHAR},
+      consult_entrust_company = #{record.consultEntrustCompany,jdbcType=VARCHAR},
+      consult_synopsis = #{record.consultSynopsis,jdbcType=VARCHAR},
+      consult_remarks = #{record.consultRemarks,jdbcType=VARCHAR},
+      consult_del = #{record.consultDel,jdbcType=VARCHAR},
+      consult_create_time = #{record.consultCreateTime,jdbcType=TIMESTAMP},
+      consult_target = #{record.consultTarget,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.CsTrainConsult" >
+    update cs_train_consult
+    <set >
+      <if test="consultTitle != null" >
+        consult_title = #{consultTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="consultName != null" >
+        consult_name = #{consultName,jdbcType=VARCHAR},
+      </if>
+      <if test="consultNameId != null" >
+        consult_name_id = #{consultNameId,jdbcType=VARCHAR},
+      </if>
+      <if test="consultStartTime != null" >
+        consult_start_time = #{consultStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="consultEndTime != null" >
+        consult_end_time = #{consultEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="consultCount != null" >
+        consult_count = #{consultCount,jdbcType=VARCHAR},
+      </if>
+      <if test="consultType != null" >
+        consult_type = #{consultType,jdbcType=VARCHAR},
+      </if>
+      <if test="consultEntrustCompany != null" >
+        consult_entrust_company = #{consultEntrustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="consultSynopsis != null" >
+        consult_synopsis = #{consultSynopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="consultRemarks != null" >
+        consult_remarks = #{consultRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="consultDel != null" >
+        consult_del = #{consultDel,jdbcType=VARCHAR},
+      </if>
+      <if test="consultCreateTime != null" >
+        consult_create_time = #{consultCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consultTarget != null" >
+        consult_target = #{consultTarget,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where consult_id = #{consultId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.CsTrainConsult" >
+    update cs_train_consult
+    set consult_title = #{consultTitle,jdbcType=VARCHAR},
+      consult_name = #{consultName,jdbcType=VARCHAR},
+      consult_name_id = #{consultNameId,jdbcType=VARCHAR},
+      consult_start_time = #{consultStartTime,jdbcType=VARCHAR},
+      consult_end_time = #{consultEndTime,jdbcType=VARCHAR},
+      consult_count = #{consultCount,jdbcType=VARCHAR},
+      consult_type = #{consultType,jdbcType=VARCHAR},
+      consult_entrust_company = #{consultEntrustCompany,jdbcType=VARCHAR},
+      consult_synopsis = #{consultSynopsis,jdbcType=VARCHAR},
+      consult_remarks = #{consultRemarks,jdbcType=VARCHAR},
+      consult_del = #{consultDel,jdbcType=VARCHAR},
+      consult_create_time = #{consultCreateTime,jdbcType=TIMESTAMP},
+      consult_target = #{consultTarget,jdbcType=VARCHAR}
+    where consult_id = #{consultId,jdbcType=VARCHAR}
+  </update>
+</mapper>

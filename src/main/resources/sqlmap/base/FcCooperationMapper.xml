@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.FcCooperationMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.FcCooperation" >
+    <id column="cooperation_id" property="cooperationId" jdbcType="VARCHAR" />
+    <result column="cooperation_type" property="cooperationType" jdbcType="VARCHAR" />
+    <result column="cooperation_project_name" property="cooperationProjectName" jdbcType="VARCHAR" />
+    <result column="cooperation_content" property="cooperationContent" jdbcType="VARCHAR" />
+    <result column="cooperation_company" property="cooperationCompany" jdbcType="VARCHAR" />
+    <result column="cooperation_time" property="cooperationTime" jdbcType="VARCHAR" />
+    <result column="cooperation_remarks" property="cooperationRemarks" jdbcType="VARCHAR" />
+    <result column="cooperation_del" property="cooperationDel" jdbcType="VARCHAR" />
+    <result column="cooperation_create_time" property="cooperationCreateTime" jdbcType="TIMESTAMP" />
+    <result column="cooperation_person" property="cooperationPerson" jdbcType="VARCHAR" />
+    <result column="cooperation_person_company" property="cooperationPersonCompany" jdbcType="VARCHAR" />
+    <result column="cooperation_person_liable" property="cooperationPersonLiable" jdbcType="VARCHAR" />
+    <result column="cooperation_person_liable_id" property="cooperationPersonLiableId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.cooperationType != null" >
+         and cooperation_type = #{condition.cooperationType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationProjectName != null" >
+         and cooperation_project_name = #{condition.cooperationProjectName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationContent != null" >
+         and cooperation_content = #{condition.cooperationContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationCompany != null" >
+         and cooperation_company = #{condition.cooperationCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationTime != null" >
+         and cooperation_time = #{condition.cooperationTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationRemarks != null" >
+         and cooperation_remarks = #{condition.cooperationRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationDel != null" >
+         and cooperation_del = #{condition.cooperationDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationCreateTime != null" >
+         and cooperation_create_time = #{condition.cooperationCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.cooperationPerson != null" >
+         and cooperation_person = #{condition.cooperationPerson,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationPersonCompany != null" >
+         and cooperation_person_company = #{condition.cooperationPersonCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationPersonLiable != null" >
+         and cooperation_person_liable = #{condition.cooperationPersonLiable,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.cooperationPersonLiableId != null" >
+         and cooperation_person_liable_id = #{condition.cooperationPersonLiableId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.cooperationType != null" >
+         and cooperation_type = #{example.condition.cooperationType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationProjectName != null" >
+         and cooperation_project_name = #{example.condition.cooperationProjectName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationContent != null" >
+         and cooperation_content = #{example.condition.cooperationContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationCompany != null" >
+         and cooperation_company = #{example.condition.cooperationCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationTime != null" >
+         and cooperation_time = #{example.condition.cooperationTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationRemarks != null" >
+         and cooperation_remarks = #{example.condition.cooperationRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationDel != null" >
+         and cooperation_del = #{example.condition.cooperationDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationCreateTime != null" >
+         and cooperation_create_time = #{example.condition.cooperationCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.cooperationPerson != null" >
+         and cooperation_person = #{example.condition.cooperationPerson,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationPersonCompany != null" >
+         and cooperation_person_company = #{example.condition.cooperationPersonCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationPersonLiable != null" >
+         and cooperation_person_liable = #{example.condition.cooperationPersonLiable,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.cooperationPersonLiableId != null" >
+         and cooperation_person_liable_id = #{example.condition.cooperationPersonLiableId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    cooperation_id, cooperation_type, cooperation_project_name, cooperation_content, 
+    cooperation_company, cooperation_time, cooperation_remarks, cooperation_del, cooperation_create_time, 
+    cooperation_person, cooperation_person_company, cooperation_person_liable, cooperation_person_liable_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from fc_cooperation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from fc_cooperation
+    where cooperation_id = #{cooperationId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from fc_cooperation
+    where cooperation_id = #{cooperationId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from fc_cooperation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.FcCooperation" >
+    insert into fc_cooperation (cooperation_id, cooperation_type, cooperation_project_name, 
+      cooperation_content, cooperation_company, 
+      cooperation_time, cooperation_remarks, cooperation_del, 
+      cooperation_create_time, cooperation_person, 
+      cooperation_person_company, cooperation_person_liable, 
+      cooperation_person_liable_id)
+    values (#{cooperationId,jdbcType=VARCHAR}, #{cooperationType,jdbcType=VARCHAR}, #{cooperationProjectName,jdbcType=VARCHAR}, 
+      #{cooperationContent,jdbcType=VARCHAR}, #{cooperationCompany,jdbcType=VARCHAR}, 
+      #{cooperationTime,jdbcType=VARCHAR}, #{cooperationRemarks,jdbcType=VARCHAR}, #{cooperationDel,jdbcType=VARCHAR}, 
+      #{cooperationCreateTime,jdbcType=TIMESTAMP}, #{cooperationPerson,jdbcType=VARCHAR}, 
+      #{cooperationPersonCompany,jdbcType=VARCHAR}, #{cooperationPersonLiable,jdbcType=VARCHAR}, 
+      #{cooperationPersonLiableId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.FcCooperation" >
+    insert into fc_cooperation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cooperationId != null" >
+        cooperation_id,
+      </if>
+      <if test="cooperationType != null" >
+        cooperation_type,
+      </if>
+      <if test="cooperationProjectName != null" >
+        cooperation_project_name,
+      </if>
+      <if test="cooperationContent != null" >
+        cooperation_content,
+      </if>
+      <if test="cooperationCompany != null" >
+        cooperation_company,
+      </if>
+      <if test="cooperationTime != null" >
+        cooperation_time,
+      </if>
+      <if test="cooperationRemarks != null" >
+        cooperation_remarks,
+      </if>
+      <if test="cooperationDel != null" >
+        cooperation_del,
+      </if>
+      <if test="cooperationCreateTime != null" >
+        cooperation_create_time,
+      </if>
+      <if test="cooperationPerson != null" >
+        cooperation_person,
+      </if>
+      <if test="cooperationPersonCompany != null" >
+        cooperation_person_company,
+      </if>
+      <if test="cooperationPersonLiable != null" >
+        cooperation_person_liable,
+      </if>
+      <if test="cooperationPersonLiableId != null" >
+        cooperation_person_liable_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cooperationId != null" >
+        #{cooperationId,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationType != null" >
+        #{cooperationType,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationProjectName != null" >
+        #{cooperationProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationContent != null" >
+        #{cooperationContent,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationCompany != null" >
+        #{cooperationCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationTime != null" >
+        #{cooperationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationRemarks != null" >
+        #{cooperationRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationDel != null" >
+        #{cooperationDel,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationCreateTime != null" >
+        #{cooperationCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cooperationPerson != null" >
+        #{cooperationPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationPersonCompany != null" >
+        #{cooperationPersonCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationPersonLiable != null" >
+        #{cooperationPersonLiable,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationPersonLiableId != null" >
+        #{cooperationPersonLiableId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from fc_cooperation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update fc_cooperation
+    <set >
+      <if test="record.cooperationId != null" >
+        cooperation_id = #{record.cooperationId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationType != null" >
+        cooperation_type = #{record.cooperationType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationProjectName != null" >
+        cooperation_project_name = #{record.cooperationProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationContent != null" >
+        cooperation_content = #{record.cooperationContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationCompany != null" >
+        cooperation_company = #{record.cooperationCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationTime != null" >
+        cooperation_time = #{record.cooperationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationRemarks != null" >
+        cooperation_remarks = #{record.cooperationRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationDel != null" >
+        cooperation_del = #{record.cooperationDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationCreateTime != null" >
+        cooperation_create_time = #{record.cooperationCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cooperationPerson != null" >
+        cooperation_person = #{record.cooperationPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationPersonCompany != null" >
+        cooperation_person_company = #{record.cooperationPersonCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationPersonLiable != null" >
+        cooperation_person_liable = #{record.cooperationPersonLiable,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cooperationPersonLiableId != null" >
+        cooperation_person_liable_id = #{record.cooperationPersonLiableId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update fc_cooperation
+    set cooperation_id = #{record.cooperationId,jdbcType=VARCHAR},
+      cooperation_type = #{record.cooperationType,jdbcType=VARCHAR},
+      cooperation_project_name = #{record.cooperationProjectName,jdbcType=VARCHAR},
+      cooperation_content = #{record.cooperationContent,jdbcType=VARCHAR},
+      cooperation_company = #{record.cooperationCompany,jdbcType=VARCHAR},
+      cooperation_time = #{record.cooperationTime,jdbcType=VARCHAR},
+      cooperation_remarks = #{record.cooperationRemarks,jdbcType=VARCHAR},
+      cooperation_del = #{record.cooperationDel,jdbcType=VARCHAR},
+      cooperation_create_time = #{record.cooperationCreateTime,jdbcType=TIMESTAMP},
+      cooperation_person = #{record.cooperationPerson,jdbcType=VARCHAR},
+      cooperation_person_company = #{record.cooperationPersonCompany,jdbcType=VARCHAR},
+      cooperation_person_liable = #{record.cooperationPersonLiable,jdbcType=VARCHAR},
+      cooperation_person_liable_id = #{record.cooperationPersonLiableId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.FcCooperation" >
+    update fc_cooperation
+    <set >
+      <if test="cooperationType != null" >
+        cooperation_type = #{cooperationType,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationProjectName != null" >
+        cooperation_project_name = #{cooperationProjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationContent != null" >
+        cooperation_content = #{cooperationContent,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationCompany != null" >
+        cooperation_company = #{cooperationCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationTime != null" >
+        cooperation_time = #{cooperationTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationRemarks != null" >
+        cooperation_remarks = #{cooperationRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationDel != null" >
+        cooperation_del = #{cooperationDel,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationCreateTime != null" >
+        cooperation_create_time = #{cooperationCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cooperationPerson != null" >
+        cooperation_person = #{cooperationPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationPersonCompany != null" >
+        cooperation_person_company = #{cooperationPersonCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationPersonLiable != null" >
+        cooperation_person_liable = #{cooperationPersonLiable,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationPersonLiableId != null" >
+        cooperation_person_liable_id = #{cooperationPersonLiableId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cooperation_id = #{cooperationId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.FcCooperation" >
+    update fc_cooperation
+    set cooperation_type = #{cooperationType,jdbcType=VARCHAR},
+      cooperation_project_name = #{cooperationProjectName,jdbcType=VARCHAR},
+      cooperation_content = #{cooperationContent,jdbcType=VARCHAR},
+      cooperation_company = #{cooperationCompany,jdbcType=VARCHAR},
+      cooperation_time = #{cooperationTime,jdbcType=VARCHAR},
+      cooperation_remarks = #{cooperationRemarks,jdbcType=VARCHAR},
+      cooperation_del = #{cooperationDel,jdbcType=VARCHAR},
+      cooperation_create_time = #{cooperationCreateTime,jdbcType=TIMESTAMP},
+      cooperation_person = #{cooperationPerson,jdbcType=VARCHAR},
+      cooperation_person_company = #{cooperationPersonCompany,jdbcType=VARCHAR},
+      cooperation_person_liable = #{cooperationPersonLiable,jdbcType=VARCHAR},
+      cooperation_person_liable_id = #{cooperationPersonLiableId,jdbcType=VARCHAR}
+    where cooperation_id = #{cooperationId,jdbcType=VARCHAR}
+  </update>
+</mapper>

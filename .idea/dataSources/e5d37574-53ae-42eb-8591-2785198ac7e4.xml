@@ -1,0 +1,3110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="systemmanage_db@202.199.162.114">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.9">
+    <root id="1">
+      <ServerVersion>5.1.63</ServerVersion>
+      <DefaultEngine>MyISAM</DefaultEngine>
+      <DefaultTmpEngine>MyISAM</DefaultTmpEngine>
+      <DefaultCasing>exact</DefaultCasing>
+    </root>
+    <schema id="2" parent="1" name="cyzz">
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="3" parent="1" name="dufe_cy">
+      <Collation>latin1_swedish_ci</Collation>
+    </schema>
+    <schema id="4" parent="1" name="dufe_gyjj">
+      <Collation>latin1_swedish_ci</Collation>
+    </schema>
+    <schema id="5" parent="1" name="information_schema">
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="6" parent="1" name="mysql">
+      <Collation>latin1_swedish_ci</Collation>
+    </schema>
+    <schema id="7" parent="1" name="systemmanage_db">
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="8" parent="1" name="test">
+      <Collation>latin1_swedish_ci</Collation>
+    </schema>
+    <collation id="9" parent="1" name="armscii8_bin">
+      <Charset>armscii8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="10" parent="1" name="armscii8_general_ci">
+      <Charset>armscii8</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="11" parent="1" name="ascii_bin">
+      <Charset>ascii</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="12" parent="1" name="ascii_general_ci">
+      <Charset>ascii</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="13" parent="1" name="binary">
+      <Charset>binary</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="14" parent="1" name="cp1250_bin">
+      <Charset>cp1250</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="15" parent="1" name="cp1250_croatian_ci">
+      <Charset>cp1250</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="16" parent="1" name="cp1250_general_ci">
+      <Charset>cp1250</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="17" parent="1" name="cp1250_polish_ci">
+      <Charset>cp1250</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="18" parent="1" name="cp1251_bin">
+      <Charset>cp1251</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="19" parent="1" name="cp1251_bulgarian_ci">
+      <Charset>cp1251</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="20" parent="1" name="cp1251_general_ci">
+      <Charset>cp1251</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="21" parent="1" name="cp1251_general_cs">
+      <Charset>cp1251</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="22" parent="1" name="cp1251_ukrainian_ci">
+      <Charset>cp1251</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="23" parent="1" name="cp1256_bin">
+      <Charset>cp1256</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="24" parent="1" name="cp1256_general_ci">
+      <Charset>cp1256</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="25" parent="1" name="cp1257_bin">
+      <Charset>cp1257</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="26" parent="1" name="cp1257_general_ci">
+      <Charset>cp1257</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="27" parent="1" name="cp1257_lithuanian_ci">
+      <Charset>cp1257</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="28" parent="1" name="cp850_bin">
+      <Charset>cp850</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="29" parent="1" name="cp850_general_ci">
+      <Charset>cp850</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="30" parent="1" name="cp852_bin">
+      <Charset>cp852</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="31" parent="1" name="cp852_general_ci">
+      <Charset>cp852</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="32" parent="1" name="cp866_bin">
+      <Charset>cp866</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="33" parent="1" name="cp866_general_ci">
+      <Charset>cp866</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="34" parent="1" name="dec8_bin">
+      <Charset>dec8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="35" parent="1" name="dec8_swedish_ci">
+      <Charset>dec8</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="36" parent="1" name="gb2312_bin">
+      <Charset>gb2312</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="37" parent="1" name="gb2312_chinese_ci">
+      <Charset>gb2312</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="38" parent="1" name="gbk_bin">
+      <Charset>gbk</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="39" parent="1" name="gbk_chinese_ci">
+      <Charset>gbk</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="40" parent="1" name="geostd8_bin">
+      <Charset>geostd8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="41" parent="1" name="geostd8_general_ci">
+      <Charset>geostd8</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="42" parent="1" name="greek_bin">
+      <Charset>greek</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="43" parent="1" name="greek_general_ci">
+      <Charset>greek</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="44" parent="1" name="hebrew_bin">
+      <Charset>hebrew</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="45" parent="1" name="hebrew_general_ci">
+      <Charset>hebrew</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="46" parent="1" name="hp8_bin">
+      <Charset>hp8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="47" parent="1" name="hp8_english_ci">
+      <Charset>hp8</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="48" parent="1" name="keybcs2_bin">
+      <Charset>keybcs2</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="49" parent="1" name="keybcs2_general_ci">
+      <Charset>keybcs2</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="50" parent="1" name="koi8r_bin">
+      <Charset>koi8r</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="51" parent="1" name="koi8r_general_ci">
+      <Charset>koi8r</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="52" parent="1" name="koi8u_bin">
+      <Charset>koi8u</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="53" parent="1" name="koi8u_general_ci">
+      <Charset>koi8u</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="54" parent="1" name="latin1_bin">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="55" parent="1" name="latin1_danish_ci">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="56" parent="1" name="latin1_general_ci">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="57" parent="1" name="latin1_general_cs">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="58" parent="1" name="latin1_german1_ci">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="59" parent="1" name="latin1_german2_ci">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="60" parent="1" name="latin1_spanish_ci">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="61" parent="1" name="latin1_swedish_ci">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="62" parent="1" name="latin2_bin">
+      <Charset>latin2</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="63" parent="1" name="latin2_croatian_ci">
+      <Charset>latin2</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="64" parent="1" name="latin2_general_ci">
+      <Charset>latin2</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="65" parent="1" name="latin2_hungarian_ci">
+      <Charset>latin2</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="66" parent="1" name="latin5_bin">
+      <Charset>latin5</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="67" parent="1" name="latin5_turkish_ci">
+      <Charset>latin5</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="68" parent="1" name="latin7_bin">
+      <Charset>latin7</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="69" parent="1" name="latin7_estonian_cs">
+      <Charset>latin7</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="70" parent="1" name="latin7_general_ci">
+      <Charset>latin7</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="71" parent="1" name="latin7_general_cs">
+      <Charset>latin7</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="72" parent="1" name="macce_bin">
+      <Charset>macce</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="73" parent="1" name="macce_general_ci">
+      <Charset>macce</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="74" parent="1" name="macroman_bin">
+      <Charset>macroman</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="75" parent="1" name="macroman_general_ci">
+      <Charset>macroman</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="76" parent="1" name="swe7_bin">
+      <Charset>swe7</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="77" parent="1" name="swe7_swedish_ci">
+      <Charset>swe7</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="78" parent="1" name="utf8_bin">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="79" parent="1" name="utf8_czech_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="80" parent="1" name="utf8_danish_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="81" parent="1" name="utf8_esperanto_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="82" parent="1" name="utf8_estonian_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="83" parent="1" name="utf8_general_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="84" parent="1" name="utf8_general_mysql500_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="85" parent="1" name="utf8_hungarian_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="86" parent="1" name="utf8_icelandic_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="87" parent="1" name="utf8_latvian_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="88" parent="1" name="utf8_lithuanian_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="89" parent="1" name="utf8_persian_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="90" parent="1" name="utf8_polish_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="91" parent="1" name="utf8_roman_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="92" parent="1" name="utf8_romanian_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="93" parent="1" name="utf8_slovak_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="94" parent="1" name="utf8_slovenian_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="95" parent="1" name="utf8_spanish2_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="96" parent="1" name="utf8_spanish_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="97" parent="1" name="utf8_swedish_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="98" parent="1" name="utf8_turkish_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <collation id="99" parent="1" name="utf8_unicode_ci">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>0</DefaultForCharset>
+    </collation>
+    <table id="100" parent="7" name="am_activity">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="101" parent="7" name="am_adopt">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="102" parent="7" name="am_collaborator">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="103" parent="7" name="am_conference">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="104" parent="7" name="am_lecture">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="105" parent="7" name="am_opus">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="106" parent="7" name="am_paper">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="107" parent="7" name="am_prize">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="108" parent="7" name="am_project">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="109" parent="7" name="bi_abroad">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="110" parent="7" name="bi_base_info">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="111" parent="7" name="bi_educational">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="112" parent="7" name="bi_job">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="113" parent="7" name="bi_mail_list">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="114" parent="7" name="bi_work">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="115" parent="7" name="ca_central_activity">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="116" parent="7" name="common_account">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="117" parent="7" name="common_role">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="118" parent="7" name="cs_other_entrust">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="119" parent="7" name="cs_train_consult">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="120" parent="7" name="ep_publicity">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="121" parent="7" name="ep_report">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="122" parent="7" name="fa_ca">
+      <Comment>资金分配表</Comment>
+      <Engine>InnoDB</Engine>
+      <Collation>latin1_swedish_ci</Collation>
+    </table>
+    <table id="123" parent="7" name="fa_declare_record">
+      <Engine>InnoDB</Engine>
+      <Collation>latin1_swedish_ci</Collation>
+    </table>
+    <table id="124" parent="7" name="fc_cooperation">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="125" parent="7" name="mw_budget">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="126" parent="7" name="mw_fund">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="127" parent="7" name="mw_memorabilia">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="128" parent="7" name="mw_plan">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="129" parent="7" name="mw_rule">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="130" parent="7" name="mw_summary">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="131" parent="7" name="pc_teaching">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="132" parent="7" name="pc_train">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="133" parent="7" name="sf_share_file">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="134" parent="7" name="upload_file_info">
+      <Comment>上传文件信息表</Comment>
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="135" parent="100" name="activity_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="136" parent="100" name="activity_name">
+      <Position>2</Position>
+      <Comment>活动名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="137" parent="100" name="activity_time">
+      <Position>3</Position>
+      <Comment>时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="138" parent="100" name="activity_theme">
+      <Position>4</Position>
+      <Comment>主题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="139" parent="100" name="activity_speaker_id">
+      <Position>5</Position>
+      <Comment>讲人主ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="140" parent="100" name="activity_speaker">
+      <Position>6</Position>
+      <Comment>主讲人/主持人</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="141" parent="100" name="activity_content">
+      <Position>7</Position>
+      <Comment>主要内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="142" parent="100" name="activity_remarks">
+      <Position>8</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="143" parent="100" name="activity_del">
+      <Position>9</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="144" parent="100" name="activity_create_time">
+      <Position>10</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="145" parent="100" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>activity_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="146" parent="101" name="adopt_id">
+      <Position>1</Position>
+      <Comment>采纳批示ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="147" parent="101" name="base_info_id">
+      <Position>2</Position>
+      <Comment>作者</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="148" parent="101" name="adopt_name">
+      <Position>3</Position>
+      <Comment>报告名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="149" parent="101" name="adopt_way">
+      <Position>4</Position>
+      <Comment>成果形式（0.采纳1.批示2.刊发）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="150" parent="101" name="adopt_submit_time">
+      <Position>5</Position>
+      <Comment>提交时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="151" parent="101" name="adopt_time">
+      <Position>6</Position>
+      <Comment>采纳时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="152" parent="101" name="adopt_company">
+      <Position>7</Position>
+      <Comment>采纳单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="153" parent="101" name="adopt_publication">
+      <Position>8</Position>
+      <Comment>采纳刊物</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="154" parent="101" name="adopt_evaluate">
+      <Position>9</Position>
+      <Comment>鉴定或评价</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="155" parent="101" name="adopt_support_topic">
+      <Position>10</Position>
+      <Comment>支持课题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="156" parent="101" name="adopt_remarks">
+      <Position>11</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="157" parent="101" name="adopt_del">
+      <Position>12</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="158" parent="101" name="adopt_create_time">
+      <Position>13</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="159" parent="101" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>adopt_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="160" parent="102" name="collaborator_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="161" parent="102" name="achievement_id">
+      <Position>2</Position>
+      <Comment>成果ID（著作/论文/获奖/采纳批示）</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="162" parent="102" name="base_info_id">
+      <Position>3</Position>
+      <Comment>合作者ID（就是选择的人员的基本信息ID）</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="163" parent="102" name="collaborator_type">
+      <Position>4</Position>
+      <Comment>类型（0.著作1.论文2.获奖3.采纳批示）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="164" parent="102" name="collaborator_content">
+      <Position>5</Position>
+      <Comment>主要工作</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="165" parent="102" name="collaborator_create_time">
+      <Position>6</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="166" parent="102" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>collaborator_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="167" parent="103" name="conference_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="168" parent="103" name="conference_name_id">
+      <Position>2</Position>
+      <Comment>名姓id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="169" parent="103" name="conference_name">
+      <Position>3</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="170" parent="103" name="conference_title">
+      <Position>4</Position>
+      <Comment>会议名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="171" parent="103" name="conference_address">
+      <Position>5</Position>
+      <Comment>举办地点</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="172" parent="103" name="conference_nature">
+      <Position>6</Position>
+      <Comment>会议性质（0.自办1.参会）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="173" parent="103" name="conference_start_time">
+      <Position>7</Position>
+      <Comment>会议开始时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="174" parent="103" name="conference_end_time">
+      <Position>8</Position>
+      <Comment>会议开始时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="175" parent="103" name="conference_type">
+      <Position>9</Position>
+      <Comment>会议类型（0.国内1.国际）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="176" parent="103" name="conference_chairman">
+      <Position>10</Position>
+      <Comment>主席(自定义)</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="177" parent="103" name="conference_chairman_id">
+      <Position>11</Position>
+      <Comment>主席ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="178" parent="103" name="conference_implement_chairman">
+      <Position>12</Position>
+      <Comment>执行主席(自定义)</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="179" parent="103" name="conference_implement_chairman_id">
+      <Position>13</Position>
+      <Comment>执行主席ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="180" parent="103" name="conference_domestic_count">
+      <Position>14</Position>
+      <Comment>国内参会人数</Comment>
+      <DataType>varchar(8)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="181" parent="103" name="conference_internation_count">
+      <Position>15</Position>
+      <Comment>国际参会人数</Comment>
+      <DataType>varchar(8)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="182" parent="103" name="conference_paper_count">
+      <Position>16</Position>
+      <Comment>收录论文数</Comment>
+      <DataType>varchar(8)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="183" parent="103" name="conference_synopsis">
+      <Position>17</Position>
+      <Comment>会议综述或简介（描述或新闻网址）</Comment>
+      <DataType>varchar(1000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="184" parent="103" name="conference_content">
+      <Position>18</Position>
+      <Comment>主要活动内容</Comment>
+      <DataType>varchar(1000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="185" parent="103" name="conference_paper_name">
+      <Position>19</Position>
+      <Comment>交流论文名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="186" parent="103" name="conference_if_read">
+      <Position>20</Position>
+      <Comment>交流论文名称</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="187" parent="103" name="conference_if_include">
+      <Position>21</Position>
+      <Comment>是否收录会议论文集（0.否1.是）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="188" parent="103" name="conference_remarks">
+      <Position>22</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(1000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="189" parent="103" name="conference_del">
+      <Position>23</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="190" parent="103" name="conference_create_time">
+      <Position>24</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="191" parent="103" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>conference_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="192" parent="104" name="lecture_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="193" parent="104" name="lecture_speaker_id">
+      <Position>2</Position>
+      <Comment>主讲人ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="194" parent="104" name="lecture_speaker">
+      <Position>3</Position>
+      <Comment>主讲人</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="195" parent="104" name="lecture_theme">
+      <Position>4</Position>
+      <Comment>主题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="196" parent="104" name="lecture_time">
+      <Position>5</Position>
+      <Comment>时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="197" parent="104" name="lecture_address">
+      <Position>6</Position>
+      <Comment>地点</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="198" parent="104" name="lecture_content">
+      <Position>7</Position>
+      <Comment>主要内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="199" parent="104" name="lecture_remarks">
+      <Position>8</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="200" parent="104" name="lecture_del">
+      <Position>9</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="201" parent="104" name="lecture_create_time">
+      <Position>10</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="202" parent="104" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>lecture_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="203" parent="105" name="opus_id">
+      <Position>1</Position>
+      <Comment>著作ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="204" parent="105" name="base_info_id">
+      <Position>2</Position>
+      <Comment>第一作者</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="205" parent="105" name="opus_name">
+      <Position>3</Position>
+      <Comment>著作名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="206" parent="105" name="opus_type">
+      <Position>4</Position>
+      <Comment>著作类型（0.专著1.编著2.译著3.教材4.工具书5.普及行出版物）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="207" parent="105" name="opus_publish_time">
+      <Position>5</Position>
+      <Comment>出版时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="208" parent="105" name="opus_languages">
+      <Position>6</Position>
+      <Comment>语种（0.中文1.外文）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="209" parent="105" name="opus_publish_company">
+      <Position>7</Position>
+      <Comment>出版单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="210" parent="105" name="opus_support_topic">
+      <Position>8</Position>
+      <Comment>支持课题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="211" parent="105" name="opus_content">
+      <Position>9</Position>
+      <Comment>内容摘要</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="212" parent="105" name="opus_remarks">
+      <Position>10</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="213" parent="105" name="opus_del">
+      <Position>11</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="214" parent="105" name="opus_create_time">
+      <Position>12</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="215" parent="105" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>opus_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="216" parent="106" name="paper_id">
+      <Position>1</Position>
+      <Comment>论文ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="217" parent="106" name="base_info_id">
+      <Position>2</Position>
+      <Comment>第一作者</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="218" parent="106" name="paper_type">
+      <Position>3</Position>
+      <Comment>论文类型（0.期刊论文1.会议论文2.报纸文章）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="219" parent="106" name="paper_title">
+      <Position>4</Position>
+      <Comment>题目/成果名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="220" parent="106" name="paper_name">
+      <Position>5</Position>
+      <Comment>会议名称/报纸名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="221" parent="106" name="paper_publish_journal">
+      <Position>6</Position>
+      <Comment>发表期刊</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="222" parent="106" name="paper_periodical_type">
+      <Position>7</Position>
+      <Comment>期刊类型（0.中文1.外文）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="223" parent="106" name="paper_volume_number">
+      <Position>8</Position>
+      <Comment>卷期号</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="224" parent="106" name="paper_publish_time">
+      <Position>9</Position>
+      <Comment>发表时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="225" parent="106" name="paper_page_start_range">
+      <Position>10</Position>
+      <Comment>页码开始范围（第几页 到第一页）</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="226" parent="106" name="paper_page_end_range">
+      <Position>11</Position>
+      <Comment>页码结束范围</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="227" parent="106" name="paper_support_topic">
+      <Position>12</Position>
+      <Comment>支持课题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="228" parent="106" name="paper_reprint_count">
+      <Position>13</Position>
+      <Comment>转载情况</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="229" parent="106" name="paper_retrieval_type">
+      <Position>14</Position>
+      <Comment>检索类型(CSSCI…….)</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="230" parent="106" name="paper_content">
+      <Position>15</Position>
+      <Comment>内容摘要</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="231" parent="106" name="paper_address">
+      <Position>16</Position>
+      <Comment>地点</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="232" parent="106" name="paper_plate">
+      <Position>17</Position>
+      <Comment>板块</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="233" parent="106" name="paper_if_theory">
+      <Position>18</Position>
+      <Comment>是否理论版(0.否1.是)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="234" parent="106" name="paper_remarks">
+      <Position>19</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="235" parent="106" name="paper_del">
+      <Position>20</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="236" parent="106" name="paper_create_time">
+      <Position>21</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="237" parent="106" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>paper_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="238" parent="107" name="prize_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="239" parent="107" name="base_info_id">
+      <Position>2</Position>
+      <Comment>作者</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="107" name="prize_title">
+      <Position>3</Position>
+      <Comment>成果名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="241" parent="107" name="prize_way">
+      <Position>4</Position>
+      <Comment>成果形式（0.著作1.论文2.咨询报告3.研究报告4.音像软件5.工具书或参考书6.其他）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="107" name="prize_achievement">
+      <Position>5</Position>
+      <Comment>奖励名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="107" name="prize_grade">
+      <Position>6</Position>
+      <Comment>获奖等级（0.一1.二2.三3.优秀4.其他）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="107" name="prize_level">
+      <Position>7</Position>
+      <Comment>奖励级别（0.国家1.部级2.省级3.省级以下）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="107" name="prize_award_company">
+      <Position>8</Position>
+      <Comment>颁奖单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="246" parent="107" name="prize_winning_time">
+      <Position>9</Position>
+      <Comment>获奖时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="247" parent="107" name="prize_remarks">
+      <Position>10</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(500)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="248" parent="107" name="prize_del">
+      <Position>11</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="249" parent="107" name="prize_create_time">
+      <Position>12</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="250" parent="107" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>prize_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="251" parent="108" name="project_id">
+      <Position>1</Position>
+      <Comment>项目ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="252" parent="108" name="base_info_id">
+      <Position>2</Position>
+      <Comment>项目第一负责人（管理员选择；科研人员默认自己）</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="253" parent="108" name="project_type">
+      <Position>3</Position>
+      <Comment>项目类型（0.横向/1.纵向/2.国际合作项目）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="254" parent="108" name="project_name">
+      <Position>4</Position>
+      <Comment>项目名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="255" parent="108" name="project_number">
+      <Position>5</Position>
+      <Comment>批准编号</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="256" parent="108" name="project_source">
+      <Position>6</Position>
+      <Comment>项目来源</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="257" parent="108" name="project_level">
+      <Position>7</Position>
+      <Comment>项目级别(0.国家/1.部/2.省/3.市/4.企事业单位)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="258" parent="108" name="project_time">
+      <Position>8</Position>
+      <Comment>立项时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="259" parent="108" name="project_knot_time">
+      <Position>9</Position>
+      <Comment>结项时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="108" name="project_status">
+      <Position>10</Position>
+      <Comment>项目状态(0.在研1.结项2.延期（已申请）3.延期（未申请）)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="261" parent="108" name="project_approved_outlay">
+      <Position>11</Position>
+      <Comment>批准经费(万元)</Comment>
+      <DataType>double(6,2 digit)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="262" parent="108" name="project_cooperative_unit">
+      <Position>12</Position>
+      <Comment>合作单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="263" parent="108" name="project_remarks">
+      <Position>13</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="264" parent="108" name="project_del">
+      <Position>14</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="108" name="project_create_time">
+      <Position>15</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="266" parent="108" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>project_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="267" parent="109" name="abroad_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="268" parent="109" name="base_info_id">
+      <Position>2</Position>
+      <Comment>基本信息ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="269" parent="109" name="abroad_country">
+      <Position>3</Position>
+      <Comment>国家</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="270" parent="109" name="abroad_start_time">
+      <Position>4</Position>
+      <Comment>开始时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="271" parent="109" name="abroad_end_time">
+      <Position>5</Position>
+      <Comment>结束时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="272" parent="109" name="abroad_mechanism">
+      <Position>6</Position>
+      <Comment>机构</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="109" name="abroad_objective">
+      <Position>7</Position>
+      <Comment>目的(0.高访1.培训2.项目合作3.学习4.留学5.其他)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="274" parent="109" name="abroad_create_time">
+      <Position>8</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="275" parent="109" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>abroad_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="276" parent="110" name="base_info_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="277" parent="110" name="account_id">
+      <Position>2</Position>
+      <Comment>账号ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="278" parent="110" name="base_info_type">
+      <Position>3</Position>
+      <Comment>学生类型(0.科研人员1.行政人员2.博士后3.博士4.硕士5.其他人员)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="279" parent="110" name="base_info_name">
+      <Position>4</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="110" name="base_info_sex">
+      <Position>5</Position>
+      <Comment>性别(0.女1.男)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="281" parent="110" name="base_info_birth_date">
+      <Position>6</Position>
+      <Comment>出生日期</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="110" name="base_info_id_number">
+      <Position>7</Position>
+      <Comment>身份证号/护照号</Comment>
+      <DataType>varchar(18)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="110" name="base_info_nation">
+      <Position>8</Position>
+      <Comment>民族</Comment>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="284" parent="110" name="base_info_native_place">
+      <Position>9</Position>
+      <Comment>籍贯</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="110" name="base_info_political_outlook">
+      <Position>10</Position>
+      <Comment>政治面貌</Comment>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="286" parent="110" name="base_info_member_time">
+      <Position>11</Position>
+      <Comment>入党时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="287" parent="110" name="base_info_education">
+      <Position>12</Position>
+      <Comment>学历(0.博士1.硕士2.学士)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="110" name="base_info_degree">
+      <Position>13</Position>
+      <Comment>学位（0.博士1.硕士2.学士）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="289" parent="110" name="base_info_specialty">
+      <Position>14</Position>
+      <Comment>专业</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="290" parent="110" name="base_info_positional_titles">
+      <Position>15</Position>
+      <Comment>职称（0.研究员1.副研究员2.助理研究员3.教授4.副教授5.讲师6.助教）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="291" parent="110" name="base_info_level">
+      <Position>16</Position>
+      <Comment>级别（0.高级1.副高2.中级3.初级）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="292" parent="110" name="base_info_post">
+      <Position>17</Position>
+      <Comment>职务</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="293" parent="110" name="base_info_if_doctor_tutor">
+      <Position>18</Position>
+      <Comment>是否博导（0.否1.是）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="294" parent="110" name="base_info_if_master_tutor">
+      <Position>19</Position>
+      <Comment>是否硕导（0.否1.是）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="110" name="base_info_start_work_time">
+      <Position>20</Position>
+      <Comment>参加工作时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="296" parent="110" name="base_info_research_direction">
+      <Position>21</Position>
+      <Comment>研究方向</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="297" parent="110" name="base_info_research_expertise">
+      <Position>22</Position>
+      <Comment>研究专长</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="298" parent="110" name="base_info_talent_plan">
+      <Position>23</Position>
+      <Comment>人才计划</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="299" parent="110" name="base_info_honorary_title">
+      <Position>24</Position>
+      <Comment>荣誉称号</Comment>
+      <DataType>varchar(1000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="300" parent="110" name="base_info_campus_card">
+      <Position>25</Position>
+      <Comment>工行卡号（校园卡）</Comment>
+      <DataType>varchar(18)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="301" parent="110" name="base_info_payroll_card">
+      <Position>26</Position>
+      <Comment>大连银行卡号（工资卡）</Comment>
+      <DataType>varchar(18)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="110" name="base_info_mentor">
+      <Position>27</Position>
+      <Comment>合作导师/导师姓名</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="303" parent="110" name="base_info_mentor_id">
+      <Position>28</Position>
+      <Comment>合作导师id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="304" parent="110" name="base_info_start_time">
+      <Position>29</Position>
+      <Comment>进站时间/入学时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="305" parent="110" name="base_info_end_time">
+      <Position>30</Position>
+      <Comment>出站时间/毕业时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="306" parent="110" name="base_info_departure_report">
+      <Position>31</Position>
+      <Comment>出站报告</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="307" parent="110" name="base_info_employment_company">
+      <Position>32</Position>
+      <Comment>就业单位</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="308" parent="110" name="base_info_grade">
+      <Position>33</Position>
+      <Comment>年级</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="309" parent="110" name="base_info_contact_information">
+      <Position>34</Position>
+      <Comment>学位论文题目</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="110" name="base_info_honor">
+      <Position>35</Position>
+      <Comment>在读期间获得奖项或荣誉</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="311" parent="110" name="base_info_achievement">
+      <Position>36</Position>
+      <Comment>署名中心成果</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="312" parent="110" name="base_info_nationality">
+      <Position>37</Position>
+      <Comment>国籍</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="313" parent="110" name="base_info_primary_work_unit">
+      <Position>38</Position>
+      <Comment>原工作单位</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="314" parent="110" name="base_info_external_appellation">
+      <Position>39</Position>
+      <Comment>外聘称谓</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="315" parent="110" name="base_info_engage_start_time">
+      <Position>40</Position>
+      <Comment>聘用开始期限（时间段 2017-5-20 ~ 2018-3-9）</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="316" parent="110" name="base_info_engage_end_time">
+      <Position>41</Position>
+      <Comment>聘用截止期限</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="317" parent="110" name="base_info_profile">
+      <Position>42</Position>
+      <Comment>个人简介</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="318" parent="110" name="base_info_remarks">
+      <Position>43</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="319" parent="110" name="base_info_del">
+      <Position>44</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(2)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="320" parent="110" name="base_create_time">
+      <Position>45</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="321" parent="110" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>base_info_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="322" parent="111" name="educational_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="323" parent="111" name="base_info_id">
+      <Position>2</Position>
+      <Comment>基本信息ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="324" parent="111" name="educational_country">
+      <Position>3</Position>
+      <Comment>国家</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="325" parent="111" name="educational_school">
+      <Position>4</Position>
+      <Comment>学校</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="326" parent="111" name="educational_start_time">
+      <Position>5</Position>
+      <Comment>就读开始时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="327" parent="111" name="educational_end_time">
+      <Position>6</Position>
+      <Comment>就读结束时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="328" parent="111" name="educational_college">
+      <Position>7</Position>
+      <Comment>院系</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="329" parent="111" name="educational_major">
+      <Position>8</Position>
+      <Comment>专业</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="330" parent="111" name="educational_education">
+      <Position>9</Position>
+      <Comment>学历(0.博士1.硕士2.本科)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="331" parent="111" name="educational_degree">
+      <Position>10</Position>
+      <Comment>学位（0.博士1.硕士2.学士）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="332" parent="111" name="educational_create_time">
+      <Position>11</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="333" parent="111" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>educational_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="334" parent="112" name="job_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="335" parent="112" name="base_info_id">
+      <Position>2</Position>
+      <Comment>基本信息ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="336" parent="112" name="job_type">
+      <Position>3</Position>
+      <Comment>兼职类别(0.政府兼职1.企业兼职2.学术兼职)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="337" parent="112" name="job_mechanism_type">
+      <Position>4</Position>
+      <Comment>机构类别（0.国内兼职1.国外兼职）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="338" parent="112" name="job_start_time">
+      <Position>5</Position>
+      <Comment>兼职开始时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="339" parent="112" name="job_end_time">
+      <Position>6</Position>
+      <Comment>兼职结束时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="340" parent="112" name="job_mechanism">
+      <Position>7</Position>
+      <Comment>兼职机构</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="341" parent="112" name="job_post">
+      <Position>8</Position>
+      <Comment>职务名称</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="342" parent="112" name="job_create_time">
+      <Position>9</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="343" parent="112" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>job_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="344" parent="113" name="mail_list_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="345" parent="113" name="base_info_id">
+      <Position>2</Position>
+      <Comment>基本信息ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="346" parent="113" name="mail_list_phone">
+      <Position>3</Position>
+      <Comment>手机</Comment>
+      <DataType>varchar(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="347" parent="113" name="mail_list_phone1">
+      <Position>4</Position>
+      <Comment>小号</Comment>
+      <DataType>varchar(13)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="348" parent="113" name="mail_list_oph">
+      <Position>5</Position>
+      <Comment>办公电话</Comment>
+      <DataType>varchar(13)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="349" parent="113" name="mail_list_studio">
+      <Position>6</Position>
+      <Comment>工作室号</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="350" parent="113" name="mail_list_email">
+      <Position>7</Position>
+      <Comment>电子邮箱</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="351" parent="113" name="mail_list_address">
+      <Position>8</Position>
+      <Comment>通讯地址</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="352" parent="113" name="mail_list_company">
+      <Position>9</Position>
+      <Comment>单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="353" parent="113" name="mail_list_remarks">
+      <Position>10</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="354" parent="113" name="mail_list_del">
+      <Position>11</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="355" parent="113" name="mail_list_create_time">
+      <Position>12</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="356" parent="113" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>mail_list_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="357" parent="114" name="work_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="358" parent="114" name="base_info_id">
+      <Position>2</Position>
+      <Comment>基本信息ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="359" parent="114" name="work_start_time">
+      <Position>3</Position>
+      <Comment>工作开始时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="360" parent="114" name="work_end_time">
+      <Position>4</Position>
+      <Comment>工作结束时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="361" parent="114" name="work_company">
+      <Position>5</Position>
+      <Comment>工作单位</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="362" parent="114" name="work_post">
+      <Position>6</Position>
+      <Comment>职务</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="363" parent="114" name="work_create_time">
+      <Position>7</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="364" parent="114" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>work_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="365" parent="115" name="activity_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="366" parent="115" name="activity_type">
+      <Position>2</Position>
+      <Comment>活动类型（0.工会1.党员2.其他）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="367" parent="115" name="activity_time">
+      <Position>3</Position>
+      <Comment>时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="368" parent="115" name="activity_address">
+      <Position>4</Position>
+      <Comment>地点</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="369" parent="115" name="activity_theme">
+      <Position>5</Position>
+      <Comment>主题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="370" parent="115" name="activity_content">
+      <Position>6</Position>
+      <Comment>主要内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="371" parent="115" name="activity_host">
+      <Position>7</Position>
+      <Comment>主持人（自定义）</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="372" parent="115" name="activity_speaker">
+      <Position>8</Position>
+      <Comment>主讲人/组织者（自定义）</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="373" parent="115" name="activity_participant">
+      <Position>9</Position>
+      <Comment>参加人（自定义）</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="374" parent="115" name="activity_remarks">
+      <Position>10</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="375" parent="115" name="activity_del">
+      <Position>11</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="376" parent="115" name="activity_create_time">
+      <Position>12</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="377" parent="115" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>activity_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="378" parent="116" name="account_id">
+      <Position>1</Position>
+      <Comment>账号id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="379" parent="116" name="role_id">
+      <Position>2</Position>
+      <Comment>角色id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="380" parent="116" name="account_name">
+      <Position>3</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="381" parent="116" name="account_pass_word">
+      <Position>4</Position>
+      <Comment>用户密码</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="382" parent="116" name="account_status">
+      <Position>5</Position>
+      <Comment>账号使用状态（0.未使用1.已使用）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="383" parent="116" name="account_del">
+      <Position>6</Position>
+      <Comment>是否删除（0.未删除1.已删除）</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="384" parent="116" name="account_create_time">
+      <Position>7</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="385" parent="116" name="account_role_type">
+      <Position>8</Position>
+      <Comment>账号角色类型</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="386" parent="116" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>account_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="387" parent="117" name="role_id">
+      <Position>1</Position>
+      <Comment>角色ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="388" parent="117" name="role_name">
+      <Position>2</Position>
+      <Comment>角色类型(0,管理员1.领导2.行政3.科研人员4.博士后5.博士6.硕士7.其他人员)</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="389" parent="117" name="role_power">
+      <Position>3</Position>
+      <Comment>角色对应权限</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="390" parent="117" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>role_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="391" parent="118" name="entrust_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="392" parent="118" name="entrust_time">
+      <Position>2</Position>
+      <Comment>承担时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="393" parent="118" name="entrust_undertaker">
+      <Position>3</Position>
+      <Comment>承担人</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="394" parent="118" name="entrust_undertaker_id">
+      <Position>4</Position>
+      <Comment>承担人id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="395" parent="118" name="entrust_company">
+      <Position>5</Position>
+      <Comment>委托单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="396" parent="118" name="entrust_task">
+      <Position>6</Position>
+      <Comment>委托任务</Comment>
+      <DataType>varchar(1000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="397" parent="118" name="entrust_synopsis">
+      <Position>7</Position>
+      <Comment>简要说明</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="398" parent="118" name="entrust_remarks">
+      <Position>8</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="399" parent="118" name="entrust_del">
+      <Position>9</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="400" parent="118" name="entrust_create_time">
+      <Position>10</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="401" parent="118" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>entrust_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="402" parent="119" name="consult_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="403" parent="119" name="consult_title">
+      <Position>2</Position>
+      <Comment>课程名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="404" parent="119" name="consult_name">
+      <Position>3</Position>
+      <Comment>授课人</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="405" parent="119" name="consult_name_id">
+      <Position>4</Position>
+      <Comment>授课人id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="406" parent="119" name="consult_target">
+      <Position>5</Position>
+      <Comment>课授对象</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="407" parent="119" name="consult_start_time">
+      <Position>6</Position>
+      <Comment>开始时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="408" parent="119" name="consult_end_time">
+      <Position>7</Position>
+      <Comment>结束时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="409" parent="119" name="consult_count">
+      <Position>8</Position>
+      <Comment>人数</Comment>
+      <DataType>varchar(8)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="410" parent="119" name="consult_type">
+      <Position>9</Position>
+      <Comment>类别（0.自办1.委托）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="411" parent="119" name="consult_entrust_company">
+      <Position>10</Position>
+      <Comment>合作单位/委托单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="412" parent="119" name="consult_synopsis">
+      <Position>11</Position>
+      <Comment>简介</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="413" parent="119" name="consult_remarks">
+      <Position>12</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="414" parent="119" name="consult_del">
+      <Position>13</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="415" parent="119" name="consult_create_time">
+      <Position>14</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="416" parent="119" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>consult_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="417" parent="120" name="publicity_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="418" parent="120" name="publicity_type">
+      <Position>2</Position>
+      <Comment>宣传类型（0.报纸1.期刊2.电视台3.网络）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="419" parent="120" name="publicity_theme">
+      <Position>3</Position>
+      <Comment>宣传主题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="420" parent="120" name="publicity_channel">
+      <Position>4</Position>
+      <Comment>电视频道名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="421" parent="120" name="publicity_title">
+      <Position>5</Position>
+      <Comment>报纸名称/期刊名称/栏目名称/网站名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="422" parent="120" name="publicity_volume">
+      <Position>6</Position>
+      <Comment>卷/期</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="423" parent="120" name="publicity_time">
+      <Position>7</Position>
+      <Comment>发表时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="424" parent="120" name="publicity_interviewee">
+      <Position>8</Position>
+      <Comment>受访人/单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="425" parent="120" name="publicity_interviewee_id">
+      <Position>9</Position>
+      <Comment>受访人id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="426" parent="120" name="publicity_company">
+      <Position>10</Position>
+      <Comment>受访单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="427" parent="120" name="publicity_position">
+      <Position>11</Position>
+      <Comment>版面/位置(封1、2、3、4、书评、其他)/视频网址/宣传页网址</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="428" parent="120" name="publicity_remarks">
+      <Position>12</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="429" parent="120" name="publicity_del">
+      <Position>13</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="430" parent="120" name="publicity_create_time">
+      <Position>14</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="431" parent="120" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>publicity_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="432" parent="121" name="report_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="433" parent="121" name="report_type">
+      <Position>2</Position>
+      <Comment>报表类型（0.个人1.中心）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="434" parent="121" name="report_time">
+      <Position>3</Position>
+      <Comment>上报时间/提交时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="435" parent="121" name="report_title">
+      <Position>4</Position>
+      <Comment>材料名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="436" parent="121" name="report_dept">
+      <Position>5</Position>
+      <Comment>提交部门</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="437" parent="121" name="report_submitter">
+      <Position>6</Position>
+      <Comment>提交人</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="438" parent="121" name="report_submitter_id">
+      <Position>7</Position>
+      <Comment>提交人ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="439" parent="121" name="report_remarks">
+      <Position>8</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="440" parent="121" name="report_del">
+      <Position>9</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="441" parent="121" name="report_create_time">
+      <Position>10</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="442" parent="121" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>report_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="443" parent="122" name="fa_ca_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="444" parent="122" name="project_id">
+      <Position>2</Position>
+      <Comment>项目id
+</Comment>
+      <DataType>varchar(36)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="445" parent="122" name="amount">
+      <Position>3</Position>
+      <Comment>分配金额
+</Comment>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="446" parent="122" name="base_info_id">
+      <Position>4</Position>
+      <Comment>人的id
+</Comment>
+      <DataType>varchar(36)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="447" parent="122" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fa_ca_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="448" parent="123" name="record_id">
+      <Position>1</Position>
+      <Comment>履历id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="449" parent="123" name="project_id">
+      <Position>2</Position>
+      <Comment>项目id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="450" parent="123" name="record_type">
+      <Position>3</Position>
+      <Comment>资金类别</Comment>
+      <DataType>varchar(8)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="451" parent="123" name="rb_amount">
+      <Position>4</Position>
+      <Comment>申请报销金额</Comment>
+      <DataType>double(6,2 digit)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="452" parent="123" name="record_status">
+      <Position>5</Position>
+      <Comment>报销状态（0申请报销，1报销通过，2报销驳回）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="453" parent="123" name="file_id">
+      <Position>6</Position>
+      <Comment>文件id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="454" parent="123" name="base_info_id">
+      <Position>7</Position>
+      <Comment>申报人</Comment>
+      <DataType>varchar(36)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="455" parent="123" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>record_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="456" parent="124" name="cooperation_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="457" parent="124" name="cooperation_type">
+      <Position>2</Position>
+      <Comment>合作类型（0.国内1.国际）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="458" parent="124" name="cooperation_project_name">
+      <Position>3</Position>
+      <Comment>合作项目名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="459" parent="124" name="cooperation_content">
+      <Position>4</Position>
+      <Comment>合作内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="460" parent="124" name="cooperation_company">
+      <Position>5</Position>
+      <Comment>合作单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="461" parent="124" name="cooperation_person">
+      <Position>6</Position>
+      <Comment>作者合</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="462" parent="124" name="cooperation_person_company">
+      <Position>7</Position>
+      <Comment>属所单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="463" parent="124" name="cooperation_time">
+      <Position>8</Position>
+      <Comment>合作时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="464" parent="124" name="cooperation_person_liable">
+      <Position>9</Position>
+      <Comment>任人责</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="465" parent="124" name="cooperation_person_liable_id">
+      <Position>10</Position>
+      <Comment>责任人id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="466" parent="124" name="cooperation_remarks">
+      <Position>11</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="467" parent="124" name="cooperation_del">
+      <Position>12</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="468" parent="124" name="cooperation_create_time">
+      <Position>13</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="469" parent="124" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>cooperation_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="470" parent="125" name="budget_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="471" parent="125" name="budget_year">
+      <Position>2</Position>
+      <Comment>预算年度</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="472" parent="125" name="budget_time">
+      <Position>3</Position>
+      <Comment>制定时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="473" parent="125" name="budget_category">
+      <Position>4</Position>
+      <Comment>支出类目</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="474" parent="125" name="budget_title">
+      <Position>5</Position>
+      <Comment>分项名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="475" parent="125" name="budget_fund_source">
+      <Position>6</Position>
+      <Comment>经费来源（0.教育部1.省部委2.学校拨款3.其他来源）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="476" parent="125" name="budget_amounts">
+      <Position>7</Position>
+      <Comment>金额(万)</Comment>
+      <DataType>double(2)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="477" parent="125" name="budget_remarks">
+      <Position>8</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="478" parent="125" name="budget_del">
+      <Position>9</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="479" parent="125" name="budget_create_time">
+      <Position>10</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="480" parent="125" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>budget_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="481" parent="126" name="fund_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="482" parent="126" name="fund_title">
+      <Position>2</Position>
+      <Comment>经费名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="483" parent="126" name="fund_amounts">
+      <Position>3</Position>
+      <Comment>金额(万)</Comment>
+      <DataType>double(2)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="484" parent="126" name="fund_time">
+      <Position>4</Position>
+      <Comment>划拨时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="485" parent="126" name="fund_type">
+      <Position>5</Position>
+      <Comment>经费类别（0.设备1.会议2.图书3.项目4.办公5.其他）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="486" parent="126" name="fund_source">
+      <Position>6</Position>
+      <Comment>经费来源（0.教育部1.其他部委2.省市政府3.学校4.企事业单位5.社会捐助）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="487" parent="126" name="fund_remarks">
+      <Position>7</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="488" parent="126" name="fund_del">
+      <Position>8</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="489" parent="126" name="fund_create_time">
+      <Position>9</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="490" parent="126" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fund_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="491" parent="127" name="memorabilia_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="492" parent="127" name="memorabilia_theme">
+      <Position>2</Position>
+      <Comment>主题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="493" parent="127" name="memorabilia_time">
+      <Position>3</Position>
+      <Comment>时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="494" parent="127" name="memorabilia_content">
+      <Position>4</Position>
+      <Comment>简要内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="495" parent="127" name="memorabilia_remarks">
+      <Position>5</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="496" parent="127" name="memorabilia_del">
+      <Position>6</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="497" parent="127" name="memorabilia_create_time">
+      <Position>7</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="498" parent="127" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>memorabilia_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="499" parent="128" name="plan_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="500" parent="128" name="plan_title">
+      <Position>2</Position>
+      <Comment>规划标题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="501" parent="128" name="plan_time">
+      <Position>3</Position>
+      <Comment>制定时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="502" parent="128" name="plan_cycle">
+      <Position>4</Position>
+      <Comment>规划周期（0.十三五1.年度规划...）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="503" parent="128" name="plan_content">
+      <Position>5</Position>
+      <Comment>规划大纲</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="504" parent="128" name="plan_remarks">
+      <Position>6</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="505" parent="128" name="plan_del">
+      <Position>7</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="506" parent="128" name="plan_create_time">
+      <Position>8</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="507" parent="128" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>plan_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="508" parent="129" name="rule_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="509" parent="129" name="rule_title">
+      <Position>2</Position>
+      <Comment>制度名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="510" parent="129" name="rule_time">
+      <Position>3</Position>
+      <Comment>颁布时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="511" parent="129" name="rule_content">
+      <Position>4</Position>
+      <Comment>简要内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="512" parent="129" name="rule_remarks">
+      <Position>5</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="513" parent="129" name="rule_del">
+      <Position>6</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="514" parent="129" name="rule_create_time">
+      <Position>7</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="515" parent="129" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>rule_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="516" parent="130" name="summary_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="517" parent="130" name="summary_title">
+      <Position>2</Position>
+      <Comment>总结标题</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="518" parent="130" name="summary_time">
+      <Position>3</Position>
+      <Comment>撰写时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="519" parent="130" name="summary_cycle">
+      <Position>4</Position>
+      <Comment>总结周期（0.十三五1.年度总结...）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="520" parent="130" name="summary_content">
+      <Position>5</Position>
+      <Comment>总结内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="521" parent="130" name="summary_remarks">
+      <Position>6</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="522" parent="130" name="summary_del">
+      <Position>7</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="523" parent="130" name="summary_create_time">
+      <Position>8</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="524" parent="130" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>summary_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="525" parent="131" name="teaching_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="526" parent="131" name="teaching_name">
+      <Position>2</Position>
+      <Comment>授课人</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="527" parent="131" name="teaching_name_id">
+      <Position>3</Position>
+      <Comment>授课人ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="528" parent="131" name="teaching_student_grade">
+      <Position>4</Position>
+      <Comment>指导学生年级</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="529" parent="131" name="teaching_student_name">
+      <Position>5</Position>
+      <Comment>指导学生姓名</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="530" parent="131" name="teaching_year">
+      <Position>6</Position>
+      <Comment>年度</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="531" parent="131" name="teaching_term">
+      <Position>7</Position>
+      <Comment>学期(0.第一学期1.第二学期)</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="532" parent="131" name="teaching_type">
+      <Position>8</Position>
+      <Comment>授课类型（0.博士1.硕士）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="533" parent="131" name="teaching_title">
+      <Position>9</Position>
+      <Comment>课程名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="534" parent="131" name="teaching_hour">
+      <Position>10</Position>
+      <Comment>授课课时</Comment>
+      <DataType>varchar(8)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="535" parent="131" name="teaching_remarks">
+      <Position>11</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="536" parent="131" name="teaching_del">
+      <Position>12</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="537" parent="131" name="teaching_create_time">
+      <Position>13</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="538" parent="131" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>teaching_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="539" parent="132" name="train_id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="540" parent="132" name="train_name">
+      <Position>2</Position>
+      <Comment>培训人</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="541" parent="132" name="train_name_id">
+      <Position>3</Position>
+      <Comment>培训人id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="542" parent="132" name="train_time">
+      <Position>4</Position>
+      <Comment>培训时间</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="543" parent="132" name="train_address">
+      <Position>5</Position>
+      <Comment>培训地点</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="544" parent="132" name="train_content">
+      <Position>6</Position>
+      <Comment>内容</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="545" parent="132" name="train_company">
+      <Position>7</Position>
+      <Comment>组织单位</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="546" parent="132" name="train_remarks">
+      <Position>8</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="547" parent="132" name="train_del">
+      <Position>9</Position>
+      <Comment>是否删除（0.未删除1.删除--回收站）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="548" parent="132" name="train_create_time">
+      <Position>10</Position>
+      <Comment>录入时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="549" parent="132" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>train_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="550" parent="133" name="share_file_id">
+      <Position>1</Position>
+      <Comment>共享文件id</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="551" parent="133" name="share_file_name">
+      <Position>2</Position>
+      <Comment>共享文件名称</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="552" parent="133" name="share_file_type">
+      <Position>3</Position>
+      <Comment>共享文件类型（0.工作论文1.研讨会讲稿2.参考文献3.会议通讯录4.其他）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="553" parent="133" name="share_file_submitter">
+      <Position>4</Position>
+      <Comment>提交人</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="554" parent="133" name="share_file_remarks">
+      <Position>5</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="555" parent="133" name="share_file_del">
+      <Position>6</Position>
+      <Comment>是否删除（0.未删除1.删除）</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="556" parent="133" name="share_file_create_time">
+      <Position>7</Position>
+      <Comment>上传时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="557" parent="133" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>share_file_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="558" parent="134" name="file_id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="559" parent="134" name="relevance_id">
+      <Position>2</Position>
+      <Comment>关联ID</Comment>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="560" parent="134" name="table_name">
+      <Position>3</Position>
+      <Comment>关联表名</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="561" parent="134" name="file_name">
+      <Position>4</Position>
+      <Comment>文件名称</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="562" parent="134" name="file_path">
+      <Position>5</Position>
+      <Comment>文件存储路径</Comment>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="563" parent="134" name="file_type">
+      <Position>6</Position>
+      <Comment>文件类型-和每个前台页面进行匹配</Comment>
+      <DataType>varchar(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="564" parent="134" name="file_content">
+      <Position>7</Position>
+      <Comment>文件描述</Comment>
+      <DataType>varchar(5000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="565" parent="134" name="file_create_time">
+      <Position>8</Position>
+      <Comment>上传时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="566" parent="134" name="idx_relevance_id">
+      <ColNames>relevance_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="567" parent="134" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>file_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

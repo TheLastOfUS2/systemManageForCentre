@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.MwRuleMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwRule" >
+    <id column="rule_id" property="ruleId" jdbcType="VARCHAR" />
+    <result column="rule_title" property="ruleTitle" jdbcType="VARCHAR" />
+    <result column="rule_time" property="ruleTime" jdbcType="VARCHAR" />
+    <result column="rule_content" property="ruleContent" jdbcType="VARCHAR" />
+    <result column="rule_remarks" property="ruleRemarks" jdbcType="VARCHAR" />
+    <result column="rule_del" property="ruleDel" jdbcType="VARCHAR" />
+    <result column="rule_create_time" property="ruleCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.ruleTitle != null" >
+         and rule_title = #{condition.ruleTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleTime != null" >
+         and rule_time = #{condition.ruleTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleContent != null" >
+         and rule_content = #{condition.ruleContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleRemarks != null" >
+         and rule_remarks = #{condition.ruleRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleDel != null" >
+         and rule_del = #{condition.ruleDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleCreateTime != null" >
+         and rule_create_time = #{condition.ruleCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 制度名称 -->
+      <if test="condition.ruleTitle2 != null" >
+      	 and rule_title like CONCAT('%', #{condition.ruleTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 颁布时间 -->
+      <if test="condition.ruleTime2 != null" >
+      	 and rule_time like CONCAT('%', #{condition.ruleTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    rule_id, rule_title, rule_time, rule_content, rule_remarks, rule_del, rule_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_rule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_rule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

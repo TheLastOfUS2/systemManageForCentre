@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.CommonAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.CommonAccount" >
+    <id column="account_id" property="accountId" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="account_pass_word" property="accountPassWord" jdbcType="VARCHAR" />
+    <result column="account_status" property="accountStatus" jdbcType="VARCHAR" />
+    <result column="account_del" property="accountDel" jdbcType="VARCHAR" />
+    <result column="account_create_time" property="accountCreateTime" jdbcType="TIMESTAMP" />
+    <result column="account_role_type" property="accountRoleType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.roleId != null" >
+         and role_id = #{condition.roleId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountName != null" >
+         and account_name = #{condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountPassWord != null" >
+         and account_pass_word = #{condition.accountPassWord,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountStatus != null" >
+         and account_status = #{condition.accountStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountDel != null" >
+         and account_del = #{condition.accountDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountCreateTime != null" >
+         and account_create_time = #{condition.accountCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.accountRoleType != null" >
+         and account_role_type = #{condition.accountRoleType,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.roleId != null" >
+         and role_id = #{example.condition.roleId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountName != null" >
+         and account_name = #{example.condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountPassWord != null" >
+         and account_pass_word = #{example.condition.accountPassWord,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountStatus != null" >
+         and account_status = #{example.condition.accountStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountDel != null" >
+         and account_del = #{example.condition.accountDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.accountCreateTime != null" >
+         and account_create_time = #{example.condition.accountCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.accountRoleType != null" >
+         and account_role_type = #{example.condition.accountRoleType,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >   
+    account_id, role_id, account_name, account_pass_word,account_status, account_del, account_create_time,account_role_type 
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from common_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from common_account
+    where account_id = #{accountId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from common_account
+    where account_id = #{accountId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from common_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>  
+  <insert id="insert" parameterType="com.systemManage.pojo.base.CommonAccount" >
+    insert into common_account (account_id, role_id, account_name, 
+      account_pass_word, account_status, account_del, account_create_time,account_role_type
+      )
+    values (#{accountId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, 
+      #{accountPassWord,jdbcType=VARCHAR},#{accountStatus,jdbcType=VARCHAR}, #{accountDel,jdbcType=VARCHAR},
+      #{accountCreateTime,jdbcType=TIMESTAMP},#{accountRoleType,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.CommonAccount" >
+    insert into common_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="accountName != null" >
+        account_name,
+      </if>
+      <if test="accountPassWord != null" >
+        account_pass_word,
+      </if>
+       <if test="accountStatus != null" >
+        account_status,
+      </if>
+      <if test="accountDel != null" >
+        account_del,
+      </if>
+      <if test="accountCreateTime != null" >
+        account_create_time,
+      </if>
+      <if test="accountRoleType != null" >
+        account_role_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="accountId != null" >
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountPassWord != null" >
+        #{accountPassWord,jdbcType=VARCHAR},
+      </if>
+      <if test="accountStatus != null" >
+        #{accountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDel != null" >
+        #{accountDel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCreateTime != null" >
+        #{accountCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountRoleType != null" >
+        #{accountRoleType,jdbcType=TIMESTAMP},
+      </if>
+       
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from common_account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update common_account
+    <set >
+      <if test="record.accountId != null" >
+        account_id = #{record.accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleId != null" >
+        role_id = #{record.roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountName != null" >
+        account_name = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountPassWord != null" >
+        account_pass_word = #{record.accountPassWord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountStatus != null" >
+        account_status = #{record.accountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountDel != null" >
+        account_del = #{record.accountDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountCreateTime != null" >
+        account_create_time = #{record.accountCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.accountRoleType != null" >
+        account_role_type = #{record.accountRoleType,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update common_account 
+    set account_id = #{record.accountId,jdbcType=VARCHAR},
+      role_id = #{record.roleId,jdbcType=VARCHAR},
+      account_name = #{record.accountName,jdbcType=VARCHAR},
+      account_pass_word = #{record.accountPassWord,jdbcType=VARCHAR},
+      account_status = #{record.accountStatus,jdbcType=VARCHAR},
+      account_del = #{record.accountDel,jdbcType=VARCHAR},
+      account_create_time = #{record.accountCreateTime,jdbcType=TIMESTAMP}
+      account_role_type = #{record.accountRoleType,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.CommonAccount" >
+    update common_account
+    <set >
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountPassWord != null" >
+        account_pass_word = #{accountPassWord,jdbcType=VARCHAR},
+      </if>
+      <if test="accountStatus != null" >
+        account_status = #{accountStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="accountDel != null" >
+        account_del = #{accountDel,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCreateTime != null" >
+        account_create_time = #{accountCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountRoleType != null" >
+        account_role_type = #{accountRoleType,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where account_id = #{accountId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.CommonAccount" >
+    update common_account   
+    set role_id = #{roleId,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      account_pass_word = #{accountPassWord,jdbcType=VARCHAR},
+      account_status = #{accountStatus,jdbcType=VARCHAR},
+      account_del = #{accountDel,jdbcType=VARCHAR},
+      account_create_time = #{accountCreateTime,jdbcType=TIMESTAMP},
+      account_role_type = #{accountRoleType,jdbcType=TIMESTAMP}
+    where account_id = #{accountId,jdbcType=VARCHAR}
+  </update>
+</mapper>

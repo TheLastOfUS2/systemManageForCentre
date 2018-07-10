@@ -1,0 +1,1004 @@
+@charset "utf-8";
+/* CSS Document */
+/* 主界面零碎样式表 */
+
+/*头部右侧工具栏*/
+.headRight {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    width: 40%;
+    padding: 3px 8px 0px 0px;
+    float: right;
+    font-size: 12px;
+    text-align: right
+}
+
+body .datagrid.panel {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+table {
+    /*-moz-user-select:-moz-none;*/
+    /*border-collapse:collapse;*/
+    /*hutia:expression(this.onselectstart=function(){return(false)});*/
+}
+/*html,body{-moz-user-select: none; -khtml-user-select: none; user-select: none;}
+*/
+/*首页自定义链接按钮样式*/
+
+.a_btn {
+    text-decoration: none;
+    color: #0033FF;
+}
+@media print{
+    a.print-btn{
+        display: none;
+    }
+}
+a.l-btn.hidden {
+    display: none;
+}
+input.hidden, span.combo.hidden {
+    display: none;
+}
+input.left {
+    float: left
+}
+/*日历事件颜色类*/
+
+.event_bg_default {
+    color: #000000;
+    background-color: #36c;
+}
+.event_bg_red {
+    color: #000000;
+    background: #ff887c;
+}
+.event_bg_green {
+    color: #000000;
+    background-color: #51b749;
+}
+.event_bg_dark_green {
+    color: #000000;
+    background-color: #46d6db;
+}
+/*日历事件颜色类结束*/
+/*中间内同块*/
+/*#main-regions .panel{
+	width:60%;
+	float:left;
+	}
+#main-regions .panel #current-month{
+	 text-align:left;
+	 margin:5px;	 
+	 }
+#main-regions .panel .other-month {
+	background: #eee;
+	color:#CCCCCC;
+}*/
+
+#main-regions .index_panel {
+    height: auto;
+    width: 99.8%;
+    float: left;
+    margin: 0px 0px 5px 0px;
+    border: 1px solid #99bbe8;
+    border-top: none;
+}
+#main-regions .index_panel .panel_title {
+    color: #15428b;
+    line-height: 27px;
+    padding-left: 10px;
+    font-weight: 600;
+    background: url(../Image/title_bg.jpg) repeat-x;
+    height: 27px;
+    text-align: left;
+}
+#main-regions .center_pannel {
+    padding: 10px;
+    line-height: 20px;
+    font-size: 12px;
+}
+#main-regions .center_pannel .hr20 {
+    height: 1px;
+    margin: 10px 0px;
+    border-bottom: 1px dotted #CCCCCC;
+}
+#main-regions .center_pannel ul {
+    list-style: none;
+    margin: 0px;
+}
+#main-regions .center_pannel ul a {
+    text-decoration: none;
+    color: #000000;
+}
+#main-regions .center_pannel ul a:hover {
+    text-decoration: underline;
+    color: #0000FF;
+}
+#main-regions .center_pannel ul li {
+    margin-left: -28px;
+    list-style: none;
+    list-style-position: inside;
+}
+/*头部导航标签样式*/
+
+.ULmenu {
+    margin: 3px 0px 0px 10px;
+    padding: 0px;
+    display: block;
+    width: 55%;
+    float: left;
+    color: #15428b;
+}
+.ULmenu li {
+    list-style: none;
+    min-width: 85px;
+    height: 30px;
+    display: inline-block;
+    /*float: left;*/
+    text-align: center;
+    padding: 6px 4px 0px;
+    cursor: pointer;
+    border: 1px solid #8db2e3;
+    border-bottom: none;
+    margin-right: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 300
+}
+.TopNavitem {
+    background-image: url("../images/tabs_enabled.png");
+    background-repeat: repeat-x;
+}
+.TopNavitem:hover {
+    background-image: url("../images/tabs_active.png");
+    background-repeat: repeat-x;
+}
+.TopNavitem-Selected {
+    background-image: url("../images/tabs_active.png") !important;
+    background-repeat: repeat-x;
+    font-weight: bold !important;
+    font-family: "微软雅黑";
+    padding-top: 6px !important;
+    /* color:#830f5b*/
+}
+
+
+.BtnDiv {
+    margin: 4px 2px;
+    height: 22px;
+    padding-left: 10px;
+    line-height: 22px;
+    width: 85px;
+    float: left;
+}
+.BtnDiv a {
+    display: block;
+    width: 85px;
+    height: 23px;
+    color: #333333;
+    text-decoration: none;
+    background-image: url(..//images/hover.jpg);
+    line-height: 24px;
+    text-align: center;
+}
+.BtnDiv a:hover {
+    background-image: url(../images/link.jpg)
+}
+#notice {
+    list-style: circle;
+    color: #333333;
+    font-size: 14px;
+}
+#notice li {
+    line-height: 24px;
+}
+#notice li a {
+    color: #333;
+    text-decoration: none;
+}
+#notice li a:hover {
+    color: #39C;
+}
+#Tabpannel .1-btn-left {
+    padding-top: 2px !important
+}
+.layout-split-north div .panel-header {
+    height: 31px !important
+}
+/*.layout-panel-center .panel-header .panel-title {
+	font-weight:300
+	}*/
+
+.base_info {
+    margin-bottom: 20px;
+    width: 600px;
+    border: 1px solid #B8D4E8;
+}
+.base_info h3 {
+    background: url("/Image/switch.png") no-repeat scroll right -25px #F0F5F8;
+    display: block;
+    font-size: 12px;
+    line-height: 26px;
+    margin-top: 1px;
+    padding: 0 10px;
+    margin-bottom: 0px;
+    cursor: pointer
+}
+.base_info p {
+    line-height: 2em;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 1ex;
+    font-size: 12px;
+}
+.base_info label {
+    /*cursor: pointer;*/
+}
+.base_info label > span {
+    color: #777777;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 6px;
+    text-align: right;
+    width: 105px;
+    font-size: 12px;
+}
+
+.input_submit {
+    background-color: #005EAC;
+    border-color: #B8D4E8 #124680 #124680 #B8D4E8;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 3px 5px;
+    text-align: center;
+    margin-right: 6px;
+}
+input.gray {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F0F0F0 !important;
+    border-color: #FFFFFF #848484 #848484 #FFFFFF !important;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333 !important;
+}
+/**input样式定义**/
+
+.input_p {
+    line-height: 2em;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 1ex;
+    font-size: 12px;
+}
+.in_label {
+    color: #777777;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 6px;
+    text-align: right;
+    width: 105px;
+    font-size: 12px;
+}
+.input_text, .input_item {
+    border: 1px solid #BDC7D8;
+    border-color: #BDC7D8 !important;
+    padding: 3px;
+}
+form.readonly .combo, form.readonly .input_text, form.readonly .input_item, form.readonly .spinner {
+    border: none;
+    border-bottom: 1px solid #BDC7D8;
+}
+form.readonly .combo, form.readonly .spinner {
+    padding: 1px 3px;
+    width: 120px;
+}
+form.readonly .combo span, form.readonly .spinner .spinner-arrow {
+    display: none;
+}
+textarea.input_text {
+    line-height: 1.8em;
+}
+div.input_text {
+    display: block;
+    height: auto;
+    width: 99%;
+    font-size: 14px;
+    line-height: 1.8em;
+    border-bottom: none !important;
+    text-align: justify;
+    margin: 0px auto;
+}
+.input_item {
+    width: 88px;
+    padding: 3px 1px;
+}
+.input_item.datebox {
+    width: 50px;
+}
+.input_text.noBorder{
+    border: none;
+}
+.in_w_40 {
+    width: 40px;
+}
+.in_w_60 {
+    width: 60px;
+}
+.in_w_300 {
+    width: 300px;
+}
+.in_w_400 {
+    width: 400px;
+}
+.in_w_200 {
+    width: 200px;
+}
+.in_w_120 {
+    width: 120px;
+}
+.input_easy.in_w_120, select.in_w_120 {
+    width: 128px;
+}
+select.input_text, select.input_easy{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.in_w_80 {
+    width: 80px;
+}
+.in_w_40 {
+    width: 40px;
+}
+.in_p {
+    line-height: 2em;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 1ex;
+    font-size: 12px;
+}
+.in_block{
+    display: block;
+    width: 95%;
+}
+.in_block_full{
+    display: block;
+    width: 99%;
+    padding: 3px 0.5%;
+    margin: 0px;
+}
+.in_auto_height{
+    display: block;
+    height: auto;
+    max-height: 400px;
+}
+span.file-render{
+    color: red;
+    font-size: 13px;
+    
+}
+span.inline-help{
+    font-size: 12px;
+    font-weight: bold;
+}
+span.inline-help.danger{
+    color: red;
+}
+span.inline-help.info{
+    color: #04c;
+}
+/**input定义结束**/
+/*by Lilin*/
+
+.ListForm {
+    width: 97%;
+    font-size: 12px;
+    margin: 20px 0px
+}
+.ListForm h2{
+    margin: 15px 0px 5px;
+}
+.project .ListForm h2{
+    font-size: 15px;
+    color: #333;
+}
+.ListForm label > span {
+    color: #777777;
+    display: inline-block;
+    margin-right: 6px;
+    text-align: right;
+    width: 110px;
+    font-size: 12px;
+}
+.ListForm label.wide > span{
+    width: 150px;
+}
+.ListForm label.left > span{
+    width: auto;
+    text-align: center;
+}
+.ListForm label > span font, .ListForm td font {
+    color: #f00;
+}
+.ListForm span.tip {
+    color: #555
+}
+.ListForm_head {
+    border-bottom: #999 solid 1px;
+}
+a {
+    cursor: pointer;
+}
+.ListForm p {
+    margin: 2px;
+    line-height: 1.8em
+}
+.ListForm p *{
+    line-height: 1em;
+}
+.ListForm p textarea{
+    line-height: 1.5em
+}
+
+/*相关行hover下划线*/
+
+.relatedRow td {
+    border-bottom: 1px solid #FFF
+}
+.StaffInfo {
+    margin-bottom: 10px
+}
+.relatedRow:hover td {
+    border-bottom: 1px solid #ccc
+}
+/**/
+/*基地人员list*/
+
+.model_list {
+    margin: 20px 0px 10px 0px;
+    font-size: 12px;
+    color: #333;
+}
+.model_list h2 {
+    font-size: 14px;
+    font-weight: 780;
+    color: #333333;
+}
+.ListForm .model_list th {
+    text-align: left;
+}
+.headCaption {
+    height: 40px;
+    border-bottom: 1px solid #999
+}
+img {
+    vertical-align: middle;
+    border: none;
+}
+.headCaption a {} .model_list th {
+    color: #666;
+    height: 30px;
+    border-bottom: 1px solid #eee;
+}
+.templaterow {
+    display: none;
+}
+.lib_selector p {
+    margin: 8px;
+}
+.clear {
+    clear: both
+}
+.reload-frame {
+    display: inline-block;
+    float: right;
+    margin-right: 12px;
+    text-decoration: none;
+    color: #15428b;
+}
+.reload-frame:hover {
+    text-decoration: underline;
+}
+form p .input_text, form p .input_easy, form p input {
+    margin: 0px
+}
+form p {
+    padding: 0px;
+}
+form .ListForm {
+    margin: 0px auto;
+}
+a.left, span.left {
+    float: left !important;
+}
+.agent-close {
+    background: url("/App_Addins/easyUI/themes/default/images/tabs_close.gif") no-repeat scroll 2px 2px transparent;
+    display: block;
+    font-size: 1px;
+    height: 11px;
+    opacity: 0.6;
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 11px;
+}
+.minimize-agent.plain {
+    background-color: #EFEFEF;
+}
+/*日期选择器样式*/
+
+.datepicker {
+    border-collapse: collapse;
+    border: 1px solid #99BBE8;
+    position: absolute;
+    width: 175px;
+}
+.datepicker tr.controls th {
+    height: 22px;
+    font-size: 12px;
+}
+.datepicker select {
+    font-size: 12px;
+}
+.datepicker tr.days th {
+    height: 18px;
+}
+.datepicker tfoot td {
+    height: 18px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.datepicker th, .datepicker tfoot td {
+    background: #E0ECFF;
+    font: 10px/18px Verdana, Arial, Helvetica, sans-serif;
+}
+.datepicker th span, .datepicker tfoot td span {
+    font-weight: bold;
+}
+.datepicker .prevMonth:hover, .datepicker .nextMonth:hover {
+    color: #00f
+}
+.datepicker tbody td {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #99BBE8;
+    font: 12px/22px Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: #fff;
+}
+.datepicker tbody td.date {
+    cursor: pointer;
+}
+.datepicker tbody td.date.over {
+    background-color: #99ffff;
+}
+.datepicker tbody td.date.chosen {
+    font-weight: bold;
+    background-color: #ccffcc;
+}
+/*日期选择器样式*/
+/*表单样式*/
+
+tr.item-row:hover {
+    border-bottom: solid 1px #ccc;
+}
+input:disabled {
+    background-color: #fff !important;
+    color: #000;
+}
+/*pdf查看器样式*/
+
+#appendix-view-window > .panel > .dialog-content {
+    overflow: hidden;
+}
+/*帮助窗口样式*/
+
+.helpWindow .tabs-panels, .helpWindow .panel-body {
+    overflow: hidden;
+}
+.helpWindow .TabContent {
+    margin: 5px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    height: 289px;
+    position: relative
+}
+.helpWindow .TabContent#faq {
+    overflow: hidden;
+}
+.helpWindow .TabContent fieldset {
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 3px;
+    border: 1px solid #ccc
+}
+.helpWindow .TabContent fieldset legend {
+    font-weight: bold;
+}
+.helpWindow .TabContent#abstract {
+    padding: 8px 5px;
+    height: 273px;
+    text-indent: 2em;
+}
+.helpWindow .TabContent#SOP {
+    padding: 5px;
+    height: 279px;
+}
+.helpWindow .TabContent#questions {
+    padding: 0px;
+}
+.helpWindow .TabContent#questions ol {} .helpWindow .TabContent#questions ol li {
+    margin: 0px 20px 10px 0px;
+    padding-bottom: 3px;
+    border-bottom: 1px dotted #999
+}
+.helpWindow .TabContent#questions ol li .question {
+    font-weight: bold;
+}
+.helpWindow .TabContent #Conversation {
+    height: 239px;
+    border-bottom: 1px solid #ccc;
+    overflow: auto;
+}
+.helpWindow .TabContent #Conversation .line {
+    padding: 5px 5px;
+}
+.helpWindow .TabContent #Conversation .line.l {
+    text-align: left;
+}
+.helpWindow .TabContent #Conversation .line.r {
+    text-align: right;
+}
+.helpWindow .TabContent #Conversation .line.c {
+    text-align: center;
+    color: #555;
+    margin: 0px 5px;
+    border-top: 1px dotted #ccc;
+    height: 15px;
+}
+.helpWindow .TabContent #Conversation .line span {
+    border: 1px solid #8db2e3;
+    padding: 3px;
+    font-size: 12px;
+    border-radius: 5px 5px 5px 0px;
+    display: inline-block;
+    max-width: 300px;
+    width: auto;
+    line-height: 16px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    overflow: hidden;
+}
+.helpWindow .TabContent #Conversation .line.r span {
+    border-radius: 5px 5px 0px 5px;
+}
+.helpWindow .TabContent #faqInput {
+    border: none;
+    overflow: hidden;
+    padding: 3px;
+    width: 480px;
+    height: 42px;
+    resize: none;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+.helpWindow .TabContent #sendBtn {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 48px;
+    width: 90px;
+    padding: 0px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    background: #EEEEFF
+}
+.helpWindow .TabContent #sendBtn:hover {
+    background: #FBEC88
+}
+.dialog-button #Tip, .dialog-button #Tip_2 {
+    color: red;
+    font-weight: bold;
+}
+
+.mask-layer{ 
+    -webkit-filter: blur(5px);   
+    -moz-filter: blur(5px);   
+    -ms-filter: blur(5px);   
+    -o-filter: blur(5px);   
+    filter: blur(5px);   
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=4, MakeShadow=false);
+}
+
+/*数据表格部件样式*/
+
+.label-danger {
+    color: #f00;
+}
+.label-success {
+    color: #5bb75b;
+}
+tr:hover .col-label {
+    display: none;
+}
+tr .col-btn {
+    display: none;
+    text-decoration: none;
+}
+tr:hover .col-btn {
+    display: inline-block;
+}
+tr .col-btn-view {
+    text-decoration: none;
+}
+tr .col-btn:hover, tr .col-btn-view:hover {
+    text-decoration: underline;
+}
+/* 简易表格 */
+
+table.gridtable {
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #99bbe8;
+    border-collapse: collapse;
+}
+table.gridtable.full{
+    width: 100%;
+}
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #99bbe8;
+    background-color: #e4edfe;
+}
+table.gridtable.text-left th, table.gridtable.text-left td{
+    text-align: left;
+}
+table.gridtable th.text-left{
+    text-align: left;
+}
+table.gridtable td {
+    border-width: 1px;
+    padding: 3px;
+    border-style: solid;
+    border-color: #99bbe8;
+    background-color: #ffffff;
+}
+table.gridtable.center td{
+    text-align: center;
+}
+table.gridtable.center td.text-left{
+    text-align: left;
+}
+table.gridtable.hover tr:hover td{
+    background: #FBEC88;
+}
+/* 界面部件样式 */
+
+.margin-box {
+    margin: 5px;
+    margin-bottom: 0px;
+    height: auto;
+    position: relative;
+    font-family: "微软雅黑", "宋体"
+}
+.margin-bottom {
+    margin-bottom: 5px;
+}
+.margin-box h3, .margin-box h4 {
+    line-height: 1.5em;
+    font-size: 16px;
+    margin: 10px 0px 3px;
+}
+.margin-box h4 {
+    font-size: 14px;
+}
+.margin-box h3.header, .margin-box h4.header {
+    border-bottom: 1px solid #ccc;
+    padding: 3px 0px;
+}
+.margin-box h4.header.light {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+}
+.margin-box p {
+    font-size: 16px;
+}
+.margin-box p label {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.margin-box fieldset{
+    margin-bottom: 12px;
+}
+.margin-box fieldset legend{
+    font-size: 16px;
+    font-weight: bold;
+}
+span.important {
+    color: red;
+    /*color: #15428b;*/
+    
+    font-weight: bold;
+    /*text-decoration: underline;*/
+}
+.hidden {
+    display: none;
+}
+ol.tips li, ul.tips li {
+    font-size: 14px;
+    line-height: 1.5em;
+    margin-top: 3px;
+}
+ol.index {
+    padding-right: 20px;
+}
+ol.index li {
+    line-height: 1.5em;
+    font-size: 15px;
+}
+p.indent{
+	text-indent: 2em;
+}
+p.indent a{
+	text-indent: 0px;
+}
+.wide-offset-up div.ListForm_head{
+    margin-top: 15px;
+}
+#auditMark::-webkit-input-placeholder, .margin-box::-webkit-input-placeholder {
+    color: #999;
+    font-weight: bold;
+}
+
+.form-standard{
+    width: 97%;
+    margin: 0px auto;
+}
+.form-standard .header{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+
+.datagrid-body td, .datagrid-footer td{
+    font-size: 13px;
+}
+
+.messager-body div{
+    font-size: 13px;
+    line-height: 1.5em;
+}
+
+
+.template-block{
+    display: none;
+}
+
+.box-container, .margin-box.box-container{
+    width: 75%;
+    min-width: 800px;
+    margin: 30px auto;
+}
+.box-container.left{
+    width: 60%;
+    min-width: 700px;
+    margin-left: 20px;
+}
+.box-container p{
+    text-align: justify;
+}
+
+ol.instructions li{
+    font-size: 13px;
+    line-height: 1.8em;
+}
+
+p.text-content{
+    color: #333;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+p.messager-text{
+    margin: 0px;
+    display: inline-block;
+    width: 80%;
+}
+a.easyui-linkbutton.important{
+    color: red;
+}
+
+a.easyui-linkbutton{
+	/* padding-right: 5px; */
+}
+.text-center{
+    text-align: center;
+}
+
+.text-counter-box{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color:#555;
+    font-size: 12px;
+}
+
+.form-buttons{
+    margin: 5px 0px 25px 122px;
+}
+.form-buttons.left{
+    margin-left: 0px;
+}
+
+
+
+.base_information {
+	/* width:600px; */
+	width:700px;
+	font-size:12px;
+	margin:20px 0px
+}
+.base_information label > span {
+	color: #777777;
+	display: inline-block;
+	margin-right: 6px;
+	text-align: right;
+	width: 110px;
+	font-size: 12px;
+}
+.base_info_head {
+	border-bottom:#999 solid 1px;
+	width:600px
+}
+.base_info_head h2 {
+	color:#2d428b;
+	font-size:12px;
+	display: block;
+	font-size: 12px;
+	line-height: 22px;
+	margin-top: 1px;
+	padding: 0 10px;
+	margin-bottom:0px;
+}
+/*.base_info_head a {
+	background: url(/Image/edit-default.png) no-repeat scroll left center transparent;
+	padding-left: 18px;
+	font-weight:100;
+	position: relative;
+	right: 0;
+	top: 3px;
+}*/
+.base_info_head a:link, .base_info_head a:visited {
+	color: #333;
+	font-weight:300;
+	text-decoration: none;
+}
+a {
+	cursor: pointer;
+}
+.base_information p {
+	margin:2px;
+	line-height:1.8em
+}
+.base_item {
+	width:120px;
+	display: inline-block;
+}

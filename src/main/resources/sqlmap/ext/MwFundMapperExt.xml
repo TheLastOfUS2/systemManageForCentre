@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.MwFundMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwFund" >
+    <id column="fund_id" property="fundId" jdbcType="VARCHAR" />
+    <result column="fund_title" property="fundTitle" jdbcType="VARCHAR" />
+    <result column="fund_amounts" property="fundAmounts" jdbcType="DOUBLE" />
+    <result column="fund_time" property="fundTime" jdbcType="VARCHAR" />
+    <result column="fund_type" property="fundType" jdbcType="VARCHAR" />
+    <result column="fund_source" property="fundSource" jdbcType="VARCHAR" />
+    <result column="fund_remarks" property="fundRemarks" jdbcType="VARCHAR" />
+    <result column="fund_del" property="fundDel" jdbcType="VARCHAR" />
+    <result column="fund_create_time" property="fundCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.fundTitle != null" >
+         and fund_title = #{condition.fundTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundAmounts != null" >
+         and fund_amounts = #{condition.fundAmounts,jdbcType=DOUBLE}
+      </if>
+      <if test="condition.fundTime != null" >
+         and fund_time = #{condition.fundTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundType != null" >
+         and fund_type = #{condition.fundType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundSource != null" >
+         and fund_source = #{condition.fundSource,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundRemarks != null" >
+         and fund_remarks = #{condition.fundRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundDel != null" >
+         and fund_del = #{condition.fundDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fundCreateTime != null" >
+         and fund_create_time = #{condition.fundCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 经费名称 -->
+      <if test="condition.fundTitle2 != null" >
+      	 and fund_title like CONCAT('%', #{condition.fundTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 划拨时间 -->
+      <if test="condition.fundTime2 != null" >
+      	 and fund_time like CONCAT('%', #{condition.fundTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    fund_id, fund_title, fund_amounts, fund_time, fund_type, fund_source, fund_remarks, 
+    fund_del, fund_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_fund
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_fund
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

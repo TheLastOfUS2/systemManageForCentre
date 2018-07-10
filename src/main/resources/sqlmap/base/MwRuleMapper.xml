@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.MwRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwRule" >
+    <id column="rule_id" property="ruleId" jdbcType="VARCHAR" />
+    <result column="rule_title" property="ruleTitle" jdbcType="VARCHAR" />
+    <result column="rule_time" property="ruleTime" jdbcType="VARCHAR" />
+    <result column="rule_content" property="ruleContent" jdbcType="VARCHAR" />
+    <result column="rule_remarks" property="ruleRemarks" jdbcType="VARCHAR" />
+    <result column="rule_del" property="ruleDel" jdbcType="VARCHAR" />
+    <result column="rule_create_time" property="ruleCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.ruleTitle != null" >
+         and rule_title = #{condition.ruleTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleTime != null" >
+         and rule_time = #{condition.ruleTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleContent != null" >
+         and rule_content = #{condition.ruleContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleRemarks != null" >
+         and rule_remarks = #{condition.ruleRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleDel != null" >
+         and rule_del = #{condition.ruleDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.ruleCreateTime != null" >
+         and rule_create_time = #{condition.ruleCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.ruleTitle != null" >
+         and rule_title = #{example.condition.ruleTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.ruleTime != null" >
+         and rule_time = #{example.condition.ruleTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.ruleContent != null" >
+         and rule_content = #{example.condition.ruleContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.ruleRemarks != null" >
+         and rule_remarks = #{example.condition.ruleRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.ruleDel != null" >
+         and rule_del = #{example.condition.ruleDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.ruleCreateTime != null" >
+         and rule_create_time = #{example.condition.ruleCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    rule_id, rule_title, rule_time, rule_content, rule_remarks, rule_del, rule_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_rule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_rule
+    where rule_id = #{ruleId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mw_rule
+    where rule_id = #{ruleId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from mw_rule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.MwRule" >
+    insert into mw_rule (rule_id, rule_title, rule_time, 
+      rule_content, rule_remarks, rule_del, 
+      rule_create_time)
+    values (#{ruleId,jdbcType=VARCHAR}, #{ruleTitle,jdbcType=VARCHAR}, #{ruleTime,jdbcType=VARCHAR}, 
+      #{ruleContent,jdbcType=VARCHAR}, #{ruleRemarks,jdbcType=VARCHAR}, #{ruleDel,jdbcType=VARCHAR}, 
+      #{ruleCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.MwRule" >
+    insert into mw_rule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ruleId != null" >
+        rule_id,
+      </if>
+      <if test="ruleTitle != null" >
+        rule_title,
+      </if>
+      <if test="ruleTime != null" >
+        rule_time,
+      </if>
+      <if test="ruleContent != null" >
+        rule_content,
+      </if>
+      <if test="ruleRemarks != null" >
+        rule_remarks,
+      </if>
+      <if test="ruleDel != null" >
+        rule_del,
+      </if>
+      <if test="ruleCreateTime != null" >
+        rule_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ruleId != null" >
+        #{ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleTitle != null" >
+        #{ruleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleTime != null" >
+        #{ruleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleContent != null" >
+        #{ruleContent,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleRemarks != null" >
+        #{ruleRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleDel != null" >
+        #{ruleDel,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleCreateTime != null" >
+        #{ruleCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_rule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mw_rule
+    <set >
+      <if test="record.ruleId != null" >
+        rule_id = #{record.ruleId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleTitle != null" >
+        rule_title = #{record.ruleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleTime != null" >
+        rule_time = #{record.ruleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleContent != null" >
+        rule_content = #{record.ruleContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleRemarks != null" >
+        rule_remarks = #{record.ruleRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleDel != null" >
+        rule_del = #{record.ruleDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ruleCreateTime != null" >
+        rule_create_time = #{record.ruleCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mw_rule
+    set rule_id = #{record.ruleId,jdbcType=VARCHAR},
+      rule_title = #{record.ruleTitle,jdbcType=VARCHAR},
+      rule_time = #{record.ruleTime,jdbcType=VARCHAR},
+      rule_content = #{record.ruleContent,jdbcType=VARCHAR},
+      rule_remarks = #{record.ruleRemarks,jdbcType=VARCHAR},
+      rule_del = #{record.ruleDel,jdbcType=VARCHAR},
+      rule_create_time = #{record.ruleCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.MwRule" >
+    update mw_rule
+    <set >
+      <if test="ruleTitle != null" >
+        rule_title = #{ruleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleTime != null" >
+        rule_time = #{ruleTime,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleContent != null" >
+        rule_content = #{ruleContent,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleRemarks != null" >
+        rule_remarks = #{ruleRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleDel != null" >
+        rule_del = #{ruleDel,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleCreateTime != null" >
+        rule_create_time = #{ruleCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where rule_id = #{ruleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.MwRule" >
+    update mw_rule
+    set rule_title = #{ruleTitle,jdbcType=VARCHAR},
+      rule_time = #{ruleTime,jdbcType=VARCHAR},
+      rule_content = #{ruleContent,jdbcType=VARCHAR},
+      rule_remarks = #{ruleRemarks,jdbcType=VARCHAR},
+      rule_del = #{ruleDel,jdbcType=VARCHAR},
+      rule_create_time = #{ruleCreateTime,jdbcType=TIMESTAMP}
+    where rule_id = #{ruleId,jdbcType=VARCHAR}
+  </update>
+</mapper>

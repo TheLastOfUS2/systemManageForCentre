@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.MwBudgetMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwBudget" >
+    <id column="budget_id" property="budgetId" jdbcType="VARCHAR" />
+    <result column="budget_year" property="budgetYear" jdbcType="VARCHAR" />
+    <result column="budget_time" property="budgetTime" jdbcType="VARCHAR" />
+    <result column="budget_category" property="budgetCategory" jdbcType="VARCHAR" />
+    <result column="budget_title" property="budgetTitle" jdbcType="VARCHAR" />
+    <result column="budget_fund_source" property="budgetFundSource" jdbcType="VARCHAR" />
+    <result column="budget_amounts" property="budgetAmounts" jdbcType="DOUBLE" />
+    <result column="budget_remarks" property="budgetRemarks" jdbcType="VARCHAR" />
+    <result column="budget_del" property="budgetDel" jdbcType="VARCHAR" />
+    <result column="budget_create_time" property="budgetCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.budgetYear != null" >
+         and budget_year = #{condition.budgetYear,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetTime != null" >
+         and budget_time = #{condition.budgetTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetCategory != null" >
+         and budget_category = #{condition.budgetCategory,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetTitle != null" >
+         and budget_title = #{condition.budgetTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetFundSource != null" >
+         and budget_fund_source = #{condition.budgetFundSource,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetAmounts != null" >
+         and budget_amounts = #{condition.budgetAmounts,jdbcType=DOUBLE}
+      </if>
+      <if test="condition.budgetRemarks != null" >
+         and budget_remarks = #{condition.budgetRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetDel != null" >
+         and budget_del = #{condition.budgetDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetCreateTime != null" >
+         and budget_create_time = #{condition.budgetCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 预算年度 -->
+      <if test="condition.budgetYear2 != null" >
+      	 and budget_year like CONCAT('%', #{condition.budgetYear2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 制定时间 -->
+      <if test="condition.budgetTime2 != null" >
+      	 and budget_time like CONCAT('%', #{condition.budgetTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 项目名称 -->
+      <if test="condition.budgetTitle2 != null" >
+      	 and budget_title like CONCAT('%', #{condition.budgetTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    budget_id, budget_year, budget_time, budget_category, budget_title, budget_fund_source, 
+    budget_amounts, budget_remarks, budget_del, budget_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_budget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_budget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

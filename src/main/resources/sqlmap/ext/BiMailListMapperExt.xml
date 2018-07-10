@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.BiMailListMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.BiMailListDto" >
+    <id column="mail_list_id" property="mailListId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="mail_list_phone" property="mailListPhone" jdbcType="VARCHAR" />
+    <result column="mail_list_phone1" property="mailListPhone1" jdbcType="VARCHAR" />
+    <result column="mail_list_oph" property="mailListOph" jdbcType="VARCHAR" />
+    <result column="mail_list_studio" property="mailListStudio" jdbcType="VARCHAR" />
+    <result column="mail_list_email" property="mailListEmail" jdbcType="VARCHAR" />
+    <result column="mail_list_address" property="mailListAddress" jdbcType="VARCHAR" />
+    <result column="mail_list_company" property="mailListCompany" jdbcType="VARCHAR" />
+    <result column="mail_list_remarks" property="mailListRemarks" jdbcType="VARCHAR" />
+    <result column="mail_list_del" property="mailListDel" jdbcType="VARCHAR" />
+    <result column="mail_list_create_time" property="mailListCreateTime" jdbcType="TIMESTAMP" />
+    
+    <!-- 新加字段 -->
+    <result column="base_info_type" property="baseInfoType" jdbcType="VARCHAR" />
+    <result column="base_info_name" property="baseInfoName" jdbcType="VARCHAR" />
+    <result column="base_info_positional_titles" property="baseInfoPositionalTitles" jdbcType="VARCHAR" />
+    <result column="base_info_post" property="baseInfoPost" jdbcType="VARCHAR" />
+    <result column="base_info_start_time" property="baseInfoStartTime" jdbcType="VARCHAR" />
+    <result column="base_info_end_time" property="baseInfoEndTime" jdbcType="VARCHAR" />
+    <!-- 新加字段 --> 
+    
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and bm.base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListPhone != null" >
+         and bm.mail_list_phone = #{condition.mailListPhone,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListPhone1 != null" >
+         and bm.mail_list_phone1 = #{condition.mailListPhone1,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListOph != null" >
+         and bm.mail_list_oph = #{condition.mailListOph,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListStudio != null" >
+         and bm.mail_list_studio = #{condition.mailListStudio,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListEmail != null" >
+         and bm.mail_list_email = #{condition.mailListEmail,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListAddress != null" >
+         and bm.mail_list_address = #{condition.mailListAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListCompany != null" >
+         and bm.mail_list_company = #{condition.mailListCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListRemarks != null" >
+         and bm.mail_list_remarks = #{condition.mailListRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListDel != null" >
+         and bm.mail_list_del = #{condition.mailListDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListCreateTime != null" >
+         and bm.mail_list_create_time = #{condition.mailListCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <!-- 新加字段 -->
+      <if test="condition.baseInfoType != null" >
+         and bb.base_info_type = #{condition.baseInfoType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoName != null" >
+         and bb.base_info_name = #{condition.baseInfoName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoPositionalTitles != null" >
+         and bb.base_info_positional_titles = #{condition.baseInfoPositionalTitles,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoPost != null" >
+         and bb.base_info_post = #{condition.baseInfoPost,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoStartTime != null" >
+         and bb.base_info_start_time = #{condition.baseInfoStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoEndTime != null" >
+         and bb.base_info_end_time = #{condition.baseInfoEndTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 新加字段 -->
+      <!-- 模糊查询 -->
+      <!-- 用户名称-->
+      <if test="condition.baseInfoName2 != null" >
+         and bb.base_info_name like CONCAT('%', #{condition.baseInfoName2,jdbcType=VARCHAR}, '%')
+      </if>  
+      <!-- 手机-->
+      <if test="condition.mailListPhone2 != null" >
+         and bm.mail_list_phone like CONCAT('%', #{condition.mailListPhone2,jdbcType=VARCHAR}, '%')
+      </if>  
+      <!-- 小号-->
+      <if test="condition.mailListPhone12 != null" >
+         and bm.mail_list_phone1 like CONCAT('%', #{condition.mailListPhone12,jdbcType=VARCHAR}, '%')
+      </if>  
+      <!-- 办公电话-->
+      <if test="condition.mailListOph2 != null" >
+         and bm.mail_list_oph like CONCAT('%', #{condition.mailListOph2,jdbcType=VARCHAR}, '%')
+      </if> 
+      <!-- 工作室号-->
+      <if test="condition.mailListStudio2 != null" >
+         and bm.mail_list_studio like CONCAT('%', #{condition.mailListStudio2,jdbcType=VARCHAR}, '%')
+      </if> 
+      <!-- 电子邮箱-->
+      <if test="condition.mailListEmail2 != null" >
+         and bm.mail_list_email like CONCAT('%', #{condition.mailListEmail2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 通讯地址-->
+      <if test="condition.mailListAddress2 != null" >
+         and bm.mail_list_address like CONCAT('%', #{condition.mailListAddress2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 单位-->
+      <if test="condition.mailListCompany2 != null" >
+         and bm.mail_list_company like CONCAT('%', #{condition.mailListCompany2,jdbcType=VARCHAR}, '%')
+      </if> 
+      <!-- 职务-->
+      <if test="condition.baseInfoPost2 != null" >
+         and bb.base_info_post like CONCAT('%', #{condition.baseInfoPost2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 入站时间-->
+      <if test="condition.baseInfoStartTime2 != null" >
+         and bb.base_info_start_time like CONCAT('%', #{condition.baseInfoStartTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 出站时间-->
+      <if test="condition.baseInfoEndTime2 != null" >
+         and bb.base_info_end_time like CONCAT('%', #{condition.baseInfoEndTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+      
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    bm.mail_list_id, bm.base_info_id, bm.mail_list_phone, bm.mail_list_phone1, bm.mail_list_oph, 
+    bm.mail_list_studio, bm.mail_list_email, bm.mail_list_address, bm.mail_list_company,bb.base_info_post, 
+    bm.mail_list_remarks, bm.mail_list_del, bm.mail_list_create_time,bb.base_info_type, bb.base_info_name,
+    bb.base_info_positional_titles, bb.base_info_positional_titles, bb.base_info_start_time, bb.base_info_end_time 
+  </sql>
+  <!-- 查询列表(多表) -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bi_mail_list bm join bi_base_info bb on bm.base_info_id=bb.base_info_id
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+  <!-- 查询条数 -->
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from bi_mail_list bm join bi_base_info bb on bm.base_info_id=bb.base_info_id
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <!-- 查询基本信息和通讯录信息 -->
+   <select id="selectByPrimaryKeyExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_mail_list bm join bi_base_info bb on bm.base_info_id=bb.base_info_id 
+    where mail_list_id = #{mailListId,jdbcType=VARCHAR}
+  </select>
+  
+   <!-- 根据基本信息id,查询基本信息和通讯录信息 -->
+   <select id="selectBaseInfoIdExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_base_info bb left join bi_mail_list bm on bm.base_info_id=bb.base_info_id 
+    where bb.base_info_id = #{baseInfoId,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 根据基本信息id,查询基本信息和通讯录信息 -->
+   <select id="selectByMailListIdExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_base_info bb left join bi_mail_list bm on bm.base_info_id=bb.base_info_id 
+    where bm.mail_list_id = #{mailListId,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 根据账号id,查询基本信息和通讯信息 -->
+   <select id="selectByAccountId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_base_info bb left join bi_mail_list bm on bb.base_info_id=bm.base_info_id
+       where bb.account_id = #{accountId,jdbcType=VARCHAR}
+  </select>
+</mapper>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.PcTeachingMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.PcTeaching" >
+    <id column="teaching_id" property="teachingId" jdbcType="VARCHAR" />
+    <result column="teaching_name" property="teachingName" jdbcType="VARCHAR" />
+    <result column="teaching_name_id" property="teachingNameId" jdbcType="VARCHAR" />
+    <result column="teaching_student_name" property="teachingStudentName" jdbcType="VARCHAR" />
+    <result column="teaching_student_grade" property="teachingStudentGrade" jdbcType="VARCHAR" />
+    <result column="teaching_year" property="teachingYear" jdbcType="VARCHAR" />
+    <result column="teaching_term" property="teachingTerm" jdbcType="VARCHAR" />
+    <result column="teaching_type" property="teachingType" jdbcType="VARCHAR" />
+    <result column="teaching_title" property="teachingTitle" jdbcType="VARCHAR" />
+    <result column="teaching_hour" property="teachingHour" jdbcType="VARCHAR" />
+    <result column="teaching_remarks" property="teachingRemarks" jdbcType="VARCHAR" />
+    <result column="teaching_del" property="teachingDel" jdbcType="VARCHAR" />
+    <result column="teaching_create_time" property="teachingCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.teachingName != null" >
+         and teaching_name = #{condition.teachingName,jdbcType=VARCHAR}
+      </if>
+       <if test="condition.teachingNameId != null" >
+         and teaching_name_id = #{condition.teachingNameId,jdbcType=VARCHAR}
+      </if>
+       <if test="condition.teachingStudentName != null" >
+         and teaching_student_name = #{condition.teachingStudentName,jdbcType=VARCHAR}
+      </if>
+       <if test="condition.teachingStudentGrade != null" >
+         and teaching_student_grade = #{condition.teachingStudentGrade,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingYear != null" >
+         and teaching_year = #{condition.teachingYear,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingTerm != null" >
+         and teaching_term = #{condition.teachingTerm,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingType != null" >
+         and teaching_type = #{condition.teachingType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingTitle != null" >
+         and teaching_title = #{condition.teachingTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingHour != null" >
+         and teaching_hour = #{condition.teachingHour,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingRemarks != null" >
+         and teaching_remarks = #{condition.teachingRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingDel != null" >
+         and teaching_del = #{condition.teachingDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.teachingCreateTime != null" >
+         and teaching_create_time = #{condition.teachingCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      
+      <!-- 模糊查询 -->
+      <!-- 姓名 -->
+      <if test="condition.teachingName2 != null" >
+      	 and teaching_name like CONCAT('%', #{condition.teachingName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 课程名称 -->
+      <if test="condition.teachingTitle2 != null" >
+      	 and teaching_title like CONCAT('%', #{condition.teachingTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 授课课时 -->
+      <if test="condition.teachingHour2 != null" >
+      	 and teaching_hour like CONCAT('%', #{condition.teachingHour2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 年度 -->
+      <if test="condition.teachingYear2 != null" >
+      	 and teaching_year like CONCAT('%', #{condition.teachingYear2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    teaching_id, teaching_name,teaching_name_id,teaching_student_name,teaching_student_grade, teaching_year, teaching_term, teaching_type, 
+    teaching_title, teaching_hour, teaching_remarks, teaching_del, teaching_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pc_teaching
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pc_teaching
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+</mapper>

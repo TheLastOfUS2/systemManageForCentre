@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.AmCollaboratorMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmCollaborator" >
+    <id column="collaborator_id" property="collaboratorId" jdbcType="VARCHAR" />
+    <result column="achievement_id" property="achievementId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="collaborator_type" property="collaboratorType" jdbcType="VARCHAR" />
+    <result column="collaborator_content" property="collaboratorContent" jdbcType="VARCHAR" />
+    <result column="collaborator_create_time" property="collaboratorCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.achievementId != null" >
+         and achievement_id = #{condition.achievementId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.collaboratorType != null" >
+         and collaborator_type = #{condition.collaboratorType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.collaboratorContent != null" >
+         and collaborator_content = #{condition.collaboratorContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.collaboratorCreateTime != null" >
+         and collaborator_create_time = #{condition.collaboratorCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.achievementId != null" >
+         and achievement_id = #{example.condition.achievementId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.collaboratorType != null" >
+         and collaborator_type = #{example.condition.collaboratorType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.collaboratorContent != null" >
+         and collaborator_content = #{example.condition.collaboratorContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.collaboratorCreateTime != null" >
+         and collaborator_create_time = #{example.condition.collaboratorCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    collaborator_id, achievement_id, base_info_id, collaborator_type, collaborator_content, 
+    collaborator_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_collaborator
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_collaborator
+    where collaborator_id = #{collaboratorId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from am_collaborator
+    where collaborator_id = #{collaboratorId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from am_collaborator
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.AmCollaborator" >
+    insert into am_collaborator (collaborator_id, achievement_id, base_info_id, 
+      collaborator_type, collaborator_content, 
+      collaborator_create_time)
+    values (#{collaboratorId,jdbcType=VARCHAR}, #{achievementId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, 
+      #{collaboratorType,jdbcType=VARCHAR}, #{collaboratorContent,jdbcType=VARCHAR}, 
+      #{collaboratorCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.AmCollaborator" >
+    insert into am_collaborator
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="collaboratorId != null" >
+        collaborator_id,
+      </if>
+      <if test="achievementId != null" >
+        achievement_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="collaboratorType != null" >
+        collaborator_type,
+      </if>
+      <if test="collaboratorContent != null" >
+        collaborator_content,
+      </if>
+      <if test="collaboratorCreateTime != null" >
+        collaborator_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="collaboratorId != null" >
+        #{collaboratorId,jdbcType=VARCHAR},
+      </if>
+      <if test="achievementId != null" >
+        #{achievementId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="collaboratorType != null" >
+        #{collaboratorType,jdbcType=VARCHAR},
+      </if>
+      <if test="collaboratorContent != null" >
+        #{collaboratorContent,jdbcType=VARCHAR},
+      </if>
+      <if test="collaboratorCreateTime != null" >
+        #{collaboratorCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_collaborator
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update am_collaborator
+    <set >
+      <if test="record.collaboratorId != null" >
+        collaborator_id = #{record.collaboratorId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.achievementId != null" >
+        achievement_id = #{record.achievementId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.collaboratorType != null" >
+        collaborator_type = #{record.collaboratorType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.collaboratorContent != null" >
+        collaborator_content = #{record.collaboratorContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.collaboratorCreateTime != null" >
+        collaborator_create_time = #{record.collaboratorCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update am_collaborator
+    set collaborator_id = #{record.collaboratorId,jdbcType=VARCHAR},
+      achievement_id = #{record.achievementId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      collaborator_type = #{record.collaboratorType,jdbcType=VARCHAR},
+      collaborator_content = #{record.collaboratorContent,jdbcType=VARCHAR},
+      collaborator_create_time = #{record.collaboratorCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.AmCollaborator" >
+    update am_collaborator
+    <set >
+      <if test="achievementId != null" >
+        achievement_id = #{achievementId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="collaboratorType != null" >
+        collaborator_type = #{collaboratorType,jdbcType=VARCHAR},
+      </if>
+      <if test="collaboratorContent != null" >
+        collaborator_content = #{collaboratorContent,jdbcType=VARCHAR},
+      </if>
+      <if test="collaboratorCreateTime != null" >
+        collaborator_create_time = #{collaboratorCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where collaborator_id = #{collaboratorId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.AmCollaborator" >
+    update am_collaborator
+    set achievement_id = #{achievementId,jdbcType=VARCHAR},
+      base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      collaborator_type = #{collaboratorType,jdbcType=VARCHAR},
+      collaborator_content = #{collaboratorContent,jdbcType=VARCHAR},
+      collaborator_create_time = #{collaboratorCreateTime,jdbcType=TIMESTAMP}
+    where collaborator_id = #{collaboratorId,jdbcType=VARCHAR}
+  </update>
+</mapper>

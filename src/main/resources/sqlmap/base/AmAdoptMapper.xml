@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.AmAdoptMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmAdopt" >
+    <id column="adopt_id" property="adoptId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="adopt_name" property="adoptName" jdbcType="VARCHAR" />
+    <result column="adopt_way" property="adoptWay" jdbcType="VARCHAR" />
+    <result column="adopt_submit_time" property="adoptSubmitTime" jdbcType="VARCHAR" />
+    <result column="adopt_time" property="adoptTime" jdbcType="VARCHAR" />
+    <result column="adopt_company" property="adoptCompany" jdbcType="VARCHAR" />
+    <result column="adopt_publication" property="adoptPublication" jdbcType="VARCHAR" />
+    <result column="adopt_evaluate" property="adoptEvaluate" jdbcType="VARCHAR" />
+    <result column="adopt_support_topic" property="adoptSupportTopic" jdbcType="VARCHAR" />
+    <result column="adopt_remarks" property="adoptRemarks" jdbcType="VARCHAR" />
+    <result column="adopt_del" property="adoptDel" jdbcType="VARCHAR" />
+    <result column="adopt_create_time" property="adoptCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptName != null" >
+         and adopt_name = #{condition.adoptName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptWay != null" >
+         and adopt_way = #{condition.adoptWay,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptSubmitTime != null" >
+         and adopt_submit_time = #{condition.adoptSubmitTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptTime != null" >
+         and adopt_time = #{condition.adoptTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptCompany != null" >
+         and adopt_company = #{condition.adoptCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptPublication != null" >
+         and adopt_publication = #{condition.adoptPublication,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptEvaluate != null" >
+         and adopt_evaluate = #{condition.adoptEvaluate,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptSupportTopic != null" >
+         and adopt_support_topic = #{condition.adoptSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptRemarks != null" >
+         and adopt_remarks = #{condition.adoptRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptDel != null" >
+         and adopt_del = #{condition.adoptDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.adoptCreateTime != null" >
+         and adopt_create_time = #{condition.adoptCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptName != null" >
+         and adopt_name = #{example.condition.adoptName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptWay != null" >
+         and adopt_way = #{example.condition.adoptWay,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptSubmitTime != null" >
+         and adopt_submit_time = #{example.condition.adoptSubmitTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptTime != null" >
+         and adopt_time = #{example.condition.adoptTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptCompany != null" >
+         and adopt_company = #{example.condition.adoptCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptPublication != null" >
+         and adopt_publication = #{example.condition.adoptPublication,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptEvaluate != null" >
+         and adopt_evaluate = #{example.condition.adoptEvaluate,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptSupportTopic != null" >
+         and adopt_support_topic = #{example.condition.adoptSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptRemarks != null" >
+         and adopt_remarks = #{example.condition.adoptRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptDel != null" >
+         and adopt_del = #{example.condition.adoptDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.adoptCreateTime != null" >
+         and adopt_create_time = #{example.condition.adoptCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    adopt_id, base_info_id, adopt_name, adopt_way, adopt_submit_time, adopt_time, adopt_company, 
+    adopt_publication, adopt_evaluate, adopt_support_topic, adopt_remarks, adopt_del, 
+    adopt_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_adopt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_adopt
+    where adopt_id = #{adoptId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from am_adopt
+    where adopt_id = #{adoptId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from am_adopt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.AmAdopt" >
+    insert into am_adopt (adopt_id, base_info_id, adopt_name, 
+      adopt_way, adopt_submit_time, adopt_time, 
+      adopt_company, adopt_publication, adopt_evaluate, 
+      adopt_support_topic, adopt_remarks, adopt_del, 
+      adopt_create_time)
+    values (#{adoptId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{adoptName,jdbcType=VARCHAR}, 
+      #{adoptWay,jdbcType=VARCHAR}, #{adoptSubmitTime,jdbcType=VARCHAR}, #{adoptTime,jdbcType=VARCHAR}, 
+      #{adoptCompany,jdbcType=VARCHAR}, #{adoptPublication,jdbcType=VARCHAR}, #{adoptEvaluate,jdbcType=VARCHAR}, 
+      #{adoptSupportTopic,jdbcType=VARCHAR}, #{adoptRemarks,jdbcType=VARCHAR}, #{adoptDel,jdbcType=VARCHAR}, 
+      #{adoptCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.AmAdopt" >
+    insert into am_adopt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adoptId != null" >
+        adopt_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="adoptName != null" >
+        adopt_name,
+      </if>
+      <if test="adoptWay != null" >
+        adopt_way,
+      </if>
+      <if test="adoptSubmitTime != null" >
+        adopt_submit_time,
+      </if>
+      <if test="adoptTime != null" >
+        adopt_time,
+      </if>
+      <if test="adoptCompany != null" >
+        adopt_company,
+      </if>
+      <if test="adoptPublication != null" >
+        adopt_publication,
+      </if>
+      <if test="adoptEvaluate != null" >
+        adopt_evaluate,
+      </if>
+      <if test="adoptSupportTopic != null" >
+        adopt_support_topic,
+      </if>
+      <if test="adoptRemarks != null" >
+        adopt_remarks,
+      </if>
+      <if test="adoptDel != null" >
+        adopt_del,
+      </if>
+      <if test="adoptCreateTime != null" >
+        adopt_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adoptId != null" >
+        #{adoptId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptName != null" >
+        #{adoptName,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptWay != null" >
+        #{adoptWay,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptSubmitTime != null" >
+        #{adoptSubmitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptTime != null" >
+        #{adoptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptCompany != null" >
+        #{adoptCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptPublication != null" >
+        #{adoptPublication,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptEvaluate != null" >
+        #{adoptEvaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptSupportTopic != null" >
+        #{adoptSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptRemarks != null" >
+        #{adoptRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptDel != null" >
+        #{adoptDel,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptCreateTime != null" >
+        #{adoptCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_adopt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update am_adopt
+    <set >
+      <if test="record.adoptId != null" >
+        adopt_id = #{record.adoptId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptName != null" >
+        adopt_name = #{record.adoptName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptWay != null" >
+        adopt_way = #{record.adoptWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptSubmitTime != null" >
+        adopt_submit_time = #{record.adoptSubmitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptTime != null" >
+        adopt_time = #{record.adoptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptCompany != null" >
+        adopt_company = #{record.adoptCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptPublication != null" >
+        adopt_publication = #{record.adoptPublication,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptEvaluate != null" >
+        adopt_evaluate = #{record.adoptEvaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptSupportTopic != null" >
+        adopt_support_topic = #{record.adoptSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptRemarks != null" >
+        adopt_remarks = #{record.adoptRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptDel != null" >
+        adopt_del = #{record.adoptDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adoptCreateTime != null" >
+        adopt_create_time = #{record.adoptCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update am_adopt
+    set adopt_id = #{record.adoptId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      adopt_name = #{record.adoptName,jdbcType=VARCHAR},
+      adopt_way = #{record.adoptWay,jdbcType=VARCHAR},
+      adopt_submit_time = #{record.adoptSubmitTime,jdbcType=VARCHAR},
+      adopt_time = #{record.adoptTime,jdbcType=VARCHAR},
+      adopt_company = #{record.adoptCompany,jdbcType=VARCHAR},
+      adopt_publication = #{record.adoptPublication,jdbcType=VARCHAR},
+      adopt_evaluate = #{record.adoptEvaluate,jdbcType=VARCHAR},
+      adopt_support_topic = #{record.adoptSupportTopic,jdbcType=VARCHAR},
+      adopt_remarks = #{record.adoptRemarks,jdbcType=VARCHAR},
+      adopt_del = #{record.adoptDel,jdbcType=VARCHAR},
+      adopt_create_time = #{record.adoptCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.AmAdopt" >
+    update am_adopt
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptName != null" >
+        adopt_name = #{adoptName,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptWay != null" >
+        adopt_way = #{adoptWay,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptSubmitTime != null" >
+        adopt_submit_time = #{adoptSubmitTime,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptTime != null" >
+        adopt_time = #{adoptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptCompany != null" >
+        adopt_company = #{adoptCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptPublication != null" >
+        adopt_publication = #{adoptPublication,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptEvaluate != null" >
+        adopt_evaluate = #{adoptEvaluate,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptSupportTopic != null" >
+        adopt_support_topic = #{adoptSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptRemarks != null" >
+        adopt_remarks = #{adoptRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptDel != null" >
+        adopt_del = #{adoptDel,jdbcType=VARCHAR},
+      </if>
+      <if test="adoptCreateTime != null" >
+        adopt_create_time = #{adoptCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where adopt_id = #{adoptId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.AmAdopt" >
+    update am_adopt
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      adopt_name = #{adoptName,jdbcType=VARCHAR},
+      adopt_way = #{adoptWay,jdbcType=VARCHAR},
+      adopt_submit_time = #{adoptSubmitTime,jdbcType=VARCHAR},
+      adopt_time = #{adoptTime,jdbcType=VARCHAR},
+      adopt_company = #{adoptCompany,jdbcType=VARCHAR},
+      adopt_publication = #{adoptPublication,jdbcType=VARCHAR},
+      adopt_evaluate = #{adoptEvaluate,jdbcType=VARCHAR},
+      adopt_support_topic = #{adoptSupportTopic,jdbcType=VARCHAR},
+      adopt_remarks = #{adoptRemarks,jdbcType=VARCHAR},
+      adopt_del = #{adoptDel,jdbcType=VARCHAR},
+      adopt_create_time = #{adoptCreateTime,jdbcType=TIMESTAMP}
+    where adopt_id = #{adoptId,jdbcType=VARCHAR}
+  </update>
+</mapper>

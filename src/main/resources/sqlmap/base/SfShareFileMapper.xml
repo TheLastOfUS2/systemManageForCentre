@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.SfShareFileMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.SfShareFile" >
+    <id column="share_file_id" property="shareFileId" jdbcType="VARCHAR" />
+    <result column="share_file_name" property="shareFileName" jdbcType="VARCHAR" />
+    <result column="share_file_type" property="shareFileType" jdbcType="VARCHAR" />
+    <result column="share_file_submitter" property="shareFileSubmitter" jdbcType="VARCHAR" />
+    <result column="share_file_remarks" property="shareFileRemarks" jdbcType="VARCHAR" />
+    <result column="share_file_del" property="shareFileDel" jdbcType="VARCHAR" />
+    <result column="share_file_create_time" property="shareFileCreateTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.shareFileId != null" >
+         and share_file_id = #{condition.shareFileId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.shareFileName != null" >
+         and share_file_name = #{condition.shareFileName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.shareFileType != null" >
+         and share_file_type = #{condition.shareFileType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.shareFileSubmitter != null" >
+         and share_file_submitter = #{condition.shareFileSubmitter,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.shareFileRemarks != null" >
+         and share_file_remarks = #{condition.shareFileRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.shareFileDel != null" >
+         and share_file_del = #{condition.shareFileDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.shareFileCreateTime != null" >
+         and share_file_create_time = #{condition.shareFileCreateTime,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.shareFileId != null" >
+         and share_file_id = #{example.condition.shareFileId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.shareFileName != null" >
+         and share_file_name = #{example.condition.shareFileName,jdbcType=VARCHAR}
+      </if>
+        <if test="example.condition.shareFileType != null" >
+         and share_file_type = #{example.condition.shareFileType,jdbcType=VARCHAR}
+      </if>
+     <if test="example.condition.shareFileSubmitter != null" >
+         and share_file_submitter = #{example.condition.shareFileSubmitter,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.shareFileRemarks != null" >
+         and share_file_remarks = #{example.condition.shareFileRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.shareFileDel != null" >
+         and share_file_del = #{example.condition.shareFileDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.shareFileCreateTime != null" >
+         and share_file_create_time = #{example.condition.shareFileCreateTime,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>   
+  <sql id="Base_Column_List" >
+    share_file_id,share_file_name,share_file_type,share_file_submitter,share_file_remarks,share_file_del,share_file_create_time 
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sf_share_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sf_share_file 
+    where share_file_id = #{shareFileId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sf_share_file
+    where share_file_id = #{shareFileId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from sf_share_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>   
+  <insert id="insert" parameterType="com.systemManage.pojo.base.SfShareFile" >
+    insert into sf_share_file (share_file_id,share_file_name,share_file_type,share_file_submitter,share_file_remarks,share_file_del,share_file_create_time )
+    values (#{shareFileId,jdbcType=VARCHAR}, #{shareFileName,jdbcType=VARCHAR},#{shareFileType,jdbcType=VARCHAR}, #{shareFileSubmitter,jdbcType=VARCHAR}, 
+      #{shareFileRemarks,jdbcType=VARCHAR}, #{shareFileDel,jdbcType=VARCHAR}, #{shareFileCreateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.SfShareFile" >
+    insert into sf_share_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="shareFileId != null" >
+        share_file_id,
+      </if>
+      <if test="shareFileName != null" >
+        share_file_name,
+      </if>
+       <if test="shareFileType != null" >
+        share_file_type,
+      </if>
+      <if test="shareFileSubmitter != null" >
+        share_file_submitter,
+      </if>
+      <if test="shareFileRemarks != null" >
+        share_file_remarks,
+      </if>
+      <if test="shareFileDel != null" >
+        share_file_del,
+      </if>
+      <if test="shareFileCreateTime != null" >
+        share_file_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="shareFileId != null" >
+        #{shareFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileName != null" >
+        #{shareFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileType != null" >
+        #{shareFileType,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileSubmitter != null" >
+        #{shareFileSubmitter,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileRemarks != null" >
+        #{shareFileRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileDel != null" >
+        #{shareFileDel,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileCreateTime != null" >
+        #{shareFileCreateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from sf_share_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sf_share_file
+    <set >
+      <if test="record.shareFileId != null" >
+        share_file_id = #{record.shareFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareFileName != null" >
+        share_file_name = #{record.shareFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareFileType != null" >
+        share_file_type = #{record.shareFileType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareFileSubmitter != null" >
+        share_file_submitter = #{record.shareFileSubmitter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareFileRemarks != null" >
+        share_file_remarks = #{record.shareFileRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareFileDel != null" >
+        share_file_del = #{record.shareFileDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareFileCreateTime != null" >
+        share_file_create_time = #{record.shareFileCreateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sf_share_file
+    set share_file_id = #{record.shareFileId,jdbcType=VARCHAR},
+      share_file_name = #{record.shareFileName,jdbcType=VARCHAR},
+      share_file_type = #{record.shareFileType,jdbcType=VARCHAR},
+      share_file_submitter = #{record.shareFileSubmitter,jdbcType=VARCHAR},
+      share_file_remarks = #{record.shareFileRemarks,jdbcType=VARCHAR},
+      share_file_del = #{record.shareFileDel,jdbcType=VARCHAR},
+      share_file_create_time = #{record.shareFileCreateTime,jdbcType=VARCHAR},
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.SfShareFile" >
+    update sf_share_file
+    <set >
+      <if test="shareFileId != null" >
+        share_file_id = #{shareFileId,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileName != null" >
+        share_file_name = #{shareFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileType != null" >
+        share_file_type = #{shareFileType,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileSubmitter != null" >
+        share_file_submitter = #{shareFileSubmitter,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileRemarks != null" >
+        share_file_remarks = #{shareFileRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileDel != null" >
+        share_file_del = #{shareFileDel,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFileCreateTime != null" >
+        share_file_create_time = #{shareFileCreateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where share_file_id = #{shareFileId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.SfShareFile" >
+    update sf_share_file
+    set share_file_id = #{shareFileId,jdbcType=VARCHAR},
+      share_file_name = #{shareFileName,jdbcType=VARCHAR},
+      share_file_type = #{shareFileType,jdbcType=VARCHAR},
+      share_file_submitter = #{shareFileSubmitter,jdbcType=VARCHAR},
+      share_file_remarks = #{shareFileRemarks,jdbcType=VARCHAR},
+      share_file_del = #{shareFileDel,jdbcType=VARCHAR},
+      share_file_create_time = #{shareFileCreateTime,jdbcType=VARCHAR}
+      where share_file_id = #{shareFileId,jdbcType=VARCHAR}
+  </update>
+</mapper>

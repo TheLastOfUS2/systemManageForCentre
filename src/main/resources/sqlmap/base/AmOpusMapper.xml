@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.AmOpusMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmOpus" >
+    <id column="opus_id" property="opusId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="opus_name" property="opusName" jdbcType="VARCHAR" />
+    <result column="opus_type" property="opusType" jdbcType="VARCHAR" />
+    <result column="opus_publish_time" property="opusPublishTime" jdbcType="VARCHAR" />
+    <result column="opus_languages" property="opusLanguages" jdbcType="VARCHAR" />
+    <result column="opus_publish_company" property="opusPublishCompany" jdbcType="VARCHAR" />
+    <result column="opus_support_topic" property="opusSupportTopic" jdbcType="VARCHAR" />
+    <result column="opus_content" property="opusContent" jdbcType="VARCHAR" />
+    <result column="opus_remarks" property="opusRemarks" jdbcType="VARCHAR" />
+    <result column="opus_del" property="opusDel" jdbcType="VARCHAR" />
+    <result column="opus_create_time" property="opusCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusName != null" >
+         and opus_name = #{condition.opusName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusType != null" >
+         and opus_type = #{condition.opusType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusPublishTime != null" >
+         and opus_publish_time = #{condition.opusPublishTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusLanguages != null" >
+         and opus_languages = #{condition.opusLanguages,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusPublishCompany != null" >
+         and opus_publish_company = #{condition.opusPublishCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusSupportTopic != null" >
+         and opus_support_topic = #{condition.opusSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusContent != null" >
+         and opus_content = #{condition.opusContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusRemarks != null" >
+         and opus_remarks = #{condition.opusRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusDel != null" >
+         and opus_del = #{condition.opusDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opusCreateTime != null" >
+         and opus_create_time = #{condition.opusCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusName != null" >
+         and opus_name = #{example.condition.opusName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusType != null" >
+         and opus_type = #{example.condition.opusType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusPublishTime != null" >
+         and opus_publish_time = #{example.condition.opusPublishTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusLanguages != null" >
+         and opus_languages = #{example.condition.opusLanguages,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusPublishCompany != null" >
+         and opus_publish_company = #{example.condition.opusPublishCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusSupportTopic != null" >
+         and opus_support_topic = #{example.condition.opusSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusContent != null" >
+         and opus_content = #{example.condition.opusContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusRemarks != null" >
+         and opus_remarks = #{example.condition.opusRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusDel != null" >
+         and opus_del = #{example.condition.opusDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opusCreateTime != null" >
+         and opus_create_time = #{example.condition.opusCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    opus_id, base_info_id, opus_name, opus_type, opus_publish_time, opus_languages, opus_publish_company, 
+    opus_support_topic, opus_content, opus_remarks, opus_del, opus_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_opus
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_opus
+    where opus_id = #{opusId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from am_opus
+    where opus_id = #{opusId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from am_opus
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.AmOpus" >
+    insert into am_opus (opus_id, base_info_id, opus_name, 
+      opus_type, opus_publish_time, opus_languages, 
+      opus_publish_company, opus_support_topic, opus_content, 
+      opus_remarks, opus_del, opus_create_time
+      )
+    values (#{opusId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{opusName,jdbcType=VARCHAR}, 
+      #{opusType,jdbcType=VARCHAR}, #{opusPublishTime,jdbcType=VARCHAR}, #{opusLanguages,jdbcType=VARCHAR}, 
+      #{opusPublishCompany,jdbcType=VARCHAR}, #{opusSupportTopic,jdbcType=VARCHAR}, #{opusContent,jdbcType=VARCHAR}, 
+      #{opusRemarks,jdbcType=VARCHAR}, #{opusDel,jdbcType=VARCHAR}, #{opusCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.AmOpus" >
+    insert into am_opus
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="opusId != null" >
+        opus_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="opusName != null" >
+        opus_name,
+      </if>
+      <if test="opusType != null" >
+        opus_type,
+      </if>
+      <if test="opusPublishTime != null" >
+        opus_publish_time,
+      </if>
+      <if test="opusLanguages != null" >
+        opus_languages,
+      </if>
+      <if test="opusPublishCompany != null" >
+        opus_publish_company,
+      </if>
+      <if test="opusSupportTopic != null" >
+        opus_support_topic,
+      </if>
+      <if test="opusContent != null" >
+        opus_content,
+      </if>
+      <if test="opusRemarks != null" >
+        opus_remarks,
+      </if>
+      <if test="opusDel != null" >
+        opus_del,
+      </if>
+      <if test="opusCreateTime != null" >
+        opus_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="opusId != null" >
+        #{opusId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="opusName != null" >
+        #{opusName,jdbcType=VARCHAR},
+      </if>
+      <if test="opusType != null" >
+        #{opusType,jdbcType=VARCHAR},
+      </if>
+      <if test="opusPublishTime != null" >
+        #{opusPublishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="opusLanguages != null" >
+        #{opusLanguages,jdbcType=VARCHAR},
+      </if>
+      <if test="opusPublishCompany != null" >
+        #{opusPublishCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="opusSupportTopic != null" >
+        #{opusSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="opusContent != null" >
+        #{opusContent,jdbcType=VARCHAR},
+      </if>
+      <if test="opusRemarks != null" >
+        #{opusRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="opusDel != null" >
+        #{opusDel,jdbcType=VARCHAR},
+      </if>
+      <if test="opusCreateTime != null" >
+        #{opusCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_opus
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update am_opus
+    <set >
+      <if test="record.opusId != null" >
+        opus_id = #{record.opusId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusName != null" >
+        opus_name = #{record.opusName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusType != null" >
+        opus_type = #{record.opusType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusPublishTime != null" >
+        opus_publish_time = #{record.opusPublishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusLanguages != null" >
+        opus_languages = #{record.opusLanguages,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusPublishCompany != null" >
+        opus_publish_company = #{record.opusPublishCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusSupportTopic != null" >
+        opus_support_topic = #{record.opusSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusContent != null" >
+        opus_content = #{record.opusContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusRemarks != null" >
+        opus_remarks = #{record.opusRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusDel != null" >
+        opus_del = #{record.opusDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opusCreateTime != null" >
+        opus_create_time = #{record.opusCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update am_opus
+    set opus_id = #{record.opusId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      opus_name = #{record.opusName,jdbcType=VARCHAR},
+      opus_type = #{record.opusType,jdbcType=VARCHAR},
+      opus_publish_time = #{record.opusPublishTime,jdbcType=VARCHAR},
+      opus_languages = #{record.opusLanguages,jdbcType=VARCHAR},
+      opus_publish_company = #{record.opusPublishCompany,jdbcType=VARCHAR},
+      opus_support_topic = #{record.opusSupportTopic,jdbcType=VARCHAR},
+      opus_content = #{record.opusContent,jdbcType=VARCHAR},
+      opus_remarks = #{record.opusRemarks,jdbcType=VARCHAR},
+      opus_del = #{record.opusDel,jdbcType=VARCHAR},
+      opus_create_time = #{record.opusCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.AmOpus" >
+    update am_opus
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="opusName != null" >
+        opus_name = #{opusName,jdbcType=VARCHAR},
+      </if>
+      <if test="opusType != null" >
+        opus_type = #{opusType,jdbcType=VARCHAR},
+      </if>
+      <if test="opusPublishTime != null" >
+        opus_publish_time = #{opusPublishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="opusLanguages != null" >
+        opus_languages = #{opusLanguages,jdbcType=VARCHAR},
+      </if>
+      <if test="opusPublishCompany != null" >
+        opus_publish_company = #{opusPublishCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="opusSupportTopic != null" >
+        opus_support_topic = #{opusSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="opusContent != null" >
+        opus_content = #{opusContent,jdbcType=VARCHAR},
+      </if>
+      <if test="opusRemarks != null" >
+        opus_remarks = #{opusRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="opusDel != null" >
+        opus_del = #{opusDel,jdbcType=VARCHAR},
+      </if>
+      <if test="opusCreateTime != null" >
+        opus_create_time = #{opusCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where opus_id = #{opusId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.AmOpus" >
+    update am_opus
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      opus_name = #{opusName,jdbcType=VARCHAR},
+      opus_type = #{opusType,jdbcType=VARCHAR},
+      opus_publish_time = #{opusPublishTime,jdbcType=VARCHAR},
+      opus_languages = #{opusLanguages,jdbcType=VARCHAR},
+      opus_publish_company = #{opusPublishCompany,jdbcType=VARCHAR},
+      opus_support_topic = #{opusSupportTopic,jdbcType=VARCHAR},
+      opus_content = #{opusContent,jdbcType=VARCHAR},
+      opus_remarks = #{opusRemarks,jdbcType=VARCHAR},
+      opus_del = #{opusDel,jdbcType=VARCHAR},
+      opus_create_time = #{opusCreateTime,jdbcType=TIMESTAMP}
+    where opus_id = #{opusId,jdbcType=VARCHAR}
+  </update>
+</mapper>

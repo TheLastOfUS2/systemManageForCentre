@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmActivityMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmActivity" >
+    <id column="activity_id" property="activityId" jdbcType="VARCHAR" />
+    <result column="activity_name" property="activityName" jdbcType="VARCHAR" />
+    <result column="activity_time" property="activityTime" jdbcType="VARCHAR" />
+    <result column="activity_theme" property="activityTheme" jdbcType="VARCHAR" />
+    <result column="activity_speaker" property="activitySpeaker" jdbcType="VARCHAR" />
+    <result column="activity_speaker_id" property="activitySpeakerId" jdbcType="VARCHAR" />
+    <result column="activity_content" property="activityContent" jdbcType="VARCHAR" />
+    <result column="activity_remarks" property="activityRemarks" jdbcType="VARCHAR" />
+    <result column="activity_del" property="activityDel" jdbcType="VARCHAR" />
+    <result column="activity_create_time" property="activityCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.activityName != null" >
+         and activity_name = #{condition.activityName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activityTime != null" >
+         and activity_time = #{condition.activityTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activityTheme != null" >
+         and activity_theme = #{condition.activityTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activitySpeaker != null" >
+         and activity_speaker = #{condition.activitySpeaker,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activitySpeakerId != null" >
+         and activity_speaker_id = #{condition.activitySpeakerId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activityContent != null" >
+         and activity_content = #{condition.activityContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activityRemarks != null" >
+         and activity_remarks = #{condition.activityRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activityDel != null" >
+         and activity_del = #{condition.activityDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.activityCreateTime != null" >
+         and activity_create_time = #{condition.activityCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <!-- 模糊查询 -->
+      <!-- 活动名称 -->
+      <if test="condition.activityName2 != null" >
+      	 and activity_name like CONCAT('%', #{condition.activityName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 主题 -->
+      <if test="condition.activityTheme2 != null" >
+      	 and activity_theme like CONCAT('%', #{condition.activityTheme2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 时间 -->
+      <if test="condition.activityTime2 != null" >
+      	 and activity_time like CONCAT('%', #{condition.activityTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 主讲人 -->
+      <if test="condition.activitySpeaker2 != null" >
+      	 and activity_speaker like CONCAT('%', #{condition.activitySpeaker2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    activity_id, activity_name, activity_time, activity_theme, activity_speaker,activity_speaker_id, activity_content, 
+    activity_remarks, activity_del, activity_create_time
+  </sql>
+  
+   <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

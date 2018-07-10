@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmLectureMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.AmLectureDto" >
+    <id column="lecture_id" property="lectureId" jdbcType="VARCHAR" />
+    <result column="lecture_speaker" property="lectureSpeaker" jdbcType="VARCHAR" />
+    <result column="lecture_speaker_id" property="lectureSpeakerId" jdbcType="VARCHAR" />
+    <result column="lecture_theme" property="lectureTheme" jdbcType="VARCHAR" />
+    <result column="lecture_time" property="lectureTime" jdbcType="VARCHAR" />
+    <result column="lecture_address" property="lectureAddress" jdbcType="VARCHAR" />
+    <result column="lecture_content" property="lectureContent" jdbcType="VARCHAR" />
+    <result column="lecture_remarks" property="lectureRemarks" jdbcType="VARCHAR" />
+    <result column="lecture_del" property="lectureDel" jdbcType="VARCHAR" />
+    <result column="lecture_create_time" property="lectureCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.lectureSpeaker != null" >
+         and lecture_speaker = #{condition.lectureSpeaker,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureSpeakerId != null" >
+         and lecture_speaker_id = #{condition.lectureSpeakerId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureTheme != null" >
+         and lecture_theme = #{condition.lectureTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureTime != null" >
+         and lecture_time = #{condition.lectureTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureAddress != null" >
+         and lecture_address = #{condition.lectureAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureContent != null" >
+         and lecture_content = #{condition.lectureContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureRemarks != null" >
+         and lecture_remarks = #{condition.lectureRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureDel != null" >
+         and lecture_del = #{condition.lectureDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.lectureCreateTime != null" >
+         and lecture_create_time = #{condition.lectureCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <!-- 模糊查询 -->
+      <!-- 主题 -->
+      <if test="condition.lectureTheme2 != null" >
+      	 and lecture_theme like CONCAT('%', #{condition.lectureTheme2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 主讲人 -->
+      <if test="condition.lectureSpeaker2 != null" >
+      	 and lecture_speaker like CONCAT('%', #{condition.lectureSpeaker2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 时间 -->
+      <if test="condition.lectureTime2 != null" >
+      	 and lecture_time like CONCAT('%', #{condition.lectureTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 地点 -->
+      <if test="condition.lectureAddress2 != null" >
+      	 and lecture_address like CONCAT('%', #{condition.lectureAddress2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    lecture_id, lecture_speaker,lecture_speaker_id, lecture_theme, lecture_time, lecture_address, lecture_content, 
+    lecture_remarks, lecture_del, lecture_create_time
+  </sql>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_lecture
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_lecture
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

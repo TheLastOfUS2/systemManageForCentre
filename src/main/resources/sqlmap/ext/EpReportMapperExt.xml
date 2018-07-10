@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.EpReportMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.EpReport" >
+    <id column="report_id" property="reportId" jdbcType="VARCHAR" />
+    <result column="report_type" property="reportType" jdbcType="VARCHAR" />
+    <result column="report_time" property="reportTime" jdbcType="VARCHAR" />
+    <result column="report_title" property="reportTitle" jdbcType="VARCHAR" />
+    <result column="report_dept" property="reportDept" jdbcType="VARCHAR" />
+    <result column="report_submitter" property="reportSubmitter" jdbcType="VARCHAR" />
+    <result column="report_submitter_id" property="reportSubmitterId" jdbcType="VARCHAR" />
+    <result column="report_remarks" property="reportRemarks" jdbcType="VARCHAR" />
+    <result column="report_del" property="reportDel" jdbcType="VARCHAR" />
+    <result column="report_create_time" property="reportCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.reportType != null" >
+         and report_type = #{condition.reportType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportTime != null" >
+         and report_time = #{condition.reportTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportTitle != null" >
+         and report_title = #{condition.reportTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportDept != null" >
+         and report_dept = #{condition.reportDept,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportSubmitter != null" >
+         and report_submitter = #{condition.reportSubmitter,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportSubmitterId != null" >
+         and report_submitter_id = #{condition.reportSubmitterId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportRemarks != null" >
+         and report_remarks = #{condition.reportRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportDel != null" >
+         and report_del = #{condition.reportDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.reportCreateTime != null" >
+         and report_create_time = #{condition.reportCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 材料名称 -->
+      <if test="condition.reportTitle2 != null" >
+      	 and report_title like CONCAT('%', #{condition.reportTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 提交部门 -->
+      <if test="condition.reportDept2 != null" >
+      	 and report_dept like CONCAT('%', #{condition.reportDept2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 提交人 -->
+      <if test="condition.reportSubmitter2 != null" >
+      	 and report_submitter like CONCAT('%', #{condition.reportSubmitter2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 上报时间 -->
+      <if test="condition.reportTime2 != null" >
+      	 and report_time like CONCAT('%', #{condition.reportTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >  
+    report_id, report_type, report_time, report_title, report_dept, report_submitter, report_submitter_id,
+    report_remarks, report_del, report_create_time
+  </sql>
+  
+   <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from ep_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ep_report
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

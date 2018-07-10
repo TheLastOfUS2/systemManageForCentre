@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.EpPublicityMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.EpPublicity" >
+     <id column="publicity_id" property="publicityId" jdbcType="VARCHAR" />
+    <result column="publicity_type" property="publicityType" jdbcType="VARCHAR" />
+    <result column="publicity_theme" property="publicityTheme" jdbcType="VARCHAR" />
+    <result column="publicity_channel" property="publicityChannel" jdbcType="VARCHAR" />
+    <result column="publicity_title" property="publicityTitle" jdbcType="VARCHAR" />
+    <result column="publicity_volume" property="publicityVolume" jdbcType="VARCHAR" />
+    <result column="publicity_time" property="publicityTime" jdbcType="VARCHAR" />
+    <result column="publicity_interviewee" property="publicityInterviewee" jdbcType="VARCHAR" />
+    <result column="publicity_interviewee_id" property="publicityIntervieweeId" jdbcType="VARCHAR" />
+    <result column="publicity_company" property="publicityCompany" jdbcType="VARCHAR" />
+    <result column="publicity_position" property="publicityPosition" jdbcType="VARCHAR" />
+    <result column="publicity_remarks" property="publicityRemarks" jdbcType="VARCHAR" />
+    <result column="publicity_del" property="publicityDel" jdbcType="VARCHAR" />
+    <result column="publicity_create_time" property="publicityCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.publicityType != null" >
+         and ep.publicity_type = #{condition.publicityType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityTheme != null" >
+         and ep.publicity_theme = #{condition.publicityTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityChannel != null" >
+         and ep.publicity_channel = #{condition.publicityChannel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityTitle != null" >
+         and ep.publicity_title = #{condition.publicityTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityVolume != null" >
+         and ep.publicity_volume = #{condition.publicityVolume,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityTime != null" >
+         and ep.publicity_time = #{condition.publicityTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityInterviewee != null" >
+         and ep.publicity_interviewee = #{condition.publicityInterviewee,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityIntervieweeId != null" >
+         and ep.publicity_interviewee_id = #{condition.publicityIntervieweeId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityCompany != null" >
+         and ep.publicity_company = #{condition.publicityCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityPosition != null" >
+         and ep.publicity_position = #{condition.publicityPosition,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityRemarks != null" >
+         and ep.publicity_remarks = #{condition.publicityRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityDel != null" >
+         and ep.publicity_del = #{condition.publicityDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityCreateTime != null" >
+         and ep.publicity_create_time = #{condition.publicityCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 宣传主题 -->
+      <if test="condition.publicityTheme2 != null" >
+      	 and ep.publicity_theme like CONCAT('%', #{condition.publicityTheme2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 报纸名称 -->
+      <if test="condition.publicityTitle2 != null" >
+      	 and ep.publicity_title like CONCAT('%', #{condition.publicityTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 受访人 -->
+      <if test="condition.publicityInterviewee2 != null" >
+      	 and ep.publicity_interviewee like CONCAT('%', #{condition.publicityInterviewee2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 受访单位 -->
+      <if test="condition.publicityCompany2 != null" >
+      	 and ep.publicity_company like CONCAT('%', #{condition.publicityCompany2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 发表时间 -->
+      <if test="condition.publicityTime2 != null" >
+      	 and ep.publicity_time like CONCAT('%', #{condition.publicityTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 版面/位置(封1、2、3、4)/视频网址/宣传页网址  -->
+      <if test="condition.publicityPosition2 != null" >
+      	 and ep.publicity_position like CONCAT('%', #{condition.publicityPosition2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 卷/期 -->
+      <if test="condition.publicityVolume2 != null" >
+      	 and ep.publicity_volume like CONCAT('%', #{condition.publicityVolume2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 电视频道名称 -->
+      <if test="condition.publicityChannel2 != null" >
+      	 and ep.publicity_channel like CONCAT('%', #{condition.publicityChannel2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    ep.publicity_id, ep.publicity_type, ep.publicity_theme, ep.publicity_channel, ep.publicity_title, 
+    ep.publicity_volume, ep.publicity_time, ep.publicity_interviewee,ep.publicity_interviewee_id, ep.publicity_company, ep.publicity_position, 
+    ep.publicity_remarks, ep.publicity_del, ep.publicity_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from ep_publicity ep left join bi_base_info bi on ep.publicity_interviewee_id=bi.base_info_id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ep_publicity ep left join bi_base_info bi on ep.publicity_interviewee_id=bi.base_info_id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.CsOtherEntrustMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.CsOtherEntrust" >
+    <id column="entrust_id" property="entrustId" jdbcType="VARCHAR" />
+    <result column="entrust_time" property="entrustTime" jdbcType="VARCHAR" />
+    <result column="entrust_undertaker" property="entrustUndertaker" jdbcType="VARCHAR" />
+    <result column="entrust_undertaker_id" property="entrustUndertakerId" jdbcType="VARCHAR" />
+    <result column="entrust_company" property="entrustCompany" jdbcType="VARCHAR" />
+    <result column="entrust_task" property="entrustTask" jdbcType="VARCHAR" />
+    <result column="entrust_synopsis" property="entrustSynopsis" jdbcType="VARCHAR" />
+    <result column="entrust_remarks" property="entrustRemarks" jdbcType="VARCHAR" />
+    <result column="entrust_del" property="entrustDel" jdbcType="VARCHAR" />
+    <result column="entrust_create_time" property="entrustCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.entrustTime != null" >
+         and entrust_time = #{condition.entrustTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustUndertaker != null" >
+         and entrust_undertaker = #{condition.entrustUndertaker,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustUndertakerId != null" >
+         and entrust_undertaker_id = #{condition.entrustUndertakerId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustCompany != null" >
+         and entrust_company = #{condition.entrustCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustTask != null" >
+         and entrust_task = #{condition.entrustTask,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustSynopsis != null" >
+         and entrust_synopsis = #{condition.entrustSynopsis,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustRemarks != null" >
+         and entrust_remarks = #{condition.entrustRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustDel != null" >
+         and entrust_del = #{condition.entrustDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustCreateTime != null" >
+         and entrust_create_time = #{condition.entrustCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.entrustTime != null" >
+         and entrust_time = #{example.condition.entrustTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustUndertaker != null" >
+         and entrust_undertaker = #{example.condition.entrustUndertaker,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustUndertakerId != null" >
+         and entrust_undertaker_id = #{example.condition.entrustUndertakerId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustCompany != null" >
+         and entrust_company = #{example.condition.entrustCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustTask != null" >
+         and entrust_task = #{example.condition.entrustTask,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustSynopsis != null" >
+         and entrust_synopsis = #{example.condition.entrustSynopsis,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustRemarks != null" >
+         and entrust_remarks = #{example.condition.entrustRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustDel != null" >
+         and entrust_del = #{example.condition.entrustDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.entrustCreateTime != null" >
+         and entrust_create_time = #{example.condition.entrustCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    entrust_id, entrust_time, entrust_undertaker, entrust_undertaker_id,entrust_company, entrust_task, entrust_synopsis, 
+    entrust_remarks, entrust_del, entrust_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cs_other_entrust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cs_other_entrust
+    where entrust_id = #{entrustId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cs_other_entrust
+    where entrust_id = #{entrustId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from cs_other_entrust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.CsOtherEntrust" >
+    insert into cs_other_entrust (entrust_id, entrust_time, entrust_undertaker,entrust_undertaker_id, 
+      entrust_company, entrust_task, entrust_synopsis, 
+      entrust_remarks, entrust_del, entrust_create_time
+      )   
+    values (#{entrustId,jdbcType=VARCHAR}, #{entrustTime,jdbcType=VARCHAR}, #{entrustUndertaker,jdbcType=VARCHAR}, #{entrustUndertakerId,jdbcType=VARCHAR},  
+      #{entrustCompany,jdbcType=VARCHAR}, #{entrustTask,jdbcType=VARCHAR}, #{entrustSynopsis,jdbcType=VARCHAR}, 
+      #{entrustRemarks,jdbcType=VARCHAR}, #{entrustDel,jdbcType=VARCHAR}, #{entrustCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.CsOtherEntrust" >
+    insert into cs_other_entrust
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="entrustId != null" >
+        entrust_id,
+      </if>
+      <if test="entrustTime != null" >
+        entrust_time,
+      </if>
+      <if test="entrustUndertaker != null" >
+        entrust_undertaker,
+      </if>
+      <if test="entrustUndertakerId != null" >
+        entrust_undertaker_id,
+      </if>
+      <if test="entrustCompany != null" >
+        entrust_company,
+      </if>
+      <if test="entrustTask != null" >
+        entrust_task,
+      </if>
+      <if test="entrustSynopsis != null" >
+        entrust_synopsis,
+      </if>
+      <if test="entrustRemarks != null" >
+        entrust_remarks,
+      </if>
+      <if test="entrustDel != null" >
+        entrust_del,
+      </if>
+      <if test="entrustCreateTime != null" >
+        entrust_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="entrustId != null" >
+        #{entrustId,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustTime != null" >
+        #{entrustTime,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustUndertaker != null" >
+        #{entrustUndertaker,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustUndertakerId != null" >
+        #{entrustUndertakerId,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustCompany != null" >
+        #{entrustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustTask != null" >
+        #{entrustTask,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustSynopsis != null" >
+        #{entrustSynopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustRemarks != null" >
+        #{entrustRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustDel != null" >
+        #{entrustDel,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustCreateTime != null" >
+        #{entrustCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from cs_other_entrust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cs_other_entrust
+    <set >
+      <if test="record.entrustId != null" >
+        entrust_id = #{record.entrustId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustTime != null" >
+        entrust_time = #{record.entrustTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustUndertaker != null" >
+        entrust_undertaker = #{record.entrustUndertaker,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustUndertakerId != null" >
+        entrust_undertaker_id = #{record.entrustUndertakerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustCompany != null" >
+        entrust_company = #{record.entrustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustTask != null" >
+        entrust_task = #{record.entrustTask,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustSynopsis != null" >
+        entrust_synopsis = #{record.entrustSynopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustRemarks != null" >
+        entrust_remarks = #{record.entrustRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustDel != null" >
+        entrust_del = #{record.entrustDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entrustCreateTime != null" >
+        entrust_create_time = #{record.entrustCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cs_other_entrust
+    set entrust_id = #{record.entrustId,jdbcType=VARCHAR},
+      entrust_time = #{record.entrustTime,jdbcType=VARCHAR},
+      entrust_undertaker = #{record.entrustUndertaker,jdbcType=VARCHAR},
+      entrust_undertaker_id = #{record.entrustUndertakerId,jdbcType=VARCHAR},
+      entrust_company = #{record.entrustCompany,jdbcType=VARCHAR},
+      entrust_task = #{record.entrustTask,jdbcType=VARCHAR},
+      entrust_synopsis = #{record.entrustSynopsis,jdbcType=VARCHAR},
+      entrust_remarks = #{record.entrustRemarks,jdbcType=VARCHAR},
+      entrust_del = #{record.entrustDel,jdbcType=VARCHAR},
+      entrust_create_time = #{record.entrustCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.CsOtherEntrust" >
+    update cs_other_entrust
+    <set >
+      <if test="entrustTime != null" >
+        entrust_time = #{entrustTime,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustUndertaker != null" >
+        entrust_undertaker = #{entrustUndertaker,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustUndertakerId != null" >
+        entrust_undertaker_id = #{entrustUndertakerId,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustCompany != null" >
+        entrust_company = #{entrustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustTask != null" >
+        entrust_task = #{entrustTask,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustSynopsis != null" >
+        entrust_synopsis = #{entrustSynopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustRemarks != null" >
+        entrust_remarks = #{entrustRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustDel != null" >
+        entrust_del = #{entrustDel,jdbcType=VARCHAR},
+      </if>
+      <if test="entrustCreateTime != null" >
+        entrust_create_time = #{entrustCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where entrust_id = #{entrustId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.CsOtherEntrust" >
+    update cs_other_entrust
+    set entrust_time = #{entrustTime,jdbcType=VARCHAR},
+      entrust_undertaker = #{entrustUndertaker,jdbcType=VARCHAR},
+      entrust_undertaker_id = #{entrustUndertakerId,jdbcType=VARCHAR},
+      entrust_company = #{entrustCompany,jdbcType=VARCHAR},
+      entrust_task = #{entrustTask,jdbcType=VARCHAR},
+      entrust_synopsis = #{entrustSynopsis,jdbcType=VARCHAR},
+      entrust_remarks = #{entrustRemarks,jdbcType=VARCHAR},
+      entrust_del = #{entrustDel,jdbcType=VARCHAR},
+      entrust_create_time = #{entrustCreateTime,jdbcType=TIMESTAMP}
+    where entrust_id = #{entrustId,jdbcType=VARCHAR}
+  </update>
+</mapper>

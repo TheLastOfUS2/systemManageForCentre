@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.CsOtherEntrustMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.CsOtherEntrust" >
+    <id column="entrust_id" property="entrustId" jdbcType="VARCHAR" />
+    <result column="entrust_time" property="entrustTime" jdbcType="VARCHAR" />
+    <result column="entrust_undertaker" property="entrustUndertaker" jdbcType="VARCHAR" />
+    <result column="entrust_undertaker_id" property="entrustUndertakerId" jdbcType="VARCHAR" />
+    <result column="entrust_company" property="entrustCompany" jdbcType="VARCHAR" />
+    <result column="entrust_task" property="entrustTask" jdbcType="VARCHAR" />
+    <result column="entrust_synopsis" property="entrustSynopsis" jdbcType="VARCHAR" />
+    <result column="entrust_remarks" property="entrustRemarks" jdbcType="VARCHAR" />
+    <result column="entrust_del" property="entrustDel" jdbcType="VARCHAR" />
+    <result column="entrust_create_time" property="entrustCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.entrustTime != null" >
+         and entrust_time = #{condition.entrustTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustUndertaker != null" >
+         and entrust_undertaker = #{condition.entrustUndertaker,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustUndertakerId != null" >
+         and entrust_undertaker_id = #{condition.entrustUndertakerId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustCompany != null" >
+         and entrust_company = #{condition.entrustCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustTask != null" >
+         and entrust_task = #{condition.entrustTask,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustSynopsis != null" >
+         and entrust_synopsis = #{condition.entrustSynopsis,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustRemarks != null" >
+         and entrust_remarks = #{condition.entrustRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustDel != null" >
+         and entrust_del = #{condition.entrustDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.entrustCreateTime != null" >
+         and entrust_create_time = #{condition.entrustCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 承担人 -->
+      <if test="condition.entrustUndertaker2 != null" >
+      	 and entrust_undertaker like CONCAT('%', #{condition.entrustUndertaker2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 委托单位 -->
+      <if test="condition.entrustCompany2 != null" >
+      	 and entrust_company like CONCAT('%', #{condition.entrustCompany2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 承担时间 -->
+      <if test="condition.entrustTime2 != null" >
+      	 and entrust_time like CONCAT('%', #{condition.entrustTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 委托任务 -->
+      <if test="condition.entrustTask2 != null" >
+      	 and entrust_task like CONCAT('%', #{condition.entrustTask2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >  
+    entrust_id, entrust_time, entrust_undertaker,entrust_undertaker_id, entrust_company, entrust_task, entrust_synopsis, 
+    entrust_remarks, entrust_del, entrust_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from cs_other_entrust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cs_other_entrust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

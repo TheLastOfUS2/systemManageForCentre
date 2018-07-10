@@ -1,0 +1,61 @@
+body {
+	background-color: #1999fc;
+	background-repeat: no-repeat;
+	bottom: 0px;
+	font-family: "Microsoft Yahei";
+	font-size: 12px;
+	height: auto;
+	text-align: center;
+	width: 100%;
+}
+
+*{
+	margin:0;
+	padding:0;
+}
+.clear{
+	   clear:both;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+	outline:none;
+}
+input::-ms-clear {
+	display:none;
+}	
+
+/* 登录窗口样式 */
+.yam_login{
+	overflow: hidden;
+    width: 512px;
+	height: 414px; 
+	position: absolute;
+	*position: absolute;
+	top:50%;
+	left:50%;
+	margin-left:-248px;
+    margin-top:-189px;
+}
+
+/* 登录窗口标题样式 */
+.title{
+	padding-bottom: 22px
+}
+
+/* 登录窗口样式 */
+.loginframe{
+	height:auto;
+	width:100%;
+	border:0;
+}
+
+/* input设置属性:*/
+.input_text{*position:absolute;position:absolute;left:0px;background:transparent; border:none;}
+/* div设置属性:*/
+.uNameDiv{position:absolute;*position:absolute;left:147px;top: 191px;border:1px solid #ffffff;height:29px;width:294px}
+.uPassDiv{position:absolute;*position:absolute;left:147px;top: 243px;border:1px solid #ffffff;height:29px;width:294px}
+.validateDiv{position:absolute;*position:absolute;left:148px;top: 294px;border:1px solid #ffffff;height:29px;width:203px}
+.validateCodeDiv{position:absolute;*position:absolute;left:362px;top: 295px;border:1px solid #ffffff;height:29px;width:80px;font-size:20px;cursor:pointer;}
+.butDiv{position:absolute;*position:absolute;left:67px;top: 362px;border-radius: 10px;filter:alpha(opacity=0);opacity:0 }
+
+

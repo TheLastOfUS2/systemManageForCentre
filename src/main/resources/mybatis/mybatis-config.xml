@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- mybatis配置文件 -->
+	<settings>
+		<!-- 全局映射器启用缓存 -->
+		<setting name="cacheEnabled" value="true" />
+		<!-- 查询时，关闭关联对象即时加载以提高性能 -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<!-- 设置关联对象加载的形态，此处为按需加载字段(加载字段由SQL指定)，不会加载关联表的所有字段，以提高性能 -->
+		<setting name="aggressiveLazyLoading" value="false" />
+		<!-- 对于未知的SQL查询，允许返回不同的结果集以达到通用的效果 -->
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<!-- 允许使用列标签代替列名 -->
+		<setting name="useColumnLabel" value="true" />
+		<!-- 允许使用自定义的主键值(比如由程序生成的UUID 32位编码作为键值)，数据表的PK生成策略将被覆盖 -->
+		<setting name="useGeneratedKeys" value="true" />
+		<!-- 给予被嵌套的resultMap以字段-属性的映射支持 -->
+		<setting name="autoMappingBehavior" value="FULL" />
+		<!-- 对于批量更新操作缓存SQL以提高性能, 返回操作数据库影响数丢失 -->
+		<!-- <setting name="defaultExecutorType" value="BATCH" /> -->
+		<!-- 返回操作数据库影响数 -->
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<!-- 数据库超过25000秒仍未响应则超时 -->
+		<setting name="defaultStatementTimeout" value="25000" />
+	</settings>
+	<mappers>
+		<!-- 分页-->
+		<mapper resource="sqlmap/base/common_SqlMap.xml" />
+		
+		<!-- 基本信息模块 -->
+		<mapper resource="sqlmap/base/BiBaseInfoMapper.xml" />
+		<!-- 教育经历模块 -->
+		<mapper resource="sqlmap/base/BiEducationalMapper.xml" />
+		<!-- 工作经历模块 -->
+		<mapper resource="sqlmap/base/BiWorkMapper.xml" />
+		<!-- 兼职经历模块 -->
+		<mapper resource="sqlmap/base/BiJobMapper.xml" />
+		<!-- 出国经历模块 -->
+		<mapper resource="sqlmap/base/BiAbroadMapper.xml" />
+		<!-- 通讯信息模块 -->
+		<mapper resource="sqlmap/base/BiMailListMapper.xml" />
+		<!-- 项目模块 -->
+		<mapper resource="sqlmap/base/AmProjectMapper.xml" />
+		<!-- 合作者模块 -->
+		<mapper resource="sqlmap/base/AmCollaboratorMapper.xml" />
+		<!-- 著作模块 -->
+		<mapper resource="sqlmap/base/AmOpusMapper.xml" />
+		<!-- 论文模块 -->
+		<mapper resource="sqlmap/base/AmPaperMapper.xml" />
+		<!-- 获奖模块 -->
+		<mapper resource="sqlmap/base/AmPrizeMapper.xml" />
+		<!-- 采纳批示模块 -->
+		<mapper resource="sqlmap/base/AmAdoptMapper.xml" />
+		<!-- 学术会议模块 -->
+		<mapper resource="sqlmap/base/AmConferenceMapper.xml" />
+		<!-- 报告讲座模块-->
+		<mapper resource="sqlmap/base/AmLectureMapper.xml" />
+		<!-- 特色活动模块 -->
+		<mapper resource="sqlmap/base/AmActivityMapper.xml" />
+		<!-- 授课信息-->
+		<mapper resource="sqlmap/base/PcTeachingMapper.xml" />
+		<!-- 培训深造 -->
+		<mapper resource="sqlmap/base/PcTrainMapper.xml" />
+		<!-- 培训咨询-->
+		<mapper resource="sqlmap/base/CsTrainConsultMapper.xml" />
+		<!-- 其他委托-->
+		<mapper resource="sqlmap/base/CsOtherEntrustMapper.xml" />
+		<!-- 对外合作-->
+		<mapper resource="sqlmap/base/FcCooperationMapper.xml" />
+		<!-- 对外宣传-->
+		<mapper resource="sqlmap/base/EpPublicityMapper.xml" />
+		<!-- 各类统计报表及其他资料-->
+		<mapper resource="sqlmap/base/EpReportMapper.xml" />
+		
+		<!-- 基地大事记-->
+		<mapper resource="sqlmap/base/MwMemorabiliaMapper.xml" />
+		<!-- 规章制度-->
+		<mapper resource="sqlmap/base/MwRuleMapper.xml" />
+		<!-- 基地规划-->
+		<mapper resource="sqlmap/base/MwPlanMapper.xml" />
+		<!-- 基地总结-->
+		<mapper resource="sqlmap/base/MwSummaryMapper.xml" />
+		<!-- 资助经费-->
+		<mapper resource="sqlmap/base/MwFundMapper.xml" />
+		<!-- 年度预算-->
+		<mapper resource="sqlmap/base/MwBudgetMapper.xml" />
+		<!-- 中心各项活动-->
+		<mapper resource="sqlmap/base/CaCentralActivityMapper.xml" />
+		<!-- 用户管理-->
+		<mapper resource="sqlmap/base/CommonAccountMapper.xml" />
+		<!-- 角色管理-->
+		<mapper resource="sqlmap/base/CommonRoleMapper.xml" />
+		<!-- 共享文件-->
+		<mapper resource="sqlmap/base/SfShareFileMapper.xml" />
+		<!-- 上传文件-->
+		<mapper resource="sqlmap/base/UploadFileInfoMapper.xml" />
+		
+		<!-- 扩展实体类映射文件 -->
+		<!-- 基本信息模块 -->
+		<mapper resource="sqlmap/ext/BiBaseInfoMapperExt.xml" />
+		<!-- 通讯信息模块 -->
+        <mapper resource="sqlmap/ext/BiMailListMapperExt.xml" />
+        <!-- 项目模块 -->
+        <mapper resource="sqlmap/ext/AmProjectMapperExt.xml" />
+        <!-- 著作模块 -->
+        <mapper resource="sqlmap/ext/AmOpusMapperExt.xml" />
+        <!-- 论文模块 -->
+		<mapper resource="sqlmap/ext/AmPaperMapperExt.xml" />
+       	<!-- 获奖模块 -->
+		<mapper resource="sqlmap/ext/AmPrizeMapperExt.xml" />
+		<!-- 采纳批示模块 -->
+		<mapper resource="sqlmap/ext/AmAdoptMapperExt.xml" />
+		
+		<!-- 学术会议模块 -->
+		<mapper resource="sqlmap/ext/AmConferenceMapperExt.xml" />
+		<!-- 报告讲座模块-->
+		<mapper resource="sqlmap/ext/AmLectureMapperExt.xml" />
+		<!-- 特色活动模块 -->
+		<mapper resource="sqlmap/ext/AmActivityMapperExt.xml" />
+		<!-- 授课信息-->
+		<mapper resource="sqlmap/ext/PcTeachingMapperExt.xml" />
+		<!-- 培训深造 -->
+		<mapper resource="sqlmap/ext/PcTrainMapperExt.xml" />
+		<!-- 培训咨询-->
+		<mapper resource="sqlmap/ext/CsTrainConsultMapperExt.xml" />
+		<!-- 其他委托-->
+		<mapper resource="sqlmap/ext/CsOtherEntrustMapperExt.xml" />
+		<!-- 对外合作-->
+		<mapper resource="sqlmap/ext/FcCooperationMapperExt.xml" />
+		<!-- 对外宣传-->
+		<mapper resource="sqlmap/ext/EpPublicityMapperExt.xml" />
+		<!-- 各类统计报表及其他资料-->
+		<mapper resource="sqlmap/ext/EpReportMapperExt.xml" />
+		
+		<!-- 基地大事记-->
+		<mapper resource="sqlmap/ext/MwMemorabiliaMapperExt.xml" />
+		<!-- 规章制度-->
+		<mapper resource="sqlmap/ext/MwRuleMapperExt.xml" />
+		<!-- 基地规划-->
+		<mapper resource="sqlmap/ext/MwPlanMapperExt.xml" />
+		<!-- 基地总结-->
+		<mapper resource="sqlmap/ext/MwSummaryMapperExt.xml" />
+		<!-- 资助经费-->
+		<mapper resource="sqlmap/ext/MwFundMapperExt.xml" />
+		<!-- 年度预算-->
+		<mapper resource="sqlmap/ext/MwBudgetMapperExt.xml" />
+		<!-- 中心各项活动-->
+		<mapper resource="sqlmap/ext/CaCentralActivityMapperExt.xml" />
+		<!-- 用户管理-->
+		<mapper resource="sqlmap/ext/CommonAccountMapperExt.xml" />
+		<!-- 角色管理 -->
+		<mapper resource="sqlmap/ext/CommonRoleMapperExt.xml" />
+		<!-- 共享文件-->
+		<mapper resource="sqlmap/ext/SfShareFileMapperExt.xml" />
+	</mappers>
+</configuration>

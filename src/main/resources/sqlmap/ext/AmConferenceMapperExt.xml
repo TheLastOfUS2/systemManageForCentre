@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmConferenceMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmConference" >
+    <id column="conference_id" property="conferenceId" jdbcType="VARCHAR" />
+    <result column="conference_name_id" property="conferenceNameId" jdbcType="VARCHAR" />
+    <result column="conference_name" property="conferenceName" jdbcType="VARCHAR" />
+    <result column="conference_title" property="conferenceTitle" jdbcType="VARCHAR" />
+    <result column="conference_address" property="conferenceAddress" jdbcType="VARCHAR" />
+    <result column="conference_nature" property="conferenceNature" jdbcType="VARCHAR" />
+    <result column="conference_start_time" property="conferenceStartTime" jdbcType="VARCHAR" />
+    <result column="conference_end_time" property="conferenceEndTime" jdbcType="VARCHAR" />
+    <result column="conference_type" property="conferenceType" jdbcType="VARCHAR" />
+    <result column="conference_chairman" property="conferenceChairman" jdbcType="VARCHAR" />
+    <result column="conference_chairman_id" property="conferenceChairmanId" jdbcType="VARCHAR" />
+    <result column="conference_implement_chairman" property="conferenceImplementChairman" jdbcType="VARCHAR" />
+    <result column="conference_implement_chairman_id" property="conferenceImplementChairmanId" jdbcType="VARCHAR" />
+    <result column="conference_domestic_count" property="conferenceDomesticCount" jdbcType="VARCHAR" />
+    <result column="conference_internation_count" property="conferenceInternationCount" jdbcType="VARCHAR" />
+    <result column="conference_paper_count" property="conferencePaperCount" jdbcType="VARCHAR" />
+    <result column="conference_synopsis" property="conferenceSynopsis" jdbcType="VARCHAR" />
+    <result column="conference_content" property="conferenceContent" jdbcType="VARCHAR" />
+    <result column="conference_paper_name" property="conferencePaperName" jdbcType="VARCHAR" />
+    <result column="conference_if_read" property="conferenceIfRead" jdbcType="VARCHAR" />
+    <result column="conference_if_include" property="conferenceIfInclude" jdbcType="VARCHAR" />
+    <result column="conference_remarks" property="conferenceRemarks" jdbcType="VARCHAR" />
+    <result column="conference_del" property="conferenceDel" jdbcType="VARCHAR" />
+    <result column="conference_create_time" property="conferenceCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.conferenceName != null" >
+         and conference_name = #{condition.conferenceName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceNameId != null" >
+         and conference_name_id = #{condition.conferenceNameId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceTitle != null" >
+         and conference_title = #{condition.conferenceTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceAddress != null" >
+         and conference_address = #{condition.conferenceAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceNature != null" >
+         and conference_nature = #{condition.conferenceNature,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceStartTime != null" >
+         and conference_start_time = #{condition.conferenceStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceEndTime != null" >
+         and conference_end_time = #{condition.conferenceEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceType != null" >
+         and conference_type = #{condition.conferenceType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceChairman != null" >
+         and conference_chairman = #{condition.conferenceChairman,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceChairmanId != null" >
+         and conference_chairman_id = #{condition.conferenceChairmanId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceImplementChairman != null" >
+         and conference_implement_chairman = #{condition.conferenceImplementChairman,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceImplementChairmanId != null" >
+         and conference_implement_chairman_id = #{condition.conferenceImplementChairmanId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceDomesticCount != null" >
+         and conference_domestic_count = #{condition.conferenceDomesticCount,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceInternationCount != null" >
+         and conference_internation_count = #{condition.conferenceInternationCount,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferencePaperCount != null" >
+         and conference_paper_count = #{condition.conferencePaperCount,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceSynopsis != null" >
+         and conference_synopsis = #{condition.conferenceSynopsis,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceContent != null" >
+         and conference_content = #{condition.conferenceContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferencePaperName != null" >
+         and conference_paper_name = #{condition.conferencePaperName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceIfRead != null" >
+         and conference_if_read = #{condition.conferenceIfRead,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceIfInclude != null" >
+         and conference_if_include = #{condition.conferenceIfInclude,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceRemarks != null" >
+         and conference_remarks = #{condition.conferenceRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceDel != null" >
+         and conference_del = #{condition.conferenceDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.conferenceCreateTime != null" >
+         and conference_create_time = #{condition.conferenceCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      <!-- 模糊查询 -->
+      <!-- 会议名称 -->
+      <if test="condition.conferenceTitle2 != null" >
+      	 and conference_title like CONCAT('%', #{condition.conferenceTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 会议地点 -->
+      <if test="condition.conferenceAddress2 != null" >
+      	 and conference_address like CONCAT('%', #{condition.conferenceAddress2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 会议开始日期 -->
+      <if test="condition.conferenceStartTime2 != null" >
+      	 and conference_start_time like CONCAT('%', #{condition.conferenceStartTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 会议开始日期 -->
+      <if test="condition.conferenceEndTime2 != null" >
+      	 and conference_end_time like CONCAT('%', #{condition.conferenceEndTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 主席 -->
+      <if test="condition.conferenceChairman2 != null" >
+      	 and conference_chairman like CONCAT('%', #{condition.conferenceChairman2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 执行主席 -->
+      <if test="condition.conferenceImplementChairman2 != null" >
+      	 and conference_implement_chairman like CONCAT('%', #{condition.conferenceImplementChairman2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 姓名 -->
+      <if test="condition.conferenceName2 != null" >
+      	 and conference_name like CONCAT('%', #{condition.conferenceName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    conference_id,conference_name_id, conference_name, conference_title, conference_address, conference_nature, 
+    conference_start_time, conference_end_time, conference_type, conference_chairman, conference_chairman_id, 
+    conference_implement_chairman,conference_implement_chairman_id, conference_domestic_count, conference_internation_count, 
+    conference_paper_count, conference_synopsis, conference_content, conference_paper_name, 
+    conference_if_read, conference_if_include, conference_remarks, conference_del, conference_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_conference
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_conference
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

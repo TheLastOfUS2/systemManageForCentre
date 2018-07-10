@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.BiJobMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.BiJob" >
+    <id column="job_id" property="jobId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="job_type" property="jobType" jdbcType="VARCHAR" />
+    <result column="job_mechanism_type" property="jobMechanismType" jdbcType="VARCHAR" />
+    <result column="job_start_time" property="jobStartTime" jdbcType="VARCHAR" />
+    <result column="job_end_time" property="jobEndTime" jdbcType="VARCHAR" />
+    <result column="job_mechanism" property="jobMechanism" jdbcType="VARCHAR" />
+    <result column="job_post" property="jobPost" jdbcType="VARCHAR" />
+    <result column="job_create_time" property="jobCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.jobType != null" >
+         and job_type = #{condition.jobType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.jobMechanismType != null" >
+         and job_mechanism_type = #{condition.jobMechanismType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.jobStartTime != null" >
+         and job_start_time = #{condition.jobStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.jobEndTime != null" >
+         and job_end_time = #{condition.jobEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.jobMechanism != null" >
+         and job_mechanism = #{condition.jobMechanism,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.jobPost != null" >
+         and job_post = #{condition.jobPost,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.jobCreateTime != null" >
+         and job_create_time = #{condition.jobCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.jobType != null" >
+         and job_type = #{example.condition.jobType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.jobMechanismType != null" >
+         and job_mechanism_type = #{example.condition.jobMechanismType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.jobStartTime != null" >
+         and job_start_time = #{example.condition.jobStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.jobEndTime != null" >
+         and job_end_time = #{example.condition.jobEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.jobMechanism != null" >
+         and job_mechanism = #{example.condition.jobMechanism,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.jobPost != null" >
+         and job_post = #{example.condition.jobPost,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.jobCreateTime != null" >
+         and job_create_time = #{example.condition.jobCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    job_id, base_info_id, job_type, job_mechanism_type, job_start_time, job_end_time, job_mechanism, 
+    job_post, job_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bi_job
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_job
+    where job_id = #{jobId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bi_job
+    where job_id = #{jobId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from bi_job
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.BiJob" >
+    insert into bi_job (job_id, base_info_id, job_type, 
+      job_mechanism_type, job_start_time, job_end_time, 
+      job_mechanism, job_post, job_create_time
+      )
+    values (#{jobId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{jobType,jdbcType=VARCHAR}, 
+      #{jobMechanismType,jdbcType=VARCHAR}, #{jobStartTime,jdbcType=VARCHAR}, #{jobEndTime,jdbcType=VARCHAR}, 
+      #{jobMechanism,jdbcType=VARCHAR}, #{jobPost,jdbcType=VARCHAR}, #{jobCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.BiJob" >
+    insert into bi_job
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="jobId != null" >
+        job_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="jobType != null" >
+        job_type,
+      </if>
+      <if test="jobMechanismType != null" >
+        job_mechanism_type,
+      </if>
+      <if test="jobStartTime != null" >
+        job_start_time,
+      </if>
+      <if test="jobEndTime != null" >
+        job_end_time,
+      </if>
+      <if test="jobMechanism != null" >
+        job_mechanism,
+      </if>
+      <if test="jobPost != null" >
+        job_post,
+      </if>
+      <if test="jobCreateTime != null" >
+        job_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="jobId != null" >
+        #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobType != null" >
+        #{jobType,jdbcType=VARCHAR},
+      </if>
+      <if test="jobMechanismType != null" >
+        #{jobMechanismType,jdbcType=VARCHAR},
+      </if>
+      <if test="jobStartTime != null" >
+        #{jobStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="jobEndTime != null" >
+        #{jobEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="jobMechanism != null" >
+        #{jobMechanism,jdbcType=VARCHAR},
+      </if>
+      <if test="jobPost != null" >
+        #{jobPost,jdbcType=VARCHAR},
+      </if>
+      <if test="jobCreateTime != null" >
+        #{jobCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from bi_job
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bi_job
+    <set >
+      <if test="record.jobId != null" >
+        job_id = #{record.jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobType != null" >
+        job_type = #{record.jobType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobMechanismType != null" >
+        job_mechanism_type = #{record.jobMechanismType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobStartTime != null" >
+        job_start_time = #{record.jobStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobEndTime != null" >
+        job_end_time = #{record.jobEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobMechanism != null" >
+        job_mechanism = #{record.jobMechanism,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobPost != null" >
+        job_post = #{record.jobPost,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobCreateTime != null" >
+        job_create_time = #{record.jobCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bi_job
+    set job_id = #{record.jobId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      job_type = #{record.jobType,jdbcType=VARCHAR},
+      job_mechanism_type = #{record.jobMechanismType,jdbcType=VARCHAR},
+      job_start_time = #{record.jobStartTime,jdbcType=VARCHAR},
+      job_end_time = #{record.jobEndTime,jdbcType=VARCHAR},
+      job_mechanism = #{record.jobMechanism,jdbcType=VARCHAR},
+      job_post = #{record.jobPost,jdbcType=VARCHAR},
+      job_create_time = #{record.jobCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.BiJob" >
+    update bi_job
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="jobType != null" >
+        job_type = #{jobType,jdbcType=VARCHAR},
+      </if>
+      <if test="jobMechanismType != null" >
+        job_mechanism_type = #{jobMechanismType,jdbcType=VARCHAR},
+      </if>
+      <if test="jobStartTime != null" >
+        job_start_time = #{jobStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="jobEndTime != null" >
+        job_end_time = #{jobEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="jobMechanism != null" >
+        job_mechanism = #{jobMechanism,jdbcType=VARCHAR},
+      </if>
+      <if test="jobPost != null" >
+        job_post = #{jobPost,jdbcType=VARCHAR},
+      </if>
+      <if test="jobCreateTime != null" >
+        job_create_time = #{jobCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where job_id = #{jobId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.BiJob" >
+    update bi_job
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      job_type = #{jobType,jdbcType=VARCHAR},
+      job_mechanism_type = #{jobMechanismType,jdbcType=VARCHAR},
+      job_start_time = #{jobStartTime,jdbcType=VARCHAR},
+      job_end_time = #{jobEndTime,jdbcType=VARCHAR},
+      job_mechanism = #{jobMechanism,jdbcType=VARCHAR},
+      job_post = #{jobPost,jdbcType=VARCHAR},
+      job_create_time = #{jobCreateTime,jdbcType=TIMESTAMP}
+    where job_id = #{jobId,jdbcType=VARCHAR}
+  </update>
+</mapper>

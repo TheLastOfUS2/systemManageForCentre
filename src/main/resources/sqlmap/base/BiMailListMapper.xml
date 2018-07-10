@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.BiMailListMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.BiMailList" >
+    <id column="mail_list_id" property="mailListId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="mail_list_phone" property="mailListPhone" jdbcType="VARCHAR" />
+    <result column="mail_list_phone1" property="mailListPhone1" jdbcType="VARCHAR" />
+    <result column="mail_list_oph" property="mailListOph" jdbcType="VARCHAR" />
+    <result column="mail_list_studio" property="mailListStudio" jdbcType="VARCHAR" />
+    <result column="mail_list_email" property="mailListEmail" jdbcType="VARCHAR" />
+    <result column="mail_list_address" property="mailListAddress" jdbcType="VARCHAR" />
+    <result column="mail_list_company" property="mailListCompany" jdbcType="VARCHAR" />
+    <result column="mail_list_remarks" property="mailListRemarks" jdbcType="VARCHAR" />
+    <result column="mail_list_del" property="mailListDel" jdbcType="BIT" />
+    <result column="mail_list_create_time" property="mailListCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListPhone != null" >
+         and mail_list_phone = #{condition.mailListPhone,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListPhone1 != null" >
+         and mail_list_phone1 = #{condition.mailListPhone1,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListOph != null" >
+         and mail_list_oph = #{condition.mailListOph,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListStudio != null" >
+         and mail_list_studio = #{condition.mailListStudio,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListEmail != null" >
+         and mail_list_email = #{condition.mailListEmail,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListAddress != null" >
+         and mail_list_address = #{condition.mailListAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListCompany != null" >
+         and mail_list_company = #{condition.mailListCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListRemarks != null" >
+         and mail_list_remarks = #{condition.mailListRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.mailListDel != null" >
+         and mail_list_del = #{condition.mailListDel,jdbcType=BIT}
+      </if>
+      <if test="condition.mailListCreateTime != null" >
+         and mail_list_create_time = #{condition.mailListCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListPhone != null" >
+         and mail_list_phone = #{example.condition.mailListPhone,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListPhone1 != null" >
+         and mail_list_phone1 = #{example.condition.mailListPhone1,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListOph != null" >
+         and mail_list_oph = #{example.condition.mailListOph,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListStudio != null" >
+         and mail_list_studio = #{example.condition.mailListStudio,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListEmail != null" >
+         and mail_list_email = #{example.condition.mailListEmail,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListAddress != null" >
+         and mail_list_address = #{example.condition.mailListAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListCompany != null" >
+         and mail_list_company = #{example.condition.mailListCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListRemarks != null" >
+         and mail_list_remarks = #{example.condition.mailListRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.mailListDel != null" >
+         and mail_list_del = #{example.condition.mailListDel,jdbcType=BIT}
+      </if>
+      <if test="example.condition.mailListCreateTime != null" >
+         and mail_list_create_time = #{example.condition.mailListCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    mail_list_id, base_info_id, mail_list_phone, mail_list_phone1, mail_list_oph, mail_list_studio, 
+    mail_list_email, mail_list_address, mail_list_company, mail_list_remarks, mail_list_del, 
+    mail_list_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bi_mail_list
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_mail_list
+    where mail_list_id = #{mailListId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bi_mail_list
+    where mail_list_id = #{mailListId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from bi_mail_list
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.BiMailList" >
+    insert into bi_mail_list (mail_list_id, base_info_id, mail_list_phone, 
+      mail_list_phone1, mail_list_oph, mail_list_studio, 
+      mail_list_email, mail_list_address, mail_list_company, 
+      mail_list_remarks, mail_list_del, mail_list_create_time
+      )
+    values (#{mailListId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{mailListPhone,jdbcType=VARCHAR}, 
+      #{mailListPhone1,jdbcType=VARCHAR}, #{mailListOph,jdbcType=VARCHAR}, #{mailListStudio,jdbcType=VARCHAR}, 
+      #{mailListEmail,jdbcType=VARCHAR}, #{mailListAddress,jdbcType=VARCHAR}, #{mailListCompany,jdbcType=VARCHAR}, 
+      #{mailListRemarks,jdbcType=VARCHAR}, #{mailListDel,jdbcType=BIT}, #{mailListCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.BiMailList" >
+    insert into bi_mail_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mailListId != null" >
+        mail_list_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="mailListPhone != null" >
+        mail_list_phone,
+      </if>
+      <if test="mailListPhone1 != null" >
+        mail_list_phone1,
+      </if>
+      <if test="mailListOph != null" >
+        mail_list_oph,
+      </if>
+      <if test="mailListStudio != null" >
+        mail_list_studio,
+      </if>
+      <if test="mailListEmail != null" >
+        mail_list_email,
+      </if>
+      <if test="mailListAddress != null" >
+        mail_list_address,
+      </if>
+      <if test="mailListCompany != null" >
+        mail_list_company,
+      </if>
+      <if test="mailListRemarks != null" >
+        mail_list_remarks,
+      </if>
+      <if test="mailListDel != null" >
+        mail_list_del,
+      </if>
+      <if test="mailListCreateTime != null" >
+        mail_list_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mailListId != null" >
+        #{mailListId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListPhone != null" >
+        #{mailListPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListPhone1 != null" >
+        #{mailListPhone1,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListOph != null" >
+        #{mailListOph,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListStudio != null" >
+        #{mailListStudio,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListEmail != null" >
+        #{mailListEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListAddress != null" >
+        #{mailListAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListCompany != null" >
+        #{mailListCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListRemarks != null" >
+        #{mailListRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListDel != null" >
+        #{mailListDel,jdbcType=BIT},
+      </if>
+      <if test="mailListCreateTime != null" >
+        #{mailListCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from bi_mail_list
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bi_mail_list
+    <set >
+      <if test="record.mailListId != null" >
+        mail_list_id = #{record.mailListId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListPhone != null" >
+        mail_list_phone = #{record.mailListPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListPhone1 != null" >
+        mail_list_phone1 = #{record.mailListPhone1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListOph != null" >
+        mail_list_oph = #{record.mailListOph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListStudio != null" >
+        mail_list_studio = #{record.mailListStudio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListEmail != null" >
+        mail_list_email = #{record.mailListEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListAddress != null" >
+        mail_list_address = #{record.mailListAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListCompany != null" >
+        mail_list_company = #{record.mailListCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListRemarks != null" >
+        mail_list_remarks = #{record.mailListRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailListDel != null" >
+        mail_list_del = #{record.mailListDel,jdbcType=BIT},
+      </if>
+      <if test="record.mailListCreateTime != null" >
+        mail_list_create_time = #{record.mailListCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bi_mail_list
+    set mail_list_id = #{record.mailListId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      mail_list_phone = #{record.mailListPhone,jdbcType=VARCHAR},
+      mail_list_phone1 = #{record.mailListPhone1,jdbcType=VARCHAR},
+      mail_list_oph = #{record.mailListOph,jdbcType=VARCHAR},
+      mail_list_studio = #{record.mailListStudio,jdbcType=VARCHAR},
+      mail_list_email = #{record.mailListEmail,jdbcType=VARCHAR},
+      mail_list_address = #{record.mailListAddress,jdbcType=VARCHAR},
+      mail_list_company = #{record.mailListCompany,jdbcType=VARCHAR},
+      mail_list_remarks = #{record.mailListRemarks,jdbcType=VARCHAR},
+      mail_list_del = #{record.mailListDel,jdbcType=BIT},
+      mail_list_create_time = #{record.mailListCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.BiMailList" >
+    update bi_mail_list
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListPhone != null" >
+        mail_list_phone = #{mailListPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListPhone1 != null" >
+        mail_list_phone1 = #{mailListPhone1,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListOph != null" >
+        mail_list_oph = #{mailListOph,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListStudio != null" >
+        mail_list_studio = #{mailListStudio,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListEmail != null" >
+        mail_list_email = #{mailListEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListAddress != null" >
+        mail_list_address = #{mailListAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListCompany != null" >
+        mail_list_company = #{mailListCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListRemarks != null" >
+        mail_list_remarks = #{mailListRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="mailListDel != null" >
+        mail_list_del = #{mailListDel,jdbcType=BIT},
+      </if>
+      <if test="mailListCreateTime != null" >
+        mail_list_create_time = #{mailListCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where mail_list_id = #{mailListId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.BiMailList" >
+    update bi_mail_list
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      mail_list_phone = #{mailListPhone,jdbcType=VARCHAR},
+      mail_list_phone1 = #{mailListPhone1,jdbcType=VARCHAR},
+      mail_list_oph = #{mailListOph,jdbcType=VARCHAR},
+      mail_list_studio = #{mailListStudio,jdbcType=VARCHAR},
+      mail_list_email = #{mailListEmail,jdbcType=VARCHAR},
+      mail_list_address = #{mailListAddress,jdbcType=VARCHAR},
+      mail_list_company = #{mailListCompany,jdbcType=VARCHAR},
+      mail_list_remarks = #{mailListRemarks,jdbcType=VARCHAR},
+      mail_list_del = #{mailListDel,jdbcType=BIT},
+      mail_list_create_time = #{mailListCreateTime,jdbcType=TIMESTAMP}
+    where mail_list_id = #{mailListId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.AmPrizeMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmPrize" >
+    <id column="prize_id" property="prizeId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="prize_title" property="prizeTitle" jdbcType="VARCHAR" />
+    <result column="prize_way" property="prizeWay" jdbcType="VARCHAR" />
+    <result column="prize_achievement" property="prizeAchievement" jdbcType="VARCHAR" />
+    <result column="prize_grade" property="prizeGrade" jdbcType="VARCHAR" />
+    <result column="prize_level" property="prizeLevel" jdbcType="VARCHAR" />
+    <result column="prize_award_company" property="prizeAwardCompany" jdbcType="VARCHAR" />
+    <result column="prize_winning_time" property="prizeWinningTime" jdbcType="VARCHAR" />
+    <result column="prize_remarks" property="prizeRemarks" jdbcType="VARCHAR" />
+    <result column="prize_del" property="prizeDel" jdbcType="VARCHAR" />
+    <result column="prize_create_time" property="prizeCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeTitle != null" >
+         and prize_title = #{condition.prizeTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeWay != null" >
+         and prize_way = #{condition.prizeWay,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeAchievement != null" >
+         and prize_achievement = #{condition.prizeAchievement,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeGrade != null" >
+         and prize_grade = #{condition.prizeGrade,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeLevel != null" >
+         and prize_level = #{condition.prizeLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeAwardCompany != null" >
+         and prize_award_company = #{condition.prizeAwardCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeWinningTime != null" >
+         and prize_winning_time = #{condition.prizeWinningTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeRemarks != null" >
+         and prize_remarks = #{condition.prizeRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeDel != null" >
+         and prize_del = #{condition.prizeDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeCreateTime != null" >
+         and prize_create_time = #{condition.prizeCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeTitle != null" >
+         and prize_title = #{example.condition.prizeTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeWay != null" >
+         and prize_way = #{example.condition.prizeWay,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeAchievement != null" >
+         and prize_achievement = #{example.condition.prizeAchievement,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeGrade != null" >
+         and prize_grade = #{example.condition.prizeGrade,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeLevel != null" >
+         and prize_level = #{example.condition.prizeLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeAwardCompany != null" >
+         and prize_award_company = #{example.condition.prizeAwardCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeWinningTime != null" >
+         and prize_winning_time = #{example.condition.prizeWinningTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeRemarks != null" >
+         and prize_remarks = #{example.condition.prizeRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeDel != null" >
+         and prize_del = #{example.condition.prizeDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.prizeCreateTime != null" >
+         and prize_create_time = #{example.condition.prizeCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    prize_id, base_info_id, prize_title, prize_way, prize_achievement, prize_grade, prize_level, 
+    prize_award_company, prize_winning_time, prize_remarks, prize_del, prize_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_prize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_prize
+    where prize_id = #{prizeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from am_prize
+    where prize_id = #{prizeId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from am_prize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.AmPrize" >
+    insert into am_prize (prize_id, base_info_id, prize_title, 
+      prize_way, prize_achievement, prize_grade, 
+      prize_level, prize_award_company, prize_winning_time, 
+      prize_remarks, prize_del, prize_create_time
+      )
+    values (#{prizeId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{prizeTitle,jdbcType=VARCHAR}, 
+      #{prizeWay,jdbcType=VARCHAR}, #{prizeAchievement,jdbcType=VARCHAR}, #{prizeGrade,jdbcType=VARCHAR}, 
+      #{prizeLevel,jdbcType=VARCHAR}, #{prizeAwardCompany,jdbcType=VARCHAR}, #{prizeWinningTime,jdbcType=VARCHAR}, 
+      #{prizeRemarks,jdbcType=VARCHAR}, #{prizeDel,jdbcType=VARCHAR}, #{prizeCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.AmPrize" >
+    insert into am_prize
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="prizeId != null" >
+        prize_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="prizeTitle != null" >
+        prize_title,
+      </if>
+      <if test="prizeWay != null" >
+        prize_way,
+      </if>
+      <if test="prizeAchievement != null" >
+        prize_achievement,
+      </if>
+      <if test="prizeGrade != null" >
+        prize_grade,
+      </if>
+      <if test="prizeLevel != null" >
+        prize_level,
+      </if>
+      <if test="prizeAwardCompany != null" >
+        prize_award_company,
+      </if>
+      <if test="prizeWinningTime != null" >
+        prize_winning_time,
+      </if>
+      <if test="prizeRemarks != null" >
+        prize_remarks,
+      </if>
+      <if test="prizeDel != null" >
+        prize_del,
+      </if>
+      <if test="prizeCreateTime != null" >
+        prize_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="prizeId != null" >
+        #{prizeId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeTitle != null" >
+        #{prizeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeWay != null" >
+        #{prizeWay,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeAchievement != null" >
+        #{prizeAchievement,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeGrade != null" >
+        #{prizeGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeLevel != null" >
+        #{prizeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeAwardCompany != null" >
+        #{prizeAwardCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeWinningTime != null" >
+        #{prizeWinningTime,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeRemarks != null" >
+        #{prizeRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeDel != null" >
+        #{prizeDel,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeCreateTime != null" >
+        #{prizeCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_prize
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update am_prize
+    <set >
+      <if test="record.prizeId != null" >
+        prize_id = #{record.prizeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeTitle != null" >
+        prize_title = #{record.prizeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeWay != null" >
+        prize_way = #{record.prizeWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeAchievement != null" >
+        prize_achievement = #{record.prizeAchievement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeGrade != null" >
+        prize_grade = #{record.prizeGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeLevel != null" >
+        prize_level = #{record.prizeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeAwardCompany != null" >
+        prize_award_company = #{record.prizeAwardCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeWinningTime != null" >
+        prize_winning_time = #{record.prizeWinningTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeRemarks != null" >
+        prize_remarks = #{record.prizeRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeDel != null" >
+        prize_del = #{record.prizeDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.prizeCreateTime != null" >
+        prize_create_time = #{record.prizeCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update am_prize
+    set prize_id = #{record.prizeId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      prize_title = #{record.prizeTitle,jdbcType=VARCHAR},
+      prize_way = #{record.prizeWay,jdbcType=VARCHAR},
+      prize_achievement = #{record.prizeAchievement,jdbcType=VARCHAR},
+      prize_grade = #{record.prizeGrade,jdbcType=VARCHAR},
+      prize_level = #{record.prizeLevel,jdbcType=VARCHAR},
+      prize_award_company = #{record.prizeAwardCompany,jdbcType=VARCHAR},
+      prize_winning_time = #{record.prizeWinningTime,jdbcType=VARCHAR},
+      prize_remarks = #{record.prizeRemarks,jdbcType=VARCHAR},
+      prize_del = #{record.prizeDel,jdbcType=VARCHAR},
+      prize_create_time = #{record.prizeCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.AmPrize" >
+    update am_prize
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeTitle != null" >
+        prize_title = #{prizeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeWay != null" >
+        prize_way = #{prizeWay,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeAchievement != null" >
+        prize_achievement = #{prizeAchievement,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeGrade != null" >
+        prize_grade = #{prizeGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeLevel != null" >
+        prize_level = #{prizeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeAwardCompany != null" >
+        prize_award_company = #{prizeAwardCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeWinningTime != null" >
+        prize_winning_time = #{prizeWinningTime,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeRemarks != null" >
+        prize_remarks = #{prizeRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeDel != null" >
+        prize_del = #{prizeDel,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeCreateTime != null" >
+        prize_create_time = #{prizeCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where prize_id = #{prizeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.AmPrize" >
+    update am_prize
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      prize_title = #{prizeTitle,jdbcType=VARCHAR},
+      prize_way = #{prizeWay,jdbcType=VARCHAR},
+      prize_achievement = #{prizeAchievement,jdbcType=VARCHAR},
+      prize_grade = #{prizeGrade,jdbcType=VARCHAR},
+      prize_level = #{prizeLevel,jdbcType=VARCHAR},
+      prize_award_company = #{prizeAwardCompany,jdbcType=VARCHAR},
+      prize_winning_time = #{prizeWinningTime,jdbcType=VARCHAR},
+      prize_remarks = #{prizeRemarks,jdbcType=VARCHAR},
+      prize_del = #{prizeDel,jdbcType=VARCHAR},
+      prize_create_time = #{prizeCreateTime,jdbcType=TIMESTAMP}
+    where prize_id = #{prizeId,jdbcType=VARCHAR}
+  </update>
+</mapper>

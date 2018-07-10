@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.CommonAccountMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.CommonAccountDto" >
+    <id column="account_id" property="accountId" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="account_pass_word" property="accountPassWord" jdbcType="VARCHAR" />
+    <result column="account_status" property="accountStatus" jdbcType="VARCHAR" />
+    <result column="account_del" property="accountDel" jdbcType="VARCHAR" />
+    <result column="account_create_time" property="accountCreateTime" jdbcType="TIMESTAMP" />
+    <result column="account_role_type" property="accountRoleType" jdbcType="VARCHAR" />
+    
+    <!-- 新增字段 -->
+    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="role_power" property="rolePower" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="base_info_name" property="baseInfoName" jdbcType="VARCHAR" />
+    
+    
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.roleId != null" >
+         and a.role_id = #{condition.roleId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountName != null" >
+         and a.account_name = #{condition.accountName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountPassWord != null" >
+         and a.account_pass_word = #{condition.accountPassWord,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountStatus != null" >
+         and a.account_status = #{condition.accountStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountDel != null" >
+         and a.account_del = #{condition.accountDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.accountCreateTime != null" >
+         and a.account_create_time = #{condition.accountCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <if test="condition.accountRoleType != null" >
+         and a.account_role_type = #{condition.accountRoleType,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.roleName != null" >
+         and r.role_name = #{condition.roleName,jdbcType=TIMESTAMP}
+      </if>
+      
+      <!-- 模糊查询 -->
+      <!-- 项目名称 -->
+      <if test="condition.accountName2 != null" >
+      	 and a.account_name like CONCAT('%', #{condition.accountName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 出版时间 -->
+      <if test="condition.accountPassWord2 != null" >
+      	 and a.account_pass_word like CONCAT('%', #{condition.accountPassWord2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 账号绑定用户姓名 -->
+      <if test="condition.baseInfoName2 != null" >
+      	 and b.base_info_name like CONCAT('%', #{condition.baseInfoName2,jdbcType=VARCHAR}, '%')
+      </if>
+       <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >  
+    a.account_id, a.role_id, a.account_name, a.account_pass_word, a.account_status,a.account_del, a.account_create_time,
+    a.account_role_type,r.role_id, r.role_name, r.role_power, b.base_info_id, b.base_info_name
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from common_account  a 
+    join common_role r on a.role_id=r.role_id
+    left join bi_base_info b on b.account_id = a.account_id  
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and r.role_name !=0
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from common_account a 
+    join common_role r on a.role_id=r.role_id
+    left join bi_base_info b on b.account_id = a.account_id
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and r.role_name !=0
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+   <select id="selectByAccount" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from common_account a 
+    join common_role r on a.role_id=r.role_id
+    left join bi_base_info b on b.account_id = a.account_id
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from common_account 
+    where account_id = #{accountId,jdbcType=VARCHAR}
+  </select>
+  
+   <!-- 根据账号Id,查询账号信息 -->
+   <select id="selectCommonAcccount" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from common_account a 
+    join common_role r on a.role_id=r.role_id
+    left join bi_base_info b on b.account_id = a.account_id 
+    where a.account_id = #{accountId,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 查询账号信息 -->
+  <select id="selectAcccountName" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+     from common_account a join common_role r on a.role_id=r.role_id left join bi_base_info b on b.account_id = a.account_id
+     <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+     </if>
+     and r.role_name is not null and r.role_name!='' and a.account_status=0 and a.account_del=0 
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

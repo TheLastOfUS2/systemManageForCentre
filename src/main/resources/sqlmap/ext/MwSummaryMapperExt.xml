@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.MwSummaryMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwSummary" >
+    <id column="summary_id" property="summaryId" jdbcType="VARCHAR" />
+    <result column="summary_title" property="summaryTitle" jdbcType="VARCHAR" />
+    <result column="summary_time" property="summaryTime" jdbcType="VARCHAR" />
+    <result column="summary_cycle" property="summaryCycle" jdbcType="VARCHAR" />
+    <result column="summary_content" property="summaryContent" jdbcType="VARCHAR" />
+    <result column="summary_remarks" property="summaryRemarks" jdbcType="VARCHAR" />
+    <result column="summary_del" property="summaryDel" jdbcType="VARCHAR" />
+    <result column="summary_create_time" property="summaryCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.summaryTitle != null" >
+         and summary_title = #{condition.summaryTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryTime != null" >
+         and summary_time = #{condition.summaryTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryCycle != null" >
+         and summary_cycle = #{condition.summaryCycle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryContent != null" >
+         and summary_content = #{condition.summaryContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryRemarks != null" >
+         and summary_remarks = #{condition.summaryRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryDel != null" >
+         and summary_del = #{condition.summaryDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.summaryCreateTime != null" >
+         and summary_create_time = #{condition.summaryCreateTime,jdbcType=TIMESTAMP}
+      </if>
+       <!-- 模糊查询 -->
+      <!-- 总结标题 -->
+      <if test="condition.summaryTitle2 != null" >
+      	 and summary_title like CONCAT('%', #{condition.summaryTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 撰写时间 -->
+      <if test="condition.summaryTime2 != null" >
+      	 and summary_time like CONCAT('%', #{condition.summaryTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    summary_id, summary_title, summary_time, summary_cycle, summary_content, summary_remarks, 
+    summary_del, summary_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_summary
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_summary
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

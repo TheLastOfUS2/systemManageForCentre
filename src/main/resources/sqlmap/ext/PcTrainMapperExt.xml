@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.PcTrainMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.PcTrain" >
+    <id column="train_id" property="trainId" jdbcType="VARCHAR" />
+    <result column="train_name" property="trainName" jdbcType="VARCHAR" />
+    <result column="train_name_id" property="trainNameId" jdbcType="VARCHAR" />
+    <result column="train_time" property="trainTime" jdbcType="VARCHAR" />
+    <result column="train_address" property="trainAddress" jdbcType="VARCHAR" />
+    <result column="train_content" property="trainContent" jdbcType="VARCHAR" />
+    <result column="train_company" property="trainCompany" jdbcType="VARCHAR" />
+    <result column="train_remarks" property="trainRemarks" jdbcType="VARCHAR" />
+    <result column="train_del" property="trainDel" jdbcType="VARCHAR" />
+    <result column="train_create_time" property="trainCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.trainName != null" >
+         and train_name = #{condition.trainName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainNameId != null" >
+         and train_name_id = #{condition.trainNameId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainTime != null" >
+         and train_time = #{condition.trainTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainAddress != null" >
+         and train_address = #{condition.trainAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainContent != null" >
+         and train_content = #{condition.trainContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainCompany != null" >
+         and train_company = #{condition.trainCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainRemarks != null" >
+         and train_remarks = #{condition.trainRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainDel != null" >
+         and train_del = #{condition.trainDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.trainCreateTime != null" >
+         and train_create_time = #{condition.trainCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      
+      <!-- 模糊查询 -->
+      <!-- 姓名 -->
+      <if test="condition.trainName2 != null" >
+      	 and train_name like CONCAT('%', #{condition.trainName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 组织单位 -->
+      <if test="condition.trainCompany2 != null" >
+      	 and train_company like CONCAT('%', #{condition.trainCompany2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 时间 -->
+      <if test="condition.trainTime2 != null" >
+      	 and train_time like CONCAT('%', #{condition.trainTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 地点 -->
+      <if test="condition.trainAddress2 != null" >
+      	 and train_address like CONCAT('%', #{condition.trainAddress2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    train_id, train_name, train_name_id,train_time, train_address, train_content, train_company, train_remarks, 
+    train_del, train_create_time
+  </sql>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pc_train
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pc_train
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

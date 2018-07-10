@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.AmPaperMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.AmPaper" >
+    <id column="paper_id" property="paperId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="paper_type" property="paperType" jdbcType="VARCHAR" />
+    <result column="paper_title" property="paperTitle" jdbcType="VARCHAR" />
+    <result column="paper_name" property="paperName" jdbcType="VARCHAR" />
+    <result column="paper_publish_journal" property="paperPublishJournal" jdbcType="VARCHAR" />
+    <result column="paper_periodical_type" property="paperPeriodicalType" jdbcType="VARCHAR" />
+    <result column="paper_volume_number" property="paperVolumeNumber" jdbcType="VARCHAR" />
+    <result column="paper_publish_time" property="paperPublishTime" jdbcType="VARCHAR" />
+    <result column="paper_page_start_range" property="paperPageStartRange" jdbcType="VARCHAR" />
+    <result column="paper_page_end_range" property="paperPageEndRange" jdbcType="VARCHAR" />
+    <result column="paper_support_topic" property="paperSupportTopic" jdbcType="VARCHAR" />
+    <result column="paper_reprint_count" property="paperReprintCount" jdbcType="VARCHAR" />
+    <result column="paper_retrieval_type" property="paperRetrievalType" jdbcType="VARCHAR" />
+    <result column="paper_content" property="paperContent" jdbcType="VARCHAR" />
+    <result column="paper_address" property="paperAddress" jdbcType="VARCHAR" />
+    <result column="paper_plate" property="paperPlate" jdbcType="VARCHAR" />
+    <result column="paper_if_theory" property="paperIfTheory" jdbcType="VARCHAR" />
+    <result column="paper_remarks" property="paperRemarks" jdbcType="VARCHAR" />
+    <result column="paper_del" property="paperDel" jdbcType="VARCHAR" />
+    <result column="paper_create_time" property="paperCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperType != null" >
+         and paper_type = #{condition.paperType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperTitle != null" >
+         and paper_title = #{condition.paperTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperName != null" >
+         and paper_name = #{condition.paperName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPublishJournal != null" >
+         and paper_publish_journal = #{condition.paperPublishJournal,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPeriodicalType != null" >
+         and paper_periodical_type = #{condition.paperPeriodicalType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperVolumeNumber != null" >
+         and paper_volume_number = #{condition.paperVolumeNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPublishTime != null" >
+         and paper_publish_time = #{condition.paperPublishTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPageStartRange != null" >
+         and paper_page_start_range = #{condition.paperPageStartRange,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPageEndRange != null" >
+         and paper_page_end_range = #{condition.paperPageEndRange,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperSupportTopic != null" >
+         and paper_support_topic = #{condition.paperSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperReprintCount != null" >
+         and paper_reprint_count = #{condition.paperReprintCount,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperRetrievalType != null" >
+         and paper_retrieval_type = #{condition.paperRetrievalType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperContent != null" >
+         and paper_content = #{condition.paperContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperAddress != null" >
+         and paper_address = #{condition.paperAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperPlate != null" >
+         and paper_plate = #{condition.paperPlate,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperIfTheory != null" >
+         and paper_if_theory = #{condition.paperIfTheory,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperRemarks != null" >
+         and paper_remarks = #{condition.paperRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperDel != null" >
+         and paper_del = #{condition.paperDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.paperCreateTime != null" >
+         and paper_create_time = #{condition.paperCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperType != null" >
+         and paper_type = #{example.condition.paperType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperTitle != null" >
+         and paper_title = #{example.condition.paperTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperName != null" >
+         and paper_name = #{example.condition.paperName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperPublishJournal != null" >
+         and paper_publish_journal = #{example.condition.paperPublishJournal,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperPeriodicalType != null" >
+         and paper_periodical_type = #{example.condition.paperPeriodicalType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperVolumeNumber != null" >
+         and paper_volume_number = #{example.condition.paperVolumeNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperPublishTime != null" >
+         and paper_publish_time = #{example.condition.paperPublishTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperPageStartRange != null" >
+         and paper_page_start_range = #{example.condition.paperPageStartRange,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperPageEndRange != null" >
+         and paper_page_end_range = #{example.condition.paperPageEndRange,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperSupportTopic != null" >
+         and paper_support_topic = #{example.condition.paperSupportTopic,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperReprintCount != null" >
+         and paper_reprint_count = #{example.condition.paperReprintCount,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperRetrievalType != null" >
+         and paper_retrieval_type = #{example.condition.paperRetrievalType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperContent != null" >
+         and paper_content = #{example.condition.paperContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperAddress != null" >
+         and paper_address = #{example.condition.paperAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperPlate != null" >
+         and paper_plate = #{example.condition.paperPlate,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperIfTheory != null" >
+         and paper_if_theory = #{example.condition.paperIfTheory,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperRemarks != null" >
+         and paper_remarks = #{example.condition.paperRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperDel != null" >
+         and paper_del = #{example.condition.paperDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.paperCreateTime != null" >
+         and paper_create_time = #{example.condition.paperCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    paper_id, base_info_id, paper_type, paper_title, paper_name, paper_publish_journal, 
+    paper_periodical_type, paper_volume_number, paper_publish_time, paper_page_start_range, 
+    paper_page_end_range, paper_support_topic, paper_reprint_count, paper_retrieval_type, 
+    paper_content, paper_address, paper_plate, paper_if_theory, paper_remarks, 
+    paper_del, paper_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from am_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_paper
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from am_paper
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from am_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.AmPaper" >
+    insert into am_paper (paper_id, base_info_id, paper_type, 
+      paper_title, paper_name, paper_publish_journal, 
+      paper_periodical_type, paper_volume_number, 
+      paper_publish_time, paper_page_start_range, 
+      paper_page_end_range, paper_support_topic, paper_reprint_count, 
+      paper_retrieval_type, paper_content, 
+      paper_address, paper_plate, paper_if_theory, 
+      paper_remarks, paper_del, paper_create_time
+      )
+    values (#{paperId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{paperType,jdbcType=VARCHAR}, 
+      #{paperTitle,jdbcType=VARCHAR}, #{paperName,jdbcType=VARCHAR}, #{paperPublishJournal,jdbcType=VARCHAR}, 
+      #{paperPeriodicalType,jdbcType=VARCHAR}, #{paperVolumeNumber,jdbcType=VARCHAR}, 
+      #{paperPublishTime,jdbcType=VARCHAR}, #{paperPageStartRange,jdbcType=VARCHAR}, 
+      #{paperPageEndRange,jdbcType=VARCHAR}, #{paperSupportTopic,jdbcType=VARCHAR}, #{paperReprintCount,jdbcType=VARCHAR}, 
+      #{paperRetrievalType,jdbcType=VARCHAR}, #{paperContent,jdbcType=VARCHAR}, 
+      #{paperAddress,jdbcType=VARCHAR}, #{paperPlate,jdbcType=VARCHAR}, #{paperIfTheory,jdbcType=VARCHAR}, 
+      #{paperRemarks,jdbcType=VARCHAR}, #{paperDel,jdbcType=VARCHAR}, #{paperCreateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.AmPaper" >
+    insert into am_paper
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paperId != null" >
+        paper_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="paperType != null" >
+        paper_type,
+      </if>
+      <if test="paperTitle != null" >
+        paper_title,
+      </if>
+      <if test="paperName != null" >
+        paper_name,
+      </if>
+      <if test="paperPublishJournal != null" >
+        paper_publish_journal,
+      </if>
+      <if test="paperPeriodicalType != null" >
+        paper_periodical_type,
+      </if>
+      <if test="paperVolumeNumber != null" >
+        paper_volume_number,
+      </if>
+      <if test="paperPublishTime != null" >
+        paper_publish_time,
+      </if>
+      <if test="paperPageStartRange != null" >
+        paper_page_start_range,
+      </if>
+      <if test="paperPageEndRange != null" >
+        paper_page_end_range,
+      </if>
+      <if test="paperSupportTopic != null" >
+        paper_support_topic,
+      </if>
+      <if test="paperReprintCount != null" >
+        paper_reprint_count,
+      </if>
+      <if test="paperRetrievalType != null" >
+        paper_retrieval_type,
+      </if>
+      <if test="paperContent != null" >
+        paper_content,
+      </if>
+      <if test="paperAddress != null" >
+        paper_address,
+      </if>
+      <if test="paperPlate != null" >
+        paper_plate,
+      </if>
+      <if test="paperIfTheory != null" >
+        paper_if_theory,
+      </if>
+      <if test="paperRemarks != null" >
+        paper_remarks,
+      </if>
+      <if test="paperDel != null" >
+        paper_del,
+      </if>
+      <if test="paperCreateTime != null" >
+        paper_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paperId != null" >
+        #{paperId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="paperType != null" >
+        #{paperType,jdbcType=VARCHAR},
+      </if>
+      <if test="paperTitle != null" >
+        #{paperTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="paperName != null" >
+        #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPublishJournal != null" >
+        #{paperPublishJournal,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPeriodicalType != null" >
+        #{paperPeriodicalType,jdbcType=VARCHAR},
+      </if>
+      <if test="paperVolumeNumber != null" >
+        #{paperVolumeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPublishTime != null" >
+        #{paperPublishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPageStartRange != null" >
+        #{paperPageStartRange,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPageEndRange != null" >
+        #{paperPageEndRange,jdbcType=VARCHAR},
+      </if>
+      <if test="paperSupportTopic != null" >
+        #{paperSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="paperReprintCount != null" >
+        #{paperReprintCount,jdbcType=VARCHAR},
+      </if>
+      <if test="paperRetrievalType != null" >
+        #{paperRetrievalType,jdbcType=VARCHAR},
+      </if>
+      <if test="paperContent != null" >
+        #{paperContent,jdbcType=VARCHAR},
+      </if>
+      <if test="paperAddress != null" >
+        #{paperAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPlate != null" >
+        #{paperPlate,jdbcType=VARCHAR},
+      </if>
+      <if test="paperIfTheory != null" >
+        #{paperIfTheory,jdbcType=VARCHAR},
+      </if>
+      <if test="paperRemarks != null" >
+        #{paperRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="paperDel != null" >
+        #{paperDel,jdbcType=VARCHAR},
+      </if>
+      <if test="paperCreateTime != null" >
+        #{paperCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update am_paper
+    <set >
+      <if test="record.paperId != null" >
+        paper_id = #{record.paperId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperType != null" >
+        paper_type = #{record.paperType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperTitle != null" >
+        paper_title = #{record.paperTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperName != null" >
+        paper_name = #{record.paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperPublishJournal != null" >
+        paper_publish_journal = #{record.paperPublishJournal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperPeriodicalType != null" >
+        paper_periodical_type = #{record.paperPeriodicalType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperVolumeNumber != null" >
+        paper_volume_number = #{record.paperVolumeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperPublishTime != null" >
+        paper_publish_time = #{record.paperPublishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperPageStartRange != null" >
+        paper_page_start_range = #{record.paperPageStartRange,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperPageEndRange != null" >
+        paper_page_end_range = #{record.paperPageEndRange,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperSupportTopic != null" >
+        paper_support_topic = #{record.paperSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperReprintCount != null" >
+        paper_reprint_count = #{record.paperReprintCount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperRetrievalType != null" >
+        paper_retrieval_type = #{record.paperRetrievalType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperContent != null" >
+        paper_content = #{record.paperContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperAddress != null" >
+        paper_address = #{record.paperAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperPlate != null" >
+        paper_plate = #{record.paperPlate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperIfTheory != null" >
+        paper_if_theory = #{record.paperIfTheory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperRemarks != null" >
+        paper_remarks = #{record.paperRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperDel != null" >
+        paper_del = #{record.paperDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperCreateTime != null" >
+        paper_create_time = #{record.paperCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update am_paper
+    set paper_id = #{record.paperId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      paper_type = #{record.paperType,jdbcType=VARCHAR},
+      paper_title = #{record.paperTitle,jdbcType=VARCHAR},
+      paper_name = #{record.paperName,jdbcType=VARCHAR},
+      paper_publish_journal = #{record.paperPublishJournal,jdbcType=VARCHAR},
+      paper_periodical_type = #{record.paperPeriodicalType,jdbcType=VARCHAR},
+      paper_volume_number = #{record.paperVolumeNumber,jdbcType=VARCHAR},
+      paper_publish_time = #{record.paperPublishTime,jdbcType=VARCHAR},
+      paper_page_start_range = #{record.paperPageStartRange,jdbcType=VARCHAR},
+      paper_page_end_range = #{record.paperPageEndRange,jdbcType=VARCHAR},
+      paper_support_topic = #{record.paperSupportTopic,jdbcType=VARCHAR},
+      paper_reprint_count = #{record.paperReprintCount,jdbcType=VARCHAR},
+      paper_retrieval_type = #{record.paperRetrievalType,jdbcType=VARCHAR},
+      paper_content = #{record.paperContent,jdbcType=VARCHAR},
+      paper_address = #{record.paperAddress,jdbcType=VARCHAR},
+      paper_plate = #{record.paperPlate,jdbcType=VARCHAR},
+      paper_if_theory = #{record.paperIfTheory,jdbcType=VARCHAR},
+      paper_remarks = #{record.paperRemarks,jdbcType=VARCHAR},
+      paper_del = #{record.paperDel,jdbcType=VARCHAR},
+      paper_create_time = #{record.paperCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.AmPaper" >
+    update am_paper
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="paperType != null" >
+        paper_type = #{paperType,jdbcType=VARCHAR},
+      </if>
+      <if test="paperTitle != null" >
+        paper_title = #{paperTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="paperName != null" >
+        paper_name = #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPublishJournal != null" >
+        paper_publish_journal = #{paperPublishJournal,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPeriodicalType != null" >
+        paper_periodical_type = #{paperPeriodicalType,jdbcType=VARCHAR},
+      </if>
+      <if test="paperVolumeNumber != null" >
+        paper_volume_number = #{paperVolumeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPublishTime != null" >
+        paper_publish_time = #{paperPublishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPageStartRange != null" >
+        paper_page_start_range = #{paperPageStartRange,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPageEndRange != null" >
+        paper_page_end_range = #{paperPageEndRange,jdbcType=VARCHAR},
+      </if>
+      <if test="paperSupportTopic != null" >
+        paper_support_topic = #{paperSupportTopic,jdbcType=VARCHAR},
+      </if>
+      <if test="paperReprintCount != null" >
+        paper_reprint_count = #{paperReprintCount,jdbcType=VARCHAR},
+      </if>
+      <if test="paperRetrievalType != null" >
+        paper_retrieval_type = #{paperRetrievalType,jdbcType=VARCHAR},
+      </if>
+      <if test="paperContent != null" >
+        paper_content = #{paperContent,jdbcType=VARCHAR},
+      </if>
+      <if test="paperAddress != null" >
+        paper_address = #{paperAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="paperPlate != null" >
+        paper_plate = #{paperPlate,jdbcType=VARCHAR},
+      </if>
+      <if test="paperIfTheory != null" >
+        paper_if_theory = #{paperIfTheory,jdbcType=VARCHAR},
+      </if>
+      <if test="paperRemarks != null" >
+        paper_remarks = #{paperRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="paperDel != null" >
+        paper_del = #{paperDel,jdbcType=VARCHAR},
+      </if>
+      <if test="paperCreateTime != null" >
+        paper_create_time = #{paperCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.AmPaper" >
+    update am_paper
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      paper_type = #{paperType,jdbcType=VARCHAR},
+      paper_title = #{paperTitle,jdbcType=VARCHAR},
+      paper_name = #{paperName,jdbcType=VARCHAR},
+      paper_publish_journal = #{paperPublishJournal,jdbcType=VARCHAR},
+      paper_periodical_type = #{paperPeriodicalType,jdbcType=VARCHAR},
+      paper_volume_number = #{paperVolumeNumber,jdbcType=VARCHAR},
+      paper_publish_time = #{paperPublishTime,jdbcType=VARCHAR},
+      paper_page_start_range = #{paperPageStartRange,jdbcType=VARCHAR},
+      paper_page_end_range = #{paperPageEndRange,jdbcType=VARCHAR},
+      paper_support_topic = #{paperSupportTopic,jdbcType=VARCHAR},
+      paper_reprint_count = #{paperReprintCount,jdbcType=VARCHAR},
+      paper_retrieval_type = #{paperRetrievalType,jdbcType=VARCHAR},
+      paper_content = #{paperContent,jdbcType=VARCHAR},
+      paper_address = #{paperAddress,jdbcType=VARCHAR},
+      paper_plate = #{paperPlate,jdbcType=VARCHAR},
+      paper_if_theory = #{paperIfTheory,jdbcType=VARCHAR},
+      paper_remarks = #{paperRemarks,jdbcType=VARCHAR},
+      paper_del = #{paperDel,jdbcType=VARCHAR},
+      paper_create_time = #{paperCreateTime,jdbcType=TIMESTAMP}
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </update>
+</mapper>

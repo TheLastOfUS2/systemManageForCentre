@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.EpPublicityMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.EpPublicity" >
+    <id column="publicity_id" property="publicityId" jdbcType="VARCHAR" />
+    <result column="publicity_type" property="publicityType" jdbcType="VARCHAR" />
+    <result column="publicity_theme" property="publicityTheme" jdbcType="VARCHAR" />
+    <result column="publicity_channel" property="publicityChannel" jdbcType="VARCHAR" />
+    <result column="publicity_title" property="publicityTitle" jdbcType="VARCHAR" />
+    <result column="publicity_volume" property="publicityVolume" jdbcType="VARCHAR" />
+    <result column="publicity_time" property="publicityTime" jdbcType="VARCHAR" />
+    <result column="publicity_interviewee" property="publicityInterviewee" jdbcType="VARCHAR" />
+     <result column="publicity_interviewee_id" property="publicityIntervieweeId" jdbcType="VARCHAR" />
+    <result column="publicity_company" property="publicityCompany" jdbcType="VARCHAR" />
+    <result column="publicity_position" property="publicityPosition" jdbcType="VARCHAR" />
+    <result column="publicity_remarks" property="publicityRemarks" jdbcType="VARCHAR" />
+    <result column="publicity_del" property="publicityDel" jdbcType="VARCHAR" />
+    <result column="publicity_create_time" property="publicityCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.publicityType != null" >
+         and publicity_type = #{condition.publicityType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityTheme != null" >
+         and publicity_theme = #{condition.publicityTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityChannel != null" >
+         and publicity_channel = #{condition.publicityChannel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityTitle != null" >
+         and publicity_title = #{condition.publicityTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityVolume != null" >
+         and publicity_volume = #{condition.publicityVolume,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityTime != null" >
+         and publicity_time = #{condition.publicityTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityInterviewee != null" >
+         and publicity_interviewee = #{condition.publicityInterviewee,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityIntervieweeId != null" >
+         and publicity_interviewee_id = #{condition.publicityIntervieweeId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityCompany != null" >
+         and publicity_company = #{condition.publicityCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityPosition != null" >
+         and publicity_position = #{condition.publicityPosition,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityRemarks != null" >
+         and publicity_remarks = #{condition.publicityRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityDel != null" >
+         and publicity_del = #{condition.publicityDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publicityCreateTime != null" >
+         and publicity_create_time = #{condition.publicityCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.publicityType != null" >
+         and publicity_type = #{example.condition.publicityType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityTheme != null" >
+         and publicity_theme = #{example.condition.publicityTheme,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityChannel != null" >
+         and publicity_channel = #{example.condition.publicityChannel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityTitle != null" >
+         and publicity_title = #{example.condition.publicityTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityVolume != null" >
+         and publicity_volume = #{example.condition.publicityVolume,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityTime != null" >
+         and publicity_time = #{example.condition.publicityTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityInterviewee != null" >
+         and publicity_interviewee = #{example.condition.publicityInterviewee,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityIntervieweeId != null" >
+         and publicity_interviewee_id = #{example.condition.publicityIntervieweeId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityCompany != null" >
+         and publicity_company = #{example.condition.publicityCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityPosition != null" >
+         and publicity_position = #{example.condition.publicityPosition,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityRemarks != null" >
+         and publicity_remarks = #{example.condition.publicityRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityDel != null" >
+         and publicity_del = #{example.condition.publicityDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publicityCreateTime != null" >
+         and publicity_create_time = #{example.condition.publicityCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    publicity_id, publicity_type, publicity_theme, publicity_channel, publicity_title, 
+    publicity_volume, publicity_time, publicity_interviewee,publicity_interviewee_id, publicity_company, publicity_position, 
+    publicity_remarks, publicity_del, publicity_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ep_publicity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ep_publicity
+    where publicity_id = #{publicityId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ep_publicity
+    where publicity_id = #{publicityId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from ep_publicity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.EpPublicity" >
+    insert into ep_publicity (publicity_id, publicity_type, publicity_theme, 
+      publicity_channel, publicity_title, publicity_volume, 
+      publicity_time, publicity_interviewee,publicity_interviewee_id, publicity_company, 
+      publicity_position, publicity_remarks, publicity_del, 
+      publicity_create_time)
+    values (#{publicityId,jdbcType=VARCHAR}, #{publicityType,jdbcType=VARCHAR}, #{publicityTheme,jdbcType=VARCHAR}, 
+      #{publicityChannel,jdbcType=VARCHAR}, #{publicityTitle,jdbcType=VARCHAR}, #{publicityVolume,jdbcType=VARCHAR}, 
+      #{publicityTime,jdbcType=VARCHAR}, #{publicityInterviewee,jdbcType=VARCHAR},#{publicityIntervieweeId,jdbcType=VARCHAR}, #{publicityCompany,jdbcType=VARCHAR}, 
+      #{publicityPosition,jdbcType=VARCHAR}, #{publicityRemarks,jdbcType=VARCHAR}, #{publicityDel,jdbcType=VARCHAR}, 
+      #{publicityCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.EpPublicity" >
+    insert into ep_publicity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="publicityId != null" >
+        publicity_id,
+      </if>
+      <if test="publicityType != null" >
+        publicity_type,
+      </if>
+      <if test="publicityTheme != null" >
+        publicity_theme,
+      </if>
+      <if test="publicityChannel != null" >
+        publicity_channel,
+      </if>
+      <if test="publicityTitle != null" >
+        publicity_title,
+      </if>
+      <if test="publicityVolume != null" >
+        publicity_volume,
+      </if>
+      <if test="publicityTime != null" >
+        publicity_time,
+      </if>
+      <if test="publicityInterviewee != null" >
+        publicity_interviewee,
+      </if>
+      <if test="publicityIntervieweeId != null" >
+        publicity_interviewee_id,
+      </if>
+      <if test="publicityCompany != null" >
+        publicity_company,
+      </if>
+      <if test="publicityPosition != null" >
+        publicity_position,
+      </if>
+      <if test="publicityRemarks != null" >
+        publicity_remarks,
+      </if>
+      <if test="publicityDel != null" >
+        publicity_del,
+      </if>
+      <if test="publicityCreateTime != null" >
+        publicity_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="publicityId != null" >
+        #{publicityId,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityType != null" >
+        #{publicityType,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityTheme != null" >
+        #{publicityTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityChannel != null" >
+        #{publicityChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityTitle != null" >
+        #{publicityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityVolume != null" >
+        #{publicityVolume,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityTime != null" >
+        #{publicityTime,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityInterviewee != null" >
+        #{publicityInterviewee,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityIntervieweeId != null" >
+        #{publicityIntervieweeId,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityCompany != null" >
+        #{publicityCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityPosition != null" >
+        #{publicityPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityRemarks != null" >
+        #{publicityRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityDel != null" >
+        #{publicityDel,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityCreateTime != null" >
+        #{publicityCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from ep_publicity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ep_publicity
+    <set >
+      <if test="record.publicityId != null" >
+        publicity_id = #{record.publicityId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityType != null" >
+        publicity_type = #{record.publicityType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityTheme != null" >
+        publicity_theme = #{record.publicityTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityChannel != null" >
+        publicity_channel = #{record.publicityChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityTitle != null" >
+        publicity_title = #{record.publicityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityVolume != null" >
+        publicity_volume = #{record.publicityVolume,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityTime != null" >
+        publicity_time = #{record.publicityTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityInterviewee != null" >
+        publicity_interviewee = #{record.publicityInterviewee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityIntervieweeId != null" >
+        publicity_interviewee_id = #{record.publicityIntervieweeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityCompany != null" >
+        publicity_company = #{record.publicityCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityPosition != null" >
+        publicity_position = #{record.publicityPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityRemarks != null" >
+        publicity_remarks = #{record.publicityRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityDel != null" >
+        publicity_del = #{record.publicityDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publicityCreateTime != null" >
+        publicity_create_time = #{record.publicityCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ep_publicity
+    set publicity_id = #{record.publicityId,jdbcType=VARCHAR},
+      publicity_type = #{record.publicityType,jdbcType=VARCHAR},
+      publicity_theme = #{record.publicityTheme,jdbcType=VARCHAR},
+      publicity_channel = #{record.publicityChannel,jdbcType=VARCHAR},
+      publicity_title = #{record.publicityTitle,jdbcType=VARCHAR},
+      publicity_volume = #{record.publicityVolume,jdbcType=VARCHAR},
+      publicity_time = #{record.publicityTime,jdbcType=VARCHAR},
+      publicity_interviewee = #{record.publicityInterviewee,jdbcType=VARCHAR},
+      publicity_interviewee_id = #{record.publicityIntervieweeId,jdbcType=VARCHAR},
+      publicity_company = #{record.publicityCompany,jdbcType=VARCHAR},
+      publicity_position = #{record.publicityPosition,jdbcType=VARCHAR},
+      publicity_remarks = #{record.publicityRemarks,jdbcType=VARCHAR},
+      publicity_del = #{record.publicityDel,jdbcType=VARCHAR},
+      publicity_create_time = #{record.publicityCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.EpPublicity" >
+    update ep_publicity
+    <set >
+      <if test="publicityType != null" >
+        publicity_type = #{publicityType,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityTheme != null" >
+        publicity_theme = #{publicityTheme,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityChannel != null" >
+        publicity_channel = #{publicityChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityTitle != null" >
+        publicity_title = #{publicityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityVolume != null" >
+        publicity_volume = #{publicityVolume,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityTime != null" >
+        publicity_time = #{publicityTime,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityInterviewee != null" >
+        publicity_interviewee = #{publicityInterviewee,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityIntervieweeId != null" >
+        publicity_interviewee_id = #{publicityIntervieweeId,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityCompany != null" >
+        publicity_company = #{publicityCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityPosition != null" >
+        publicity_position = #{publicityPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityRemarks != null" >
+        publicity_remarks = #{publicityRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityDel != null" >
+        publicity_del = #{publicityDel,jdbcType=VARCHAR},
+      </if>
+      <if test="publicityCreateTime != null" >
+        publicity_create_time = #{publicityCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where publicity_id = #{publicityId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.EpPublicity" >
+    update ep_publicity
+    set publicity_type = #{publicityType,jdbcType=VARCHAR},
+      publicity_theme = #{publicityTheme,jdbcType=VARCHAR},
+      publicity_channel = #{publicityChannel,jdbcType=VARCHAR},
+      publicity_title = #{publicityTitle,jdbcType=VARCHAR},
+      publicity_volume = #{publicityVolume,jdbcType=VARCHAR},
+      publicity_time = #{publicityTime,jdbcType=VARCHAR},
+      publicity_interviewee = #{publicityInterviewee,jdbcType=VARCHAR},
+      publicity_interviewee_id = #{publicityIntervieweeId,jdbcType=VARCHAR},
+      publicity_company = #{publicityCompany,jdbcType=VARCHAR},
+      publicity_position = #{publicityPosition,jdbcType=VARCHAR},
+      publicity_remarks = #{publicityRemarks,jdbcType=VARCHAR},
+      publicity_del = #{publicityDel,jdbcType=VARCHAR},
+      publicity_create_time = #{publicityCreateTime,jdbcType=TIMESTAMP}
+    where publicity_id = #{publicityId,jdbcType=VARCHAR}
+  </update>
+</mapper>

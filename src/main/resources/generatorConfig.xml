@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 自动生成项目信息 -->
+    <!-- 指mysql 驱动包的路径 -->
+<!-- 	<classPathEntry location="/Users/Administrator.SKY-20170613WPK/.m2/repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" />
+ -->
+	<context id="Mybatis3" targetRuntime="Mybatis3">
+		<!-- 生成的Java文件的编码 -->  
+        <property name="javaFileEncoding" value="UTF-8"/>  
+        
+        <!-- 格式化java代码 -->  
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>  
+  
+        <!-- 格式化XML代码 -->  
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>  
+        
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<!-- 生成dao层的共通类 -->
+		<plugin type="org.mybatis.generator.plugins.MybatisCriteriaPlugin" />
+		<!-- 生成service层 -->
+		<plugin type="org.mybatis.generator.plugins.MybatisServicePlugin">
+			<property name="targetPackage" value="com.systemManage.service" />
+			<property name="implementationPackage" value="com.systemManage.service.impl" />
+			<property name="targetProject" value="E:/Code/systemManage/output/java" />
+			<property name="enableInsert" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" />
+		</plugin>
+
+		<!-- ORACLE数据库连接信息 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                               connectionURL="jdbc:mysql://localhost:3306/systemManage_db"
+                               userId="root"
+                               password="root1234" />
+
+        <!-- 生成实体类地址 -->
+		<javaModelGenerator targetPackage="com.systemManage.pojo.base" targetProject="E:/Code/systemManage/output/java">
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+
+        <!-- sqlMapper.xml -->
+		<sqlMapGenerator targetPackage="sqlmap.base" targetProject="E:/Code/systemManage/output/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- DAO层接口 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.systemManage.dao.base" targetProject="E:/Code/systemManage/output/java">
+		</javaClientGenerator>
+
+        <!-- 数据库表名列表 -->
+        <!-- 基本信息 -->
+        <!-- 
+        <table tableName="bi_base_info"></table>
+        <table tableName="bi_educational_experience"></table> 
+        <table tableName="bi_work_experience"></table>
+        <table tableName="bi_part_job"></table>
+        <table tableName="bi_abroad_experience"></table>
+        <table tableName="bi_mail_list"></table>
+        <table tableName="am_project"></table>
+        <table tableName="am_opus"></table>
+        <table tableName="am_paper"></table>
+        <table tableName="am_prize"></table>
+        <table tableName="am_adopt"></table>
+        <table tableName="am_lecture"></table>
+        <table tableName="am_activity"></table>
+        <table tableName="am_conference"></table>
+        <table tableName="pc_teaching"></table>
+     	<table tableName="pc_train"></table>
+     	<table tableName="cs_train_consult"></table>
+     	<table tableName="cs_other_entrust"></table>
+     	<table tableName="fc_cooperation"></table>
+     	<table tableName="ep_publicity"></table>
+     	<table tableName="ep_report"></table>
+     	<table tableName="mw_memorabilia"></table>
+        <table tableName="mw_rule"></table>
+        <table tableName="mw_plan"></table>
+        <table tableName="mw_summary"></table>
+        <table tableName="mw_fund"></table>
+        <table tableName="mw_budget"></table>
+     	<table tableName="ca_central_activity"></table>
+     	<table tableName="am_collaborator"></table> 
+     	<table tableName="upload_file_info"></table> 
+     	<table tableName="am_conference"></table>
+         -->
+        <table tableName="common_account"></table>
+        <table tableName="common_role"></table>
+        <!-- 基本信息 -->
+		
+
+	</context>
+</generatorConfiguration>

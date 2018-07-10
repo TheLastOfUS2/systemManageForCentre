@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.ext.AmPrizeMapperExt" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.dto.AmPrizeDto" >
+    <id column="prize_id" property="prizeId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="prize_title" property="prizeTitle" jdbcType="VARCHAR" />
+    <result column="prize_way" property="prizeWay" jdbcType="VARCHAR" />
+    <result column="prize_achievement" property="prizeAchievement" jdbcType="VARCHAR" />
+    <result column="prize_grade" property="prizeGrade" jdbcType="VARCHAR" />
+    <result column="prize_level" property="prizeLevel" jdbcType="VARCHAR" />
+    <result column="prize_award_company" property="prizeAwardCompany" jdbcType="VARCHAR" />
+    <result column="prize_winning_time" property="prizeWinningTime" jdbcType="VARCHAR" />
+    <result column="prize_remarks" property="prizeRemarks" jdbcType="VARCHAR" />
+    <result column="prize_del" property="prizeDel" jdbcType="VARCHAR" />
+    <result column="prize_create_time" property="prizeCreateTime" jdbcType="TIMESTAMP" />
+    
+    <!-- 作者名称 -->
+    <result column="base_info_name" property="baseInfoName" jdbcType="VARCHAR" />
+     
+    <!-- 一对多关系映射 -->
+    <!-- 合作者 -->
+    <collection property="amCollaborators" column="prize_id" select="findCollaboratorById" />
+  </resultMap>
+  <!-- 合作者 -->
+  <resultMap id="CollaboratorResultMap" type="com.systemManage.pojo.dto.AmCollaboratorDto">
+     <id column="collaborator_id" jdbcType="VARCHAR" property="collaboratorId" />
+    <result column="achievement_id" jdbcType="VARCHAR" property="achievementId" />
+    <result column="base_info_id" jdbcType="VARCHAR" property="baseInfoId" />
+    <result column="collaborator_type" jdbcType="VARCHAR" property="collaboratorType" />
+    <result column="collaborator_content" jdbcType="VARCHAR" property="collaboratorContent" />
+    <result column="collaborator_create_time" jdbcType="TIMESTAMP" property="collaboratorCreateTime" />
+    
+    <!-- 作者名称 -->
+    <result column="base_info_name" property="BaseInfoName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- 关联查询合作者 -->
+  <select id="findCollaboratorById" parameterType="java.lang.String" resultMap="CollaboratorResultMap">
+    select * from am_collaborator ac,bi_base_info bi where ac.base_info_id=bi.base_info_id and ac.achievement_id = #{id}
+  </select> 
+  
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and p.base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeTitle != null" >
+         and p.prize_title = #{condition.prizeTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeWay != null" >
+         and p.prize_way = #{condition.prizeWay,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeAchievement != null" >
+         and p.prize_achievement = #{condition.prizeAchievement,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeGrade != null" >
+         and p.prize_grade = #{condition.prizeGrade,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeLevel != null" >
+         and p.prize_level = #{condition.prizeLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeAwardCompany != null" >
+         and p.prize_award_company = #{condition.prizeAwardCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeWinningTime != null" >
+         and p.prize_winning_time = #{condition.prizeWinningTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeRemarks != null" >
+         and p.prize_remarks = #{condition.prizeRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeDel != null" >
+         and p.prize_del = #{condition.prizeDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.prizeCreateTime != null" >
+         and p.prize_create_time = #{condition.prizeCreateTime,jdbcType=TIMESTAMP}
+      </if>
+      
+      <!-- 模糊查询 -->
+      <!-- 题目 -->
+      <if test="condition.prizeTitle2 != null" >
+         and p.prize_title like CONCAT('%', #{condition.prizeTitle2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 获奖名称 -->
+      <if test="condition.prizeAchievement2 != null" >
+         and p.prize_achievement like CONCAT('%', #{condition.prizeAchievement2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 作者 -->
+      <if test="condition.baseInfoName2 != null" >
+         and bi.base_info_name like CONCAT('%', #{condition.baseInfoName2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 颁奖单位 -->
+      <if test="condition.prizeAwardCompany2 != null" >
+         and p.prize_award_company like CONCAT('%', #{condition.prizeAwardCompany2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 颁奖时间 -->
+      <if test="condition.prizeWinningTime2 != null" >
+         and p.prize_winning_time like CONCAT('%', #{condition.prizeWinningTime2,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 模糊查询 -->
+       
+      <!-- 全文检索 -->
+      <if test="condition.baseInfoName3 != null" >
+       	 and bi.base_info_name like CONCAT('%', #{condition.baseInfoName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 责任人类别 -->
+      <if test="condition.baseInfoType3 != null" >
+       	 and bi.base_info_type in (${condition.baseInfoType3})
+      </if>
+      <!-- 责任人职称 -->
+      <if test="condition.baseInfoPositionalTitles3 != null" >
+       	 and bi.base_info_positional_titles in (${condition.baseInfoPositionalTitles3})
+      </if>
+      <!-- 责任人级别 -->
+      <if test="condition.baseInfoLevel3 != null" >
+       	 and bi.base_info_level in (${condition.baseInfoLevel3})
+      </if>
+      <!-- 成果/项目名称 -->
+      <if test="condition.projectName3 != null" >
+     	and p.prize_title like CONCAT('%', #{condition.projectName3,jdbcType=VARCHAR}, '%')
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectStartTime != null" >
+        and p.prize_winning_time &gt;= #{condition.projectStartTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 成果时间区间 -->
+      <if test="condition.projectEndTime != null" >
+        and p.prize_winning_time &lt;= #{condition.projectEndTime,jdbcType=VARCHAR}
+      </if>
+      <!-- 全文检索 -->
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    p.prize_id, p.base_info_id, p.prize_title, p.prize_way, p.prize_achievement, p.prize_grade, p.prize_level, 
+    p.prize_award_company, p.prize_winning_time, p.prize_remarks, p.prize_del, p.prize_create_time,bi.base_info_name
+  </sql>
+  
+  <select id="selectByPrimaryKeyExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from am_prize p,bi_base_info bi
+    where p.base_info_id=bi.base_info_id and prize_id = #{paperId,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from am_prize p,bi_base_info bi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and p.base_info_id=bi.base_info_id 
+  </select>
+  
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+     <!-- 责任人年龄区间(计算年龄) ${condition.startAge0} -->
+    <if test="condition.baseInfoStartAge != null or condition.baseInfoEndAge != null" >
+    	DATE_FORMAT(bi.base_info_birth_date,"%Y-%m-%d") base_info_birth_date,(year(now())-year(bi.base_info_birth_date)-1)+(DATE_FORMAT(bi.base_info_birth_date,'%m%d') &lt;=DATE_FORMAT(NOW(),'%m%d')) as age,
+    </if>
+    <include refid="Base_Column_List" />
+    from am_prize p,bi_base_info bi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    and p.base_info_id=bi.base_info_id
+     <if test="condition.baseInfoStartAge != null &amp;  condition.baseInfoEndAge != null">
+    	having  age  &gt;= ${condition.baseInfoStartAge} and age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="condition.baseInfoStartAge != null &amp; condition.baseInfoEndAge == null ">
+    	having  age &gt;=${condition.baseInfoStartAge}
+    </if>
+     <if test="condition.baseInfoStartAge == null &amp; condition.baseInfoEndAge != null ">
+    	having  age &lt;=${condition.baseInfoEndAge}
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

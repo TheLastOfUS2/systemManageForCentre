@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.BiWorkMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.BiWork" >
+    <id column="work_id" property="workId" jdbcType="VARCHAR" />
+    <result column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="work_start_time" property="workStartTime" jdbcType="VARCHAR" />
+    <result column="work_end_time" property="workEndTime" jdbcType="VARCHAR" />
+    <result column="work_company" property="workCompany" jdbcType="VARCHAR" />
+    <result column="work_post" property="workPost" jdbcType="VARCHAR" />
+    <result column="work_create_time" property="workCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.baseInfoId != null" >
+         and base_info_id = #{condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.workStartTime != null" >
+         and work_start_time = #{condition.workStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.workEndTime != null" >
+         and work_end_time = #{condition.workEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.workCompany != null" >
+         and work_company = #{condition.workCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.workPost != null" >
+         and work_post = #{condition.workPost,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.workCreateTime != null" >
+         and work_create_time = #{condition.workCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.baseInfoId != null" >
+         and base_info_id = #{example.condition.baseInfoId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.workStartTime != null" >
+         and work_start_time = #{example.condition.workStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.workEndTime != null" >
+         and work_end_time = #{example.condition.workEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.workCompany != null" >
+         and work_company = #{example.condition.workCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.workPost != null" >
+         and work_post = #{example.condition.workPost,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.workCreateTime != null" >
+         and work_create_time = #{example.condition.workCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    work_id, base_info_id, work_start_time, work_end_time, work_company, work_post, work_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bi_work
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_work
+    where work_id = #{workId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bi_work
+    where work_id = #{workId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from bi_work
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.BiWork" >
+    insert into bi_work (work_id, base_info_id, work_start_time, 
+      work_end_time, work_company, work_post, 
+      work_create_time)
+    values (#{workId,jdbcType=VARCHAR}, #{baseInfoId,jdbcType=VARCHAR}, #{workStartTime,jdbcType=VARCHAR}, 
+      #{workEndTime,jdbcType=VARCHAR}, #{workCompany,jdbcType=VARCHAR}, #{workPost,jdbcType=VARCHAR}, 
+      #{workCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.BiWork" >
+    insert into bi_work
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="workId != null" >
+        work_id,
+      </if>
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="workStartTime != null" >
+        work_start_time,
+      </if>
+      <if test="workEndTime != null" >
+        work_end_time,
+      </if>
+      <if test="workCompany != null" >
+        work_company,
+      </if>
+      <if test="workPost != null" >
+        work_post,
+      </if>
+      <if test="workCreateTime != null" >
+        work_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="workId != null" >
+        #{workId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="workStartTime != null" >
+        #{workStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workEndTime != null" >
+        #{workEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workCompany != null" >
+        #{workCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="workPost != null" >
+        #{workPost,jdbcType=VARCHAR},
+      </if>
+      <if test="workCreateTime != null" >
+        #{workCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from bi_work
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bi_work
+    <set >
+      <if test="record.workId != null" >
+        work_id = #{record.workId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workStartTime != null" >
+        work_start_time = #{record.workStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workEndTime != null" >
+        work_end_time = #{record.workEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workCompany != null" >
+        work_company = #{record.workCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workPost != null" >
+        work_post = #{record.workPost,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workCreateTime != null" >
+        work_create_time = #{record.workCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bi_work
+    set work_id = #{record.workId,jdbcType=VARCHAR},
+      base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      work_start_time = #{record.workStartTime,jdbcType=VARCHAR},
+      work_end_time = #{record.workEndTime,jdbcType=VARCHAR},
+      work_company = #{record.workCompany,jdbcType=VARCHAR},
+      work_post = #{record.workPost,jdbcType=VARCHAR},
+      work_create_time = #{record.workCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.BiWork" >
+    update bi_work
+    <set >
+      <if test="baseInfoId != null" >
+        base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="workStartTime != null" >
+        work_start_time = #{workStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workEndTime != null" >
+        work_end_time = #{workEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workCompany != null" >
+        work_company = #{workCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="workPost != null" >
+        work_post = #{workPost,jdbcType=VARCHAR},
+      </if>
+      <if test="workCreateTime != null" >
+        work_create_time = #{workCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where work_id = #{workId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.BiWork" >
+    update bi_work
+    set base_info_id = #{baseInfoId,jdbcType=VARCHAR},
+      work_start_time = #{workStartTime,jdbcType=VARCHAR},
+      work_end_time = #{workEndTime,jdbcType=VARCHAR},
+      work_company = #{workCompany,jdbcType=VARCHAR},
+      work_post = #{workPost,jdbcType=VARCHAR},
+      work_create_time = #{workCreateTime,jdbcType=TIMESTAMP}
+    where work_id = #{workId,jdbcType=VARCHAR}
+  </update>
+</mapper>

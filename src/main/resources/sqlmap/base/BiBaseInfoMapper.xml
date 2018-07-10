@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.BiBaseInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.BiBaseInfo" >
+    <id column="base_info_id" property="baseInfoId" jdbcType="VARCHAR" />
+    <result column="account_id" property="accountId" jdbcType="VARCHAR" />
+    <result column="base_info_type" property="baseInfoType" jdbcType="VARCHAR" />
+    <result column="base_info_name" property="baseInfoName" jdbcType="VARCHAR" />
+    <result column="base_info_sex" property="baseInfoSex" jdbcType="VARCHAR" />
+    <result column="base_info_birth_date" property="baseInfoBirthDate" jdbcType="VARCHAR" />
+    <result column="base_info_id_number" property="baseInfoIdNumber" jdbcType="VARCHAR" />
+    <result column="base_info_nation" property="baseInfoNation" jdbcType="VARCHAR" />
+    <result column="base_info_native_place" property="baseInfoNativePlace" jdbcType="VARCHAR" />
+    <result column="base_info_political_outlook" property="baseInfoPoliticalOutlook" jdbcType="VARCHAR" />
+    <result column="base_info_member_time" property="baseInfoMemberTime" jdbcType="VARCHAR" />
+    <result column="base_info_education" property="baseInfoEducation" jdbcType="VARCHAR" />
+    <result column="base_info_degree" property="baseInfoDegree" jdbcType="VARCHAR" />
+    <result column="base_info_specialty" property="baseInfoSpecialty" jdbcType="VARCHAR" />
+    <result column="base_info_positional_titles" property="baseInfoPositionalTitles" jdbcType="VARCHAR" />
+    <result column="base_info_level" property="baseInfoLevel" jdbcType="VARCHAR" />
+    <result column="base_info_post" property="baseInfoPost" jdbcType="VARCHAR" />
+    <result column="base_info_if_doctor_tutor" property="baseInfoIfDoctorTutor" jdbcType="VARCHAR" />
+    <result column="base_info_if_master_tutor" property="baseInfoIfMasterTutor" jdbcType="VARCHAR" />
+    <result column="base_info_start_work_time" property="baseInfoStartWorkTime" jdbcType="VARCHAR" />
+    <result column="base_info_research_direction" property="baseInfoResearchDirection" jdbcType="VARCHAR" />
+    <result column="base_info_research_expertise" property="baseInfoResearchExpertise" jdbcType="VARCHAR" />
+    <result column="base_info_talent_plan" property="baseInfoTalentPlan" jdbcType="VARCHAR" />
+    <result column="base_info_honorary_title" property="baseInfoHonoraryTitle" jdbcType="VARCHAR" />
+    <result column="base_info_campus_card" property="baseInfoCampusCard" jdbcType="VARCHAR" />
+    <result column="base_info_payroll_card" property="baseInfoPayrollCard" jdbcType="VARCHAR" />
+    <result column="base_info_mentor" property="baseInfoMentor" jdbcType="VARCHAR" />
+    <result column="base_info_start_time" property="baseInfoStartTime" jdbcType="VARCHAR" />
+    <result column="base_info_end_time" property="baseInfoEndTime" jdbcType="VARCHAR" />
+    <result column="base_info_departure_report" property="baseInfoDepartureReport" jdbcType="VARCHAR" />
+    <result column="base_info_employment_company" property="baseInfoEmploymentCompany" jdbcType="VARCHAR" />
+    <result column="base_info_grade" property="baseInfoGrade" jdbcType="VARCHAR" />
+    <result column="base_info_contact_information" property="baseInfoContactInformation" jdbcType="VARCHAR" />
+    <result column="base_info_honor" property="baseInfoHonor" jdbcType="VARCHAR" />
+    <result column="base_info_achievement" property="baseInfoAchievement" jdbcType="VARCHAR" />
+    <result column="base_info_nationality" property="baseInfoNationality" jdbcType="VARCHAR" />
+    <result column="base_info_primary_work_unit" property="baseInfoPrimaryWorkUnit" jdbcType="VARCHAR" />
+    <result column="base_info_external_appellation" property="baseInfoExternalAppellation" jdbcType="VARCHAR" />
+    <result column="base_info_engage_start_time" property="baseInfoEngageStartTime" jdbcType="VARCHAR" />
+    <result column="base_info_engage_end_time" property="baseInfoEngageEndTime" jdbcType="VARCHAR" />
+    <result column="base_info_profile" property="baseInfoProfile" jdbcType="VARCHAR" />
+    <result column="base_info_remarks" property="baseInfoRemarks" jdbcType="VARCHAR" />
+    <result column="base_info_del" property="baseInfoDel" jdbcType="VARCHAR" />
+    <result column="base_create_time" property="baseCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.accountId != null" >
+         and account_id = #{condition.accountId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoType != null" >
+         and base_info_type = #{condition.baseInfoType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoName != null" >
+         and base_info_name = #{condition.baseInfoName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoSex != null" >
+         and base_info_sex = #{condition.baseInfoSex,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoBirthDate != null" >
+         and base_info_birth_date = #{condition.baseInfoBirthDate,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoIdNumber != null" >
+         and base_info_id_number = #{condition.baseInfoIdNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoNation != null" >
+         and base_info_nation = #{condition.baseInfoNation,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoNativePlace != null" >
+         and base_info_native_place = #{condition.baseInfoNativePlace,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoPoliticalOutlook != null" >
+         and base_info_political_outlook = #{condition.baseInfoPoliticalOutlook,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoMemberTime != null" >
+         and base_info_member_time = #{condition.baseInfoMemberTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoEducation != null" >
+         and base_info_education = #{condition.baseInfoEducation,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoDegree != null" >
+         and base_info_degree = #{condition.baseInfoDegree,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoSpecialty != null" >
+         and base_info_specialty = #{condition.baseInfoSpecialty,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoPositionalTitles != null" >
+         and base_info_positional_titles = #{condition.baseInfoPositionalTitles,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoLevel != null" >
+         and base_info_level = #{condition.baseInfoLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoPost != null" >
+         and base_info_post = #{condition.baseInfoPost,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoIfDoctorTutor != null" >
+         and base_info_if_doctor_tutor = #{condition.baseInfoIfDoctorTutor,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoIfMasterTutor != null" >
+         and base_info_if_master_tutor = #{condition.baseInfoIfMasterTutor,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoStartWorkTime != null" >
+         and base_info_start_work_time = #{condition.baseInfoStartWorkTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoResearchDirection != null" >
+         and base_info_research_direction = #{condition.baseInfoResearchDirection,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoResearchExpertise != null" >
+         and base_info_research_expertise = #{condition.baseInfoResearchExpertise,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoTalentPlan != null" >
+         and base_info_talent_plan = #{condition.baseInfoTalentPlan,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoHonoraryTitle != null" >
+         and base_info_honorary_title = #{condition.baseInfoHonoraryTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoCampusCard != null" >
+         and base_info_campus_card = #{condition.baseInfoCampusCard,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoPayrollCard != null" >
+         and base_info_payroll_card = #{condition.baseInfoPayrollCard,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoMentor != null" >
+         and base_info_mentor = #{condition.baseInfoMentor,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoStartTime != null" >
+         and base_info_start_time = #{condition.baseInfoStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoEndTime != null" >
+         and base_info_end_time = #{condition.baseInfoEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoDepartureReport != null" >
+         and base_info_departure_report = #{condition.baseInfoDepartureReport,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoEmploymentCompany != null" >
+         and base_info_employment_company = #{condition.baseInfoEmploymentCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoGrade != null" >
+         and base_info_grade = #{condition.baseInfoGrade,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoContactInformation != null" >
+         and base_info_contact_information = #{condition.baseInfoContactInformation,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoHonor != null" >
+         and base_info_honor = #{condition.baseInfoHonor,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoAchievement != null" >
+         and base_info_achievement = #{condition.baseInfoAchievement,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoNationality != null" >
+         and base_info_nationality = #{condition.baseInfoNationality,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoPrimaryWorkUnit != null" >
+         and base_info_primary_work_unit = #{condition.baseInfoPrimaryWorkUnit,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoExternalAppellation != null" >
+         and base_info_external_appellation = #{condition.baseInfoExternalAppellation,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoEngageStartTime != null" >
+         and base_info_engage_start_time = #{condition.baseInfoEngageStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoEngageEndTime != null" >
+         and base_info_engage_end_time = #{condition.baseInfoEngageEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoProfile != null" >
+         and base_info_profile = #{condition.baseInfoProfile,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoRemarks != null" >
+         and base_info_remarks = #{condition.baseInfoRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseInfoDel != null" >
+         and base_info_del = #{condition.baseInfoDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.baseCreateTime != null" >
+         and base_create_time = #{condition.baseCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.accountId != null" >
+         and account_id = #{example.condition.accountId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoType != null" >
+         and base_info_type = #{example.condition.baseInfoType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoName != null" >
+         and base_info_name = #{example.condition.baseInfoName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoSex != null" >
+         and base_info_sex = #{example.condition.baseInfoSex,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoBirthDate != null" >
+         and base_info_birth_date = #{example.condition.baseInfoBirthDate,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoIdNumber != null" >
+         and base_info_id_number = #{example.condition.baseInfoIdNumber,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoNation != null" >
+         and base_info_nation = #{example.condition.baseInfoNation,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoNativePlace != null" >
+         and base_info_native_place = #{example.condition.baseInfoNativePlace,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoPoliticalOutlook != null" >
+         and base_info_political_outlook = #{example.condition.baseInfoPoliticalOutlook,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoMemberTime != null" >
+         and base_info_member_time = #{example.condition.baseInfoMemberTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoEducation != null" >
+         and base_info_education = #{example.condition.baseInfoEducation,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoDegree != null" >
+         and base_info_degree = #{example.condition.baseInfoDegree,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoSpecialty != null" >
+         and base_info_specialty = #{example.condition.baseInfoSpecialty,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoPositionalTitles != null" >
+         and base_info_positional_titles = #{example.condition.baseInfoPositionalTitles,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoLevel != null" >
+         and base_info_level = #{example.condition.baseInfoLevel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoPost != null" >
+         and base_info_post = #{example.condition.baseInfoPost,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoIfDoctorTutor != null" >
+         and base_info_if_doctor_tutor = #{example.condition.baseInfoIfDoctorTutor,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoIfMasterTutor != null" >
+         and base_info_if_master_tutor = #{example.condition.baseInfoIfMasterTutor,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoStartWorkTime != null" >
+         and base_info_start_work_time = #{example.condition.baseInfoStartWorkTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoResearchDirection != null" >
+         and base_info_research_direction = #{example.condition.baseInfoResearchDirection,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoResearchExpertise != null" >
+         and base_info_research_expertise = #{example.condition.baseInfoResearchExpertise,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoTalentPlan != null" >
+         and base_info_talent_plan = #{example.condition.baseInfoTalentPlan,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoHonoraryTitle != null" >
+         and base_info_honorary_title = #{example.condition.baseInfoHonoraryTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoCampusCard != null" >
+         and base_info_campus_card = #{example.condition.baseInfoCampusCard,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoPayrollCard != null" >
+         and base_info_payroll_card = #{example.condition.baseInfoPayrollCard,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoMentor != null" >
+         and base_info_mentor = #{example.condition.baseInfoMentor,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoStartTime != null" >
+         and base_info_start_time = #{example.condition.baseInfoStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoEndTime != null" >
+         and base_info_end_time = #{example.condition.baseInfoEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoDepartureReport != null" >
+         and base_info_departure_report = #{example.condition.baseInfoDepartureReport,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoEmploymentCompany != null" >
+         and base_info_employment_company = #{example.condition.baseInfoEmploymentCompany,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoGrade != null" >
+         and base_info_grade = #{example.condition.baseInfoGrade,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoContactInformation != null" >
+         and base_info_contact_information = #{example.condition.baseInfoContactInformation,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoHonor != null" >
+         and base_info_honor = #{example.condition.baseInfoHonor,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoAchievement != null" >
+         and base_info_achievement = #{example.condition.baseInfoAchievement,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoNationality != null" >
+         and base_info_nationality = #{example.condition.baseInfoNationality,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoPrimaryWorkUnit != null" >
+         and base_info_primary_work_unit = #{example.condition.baseInfoPrimaryWorkUnit,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoExternalAppellation != null" >
+         and base_info_external_appellation = #{example.condition.baseInfoExternalAppellation,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoEngageStartTime != null" >
+         and base_info_engage_start_time = #{example.condition.baseInfoEngageStartTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoEngageEndTime != null" >
+         and base_info_engage_end_time = #{example.condition.baseInfoEngageEndTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoProfile != null" >
+         and base_info_profile = #{example.condition.baseInfoProfile,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoRemarks != null" >
+         and base_info_remarks = #{example.condition.baseInfoRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseInfoDel != null" >
+         and base_info_del = #{example.condition.baseInfoDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.baseCreateTime != null" >
+         and base_create_time = #{example.condition.baseCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    base_info_id, account_id, base_info_type, base_info_name, base_info_sex, base_info_birth_date, 
+    base_info_id_number, base_info_nation, base_info_native_place, base_info_political_outlook, 
+    base_info_member_time, base_info_education, base_info_degree, base_info_specialty, 
+    base_info_positional_titles, base_info_level, base_info_post, base_info_if_doctor_tutor, 
+    base_info_if_master_tutor, base_info_start_work_time, base_info_research_direction, 
+    base_info_research_expertise, base_info_talent_plan, base_info_honorary_title, base_info_campus_card, 
+    base_info_payroll_card, base_info_mentor, base_info_start_time, base_info_end_time, 
+    base_info_departure_report, base_info_employment_company, base_info_grade, base_info_contact_information, 
+    base_info_honor, base_info_achievement, base_info_nationality, base_info_primary_work_unit, 
+    base_info_external_appellation, base_info_engage_start_time, base_info_engage_end_time, 
+    base_info_profile, base_info_remarks, base_info_del, base_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bi_base_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bi_base_info
+    where base_info_id = #{baseInfoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bi_base_info
+    where base_info_id = #{baseInfoId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from bi_base_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.BiBaseInfo" >
+    insert into bi_base_info (base_info_id, account_id, base_info_type, 
+      base_info_name, base_info_sex, base_info_birth_date, 
+      base_info_id_number, base_info_nation, base_info_native_place, 
+      base_info_political_outlook, base_info_member_time, 
+      base_info_education, base_info_degree, base_info_specialty, 
+      base_info_positional_titles, base_info_level, 
+      base_info_post, base_info_if_doctor_tutor, base_info_if_master_tutor, 
+      base_info_start_work_time, base_info_research_direction, 
+      base_info_research_expertise, base_info_talent_plan, 
+      base_info_honorary_title, base_info_campus_card, 
+      base_info_payroll_card, base_info_mentor, base_info_start_time, 
+      base_info_end_time, base_info_departure_report, 
+      base_info_employment_company, base_info_grade, 
+      base_info_contact_information, base_info_honor, 
+      base_info_achievement, base_info_nationality, 
+      base_info_primary_work_unit, base_info_external_appellation, 
+      base_info_engage_start_time, base_info_engage_end_time, 
+      base_info_profile, base_info_remarks, base_info_del, 
+      base_create_time)
+    values (#{baseInfoId,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, #{baseInfoType,jdbcType=VARCHAR}, 
+      #{baseInfoName,jdbcType=VARCHAR}, #{baseInfoSex,jdbcType=VARCHAR}, #{baseInfoBirthDate,jdbcType=VARCHAR}, 
+      #{baseInfoIdNumber,jdbcType=VARCHAR}, #{baseInfoNation,jdbcType=VARCHAR}, #{baseInfoNativePlace,jdbcType=VARCHAR}, 
+      #{baseInfoPoliticalOutlook,jdbcType=VARCHAR}, #{baseInfoMemberTime,jdbcType=VARCHAR}, 
+      #{baseInfoEducation,jdbcType=VARCHAR}, #{baseInfoDegree,jdbcType=VARCHAR}, #{baseInfoSpecialty,jdbcType=VARCHAR}, 
+      #{baseInfoPositionalTitles,jdbcType=VARCHAR}, #{baseInfoLevel,jdbcType=VARCHAR}, 
+      #{baseInfoPost,jdbcType=VARCHAR}, #{baseInfoIfDoctorTutor,jdbcType=VARCHAR}, #{baseInfoIfMasterTutor,jdbcType=VARCHAR}, 
+      #{baseInfoStartWorkTime,jdbcType=VARCHAR}, #{baseInfoResearchDirection,jdbcType=VARCHAR}, 
+      #{baseInfoResearchExpertise,jdbcType=VARCHAR}, #{baseInfoTalentPlan,jdbcType=VARCHAR}, 
+      #{baseInfoHonoraryTitle,jdbcType=VARCHAR}, #{baseInfoCampusCard,jdbcType=VARCHAR}, 
+      #{baseInfoPayrollCard,jdbcType=VARCHAR}, #{baseInfoMentor,jdbcType=VARCHAR}, #{baseInfoStartTime,jdbcType=VARCHAR}, 
+      #{baseInfoEndTime,jdbcType=VARCHAR}, #{baseInfoDepartureReport,jdbcType=VARCHAR}, 
+      #{baseInfoEmploymentCompany,jdbcType=VARCHAR}, #{baseInfoGrade,jdbcType=VARCHAR}, 
+      #{baseInfoContactInformation,jdbcType=VARCHAR}, #{baseInfoHonor,jdbcType=VARCHAR}, 
+      #{baseInfoAchievement,jdbcType=VARCHAR}, #{baseInfoNationality,jdbcType=VARCHAR}, 
+      #{baseInfoPrimaryWorkUnit,jdbcType=VARCHAR}, #{baseInfoExternalAppellation,jdbcType=VARCHAR}, 
+      #{baseInfoEngageStartTime,jdbcType=VARCHAR}, #{baseInfoEngageEndTime,jdbcType=VARCHAR}, 
+      #{baseInfoProfile,jdbcType=VARCHAR}, #{baseInfoRemarks,jdbcType=VARCHAR}, #{baseInfoDel,jdbcType=VARCHAR}, 
+      #{baseCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.BiBaseInfo" >
+    insert into bi_base_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="baseInfoId != null" >
+        base_info_id,
+      </if>
+      <if test="accountId != null" >
+        account_id,
+      </if>
+      <if test="baseInfoType != null" >
+        base_info_type,
+      </if>
+      <if test="baseInfoName != null" >
+        base_info_name,
+      </if>
+      <if test="baseInfoSex != null" >
+        base_info_sex,
+      </if>
+      <if test="baseInfoBirthDate != null" >
+        base_info_birth_date,
+      </if>
+      <if test="baseInfoIdNumber != null" >
+        base_info_id_number,
+      </if>
+      <if test="baseInfoNation != null" >
+        base_info_nation,
+      </if>
+      <if test="baseInfoNativePlace != null" >
+        base_info_native_place,
+      </if>
+      <if test="baseInfoPoliticalOutlook != null" >
+        base_info_political_outlook,
+      </if>
+      <if test="baseInfoMemberTime != null" >
+        base_info_member_time,
+      </if>
+      <if test="baseInfoEducation != null" >
+        base_info_education,
+      </if>
+      <if test="baseInfoDegree != null" >
+        base_info_degree,
+      </if>
+      <if test="baseInfoSpecialty != null" >
+        base_info_specialty,
+      </if>
+      <if test="baseInfoPositionalTitles != null" >
+        base_info_positional_titles,
+      </if>
+      <if test="baseInfoLevel != null" >
+        base_info_level,
+      </if>
+      <if test="baseInfoPost != null" >
+        base_info_post,
+      </if>
+      <if test="baseInfoIfDoctorTutor != null" >
+        base_info_if_doctor_tutor,
+      </if>
+      <if test="baseInfoIfMasterTutor != null" >
+        base_info_if_master_tutor,
+      </if>
+      <if test="baseInfoStartWorkTime != null" >
+        base_info_start_work_time,
+      </if>
+      <if test="baseInfoResearchDirection != null" >
+        base_info_research_direction,
+      </if>
+      <if test="baseInfoResearchExpertise != null" >
+        base_info_research_expertise,
+      </if>
+      <if test="baseInfoTalentPlan != null" >
+        base_info_talent_plan,
+      </if>
+      <if test="baseInfoHonoraryTitle != null" >
+        base_info_honorary_title,
+      </if>
+      <if test="baseInfoCampusCard != null" >
+        base_info_campus_card,
+      </if>
+      <if test="baseInfoPayrollCard != null" >
+        base_info_payroll_card,
+      </if>
+      <if test="baseInfoMentor != null" >
+        base_info_mentor,
+      </if>
+      <if test="baseInfoStartTime != null" >
+        base_info_start_time,
+      </if>
+      <if test="baseInfoEndTime != null" >
+        base_info_end_time,
+      </if>
+      <if test="baseInfoDepartureReport != null" >
+        base_info_departure_report,
+      </if>
+      <if test="baseInfoEmploymentCompany != null" >
+        base_info_employment_company,
+      </if>
+      <if test="baseInfoGrade != null" >
+        base_info_grade,
+      </if>
+      <if test="baseInfoContactInformation != null" >
+        base_info_contact_information,
+      </if>
+      <if test="baseInfoHonor != null" >
+        base_info_honor,
+      </if>
+      <if test="baseInfoAchievement != null" >
+        base_info_achievement,
+      </if>
+      <if test="baseInfoNationality != null" >
+        base_info_nationality,
+      </if>
+      <if test="baseInfoPrimaryWorkUnit != null" >
+        base_info_primary_work_unit,
+      </if>
+      <if test="baseInfoExternalAppellation != null" >
+        base_info_external_appellation,
+      </if>
+      <if test="baseInfoEngageStartTime != null" >
+        base_info_engage_start_time,
+      </if>
+      <if test="baseInfoEngageEndTime != null" >
+        base_info_engage_end_time,
+      </if>
+      <if test="baseInfoProfile != null" >
+        base_info_profile,
+      </if>
+      <if test="baseInfoRemarks != null" >
+        base_info_remarks,
+      </if>
+      <if test="baseInfoDel != null" >
+        base_info_del,
+      </if>
+      <if test="baseCreateTime != null" >
+        base_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="baseInfoId != null" >
+        #{baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoType != null" >
+        #{baseInfoType,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoName != null" >
+        #{baseInfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoSex != null" >
+        #{baseInfoSex,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoBirthDate != null" >
+        #{baseInfoBirthDate,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoIdNumber != null" >
+        #{baseInfoIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoNation != null" >
+        #{baseInfoNation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoNativePlace != null" >
+        #{baseInfoNativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPoliticalOutlook != null" >
+        #{baseInfoPoliticalOutlook,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoMemberTime != null" >
+        #{baseInfoMemberTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEducation != null" >
+        #{baseInfoEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoDegree != null" >
+        #{baseInfoDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoSpecialty != null" >
+        #{baseInfoSpecialty,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPositionalTitles != null" >
+        #{baseInfoPositionalTitles,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoLevel != null" >
+        #{baseInfoLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPost != null" >
+        #{baseInfoPost,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoIfDoctorTutor != null" >
+        #{baseInfoIfDoctorTutor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoIfMasterTutor != null" >
+        #{baseInfoIfMasterTutor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoStartWorkTime != null" >
+        #{baseInfoStartWorkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoResearchDirection != null" >
+        #{baseInfoResearchDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoResearchExpertise != null" >
+        #{baseInfoResearchExpertise,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoTalentPlan != null" >
+        #{baseInfoTalentPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoHonoraryTitle != null" >
+        #{baseInfoHonoraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoCampusCard != null" >
+        #{baseInfoCampusCard,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPayrollCard != null" >
+        #{baseInfoPayrollCard,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoMentor != null" >
+        #{baseInfoMentor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoStartTime != null" >
+        #{baseInfoStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEndTime != null" >
+        #{baseInfoEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoDepartureReport != null" >
+        #{baseInfoDepartureReport,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEmploymentCompany != null" >
+        #{baseInfoEmploymentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoGrade != null" >
+        #{baseInfoGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoContactInformation != null" >
+        #{baseInfoContactInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoHonor != null" >
+        #{baseInfoHonor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoAchievement != null" >
+        #{baseInfoAchievement,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoNationality != null" >
+        #{baseInfoNationality,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPrimaryWorkUnit != null" >
+        #{baseInfoPrimaryWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoExternalAppellation != null" >
+        #{baseInfoExternalAppellation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEngageStartTime != null" >
+        #{baseInfoEngageStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEngageEndTime != null" >
+        #{baseInfoEngageEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoProfile != null" >
+        #{baseInfoProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoRemarks != null" >
+        #{baseInfoRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoDel != null" >
+        #{baseInfoDel,jdbcType=VARCHAR},
+      </if>
+      <if test="baseCreateTime != null" >
+        #{baseCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from bi_base_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bi_base_info
+    <set >
+      <if test="record.baseInfoId != null" >
+        base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountId != null" >
+        account_id = #{record.accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoType != null" >
+        base_info_type = #{record.baseInfoType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoName != null" >
+        base_info_name = #{record.baseInfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoSex != null" >
+        base_info_sex = #{record.baseInfoSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoBirthDate != null" >
+        base_info_birth_date = #{record.baseInfoBirthDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoIdNumber != null" >
+        base_info_id_number = #{record.baseInfoIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoNation != null" >
+        base_info_nation = #{record.baseInfoNation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoNativePlace != null" >
+        base_info_native_place = #{record.baseInfoNativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoPoliticalOutlook != null" >
+        base_info_political_outlook = #{record.baseInfoPoliticalOutlook,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoMemberTime != null" >
+        base_info_member_time = #{record.baseInfoMemberTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoEducation != null" >
+        base_info_education = #{record.baseInfoEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoDegree != null" >
+        base_info_degree = #{record.baseInfoDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoSpecialty != null" >
+        base_info_specialty = #{record.baseInfoSpecialty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoPositionalTitles != null" >
+        base_info_positional_titles = #{record.baseInfoPositionalTitles,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoLevel != null" >
+        base_info_level = #{record.baseInfoLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoPost != null" >
+        base_info_post = #{record.baseInfoPost,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoIfDoctorTutor != null" >
+        base_info_if_doctor_tutor = #{record.baseInfoIfDoctorTutor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoIfMasterTutor != null" >
+        base_info_if_master_tutor = #{record.baseInfoIfMasterTutor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoStartWorkTime != null" >
+        base_info_start_work_time = #{record.baseInfoStartWorkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoResearchDirection != null" >
+        base_info_research_direction = #{record.baseInfoResearchDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoResearchExpertise != null" >
+        base_info_research_expertise = #{record.baseInfoResearchExpertise,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoTalentPlan != null" >
+        base_info_talent_plan = #{record.baseInfoTalentPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoHonoraryTitle != null" >
+        base_info_honorary_title = #{record.baseInfoHonoraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoCampusCard != null" >
+        base_info_campus_card = #{record.baseInfoCampusCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoPayrollCard != null" >
+        base_info_payroll_card = #{record.baseInfoPayrollCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoMentor != null" >
+        base_info_mentor = #{record.baseInfoMentor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoStartTime != null" >
+        base_info_start_time = #{record.baseInfoStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoEndTime != null" >
+        base_info_end_time = #{record.baseInfoEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoDepartureReport != null" >
+        base_info_departure_report = #{record.baseInfoDepartureReport,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoEmploymentCompany != null" >
+        base_info_employment_company = #{record.baseInfoEmploymentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoGrade != null" >
+        base_info_grade = #{record.baseInfoGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoContactInformation != null" >
+        base_info_contact_information = #{record.baseInfoContactInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoHonor != null" >
+        base_info_honor = #{record.baseInfoHonor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoAchievement != null" >
+        base_info_achievement = #{record.baseInfoAchievement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoNationality != null" >
+        base_info_nationality = #{record.baseInfoNationality,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoPrimaryWorkUnit != null" >
+        base_info_primary_work_unit = #{record.baseInfoPrimaryWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoExternalAppellation != null" >
+        base_info_external_appellation = #{record.baseInfoExternalAppellation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoEngageStartTime != null" >
+        base_info_engage_start_time = #{record.baseInfoEngageStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoEngageEndTime != null" >
+        base_info_engage_end_time = #{record.baseInfoEngageEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoProfile != null" >
+        base_info_profile = #{record.baseInfoProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoRemarks != null" >
+        base_info_remarks = #{record.baseInfoRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseInfoDel != null" >
+        base_info_del = #{record.baseInfoDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseCreateTime != null" >
+        base_create_time = #{record.baseCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bi_base_info
+    set base_info_id = #{record.baseInfoId,jdbcType=VARCHAR},
+      account_id = #{record.accountId,jdbcType=VARCHAR},
+      base_info_type = #{record.baseInfoType,jdbcType=VARCHAR},
+      base_info_name = #{record.baseInfoName,jdbcType=VARCHAR},
+      base_info_sex = #{record.baseInfoSex,jdbcType=VARCHAR},
+      base_info_birth_date = #{record.baseInfoBirthDate,jdbcType=VARCHAR},
+      base_info_id_number = #{record.baseInfoIdNumber,jdbcType=VARCHAR},
+      base_info_nation = #{record.baseInfoNation,jdbcType=VARCHAR},
+      base_info_native_place = #{record.baseInfoNativePlace,jdbcType=VARCHAR},
+      base_info_political_outlook = #{record.baseInfoPoliticalOutlook,jdbcType=VARCHAR},
+      base_info_member_time = #{record.baseInfoMemberTime,jdbcType=VARCHAR},
+      base_info_education = #{record.baseInfoEducation,jdbcType=VARCHAR},
+      base_info_degree = #{record.baseInfoDegree,jdbcType=VARCHAR},
+      base_info_specialty = #{record.baseInfoSpecialty,jdbcType=VARCHAR},
+      base_info_positional_titles = #{record.baseInfoPositionalTitles,jdbcType=VARCHAR},
+      base_info_level = #{record.baseInfoLevel,jdbcType=VARCHAR},
+      base_info_post = #{record.baseInfoPost,jdbcType=VARCHAR},
+      base_info_if_doctor_tutor = #{record.baseInfoIfDoctorTutor,jdbcType=VARCHAR},
+      base_info_if_master_tutor = #{record.baseInfoIfMasterTutor,jdbcType=VARCHAR},
+      base_info_start_work_time = #{record.baseInfoStartWorkTime,jdbcType=VARCHAR},
+      base_info_research_direction = #{record.baseInfoResearchDirection,jdbcType=VARCHAR},
+      base_info_research_expertise = #{record.baseInfoResearchExpertise,jdbcType=VARCHAR},
+      base_info_talent_plan = #{record.baseInfoTalentPlan,jdbcType=VARCHAR},
+      base_info_honorary_title = #{record.baseInfoHonoraryTitle,jdbcType=VARCHAR},
+      base_info_campus_card = #{record.baseInfoCampusCard,jdbcType=VARCHAR},
+      base_info_payroll_card = #{record.baseInfoPayrollCard,jdbcType=VARCHAR},
+      base_info_mentor = #{record.baseInfoMentor,jdbcType=VARCHAR},
+      base_info_start_time = #{record.baseInfoStartTime,jdbcType=VARCHAR},
+      base_info_end_time = #{record.baseInfoEndTime,jdbcType=VARCHAR},
+      base_info_departure_report = #{record.baseInfoDepartureReport,jdbcType=VARCHAR},
+      base_info_employment_company = #{record.baseInfoEmploymentCompany,jdbcType=VARCHAR},
+      base_info_grade = #{record.baseInfoGrade,jdbcType=VARCHAR},
+      base_info_contact_information = #{record.baseInfoContactInformation,jdbcType=VARCHAR},
+      base_info_honor = #{record.baseInfoHonor,jdbcType=VARCHAR},
+      base_info_achievement = #{record.baseInfoAchievement,jdbcType=VARCHAR},
+      base_info_nationality = #{record.baseInfoNationality,jdbcType=VARCHAR},
+      base_info_primary_work_unit = #{record.baseInfoPrimaryWorkUnit,jdbcType=VARCHAR},
+      base_info_external_appellation = #{record.baseInfoExternalAppellation,jdbcType=VARCHAR},
+      base_info_engage_start_time = #{record.baseInfoEngageStartTime,jdbcType=VARCHAR},
+      base_info_engage_end_time = #{record.baseInfoEngageEndTime,jdbcType=VARCHAR},
+      base_info_profile = #{record.baseInfoProfile,jdbcType=VARCHAR},
+      base_info_remarks = #{record.baseInfoRemarks,jdbcType=VARCHAR},
+      base_info_del = #{record.baseInfoDel,jdbcType=VARCHAR},
+      base_create_time = #{record.baseCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.BiBaseInfo" >
+    update bi_base_info
+    <set >
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoType != null" >
+        base_info_type = #{baseInfoType,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoName != null" >
+        base_info_name = #{baseInfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoSex != null" >
+        base_info_sex = #{baseInfoSex,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoBirthDate != null" >
+        base_info_birth_date = #{baseInfoBirthDate,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoIdNumber != null" >
+        base_info_id_number = #{baseInfoIdNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoNation != null" >
+        base_info_nation = #{baseInfoNation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoNativePlace != null" >
+        base_info_native_place = #{baseInfoNativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPoliticalOutlook != null" >
+        base_info_political_outlook = #{baseInfoPoliticalOutlook,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoMemberTime != null" >
+        base_info_member_time = #{baseInfoMemberTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEducation != null" >
+        base_info_education = #{baseInfoEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoDegree != null" >
+        base_info_degree = #{baseInfoDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoSpecialty != null" >
+        base_info_specialty = #{baseInfoSpecialty,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPositionalTitles != null" >
+        base_info_positional_titles = #{baseInfoPositionalTitles,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoLevel != null" >
+        base_info_level = #{baseInfoLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPost != null" >
+        base_info_post = #{baseInfoPost,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoIfDoctorTutor != null" >
+        base_info_if_doctor_tutor = #{baseInfoIfDoctorTutor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoIfMasterTutor != null" >
+        base_info_if_master_tutor = #{baseInfoIfMasterTutor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoStartWorkTime != null" >
+        base_info_start_work_time = #{baseInfoStartWorkTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoResearchDirection != null" >
+        base_info_research_direction = #{baseInfoResearchDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoResearchExpertise != null" >
+        base_info_research_expertise = #{baseInfoResearchExpertise,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoTalentPlan != null" >
+        base_info_talent_plan = #{baseInfoTalentPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoHonoraryTitle != null" >
+        base_info_honorary_title = #{baseInfoHonoraryTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoCampusCard != null" >
+        base_info_campus_card = #{baseInfoCampusCard,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPayrollCard != null" >
+        base_info_payroll_card = #{baseInfoPayrollCard,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoMentor != null" >
+        base_info_mentor = #{baseInfoMentor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoStartTime != null" >
+        base_info_start_time = #{baseInfoStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEndTime != null" >
+        base_info_end_time = #{baseInfoEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoDepartureReport != null" >
+        base_info_departure_report = #{baseInfoDepartureReport,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEmploymentCompany != null" >
+        base_info_employment_company = #{baseInfoEmploymentCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoGrade != null" >
+        base_info_grade = #{baseInfoGrade,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoContactInformation != null" >
+        base_info_contact_information = #{baseInfoContactInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoHonor != null" >
+        base_info_honor = #{baseInfoHonor,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoAchievement != null" >
+        base_info_achievement = #{baseInfoAchievement,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoNationality != null" >
+        base_info_nationality = #{baseInfoNationality,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoPrimaryWorkUnit != null" >
+        base_info_primary_work_unit = #{baseInfoPrimaryWorkUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoExternalAppellation != null" >
+        base_info_external_appellation = #{baseInfoExternalAppellation,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEngageStartTime != null" >
+        base_info_engage_start_time = #{baseInfoEngageStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoEngageEndTime != null" >
+        base_info_engage_end_time = #{baseInfoEngageEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoProfile != null" >
+        base_info_profile = #{baseInfoProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoRemarks != null" >
+        base_info_remarks = #{baseInfoRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="baseInfoDel != null" >
+        base_info_del = #{baseInfoDel,jdbcType=VARCHAR},
+      </if>
+      <if test="baseCreateTime != null" >
+        base_create_time = #{baseCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where base_info_id = #{baseInfoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.BiBaseInfo" >
+    update bi_base_info
+    set account_id = #{accountId,jdbcType=VARCHAR},
+      base_info_type = #{baseInfoType,jdbcType=VARCHAR},
+      base_info_name = #{baseInfoName,jdbcType=VARCHAR},
+      base_info_sex = #{baseInfoSex,jdbcType=VARCHAR},
+      base_info_birth_date = #{baseInfoBirthDate,jdbcType=VARCHAR},
+      base_info_id_number = #{baseInfoIdNumber,jdbcType=VARCHAR},
+      base_info_nation = #{baseInfoNation,jdbcType=VARCHAR},
+      base_info_native_place = #{baseInfoNativePlace,jdbcType=VARCHAR},
+      base_info_political_outlook = #{baseInfoPoliticalOutlook,jdbcType=VARCHAR},
+      base_info_member_time = #{baseInfoMemberTime,jdbcType=VARCHAR},
+      base_info_education = #{baseInfoEducation,jdbcType=VARCHAR},
+      base_info_degree = #{baseInfoDegree,jdbcType=VARCHAR},
+      base_info_specialty = #{baseInfoSpecialty,jdbcType=VARCHAR},
+      base_info_positional_titles = #{baseInfoPositionalTitles,jdbcType=VARCHAR},
+      base_info_level = #{baseInfoLevel,jdbcType=VARCHAR},
+      base_info_post = #{baseInfoPost,jdbcType=VARCHAR},
+      base_info_if_doctor_tutor = #{baseInfoIfDoctorTutor,jdbcType=VARCHAR},
+      base_info_if_master_tutor = #{baseInfoIfMasterTutor,jdbcType=VARCHAR},
+      base_info_start_work_time = #{baseInfoStartWorkTime,jdbcType=VARCHAR},
+      base_info_research_direction = #{baseInfoResearchDirection,jdbcType=VARCHAR},
+      base_info_research_expertise = #{baseInfoResearchExpertise,jdbcType=VARCHAR},
+      base_info_talent_plan = #{baseInfoTalentPlan,jdbcType=VARCHAR},
+      base_info_honorary_title = #{baseInfoHonoraryTitle,jdbcType=VARCHAR},
+      base_info_campus_card = #{baseInfoCampusCard,jdbcType=VARCHAR},
+      base_info_payroll_card = #{baseInfoPayrollCard,jdbcType=VARCHAR},
+      base_info_mentor = #{baseInfoMentor,jdbcType=VARCHAR},
+      base_info_start_time = #{baseInfoStartTime,jdbcType=VARCHAR},
+      base_info_end_time = #{baseInfoEndTime,jdbcType=VARCHAR},
+      base_info_departure_report = #{baseInfoDepartureReport,jdbcType=VARCHAR},
+      base_info_employment_company = #{baseInfoEmploymentCompany,jdbcType=VARCHAR},
+      base_info_grade = #{baseInfoGrade,jdbcType=VARCHAR},
+      base_info_contact_information = #{baseInfoContactInformation,jdbcType=VARCHAR},
+      base_info_honor = #{baseInfoHonor,jdbcType=VARCHAR},
+      base_info_achievement = #{baseInfoAchievement,jdbcType=VARCHAR},
+      base_info_nationality = #{baseInfoNationality,jdbcType=VARCHAR},
+      base_info_primary_work_unit = #{baseInfoPrimaryWorkUnit,jdbcType=VARCHAR},
+      base_info_external_appellation = #{baseInfoExternalAppellation,jdbcType=VARCHAR},
+      base_info_engage_start_time = #{baseInfoEngageStartTime,jdbcType=VARCHAR},
+      base_info_engage_end_time = #{baseInfoEngageEndTime,jdbcType=VARCHAR},
+      base_info_profile = #{baseInfoProfile,jdbcType=VARCHAR},
+      base_info_remarks = #{baseInfoRemarks,jdbcType=VARCHAR},
+      base_info_del = #{baseInfoDel,jdbcType=VARCHAR},
+      base_create_time = #{baseCreateTime,jdbcType=TIMESTAMP}
+    where base_info_id = #{baseInfoId,jdbcType=VARCHAR}
+  </update>
+</mapper>

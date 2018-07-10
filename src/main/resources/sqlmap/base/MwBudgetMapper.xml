@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.systemManage.dao.base.MwBudgetMapper" >
+  <resultMap id="BaseResultMap" type="com.systemManage.pojo.base.MwBudget" >
+    <id column="budget_id" property="budgetId" jdbcType="VARCHAR" />
+    <result column="budget_year" property="budgetYear" jdbcType="VARCHAR" />
+    <result column="budget_time" property="budgetTime" jdbcType="VARCHAR" />
+    <result column="budget_category" property="budgetCategory" jdbcType="VARCHAR" />
+    <result column="budget_title" property="budgetTitle" jdbcType="VARCHAR" />
+    <result column="budget_fund_source" property="budgetFundSource" jdbcType="VARCHAR" />
+    <result column="budget_amounts" property="budgetAmounts" jdbcType="DOUBLE" />
+    <result column="budget_remarks" property="budgetRemarks" jdbcType="VARCHAR" />
+    <result column="budget_del" property="budgetDel" jdbcType="VARCHAR" />
+    <result column="budget_create_time" property="budgetCreateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.budgetYear != null" >
+         and budget_year = #{condition.budgetYear,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetTime != null" >
+         and budget_time = #{condition.budgetTime,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetCategory != null" >
+         and budget_category = #{condition.budgetCategory,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetTitle != null" >
+         and budget_title = #{condition.budgetTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetFundSource != null" >
+         and budget_fund_source = #{condition.budgetFundSource,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetAmounts != null" >
+         and budget_amounts = #{condition.budgetAmounts,jdbcType=DOUBLE}
+      </if>
+      <if test="condition.budgetRemarks != null" >
+         and budget_remarks = #{condition.budgetRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetDel != null" >
+         and budget_del = #{condition.budgetDel,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.budgetCreateTime != null" >
+         and budget_create_time = #{condition.budgetCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.budgetYear != null" >
+         and budget_year = #{example.condition.budgetYear,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.budgetTime != null" >
+         and budget_time = #{example.condition.budgetTime,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.budgetCategory != null" >
+         and budget_category = #{example.condition.budgetCategory,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.budgetTitle != null" >
+         and budget_title = #{example.condition.budgetTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.budgetFundSource != null" >
+         and budget_fund_source = #{example.condition.budgetFundSource,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.budgetAmounts != null" >
+         and budget_amounts = #{example.condition.budgetAmounts,jdbcType=DOUBLE}
+      </if>
+      <if test="example.condition.budgetRemarks != null" >
+         and budget_remarks = #{example.condition.budgetRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.budgetDel != null" >
+         and budget_del = #{example.condition.budgetDel,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.budgetCreateTime != null" >
+         and budget_create_time = #{example.condition.budgetCreateTime,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    budget_id, budget_year, budget_time, budget_category, budget_title, budget_fund_source, 
+    budget_amounts, budget_remarks, budget_del, budget_create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.systemManage.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mw_budget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_budget
+    where budget_id = #{budgetId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mw_budget
+    where budget_id = #{budgetId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.systemManage.pojo.base.Criteria" >
+    delete from mw_budget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.systemManage.pojo.base.MwBudget" >
+    insert into mw_budget (budget_id, budget_year, budget_time, 
+      budget_category, budget_title, budget_fund_source, 
+      budget_amounts, budget_remarks, budget_del, 
+      budget_create_time)
+    values (#{budgetId,jdbcType=VARCHAR}, #{budgetYear,jdbcType=VARCHAR}, #{budgetTime,jdbcType=VARCHAR}, 
+      #{budgetCategory,jdbcType=VARCHAR}, #{budgetTitle,jdbcType=VARCHAR}, #{budgetFundSource,jdbcType=VARCHAR}, 
+      #{budgetAmounts,jdbcType=DOUBLE}, #{budgetRemarks,jdbcType=VARCHAR}, #{budgetDel,jdbcType=VARCHAR}, 
+      #{budgetCreateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.systemManage.pojo.base.MwBudget" >
+    insert into mw_budget
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="budgetId != null" >
+        budget_id,
+      </if>
+      <if test="budgetYear != null" >
+        budget_year,
+      </if>
+      <if test="budgetTime != null" >
+        budget_time,
+      </if>
+      <if test="budgetCategory != null" >
+        budget_category,
+      </if>
+      <if test="budgetTitle != null" >
+        budget_title,
+      </if>
+      <if test="budgetFundSource != null" >
+        budget_fund_source,
+      </if>
+      <if test="budgetAmounts != null" >
+        budget_amounts,
+      </if>
+      <if test="budgetRemarks != null" >
+        budget_remarks,
+      </if>
+      <if test="budgetDel != null" >
+        budget_del,
+      </if>
+      <if test="budgetCreateTime != null" >
+        budget_create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="budgetId != null" >
+        #{budgetId,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetYear != null" >
+        #{budgetYear,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetTime != null" >
+        #{budgetTime,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetCategory != null" >
+        #{budgetCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetTitle != null" >
+        #{budgetTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetFundSource != null" >
+        #{budgetFundSource,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetAmounts != null" >
+        #{budgetAmounts,jdbcType=DOUBLE},
+      </if>
+      <if test="budgetRemarks != null" >
+        #{budgetRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetDel != null" >
+        #{budgetDel,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetCreateTime != null" >
+        #{budgetCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.systemManage.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from mw_budget
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mw_budget
+    <set >
+      <if test="record.budgetId != null" >
+        budget_id = #{record.budgetId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetYear != null" >
+        budget_year = #{record.budgetYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetTime != null" >
+        budget_time = #{record.budgetTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetCategory != null" >
+        budget_category = #{record.budgetCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetTitle != null" >
+        budget_title = #{record.budgetTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetFundSource != null" >
+        budget_fund_source = #{record.budgetFundSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetAmounts != null" >
+        budget_amounts = #{record.budgetAmounts,jdbcType=DOUBLE},
+      </if>
+      <if test="record.budgetRemarks != null" >
+        budget_remarks = #{record.budgetRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetDel != null" >
+        budget_del = #{record.budgetDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.budgetCreateTime != null" >
+        budget_create_time = #{record.budgetCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mw_budget
+    set budget_id = #{record.budgetId,jdbcType=VARCHAR},
+      budget_year = #{record.budgetYear,jdbcType=VARCHAR},
+      budget_time = #{record.budgetTime,jdbcType=VARCHAR},
+      budget_category = #{record.budgetCategory,jdbcType=VARCHAR},
+      budget_title = #{record.budgetTitle,jdbcType=VARCHAR},
+      budget_fund_source = #{record.budgetFundSource,jdbcType=VARCHAR},
+      budget_amounts = #{record.budgetAmounts,jdbcType=DOUBLE},
+      budget_remarks = #{record.budgetRemarks,jdbcType=VARCHAR},
+      budget_del = #{record.budgetDel,jdbcType=VARCHAR},
+      budget_create_time = #{record.budgetCreateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.systemManage.pojo.base.MwBudget" >
+    update mw_budget
+    <set >
+      <if test="budgetYear != null" >
+        budget_year = #{budgetYear,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetTime != null" >
+        budget_time = #{budgetTime,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetCategory != null" >
+        budget_category = #{budgetCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetTitle != null" >
+        budget_title = #{budgetTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetFundSource != null" >
+        budget_fund_source = #{budgetFundSource,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetAmounts != null" >
+        budget_amounts = #{budgetAmounts,jdbcType=DOUBLE},
+      </if>
+      <if test="budgetRemarks != null" >
+        budget_remarks = #{budgetRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetDel != null" >
+        budget_del = #{budgetDel,jdbcType=VARCHAR},
+      </if>
+      <if test="budgetCreateTime != null" >
+        budget_create_time = #{budgetCreateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where budget_id = #{budgetId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.systemManage.pojo.base.MwBudget" >
+    update mw_budget
+    set budget_year = #{budgetYear,jdbcType=VARCHAR},
+      budget_time = #{budgetTime,jdbcType=VARCHAR},
+      budget_category = #{budgetCategory,jdbcType=VARCHAR},
+      budget_title = #{budgetTitle,jdbcType=VARCHAR},
+      budget_fund_source = #{budgetFundSource,jdbcType=VARCHAR},
+      budget_amounts = #{budgetAmounts,jdbcType=DOUBLE},
+      budget_remarks = #{budgetRemarks,jdbcType=VARCHAR},
+      budget_del = #{budgetDel,jdbcType=VARCHAR},
+      budget_create_time = #{budgetCreateTime,jdbcType=TIMESTAMP}
+    where budget_id = #{budgetId,jdbcType=VARCHAR}
+  </update>
+</mapper>
